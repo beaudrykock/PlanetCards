@@ -399,6 +399,7 @@
     [self.view addSubview:intro.view];
     questionCount = 0;
     score = 0;
+    numberOfAnswers = -1;
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
     [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
@@ -517,6 +518,9 @@
     
     NSInteger block = (NSInteger)(currentQuestionInterval-secondsCount);
     questionCount++;
+    numberOfAnswers = -1; // flag as needing a reset so this is correctly handled in startTimers
+    
+    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
     
     if (isCorrect && block<=kFirstAnswerBlock) 
     {
@@ -534,6 +538,7 @@
     
     if (questionCount == 20)
     {
+        quizComplete = YES;
         [self runEndOfQuizFunctionality];
     }
     else {
@@ -560,7 +565,7 @@
 
 -(void)prepTimerParameters
 {
-    if (numberOfAnswers==0)
+    if (numberOfAnswers==-1)
     {
         QuizQuestion *newQuestion = [quizDB getQuestionNumbered:currentQuestionNumber];
         numberOfAnswers = [[newQuestion quizAnswers] count];
@@ -644,8 +649,11 @@
 {
     if ([[UIApplication sharedApplication] isIgnoringInteractionEvents])
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
-    [self startTimer];
+    
+    if (!quizComplete)
+    {
+        [self startTimer];
+    }
 }
 
 
@@ -898,8 +906,12 @@
 #pragma mark - Question timing
 -(void)startTimer
 {
+    [self prepTimerParameters];
+    
     NSLog(@"starting timers...");
     NSLog(@"currentQuestionInterval = %f", currentQuestionInterval);
+    NSLog(@"number of answers = %i", numberOfAnswers);
+    
     self.progressBarTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgressBar) userInfo:nil repeats:YES];
     self.answerTimer = [NSTimer scheduledTimerWithTimeInterval: currentQuestionInterval target: self selector: @selector(answerPeriodExpired) userInfo: nil repeats: NO];
     
@@ -926,7 +938,6 @@
 
 -(void)loseAnAnswer
 {
-    
     if (subTimer_1_active && subTimer_2_active)
     {
         subTimer_1_active = NO;

@@ -77,6 +77,7 @@
     
     float currentQuestionInterval;
     BOOL wasLastQuestionAnsweredCorrect;
+    BOOL quizComplete;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *skippingView;
