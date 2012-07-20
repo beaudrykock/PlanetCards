@@ -1,0 +1,37 @@
+//
+//  AppConstants.h
+//  HighCountryNews
+//
+//  Created by Beaudry on 11/14/10.
+//  Copyright 2011 Better World Coding. All rights reserved.
+//
+
+// DEBUGGING
+//#define DEBUG_
+
+// XML parsing
+#define kRoot @"object_data"
+#define kFactItem @"fact_item"
+#define kSatellites @"satellites"
+#define kSatellite @"satellite"
+#define kName @"name"
+#define kType @"type"
+#define kTeaser @"teaser"
+#define kFactoids @"factoids"
+#define kMass @"mass"
+#define kDiameter @"diameter"
+#define kDensity @"density"
+#define kSpeed @"speed"
+#define kDayLength @"daylength"
+#define kTemperature @"temperature"
+#define kSunDistance @"sundistance"
+#define kImage @"image"
+#define kTabImage @"tab_image"
+#define kSatelliteImage @"satellite_image"
+#define kSatelliteTabImage @"satellite_tab_image"
+#define kCometType @"Comet"
+#define kHaleBopp @"Hale-Bopp"
+#define kHalley @"Halley"
+#define kShoemakerLevy @"Shoemaker-Levy 9"
+#define kTemple @"Temple 1"
+#define kNumberOfCometsLessHaleBopp 3

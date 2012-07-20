@@ -1,0 +1,737 @@
+//
+//  PlanetaryObjectViewController.m
+//  PlanetCards
+//
+//  Created by Beaudry Kock on 7/2/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import "PlanetaryObjectViewController.h"
+
+
+@implementation PlanetaryObjectViewController
+
+@synthesize scrollingObjectView, scrollingViewControllers, pageControl, planetaryImage, mainPlanetaryImageList, moreSatellitesButtonView, moreSatellitesButtonLabel, scrollingSatellites;
+@synthesize objectTitleFrame, activeObjectName, objectDB, objectNameLabel, objectTypeLabel, satelliteCountLabel, satelliteCountLabelView;
+@synthesize imageFilenames, imageLabels, imageViews, numberOfPlanetaryObjects;
+@synthesize homeButton, infoButton;
+@synthesize backToPlanetLabel, backToPlanetButtonView;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    [scrollingObjectView release];
+    [pageControl release];
+    [scrollingViewControllers release];
+    [planetaryImage release];
+    [mainPlanetaryImageList release];
+}
+
+-(void)closeInfoView
+{
+    UIView *viewToRemove = [self.view viewWithTag:100];
+    viewToRemove.hidden = YES;
+    [self.view bringSubviewToFront:viewToRemove];
+    [viewToRemove removeFromSuperview];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+-(IBAction)home:(id)sender
+{
+    
+    CGRect frame = [self.view frame];
+    
+    // insert code here to remove quiz view controller
+    // [quizViewController.view removeFromSuperview];
+    CGRect newViewFrame = frame;
+    newViewFrame.origin.x += 320.0;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.5];
+    
+    self.view.frame = newViewFrame;
+    
+    //[self.view removeFromSuperview];
+    [UIView commitAnimations];
+    
+}
+
+-(IBAction)scrollRight:(id)sender
+{
+}
+
+-(IBAction)scrollLeft:(id)sender
+{
+    
+}
+
+-(void)loadBottomScrollView
+{
+    [self setImageLabels: [objectDB arrayOfObjectNames]];
+    [self setImageFilenames: [objectDB arrayOfObjectTabImageFilenames]];
+    [self setNumberOfPlanetaryObjects: [objectDB numberOfPlanetaryObjects]];
+    
+    imageViews = [[NSMutableArray alloc] initWithCapacity:[imageFilenames count]];
+    
+    int objCount = [numberOfPlanetaryObjects intValue];
+        
+    // constants
+    float imageHeight = 45.0;
+    float imageWidth = 45.0;
+    float labelHeight = 10.0;
+    float labelWidth = 55.0;
+    float imageToLabel_y_distance = 2.0;
+    float imagesTopBottomMargin = 5.0;
+    float imagesLeftRightMargin = 10.0;
+    float images_pos_x = imagesLeftRightMargin;
+    float images_pos_y = imagesTopBottomMargin;
+    float label_pos_x = 5.0;
+    float label_pos_y = images_pos_y + imageHeight + imageToLabel_y_distance;
+    float scrollableContentHeight = 63.0;
+    float scrollableContentWidth = objCount*(imageWidth
+                                              +imagesLeftRightMargin);
+    for (int i = 0; i<12; i++)
+    {
+        NSString *imageFilename = [[[objectDB planetaryObjects] objectAtIndex: i] tabImageFilenameWithoutType];
+        UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageFilename ofType:@"png"]];
+        UIImageView* newPlanet = [[UIImageView alloc] initWithImage:image];
+        newPlanet.contentMode = UIViewContentModeScaleAspectFit;
+        [newPlanet setTag:i];
+        UILabel *planetLabel = [[UILabel alloc] initWithFrame:CGRectMake(label_pos_x, label_pos_y, labelWidth, labelHeight)];
+        
+        // TODO: insert right image label control, as per below
+        // add image labels
+        if ([[imageLabels objectAtIndex:i] isEqualToString:@"Hale-Bopp"])
+        {
+            [planetLabel setText:@"Comets"];
+        }
+        else
+        {
+            [planetLabel setText:[imageLabels objectAtIndex:i]];
+        }
+        
+        [planetLabel setFont:[UIFont fontWithName:@"Helvetica" size: 10.0]];
+        [planetLabel setBackgroundColor:[UIColor clearColor]];
+        [planetLabel setTextColor:[UIColor whiteColor]];
+        planetLabel.textAlignment = UITextAlignmentCenter;
+        
+        [newPlanet setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPlanetaryObject:)];
+        [newPlanet addGestureRecognizer:singleTap];
+        
+        [scrollingObjectView addSubview: newPlanet];
+        [imageViews addObject: newPlanet];
+        [scrollingObjectView addSubview: planetLabel];
+        [newPlanet setFrame:CGRectMake(images_pos_x, images_pos_y, imageWidth, imageHeight)];
+        
+        images_pos_x += imageWidth+imagesLeftRightMargin;
+        label_pos_x = images_pos_x-5.0;
+        
+    }       
+    
+    CGSize size = CGSizeMake(scrollableContentWidth, scrollableContentHeight); // figure out correct height here
+    [scrollingObjectView setBackgroundColor:[UIColor colorWithRed:24.0/255.0 green:24.0/255.0 blue:24.0/255.0 alpha:1.0]];
+    [scrollingObjectView setDirectionalLockEnabled:YES];
+    [scrollingObjectView setContentSize:size];
+    
+    //[self clearFrames];
+    [self setFrameToInitialPosition];
+    
+}
+
+#pragma mark - 
+#pragma mark - Frame management
+-(void)setFrameToInitialPosition
+{
+    if (currentBorder)
+        [currentBorder removeFromSuperview];
+    
+    // show outline
+    CGRect frame = [[imageViews objectAtIndex:0] frame];
+    frame.origin.y = 3.0;
+    frame.size.height = 60.0f;
+    currentBorder = nil;
+    currentBorder = [[UIView alloc] initWithFrame:frame];
+    [currentBorder.layer setBorderColor: [[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:44.0/255.0 alpha:1.0] CGColor]];
+    [currentBorder.layer setBorderWidth: 2.0];
+    
+    [scrollingObjectView addSubview:currentBorder];   
+}
+
+-(void)setFrameToImageAtIndex:(NSInteger)index
+{
+    if (currentBorder)
+        [currentBorder removeFromSuperview];
+    
+    // show outline
+    CGRect frame = [[imageViews objectAtIndex:index] frame];
+    frame.origin.y = 3.0;
+    frame.size.height = 60.0f;
+    currentBorder = nil;
+    currentBorder = [[UIView alloc] initWithFrame:frame];
+    [currentBorder.layer setBorderColor: [[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:44.0/255.0 alpha:1.0] CGColor]];
+    [currentBorder.layer setBorderWidth: 2.0];
+    
+    [scrollingObjectView addSubview:currentBorder];
+    
+}
+
+-(BOOL)activeObjectInRangeForPage:(NSUInteger)pageNumber
+{
+    
+    NSArray *possibles = [objectDB arrayofActiveObjectsForPageNumber:pageNumber];
+    
+    if ([possibles containsObject:activeObjectName])
+    {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self loadObjectDB];
+    
+    [self loadBottomScrollView];
+    
+    [self showPlanetaryObject:nil];
+    // Do any additional setup after loading the view from its nib.
+    
+    [self addMainImageSwipeListener];
+    
+    [self addMainImageDoubleTapListener];
+    
+    satellitesShowing = NO;
+    
+    restoreSatellites = NO;
+    
+    satellitesCountShowing = NO;
+    
+    // TEST
+    //UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"home_btn" ofType:@"png"]];
+    //[homeButton setImage:image forState:UIControlStateNormal];
+    
+}
+
+-(void)addMainImageSwipeListener
+{
+    UISwipeGestureRecognizer *singleFingerSwipeRtoL = 
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self 
+                                            action:@selector(showNextPlanetaryObject)];
+    [singleFingerSwipeRtoL setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.planetaryImage addGestureRecognizer:singleFingerSwipeRtoL];
+    
+    [singleFingerSwipeRtoL release];
+    
+    UISwipeGestureRecognizer *singleFingerSwipeLtoR =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self 
+                                                           action:@selector(showPreviousPlanetaryObject)];
+    [singleFingerSwipeLtoR setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.planetaryImage addGestureRecognizer:singleFingerSwipeLtoR];
+    
+    [singleFingerSwipeLtoR release];
+}
+
+-(void)addMainImageDoubleTapListener
+{
+    UITapGestureRecognizer *doubleTap = 
+    [[UITapGestureRecognizer alloc]
+     initWithTarget:self action:@selector(showInfoViaImageDoubleTap)];
+    
+    [doubleTap setNumberOfTapsRequired:2];
+    [self.planetaryImage addGestureRecognizer:doubleTap];
+    [doubleTap release];
+    
+    /* Optional code if you ever need a single tap to be recognized instead
+    UITapGestureRecognizer *singleTap = 
+    [[UITapGestureRecognizer alloc]
+     initWithTarget:self action:@selector(handleSingleTap)];
+    
+    [singleTap setNumberOfTapsRequired:1]; // Unnecessary since it's the default
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    [self.planetaryImage addGestureRecognizer:singleTap];
+    [singleTap release];
+     */
+}
+
+-(void)showInfoViaImageDoubleTap
+{
+    [self showPlanetaryInfo:nil];
+}
+
+-(void)moveScrollToLeft
+{
+    CGPoint existingOffset = scrollingObjectView.contentOffset;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    scrollingObjectView.contentOffset = CGPointMake(existingOffset.x+[[imageViews objectAtIndex:lastPlanetaryObjectIndex] frame].size.width+10.0, 0);
+    [UIView commitAnimations];
+}
+
+-(void)moveScrollToRight
+{
+    CGPoint existingOffset = scrollingObjectView.contentOffset;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    scrollingObjectView.contentOffset = CGPointMake(existingOffset.x-([[imageViews objectAtIndex:lastPlanetaryObjectIndex] frame].size.width+10.0), 0);
+    [UIView commitAnimations];
+}
+
+-(void)loadObjectDB
+{
+    PlanetCardsAppDelegate *appDelegate = (PlanetCardsAppDelegate *)[[UIApplication sharedApplication] delegate];
+    objectDB = [appDelegate objectDB];
+}
+
+-(void)showPreviousPlanetaryObject
+{
+    switch (lastPlanetaryObjectIndex)
+    {
+        case 0:
+            break;
+            
+        default:
+            [self moveScrollToRight];
+            break;
+    }
+    
+    if (lastPlanetaryObjectIndex>0)
+    {
+        lastPlanetaryObjectIndex--;
+        
+        UITapGestureRecognizer *falseGesture = [[UITapGestureRecognizer alloc] init];
+        UIView *tempView = [[UIView alloc] init];
+        [tempView setTag:lastPlanetaryObjectIndex];
+        [tempView addGestureRecognizer:falseGesture];
+        
+        [self showPlanetaryObject:falseGesture];
+        
+        [self setFrameToImageAtIndex:lastPlanetaryObjectIndex];
+        [tempView release];
+    }
+}
+-(void)showNextPlanetaryObject
+{
+    switch (lastPlanetaryObjectIndex)
+    {
+        case 11:
+            break;
+            
+        default:
+            [self moveScrollToLeft];
+            break;
+    }
+    
+    if (lastPlanetaryObjectIndex<11)
+    {
+        lastPlanetaryObjectIndex++;
+        
+        UITapGestureRecognizer *falseGesture = [[UITapGestureRecognizer alloc] init];
+        UIView *tempView = [[UIView alloc] init];
+        [tempView setTag:lastPlanetaryObjectIndex];
+        [tempView addGestureRecognizer:falseGesture];
+        
+        [self showPlanetaryObject:falseGesture];
+        
+        [self setFrameToImageAtIndex:lastPlanetaryObjectIndex];
+        [tempView release];
+    }
+}
+
+-(void)showPlanetaryObject: (UITapGestureRecognizer*)gesture
+{
+    NSInteger index = 0;
+    if (gesture != nil)
+        index = [[gesture view] tag];
+    if (![objectDB objectAtIndexIsSatellite:index])
+    {
+        keepSatelliteStrip = NO;
+    }
+    
+    if (!keepSatelliteStrip)
+    {
+        [self hideSatellites];
+        [self hideSatellitesCount];
+    }
+    
+    // clear any info view if necessary
+    if (infoViewDisplayed)
+    {
+        [self closeInfoView];
+        infoViewDisplayed = NO;
+    }
+    
+     activeObjectName = [objectDB objectNameForIndex: index];
+     objectNameLabel.text = activeObjectName;
+     objectTypeLabel.text = [objectDB objectTypeForIndex: index];
+    
+    NSString *largeImageFilename = [objectDB mainImageFilenameForIndex: index];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:largeImageFilename ofType:@"png"]];
+    
+    [planetaryImage setImage:image];
+    
+    // make sure planetary index is set (if this is called from scrollingobjectviewcontroller)
+    lastPlanetaryObjectIndex = index;
+    
+    if (lastPlanetaryObjectIndex<12)
+    {
+        [self setFrameToImageAtIndex:index];
+    }
+    
+    if (!satellitesCountShowing)
+        [self addSatellitesIndicatorForObjectAtIndex:index];
+    
+    if (!satellitesShowing && restoreSatellites)
+    {
+        [self restoreSatellites];
+    }
+
+}
+
+-(void)restoreSatellites
+{
+    [self displaySatellitesForObjectAtIndex: lastPlanetaryObjectIndex];
+    satellitesShowing = YES;
+    restoreSatellites = NO;
+}
+
+-(void)showSatellitesButtonTap
+{
+    if (!satellitesShowing)
+    {
+        [self displaySatellitesForObjectAtIndex: lastPlanetaryObjectIndex];
+        satellitesShowing = YES;
+    }
+    else
+    {
+        [self hideSatellites];
+        satellitesShowing = NO;
+    }
+}
+
+-(void)hideSatellitesCount
+{
+    satellitesCountShowing = NO;
+    [satelliteCountLabelView removeFromSuperview];
+}
+
+-(void)hideSatellites
+{
+    UIView* removeView = nil;
+    while ((removeView = [self.view viewWithTag:1000]) != nil)
+    {
+        [removeView removeFromSuperview];
+        satellitesShowing = NO;
+    }
+}
+
+-(void)displaySatellitesForObjectAtIndex:(NSUInteger)index
+{
+    if ([objectDB objectWithSatellitesAtIndex: index])
+    {
+        NSArray *satellites = [objectDB arrayOfSatellitesForObjectAtIndex: index];
+        BOOL addCometTapRecognizers = NO;
+        
+        PlanetaryObject *testForComets = [satellites objectAtIndex:0];
+        if ([[testForComets type] isEqualToString:kCometType])
+        {
+            // add gesture recognizers
+            addCometTapRecognizers = YES;
+            
+        }
+        
+        // constants
+        float satImageHeight = 45.0;
+        float satImageWidth = 45.0;
+        float satBackgroundWidth = 75.0;
+        float satLabelHeight = 10.0;
+        float satLabelWidth = satBackgroundWidth;
+        float imageToLabel_y_distance = 2.0;
+        float labelToNextImage_y_distance = 5.0;
+        float imagesTopBottomMargin = 10.0;
+        float imagesLeftRightMargin = 15.0;
+        float satelliteCountLabelFramePosition_y = 78.0;
+        float satBackgroundPosition_x = 6.0;
+        float satBackgroundPosition_y = satelliteCountLabelFramePosition_y + [satelliteCountLabelView frame].size.height + imageToLabel_y_distance;
+        float satImagesPosition_x = imagesLeftRightMargin;
+        float satImagesPosition_y = imagesTopBottomMargin;
+        float satLabel_pos_x = 0.0;
+        float satLabel_pos_y = satImagesPosition_y + satImageHeight + imageToLabel_y_distance;
+        
+        int backgroundHeightFactor = [satellites count];
+        if (backgroundHeightFactor > 4)
+        {
+            backgroundHeightFactor = 4;
+        }
+        
+        float satBackgroundHeight = (backgroundHeightFactor*(satImageHeight+imageToLabel_y_distance+satLabelHeight+labelToNextImage_y_distance))+(imagesTopBottomMargin*2);
+        
+        float scrollableContentHeight = ([satellites count]*(satImageHeight+imageToLabel_y_distance+satLabelHeight+labelToNextImage_y_distance))+(imagesTopBottomMargin*2);
+        
+        /*UIScrollView */
+        scrollingSatellites = [[UIScrollView alloc] initWithFrame:CGRectMake(satBackgroundPosition_x, satBackgroundPosition_y, satBackgroundWidth, satBackgroundHeight)];
+        
+        for (int i = 0; i<[satellites count]; i++)
+        {
+            NSString *satelliteImageFilename = [[satellites objectAtIndex: i] tabImageFilenameWithoutType];
+            UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:satelliteImageFilename ofType:@"png"]];
+            UIImageView* newSatellite = [[UIImageView alloc] initWithImage:image];
+            
+            UILabel *satelliteLabel = [[UILabel alloc] initWithFrame:CGRectMake(satLabel_pos_x, satLabel_pos_y, satLabelWidth, satLabelHeight)];
+            [satelliteLabel setText:[[satellites objectAtIndex: i] name]];
+            [satelliteLabel setFont:[UIFont fontWithName:@"Helvetica" size: 10.0]];
+            [satelliteLabel setBackgroundColor:[UIColor clearColor]];
+            [satelliteLabel setTag:1000];
+            [satelliteLabel setTextColor:[UIColor whiteColor]];
+            satelliteLabel.textAlignment = UITextAlignmentCenter;
+            if (addCometTapRecognizers)
+            {
+                [newSatellite setUserInteractionEnabled:YES];
+                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showComet:)];
+                //Default value for cancelsTouchesInView is YES, which will prevent buttons to be clicked
+                //singleTap.cancelsTouchesInView = NO; 
+                [newSatellite addGestureRecognizer:singleTap];
+                [newSatellite setTag:11+i];
+            }
+            else
+            {
+                [newSatellite setUserInteractionEnabled:YES];
+                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMoon:)];
+                //Default value for cancelsTouchesInView is YES, which will prevent buttons to be clicked
+                //singleTap.cancelsTouchesInView = NO; 
+                [newSatellite addGestureRecognizer:singleTap];
+                [newSatellite setTag:i];
+            }
+            
+            [scrollingSatellites addSubview: newSatellite];
+            [scrollingSatellites addSubview: satelliteLabel];
+            [newSatellite setFrame:CGRectMake(satImagesPosition_x, satImagesPosition_y, satImageWidth, satImageHeight)];
+            
+            satImagesPosition_y += (satImageHeight + satLabelHeight + imageToLabel_y_distance + labelToNextImage_y_distance);
+            satLabel_pos_y = satImagesPosition_y + satImageHeight + imageToLabel_y_distance;
+            
+        }       
+        
+        CGSize size = CGSizeMake(satBackgroundWidth, scrollableContentHeight);
+        [scrollingSatellites setDirectionalLockEnabled:YES];
+        [scrollingSatellites setContentSize:size];
+        [scrollingSatellites setBackgroundColor:[UIColor grayColor]];
+        [scrollingSatellites setTag:1000];
+        scrollingSatellites.layer.cornerRadius = 5.0;
+        [scrollingSatellites setBackgroundColor: [UIColor colorWithRed:53.0/255.0 green:53.0/255.0 blue:53.0/255.0 alpha:1.0]];
+        
+        [self.view addSubview:scrollingSatellites];
+        
+        
+        
+    }
+}
+
+-(void)showComet:(UITapGestureRecognizer *)gesture
+{
+    
+    keepSatelliteStrip = YES;
+    
+    [self showPlanetaryObject: gesture];
+    
+}
+
+-(void)showMoon:(UITapGestureRecognizer *)gesture
+{
+    
+    keepSatelliteStrip = NO;
+
+    [self showSatelliteAtSubIndex:[[gesture view] tag]];
+    
+    
+}
+
+-(void)showSatelliteAtSubIndex:(NSInteger)subIndex
+{
+    NSArray *satellites = [objectDB arrayOfSatellitesForObjectAtIndex:lastPlanetaryObjectIndex];
+    
+    // clear any info view if necessary
+    if (infoViewDisplayed)
+    {
+        [self closeInfoView];
+        infoViewDisplayed = NO;
+    }
+    
+    if (satellitesShowing)
+    {
+        [self hideSatellites];
+    }
+    
+    if (satellitesCountShowing)
+    {
+        [self hideSatellitesCount];
+    }
+    
+    [self showBackToPlanetButtonForPlanetAtIndex: lastPlanetaryObjectIndex];
+    
+    PlanetaryObject *objToDisplay = [satellites objectAtIndex:subIndex];
+    activeObjectName = [objToDisplay name]; // TEST
+    objectNameLabel.text = [objToDisplay name];
+    objectTypeLabel.text = [objToDisplay type];
+    
+    NSString *largeImageFilename = [objToDisplay mainImageFilenameWithoutType];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:largeImageFilename ofType:@"png"]];
+    
+    [planetaryImage setImage:image];
+}
+
+-(void)showBackToPlanetButtonForPlanetAtIndex: (NSInteger)index
+{
+    PlanetaryObject *planetaryObject = [[objectDB planetaryObjects] objectAtIndex:index];
+    
+    [backToPlanetLabel setText:[planetaryObject name]];
+    
+    backToPlanetButtonView.layer.cornerRadius = 5.0;
+    [backToPlanetButtonView setBackgroundColor: [UIColor colorWithRed:53.0/255.0 green:53.0/255.0 blue:53.0/255.0 alpha:1.0]];
+    
+    [backToPlanetButtonView setFrame:CGRectMake(6.0, 78.0, [backToPlanetButtonView frame].size.width, [backToPlanetButtonView frame].size.height)];
+    
+    UITapGestureRecognizer *backTap = 
+    [[UITapGestureRecognizer alloc]
+     initWithTarget:self action:@selector(backToPlanet)];
+    
+    [backToPlanetLabel addGestureRecognizer:backTap];
+    
+    [self.view addSubview: backToPlanetButtonView];
+}
+
+-(void)backToPlanet
+{
+    [backToPlanetButtonView removeFromSuperview];
+    restoreSatellites = YES;
+    
+    UITapGestureRecognizer *falseGesture = [[UITapGestureRecognizer alloc] init];
+    UIView *view = [[UIView alloc] init];
+    [view setTag:lastPlanetaryObjectIndex];
+    [view addGestureRecognizer:falseGesture];
+    
+    [self showPlanetaryObject:falseGesture];
+}
+
+-(void)addSatellitesIndicatorForObjectAtIndex:(NSInteger)index
+{
+    
+    if ([objectDB objectWithSatellitesAtIndex: index])
+    {
+        PlanetaryObject *planetaryObject = [[objectDB planetaryObjects] objectAtIndex:index];
+        
+        NSInteger count = [objectDB numberOfSatellitesForObjectAtIndex: index];
+        NSString *countStr = nil;
+        if (count>1)
+        {
+            countStr = [NSString stringWithFormat:@"%i%@", count, @" moons"];
+        }
+        else
+        {
+            countStr = [NSString stringWithFormat:@"%i%@", count, @" moon"];
+        }
+        
+        [satelliteCountLabel setText:countStr];
+        
+        if ([[planetaryObject type] isEqualToString:kCometType])
+        {
+            [satelliteCountLabel setText:@"All comets"];
+        }
+        
+        satelliteCountLabelView.layer.cornerRadius = 5.0;
+        satelliteCountLabel.layer.cornerRadius = 5.0;
+    
+        [satelliteCountLabelView setFrame:CGRectMake(6.0, 78.0, [satelliteCountLabelView frame].size.width, [satelliteCountLabelView frame].size.height)];
+        
+        
+        UITapGestureRecognizer *satTap = 
+        [[UITapGestureRecognizer alloc]
+         initWithTarget:self action:@selector(showSatellitesButtonTap)];
+        
+        [satelliteCountLabel addGestureRecognizer:satTap];
+        
+        [self.view addSubview: satelliteCountLabelView];
+        
+        satellitesCountShowing = YES;
+    }
+}
+
+-(IBAction)showPlanetaryInfo:(id)sender
+{
+    if (!infoViewDisplayed)
+    {
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"info_selected" ofType:@"png"]];
+        [infoButton setImage:image forState:UIControlStateNormal];
+        
+        infoViewDisplayed = YES;
+        PlanetaryInfoViewController* infoViewController = [[[PlanetaryInfoViewController alloc] init] retain];
+        CGRect objectTitleView_frame = objectTitleFrame.frame; 
+        float y_origin = objectTitleView_frame.origin.y+objectTitleView_frame.size.height+10.0; 
+    
+        CGRect rect = CGRectMake(objectTitleView_frame.origin.x, y_origin, 308.0, 301.0);
+        [infoViewController setObjectName: activeObjectName];
+        [infoViewController setInfoValues: [self arrayOfFactoidsForActiveObject]];
+        [infoViewController setObjectTeaser: [self teaserForActiveObject]];
+        [infoViewController.view setFrame:rect];
+        [infoViewController setParentController:self];
+        [self.view addSubview:infoViewController.view];
+        [infoViewController release];
+    }
+    else
+    {
+        UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"info_btn" ofType:@"png"]];
+        [infoButton setImage:image forState:UIControlStateNormal];
+        [self closeInfoView];
+        infoViewDisplayed = NO;
+    }
+}
+
+-(NSArray*)arrayOfFactoidsForActiveObject
+{
+    NSArray *factoids  = [NSArray arrayWithArray:[objectDB factoidsForObjectNamed:activeObjectName]];
+    
+    return factoids;
+}
+        
+
+-(NSString*)teaserForActiveObject
+{
+    return [objectDB teaserForObjectNamed:activeObjectName];
+}
+
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+@end

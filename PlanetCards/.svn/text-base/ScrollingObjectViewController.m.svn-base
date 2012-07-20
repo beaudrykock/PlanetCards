@@ -1,0 +1,300 @@
+//
+//  ScrollingObjectViewController.m
+//  PlanetCards
+//
+//  Created by Beaudry Kock on 7/11/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import "ScrollingObjectViewController.h"
+
+
+@implementation ScrollingObjectViewController
+
+@synthesize image_1, image_2, image_3, image_4, image_5, parentController;
+@synthesize image_label_1,image_label_2,image_label_3,image_label_4,image_label_5;
+@synthesize images, imageLabels, imageFilenames, numberOfPlanetaryObjects, imageViews, activeObjectName;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+-(id)initWithPageNumber:(int)page
+{
+    if (self == [super initWithNibName:@"ScrollingObjectView" bundle:nil]) {
+        pageNumber = page;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    [images release];
+    [imageLabels release];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+-(void)setup
+{
+
+}
+
+// TODO: more efficient implementation needed - this just for testing
+-(void)loadImages
+{
+    images = [[NSMutableArray alloc] initWithCapacity:[imageFilenames count]];
+    
+    UIImage *image = nil;
+    for (int i = 0; i<[numberOfPlanetaryObjects intValue]; i++) {
+        NSLog(@"image filename = %@",[imageFilenames objectAtIndex:i]);
+        image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[imageFilenames objectAtIndex:i] ofType:@"png"]];
+        [images addObject:image];
+    }
+    
+    // setting gestures
+    UITapGestureRecognizer *tapRecognizer_1 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+																					 action:
+											  @selector(showNewPlanet:)]  autorelease];
+    UITapGestureRecognizer *tapRecognizer_2 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:
+                                                @selector(showNewPlanet:)]  autorelease];
+    UITapGestureRecognizer *tapRecognizer_3 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:
+                                                @selector(showNewPlanet:)]  autorelease];
+    UITapGestureRecognizer *tapRecognizer_4 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:
+                                                @selector(showNewPlanet:)]  autorelease];
+    UITapGestureRecognizer *tapRecognizer_5 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:
+                                                @selector(showNewPlanet:)]  autorelease];
+    [self.image_1 addGestureRecognizer:tapRecognizer_1];
+    [self.image_2 addGestureRecognizer:tapRecognizer_2];
+    [self.image_3 addGestureRecognizer:tapRecognizer_3];
+    [self.image_4 addGestureRecognizer:tapRecognizer_4];
+    [self.image_5 addGestureRecognizer:tapRecognizer_5];
+    
+    // add imageViews to array
+    imageViews = [[NSArray arrayWithObjects:image_1, image_2, image_3, image_4, image_5, nil] retain];
+    
+    [self setFrameToInitialPosition];
+}
+
+-(void)clearFrames
+{
+    if (currentBorder && ![self activeObjectInCurrentRange])
+    {
+        [[[[self view] subviews] objectAtIndex:[[[self view] subviews] count]-1] removeFromSuperview];
+        currentBorder = nil;
+    }
+}
+
+-(BOOL)activeObjectInCurrentRange
+{
+    if ([parentController activeObjectInRangeForPage:pageNumber])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self loadImages];
+    [self setImageForIndex:pageNumber];
+    
+    // Do any additional setup after loading the view from its nib.
+    
+}
+
+-(void)setImageForIndex:(NSUInteger)index
+{
+    int index_1 = index*5; 
+	int index_2 = index_1+1;
+    int index_3 = index_2+1;
+    int index_4 = index_3+1;
+    int index_5 = index_4+1;
+	
+	if (index_1 < [images count])
+	{
+        [image_1 setImage:[images objectAtIndex:index_1]];
+        if ([[imageLabels objectAtIndex:index_1] isEqualToString:@"Hale-Bopp"])
+        {
+            [image_label_1 setText:@"Comets"];
+        }
+        else
+        {
+            [image_label_1 setText:[imageLabels objectAtIndex:index_1]];
+        }
+    }
+    if (index_2 < [images count])
+    {
+        [image_2 setImage:[images objectAtIndex:index_2]];
+        if ([[imageLabels objectAtIndex:index_2] isEqualToString:@"Hale-Bopp"])
+        {
+            [image_label_2 setText:@"Comets"];
+        }
+        else
+        {
+            [image_label_2 setText:[imageLabels objectAtIndex:index_2]];
+        }
+    }
+    if (index_3 < [images count])
+    {
+        [image_3 setImage:[images objectAtIndex:index_3]];
+        if ([[imageLabels objectAtIndex:index_3] isEqualToString:@"Hale-Bopp"])
+        {
+            [image_label_3 setText:@"Comets"];
+        }
+        else
+        {
+            [image_label_3 setText:[imageLabels objectAtIndex:index_3]];
+        }
+    }
+    if (index_4 < [images count])
+    {
+        [image_4 setImage:[images objectAtIndex:index_4]];
+        if ([[imageLabels objectAtIndex:index_4] isEqualToString:@"Hale-Bopp"])
+        {
+            [image_label_4 setText:@"Comets"];
+        }
+        else
+        {
+            [image_label_4 setText:[imageLabels objectAtIndex:index_4]];
+        }
+    }
+    if (index_5 < [images count])
+    {
+        [image_5 setImage:[images objectAtIndex:index_5]];
+        if ([[imageLabels objectAtIndex:index_5] isEqualToString:@"Hale-Bopp"])
+        {
+            [image_label_5 setText:@"Comets"];
+        }
+        else
+        {
+            [image_label_5 setText:[imageLabels objectAtIndex:index_5]];
+        }
+    }
+}
+
+-(void)setFrameToInitialPosition
+{
+    if (currentBorder)
+        [currentBorder removeFromSuperview];
+    
+    // show outline
+    CGRect frame = [[imageViews objectAtIndex:0] frame];
+    frame.size.height = 60.0f;
+    currentBorder = nil;
+    currentBorder = [[UIView alloc] initWithFrame:frame];
+    [currentBorder.layer setBorderColor: [[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:44.0/255.0 alpha:1.0] CGColor]];
+    [currentBorder.layer setBorderWidth: 2.0];
+    
+    [[self view] addSubview:currentBorder];   
+}
+
+-(void)showNewPlanet:(UITapGestureRecognizer *)recognizer
+{
+    //NSLog(@"recognizer.view.tag = %i", recognizer.view.tag);
+    //NSLog(@"pageNumber = %i", pageNumber);
+    int index = (recognizer.view.tag + (pageNumber * 5))-1;
+    int indexForFrames = 0;
+    
+    if (index>4 && index<10)
+    {
+        indexForFrames = index-5;
+    }
+    else if (index >=10)
+    {
+        indexForFrames = index-10;
+    }
+    else
+    {
+        indexForFrames = index;
+    }
+    
+    if (currentBorder)
+        [currentBorder removeFromSuperview];
+    
+    // show outline
+    CGRect frame = [[imageViews objectAtIndex:indexForFrames] frame];
+    frame.size.height = 60.0f;
+    currentBorder = nil;
+    currentBorder = [[UIView alloc] initWithFrame:frame];
+    [currentBorder.layer setBorderColor: [[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:44.0/255.0 alpha:1.0] CGColor]];
+    [currentBorder.layer setBorderWidth: 2.0];
+    
+    [[self view] addSubview:currentBorder];
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded){
+        [[self parentController] showPlanetaryObjectWithIndex: index];
+        [[self parentController] setCurrentPageNumber:[NSNumber numberWithInt:pageNumber]];
+    }
+}
+
+-(void)setFrameToSlotIndex:(NSNumber*)index
+{
+    if (currentBorder)
+        [currentBorder removeFromSuperview];
+    
+    int indexForFrames = 0;
+    
+    if ([index intValue]>4 && [index intValue]<10)
+    {
+        indexForFrames = [index intValue]-5;
+    }
+    else if ([index intValue] >=10)
+    {
+        indexForFrames = [index intValue]-10;
+    }
+    else
+    {
+        indexForFrames = [index intValue];
+    }
+
+    
+    // show outline
+    CGRect frame = [[imageViews objectAtIndex:indexForFrames] frame];
+    frame.size.height = 60.0f;
+    currentBorder = nil;
+    currentBorder = [[UIView alloc] initWithFrame:frame];
+    [currentBorder.layer setBorderColor: [[UIColor colorWithRed:255.0/255.0 green:141.0/255.0 blue:44.0/255.0 alpha:1.0] CGColor]];
+    [currentBorder.layer setBorderWidth: 2.0];
+    
+    [[self view] addSubview:currentBorder];
+
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+@end

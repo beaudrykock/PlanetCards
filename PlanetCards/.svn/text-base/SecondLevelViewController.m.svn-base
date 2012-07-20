@@ -1,0 +1,14 @@
+//
+//  SecondLevelViewController.m
+//
+//  Created by Beaudry Kock on 8/12/10.
+//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//
+
+#import "SecondLevelViewController.h"
+
+
+@implementation SecondLevelViewController
+@synthesize rowImage;
+
+@end

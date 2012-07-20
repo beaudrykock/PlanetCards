@@ -1,0 +1,1968 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<object_data>
+    <fact_item>
+        <name>Sun</name>	
+        <type>Star</type>	
+        <tab_image>01_Sun_small.png</tab_image>
+        <image>01_Sun_large.png</image>
+        <teaser>The Sun contains 99.8% of the mass in the solar system. Through hydrogen fusion the Sun produces energy to the entire solar system. This is vital for life on Earth.</teaser>	
+        <factoids>
+            <mass>333000</mass>	
+            <diameter>1390000</diameter>
+            <density>1410</density>	
+            <speed>0</speed>	
+            <daylength>0</daylength>	
+            <temperature>5778</temperature>	
+            <sundistance>0</sundistance>
+        </factoids>
+    </fact_item>
+    <fact_item>
+        <name>
+            Mercury
+        </name>	
+        <type>
+            Planet
+        </type>	
+        <tab_image>
+            02_Mercury_small.png
+        </tab_image>	
+        <image>
+            02_Mercury_large.png
+        </image>
+        <teaser>
+            Mercury rotates so slowly that a day on Mercury is longer than the year. In the equatorial regions temperatures reach 430ºC at daytime and -185ºC at night.
+        </teaser>	
+        <factoids>
+            <mass>
+                0.0553
+            </mass>
+            <diameter>
+                4880
+            </diameter>	
+            <density>
+                5430
+            </density>	
+            <speed>
+                172000
+            </speed>	
+            <daylength>
+                4224
+            </daylength>	
+            <temperature>
+                167
+            </temperature>	
+            <sundistance>
+                0.39
+            </sundistance>
+        </factoids>
+    </fact_item> 
+    <fact_item>
+        <name>
+            Venus
+        </name>	
+        <type>
+            Planet
+        </type>	
+        <tab_image>
+            03_Venus_small.png
+        </tab_image>	
+        <image>
+            03_Venus_large.png
+        </image>
+        <teaser>
+            It rains with sulfuric acid on Venus, and it is always cloudy. This is the hottest planet and the air pressure is 90 times higher than on Earth. The radar photo allows us to see through the clouds: Venus has volcanoes and lava fields.
+        </teaser>	
+        <factoids>
+            <mass>
+                0.815
+            </mass>	
+            <diameter>
+                12100
+            </diameter>
+            <density>
+                5240
+            </density>	
+            <speed>
+                126000
+            </speed>	
+            <daylength>
+                2810
+            </daylength>	
+            <temperature>
+                464
+            </temperature>	
+            <sundistance>
+                0.72
+            </sundistance>
+        </factoids>
+    </fact_item> 
+    <fact_item>
+        <name>
+            Earth
+        </name>	
+        <type>
+            Planet
+        </type>	
+        <tab_image>
+            04_Earth_small.png
+        </tab_image>	
+        <image>
+            04_Earth_large.png
+        </image>
+        <teaser>
+            71% of Earth's surface is covered with liquid water. Earth is the only place we know where life ever arose. Microbes have thrived here for more than 3.5 billion years.
+        </teaser>	
+        <factoids>
+            <mass>
+                1
+            </mass>	
+            <diameter>
+                12800
+            </diameter>
+            <density>
+                5520
+            </density>	
+            <speed>
+                107000
+            </speed>
+            <daylength>
+                24
+            </daylength>	
+            <temperature>
+                15
+            </temperature>	
+            <sundistance>
+                1
+            </sundistance>
+        </factoids>
+        <satellites>
+            <satellite>
+                <name>
+                    Moon
+                </name>
+                <satellite_tab_image>
+                    05_Moon_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    05_Moon_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    The Apollo missions (1969-1972) landed 12 astronauts on the Moon and brought back 382 kg lunar rocks to the Earth. In 1998 water ice was discovered near the lunar poles. Water is crucial if humans are ever going to stay on the Moon for longer periods of time.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.123
+                    </mass>	
+                    <diameter>
+                        3480
+                    </diameter>	
+                    <density>
+                        3350
+                    </density>	
+                    <speed>
+                        3680
+                    </speed>	
+                    <daylength>
+                        708
+                    </daylength>	
+                    <temperature>
+                        1
+                    </temperature>	
+                    <sundistance>
+                        1
+                    </sundistance>
+                </factoids>		
+            </satellite>
+        </satellites>
+    </fact_item>
+    <fact_item>
+        <name>
+            Mars
+        </name>	
+        <type>
+            Planet
+        </type>
+        <tab_image>
+            06_Mars_small.png
+        </tab_image>	
+        <image>
+            06_Mars_large.png
+        </image>
+        <teaser>
+            Mars once had meandering rivers and large oceans. Today, ice is found near the poles, but there is no liquid water. Perhaps, life once spread on this red planet, and some even think that it still exists in the deep subsurface.	
+        </teaser>	
+        <factoids>
+            <mass>
+                0.107
+            </mass>	
+            <diameter>
+                6790
+            </diameter>
+            <density>
+                3940
+            </density>	
+            <speed>
+                86900
+            </speed>
+            <daylength>
+                24.7
+            </daylength>	
+            <temperature>
+                -63
+            </temperature>
+            <sundistance>
+                1.52
+            </sundistance>
+        </factoids>	
+        <satellites>
+            <satellite_tab_image>
+                07_Phobos_small.png
+                08_Deimos_small.png
+            </satellite_tab_image>	
+            <satellite>
+                <name>
+                    Phobos
+                </name>
+                <satellite_tab_image>
+                    07_Phobos_small.png
+                </satellite_tab_image>	
+                <satellite_image>
+                    07_Phobos_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Standing on Mars, the Sun rises in east, while Phobos rises in west. Phobos races over the Martian sky three times a day. It hangs only 9000 km above the surface of Mars, but slowly approaches the planet, and will collide with Mars in 50 million years.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.00000000177
+                    </mass>	
+                    <diameter>
+                        22
+                    </diameter>	
+                    <density>
+                        1900
+                    </density>
+                    <speed>
+                        7700
+                    </speed>	
+                    <daylength>
+                        7.7
+                    </daylength>
+                    <temperature>
+                        -58
+                    </temperature>	
+                    <sundistance>
+                        1.52
+                    </sundistance>
+                </factoids>	
+            </satellite>
+            <satellite>
+                <name>
+                    Deimos
+                </name>
+                <satellite_tab_image>
+                    08_Deimos_small.png
+                </satellite_tab_image>	
+                <satellite_image>
+                    08_Deimos_large.png
+                </satellite_image>
+                <teaser>
+                    Deimos is the smaller of Mars' two moons. It slowly moves away from the planet. Both moons come from the main asteroid belt between Mars and Jupiter, and were later captured by mars' gravity field.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000000000402
+                    </mass>	
+                    <diameter>
+                        13
+                    </diameter>
+                    
+                    <density>
+                        1750
+                    </density>
+                    
+                    <speed>
+                        4870
+                    </speed>
+                    
+                    <daylength>
+                        30.3
+                    </daylength>
+                    
+                    <temperature>
+                        -58
+                    </temperature>
+                    
+                    <sundistance>
+                        1.52
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Ceres
+        </name>
+        
+        <type>
+            Dwarf planet
+        </type>
+        
+        <tab_image>
+            09_Ceres_small.png
+        </tab_image>
+        
+        <image>
+            09_Ceres_large.png
+        </image>
+        <teaser>
+            Most asteroids in the solar system are found in the main asteroid belt between Jupiter and Mars. Ceres is spherical and characterizes a dwarf planet. It holds one-third of the mass in the asteroid belt, which in total weighs less than the Moon.
+            
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.000145
+            </mass>
+            
+            <diameter>
+                892
+            </diameter>
+            
+            <density>
+                2000
+            </density>
+            
+            <speed>
+                64400
+            </speed>
+            
+            <daylength>
+                9.1
+            </daylength>
+            
+            <temperature>
+                -110
+            </temperature>
+            
+            <sundistance>
+                2.77
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Mathilde
+                </name>
+                <satellite_tab_image>
+                    10_Mathilde_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    10_Mathilde_large.png
+                </satellite_image>
+                
+                <type>
+                    Asteroid
+                </type>
+                <teaser>
+                    On its way to Eros in 1997, space shuttle NEAR passed by Mathilde. Rocks from space found on Earth are called meteorites. Most meteorites have the same composition as Mathilde.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000000173
+                    </mass>
+                    
+                    <diameter>
+                        66
+                    </diameter>
+                    
+                    <density>
+                        1400
+                    </density>
+                    
+                    <speed>
+                        66000
+                    </speed>
+                    
+                    <daylength>
+                        418
+                    </daylength>
+                    
+                    <temperature>
+                        -103
+                    </temperature>
+                    
+                    <sundistance>
+                        2.65
+                    </sundistance>
+                </factoids>	
+            </satellite>
+            <satellite>
+                <name>
+                    Vesta
+                </name>
+                <satellite_tab_image>
+                    11_Vesta_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    11_Vesta_large.png
+                </satellite_image>
+                
+                <type>
+                    Asteroid
+                </type>
+                <teaser>
+                    Some of the meteorites found on Earth are pieces/parts from the asteroid Vesta. An ancient collision between asteroids split them apart. Some parts were sent on a trajectory towards the Earth - others are still in orbit in the main asteroid belt.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000505
+                    </mass>
+                    
+                    <diameter>
+                        530
+                    </diameter>
+                    
+                    <density>
+                        4300
+                    </density>
+                    
+                    <speed>
+                        69700
+                    </speed>
+                    
+                    <daylength>
+                        5.3
+                    </daylength>
+                    
+                    <temperature>
+                        -112
+                    </temperature>
+                    
+                    <sundistance>
+                        2.36
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Eros
+                </name>
+                <satellite_tab_image>
+                    12_Eros_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    12_Eros_large.png
+                </satellite_image>
+                
+                <type>
+                    Asteroid
+                </type>
+                <teaser>
+                    Eros is orbiting the Sun in close distance to the Earth. Astronomers keep an eye on Eros and other nearby bodies because one of them may one day collide with the Earth.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.00000000112
+                    </mass>
+                    
+                    <diameter>
+                        39
+                    </diameter>
+                    
+                    <density>
+                        2400
+                    </density>
+                    
+                    <speed>
+                        89000
+                    </speed>
+                    
+                    <daylength>
+                        5.3
+                    </daylength>
+                    
+                    <temperature>
+                        -125
+                    </temperature>
+                    
+                    <sundistance>
+                        1.46
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Ida
+                </name>
+                <satellite_tab_image>
+                    13_Ida_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    13_Ida_large.png
+                </satellite_image>
+                
+                <type>
+                    Asteroid
+                </type>
+                <teaser>
+                    In 1993 the space shuttle, Galilei, shot this picture of asteroid Ida and its tiny moon, Dactyl. A pure coincidence revealed this little moon on the photographs. Dactyl measures just 1 mile across the longest dimension.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000000167
+                    </mass>
+                    
+                    <diameter>
+                        70
+                    </diameter>
+                    
+                    <density>
+                        2500
+                    </density>
+                    
+                    <speed>
+                        63400
+                    </speed>
+                    
+                    <daylength>
+                        4.6
+                    </daylength>
+                    
+                    <temperature>
+                        -200
+                    </temperature>
+                    
+                    <sundistance>
+                        2.86
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Kleopatra
+                </name>
+                <satellite_tab_image>
+                    14_Kleopatra_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    14_Kleopatra_large.png
+                </satellite_image>
+                
+                <type>
+                    Asteroid
+                </type>
+                <teaser>
+                    Kleopatra is a result of a traumatic cosmic collision. The picture was created on a computer from radar observations. 		
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000000333
+                    </mass>
+                    
+                    <diameter>
+                        217
+                    </diameter>
+                    
+                    <density>
+                        3500
+                    </density>
+                    
+                    <speed>
+                        64000
+                    </speed>
+                    
+                    <daylength>
+                        5.4
+                    </daylength>
+                    
+                    <temperature>
+                        -111
+                    </temperature>
+                    
+                    <sundistance>
+                        2.79
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Jupiter
+        </name>
+        
+        <type>
+            Planet
+        </type>
+        
+        <tab_image>
+            15_Jupiter_small.png
+        </tab_image>
+        
+        <image>
+            15_Jupiter_large.png
+        </image>
+        <teaser>
+            Jupiter is the largest planet in the solar system. The outer planets Jupiter, Saturn , Uranus, Neptune are gas planets with thick atmospheres made of hydrogen and helium. The red spot in the middle of Jupiter is an endless storm at the size of Earth.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                318
+            </mass>
+            
+            <diameter>
+                143000
+            </diameter>
+            
+            <density>
+                1330
+            </density>
+            
+            <speed>
+                47100
+            </speed>
+            
+            <daylength>
+                9.9
+            </daylength>
+            
+            <temperature>
+                -108
+            </temperature>
+            
+            <sundistance>
+                5.20
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Ganymede
+                </name>
+                <satellite_tab_image>
+                    16_Ganymede_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    16_Ganymede_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Ganymede is the largest moon in the solar system. Its surface reveals a history with geological activity - perhaps continents have floated on top of the underlying mantle, as on Earth. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.025
+                    </mass>
+                    
+                    <diameter>
+                        5260
+                    </diameter>
+                    
+                    <density>
+                        1940
+                    </density>
+                    
+                    <speed>
+                        39200
+                    </speed>
+                    
+                    <daylength>
+                        168
+                    </daylength>
+                    
+                    <temperature>
+                        -160
+                    </temperature>
+                    
+                    <sundistance>
+                        5.20
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Io
+                </name>
+                <satellite_tab_image>
+                    17_Io_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    17_Io_large.png
+                </satellite_image>
+                <teaser>
+                    Io is the innermost of Jupiters moons. Its volcanic activity is greater than anywhere else in the solar system. Some volcanoes are higher than Mount Everest and eject lava directly into space. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.015
+                    </mass>
+                    
+                    <diameter>
+                        3640
+                    </diameter>
+                    
+                    <density>
+                        3570
+                    </density>
+                    
+                    <speed>
+                        62300
+                    </speed>
+                    
+                    <daylength>
+                        43
+                    </daylength>
+                    
+                    <temperature>
+                        -155
+                    </temperature>
+                    
+                    <sundistance>
+                        5.20
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Callisto
+                </name>
+                <satellite_tab_image>
+                    18_Callisto_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    18_Callisto_large.png
+                </satellite_image>
+                <teaser>
+                    Jupiter has more than 60 moons with four big ones: Io, Europa, Ganymede and Callisto. Like most moons in the solar system, one side constantly faces the planet. This phenomenon is called synchronous rotation.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.018
+                    </mass>
+                    
+                    <diameter>
+                        4800
+                    </diameter>
+                    
+                    <density>
+                        1860
+                    </density>
+                    
+                    <speed>
+                        29500
+                    </speed>
+                    
+                    <daylength>
+                        401
+                    </daylength>
+                    
+                    <temperature>
+                        -155
+                    </temperature>
+                    
+                    <sundistance>
+                        5.20
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Europa
+                </name>
+                <satellite_tab_image>
+                    19_Europa_small.png
+                </satellite_tab_image>
+                
+                <satellite_image>
+                    19_Europa_large.png
+                </satellite_image>
+                <teaser>
+                    The white color on Europa comes from the frozen ocean. Perhaps, liquid water may persist below the frozen surface, and perhaps even life is present. The red stripes are ash pilling up in cracks and fractures in the surface. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.008
+                    </mass>
+                    
+                    <diameter>
+                        3140
+                    </diameter>
+                    
+                    <density>
+                        3010
+                    </density>
+                    
+                    <speed>
+                        49300
+                    </speed>
+                    
+                    <daylength>
+                        86
+                    </daylength>
+                    
+                    <temperature>
+                        -170
+                    </temperature>
+                    
+                    <sundistance>
+                        5.20
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Saturn
+        </name>
+        
+        <type>
+            Planet
+        </type>
+        
+        <tab_image>
+            20_Saturn_small.png
+        </tab_image>
+        
+        <image>
+            20_Saturn_large.png
+        </image>
+        <teaser>
+            With a pair of binoculars you can see the fascinating ring system of Saturn. The rings contain countless pieces of dirty ice and tiny rocks.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                95.2
+            </mass>
+            
+            <diameter>
+                121000
+            </diameter>
+            
+            <density>
+                690
+            </density>
+            
+            <speed>
+                34900
+            </speed>
+            
+            <daylength>
+                10.2
+            </daylength>
+            
+            <temperature>
+                -178
+            </temperature>
+            
+            <sundistance>
+                9.54
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Titan
+                </name>
+                <satellite_tab_image>
+                    21_Titan_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    21_Titan_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Saturn's largest moon hold lakes of liquid carbohydrates and a dense, opaque atmosphere - so dense that we humans might fly, if we installed wings on our arms.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0225
+                    </mass>
+                    
+                    <diameter>
+                        5150
+                    </diameter>
+                    
+                    <density>
+                        1900
+                    </density>
+                    
+                    <speed>
+                        20200
+                    </speed>
+                    
+                    <daylength>
+                        381
+                    </daylength>
+                    
+                    <temperature>
+                        -178
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Tethys
+                </name>
+                <satellite_tab_image>
+                    22_Tethys_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    22_Tethys_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Tethys shares it orbit around Saturn with Calypso and Telesto. They are found at the same distance from the planet, which means they move in concert at the same speed. Therefore, the three moons never collide. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000103
+                    </mass>
+                    
+                    <diameter>
+                        1060
+                    </diameter>
+                    
+                    <density>
+                        1200
+                    </density>
+                    
+                    <speed>
+                        40700
+                    </speed>
+                    
+                    <daylength>
+                        46
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Enceladus
+                </name>
+                <satellite_tab_image>
+                    23_Enceladus_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    23_Enceladus_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Powerful volcanic eruptions have been observed in the outer solar system on Io, Triton and Enceladus. Analyses of the gases spewed reveals that Enceladus is hiding liquid water under its icy surface.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000174
+                    </mass>
+                    
+                    <diameter>
+                        498
+                    </diameter>
+                    
+                    <density>
+                        1200
+                    </density>
+                    
+                    <speed>
+                        45400
+                    </speed>
+                    
+                    <daylength>
+                        33
+                    </daylength>
+                    
+                    <temperature>
+                        -201
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Iapetus
+                </name>
+                <satellite_tab_image>
+                    24_Iapetus_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    24_Iapetus_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Iapetus is one of Saturns outermost moons. Like most Saturn moon, Iapetus consists mainly of ice. Mysteriously, it is dark as coal on one side and pale white on the other.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000325
+                    </mass>
+                    
+                    <diameter>
+                        1460
+                    </diameter>
+                    
+                    <density>
+                        1200
+                    </density>
+                    
+                    <speed>
+                        11900
+                    </speed>
+                    
+                    <daylength>
+                        1900
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Mimas
+                </name>
+                <satellite_tab_image>
+                    25_Mimas_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    25_Mimas_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    The large crater on Mimas is named after William Herschel who discovered the moon in 1789. The crater is the result of a meteor strike, which nearly broke this Saturnian moon in pieces.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000064
+                    </mass>
+                    
+                    <diameter>
+                        392
+                    </diameter>
+                    
+                    <density>
+                        1400
+                    </density>
+                    
+                    <speed>
+                        51500
+                    </speed>
+                    
+                    <daylength>
+                        21.6
+                    </daylength>
+                    
+                    <temperature>
+                        -200
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Dione
+                </name>
+                <satellite_tab_image>
+                    26_Dione_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    26_Dione_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    In ancient times Saturn was the most distant planet known. Its moons and ringsystem was first discovered in the 1600's when telecopes were invented. Today we know of 53 Saturn moons. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000184
+                    </mass>
+                    
+                    <diameter>
+                        1120
+                    </diameter>
+                    
+                    <density>
+                        1400
+                    </density>
+                    
+                    <speed>
+                        36000
+                    </speed>
+                    
+                    <daylength>
+                        65
+                    </daylength>
+                    
+                    <temperature>
+                        -186
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Rhea
+                </name>
+                <satellite_tab_image>
+                    27_Rhea_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    27_Rhea_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Ever since the Solar System formed, 4.56 billion years ago, meteors have impacted all planets and moons. Where geological activity has ceased, craters will be preserved. Rhea provides a good example of this impact history. 
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000388
+                    </mass>
+                    
+                    <diameter>
+                        1530
+                    </diameter>
+                    
+                    <density>
+                        1300
+                    </density>
+                    
+                    <speed>
+                        30600
+                    </speed>
+                    
+                    <daylength>
+                        108
+                    </daylength>
+                    
+                    <temperature>
+                        -174
+                    </temperature>
+                    
+                    <sundistance>
+                        9.54
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Uranus
+        </name>
+        
+        <type>
+            Planet
+        </type>
+        
+        <tab_image>
+            28_Uranus_small.png
+        </tab_image>
+        
+        <image>
+            28_Uranus_large.png
+        </image>
+        <teaser>
+            As in Northern Alaska it is light all day during summer on Uranus. This is because Uranus suffered from a gigantic collision that toppled the planet's rotation axis.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                14.5
+            </mass>
+            
+            <diameter>
+                51100
+            </diameter>
+            
+            <density>
+                1300
+            </density>
+            
+            <speed>
+                24500
+            </speed>
+            
+            <daylength>
+                17.2
+            </daylength>
+            
+            <temperature>
+                -187
+            </temperature>
+            
+            <sundistance>
+                19.2
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Oberon
+                </name>
+                <satellite_tab_image>
+                    29_Oberon_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    29_Oberon_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    For a long time after our solar system formed, planets and moons were under constant bombardment of meteors. We can still see plenty of these ancient meteor craters on the surface of Oberon.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000505
+                    </mass>
+                    
+                    <diameter>
+                        1520
+                    </diameter>
+                    
+                    <density>
+                        1600
+                    </density>
+                    
+                    <speed>
+                        11200
+                    </speed>
+                    
+                    <daylength>
+                        324
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        19.2
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Titania
+                </name>
+                <satellite_tab_image>
+                    30_Titania_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    30_Titania_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    The surface of Titania expose large integrated valleys. This is telling us that it was once geologically active with volcanoes and earthquakes.		
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000595
+                    </mass>
+                    
+                    <diameter>
+                        1580
+                    </diameter>
+                    
+                    <density>
+                        1700
+                    </density>
+                    
+                    <speed>
+                        13000
+                    </speed>
+                    
+                    <daylength>
+                        209
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        19.2
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Ariel
+                </name>
+                <satellite_tab_image>
+                    31_Ariel_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    31_Ariel_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Long canyons cut across Ariel's surface. Like most other moons in the outer solar system, Ariel consists mostly of ice.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000227
+                    </mass>
+                    
+                    <diameter>
+                        1160
+                    </diameter>
+                    
+                    <density>
+                        1700
+                    </density>
+                    
+                    <speed>
+                        19800
+                    </speed>
+                    
+                    <daylength>
+                        60
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        19.2
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Umbriel
+                </name>
+                <satellite_tab_image>
+                    32_Umbriel_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    32_Umbriel_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Umbriel is one of the farthest and darkest moons in the solar system. Because it can be seen in telescopes from Earth, we can calculate its size, speed and temperature.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000196
+                    </mass>
+                    
+                    <diameter>
+                        1170
+                    </diameter>
+                    
+                    <density>
+                        1400
+                    </density>
+                    
+                    <speed>
+                        16900
+                    </speed>
+                    
+                    <daylength>
+                        98
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        19.2
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Miranda
+                </name>
+                <satellite_tab_image>
+                    33_Miranda_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    33_Miranda_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Miranda displays areas of core material near its surface and old surface buried deep in the core. Strange geological activity has virtually turned this innermost Uranian moon inside out.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.0000111
+                    </mass>
+                    
+                    <diameter>
+                        472
+                    </diameter>
+                    
+                    <density>
+                        1200
+                    </density>
+                    
+                    <speed>
+                        24100
+                    </speed>
+                    
+                    <daylength>
+                        34
+                    </daylength>
+                    
+                    <temperature>
+                        -187
+                    </temperature>
+                    
+                    <sundistance>
+                        19.2
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Neptune
+        </name>
+        
+        <type>
+            Planet
+        </type>
+        
+        <tab_image>
+            34_Neptun_small.png
+        </tab_image>
+        
+        <image>
+            34_Neptun_large.png
+        </image>
+        <teaser>
+            Neptune is a gas giant and the outermost planet. The blue spot on Neptune is a wind system the size of Earth. Here are common wind speeds more than 1000 miles per hour.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                17.2
+            </mass>
+            
+            <diameter>
+                49500
+            </diameter>
+            
+            <density>
+                1600
+            </density>
+            
+            <speed>
+                19800
+            </speed>
+            
+            <daylength>
+                16.1
+            </daylength>
+            
+            <temperature>
+                -218
+            </temperature>
+            
+            <sundistance>
+                30.1
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Triton
+                </name>
+                <satellite_tab_image>
+                    35_Triton_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    35_Triton_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Triton is Neptune's largest moon. It revolves around Neptune in the opposite direction slowly approaching the planet. Triton is likely a captured planet from outer asteroid belt.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.00358
+                    </mass>
+                    
+                    <diameter>
+                        2700
+                    </diameter>
+                    
+                    <density>
+                        2100
+                    </density>
+                    
+                    <speed>
+                        15800
+                    </speed>
+                    
+                    <daylength>
+                        142
+                    </daylength>
+                    
+                    <temperature>
+                        -238
+                    </temperature>
+                    
+                    <sundistance>
+                        30.1
+                    </sundistance>
+                </factoids>
+                
+            </satellite>
+            <satellite>
+                <name>
+                    Proteus
+                </name>
+                <satellite_tab_image>
+                    36_Proteus_small.png
+                </satellite_tab_image>    
+                <satellite_image>
+                    36_Proteus_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Voyager 1 and 2 are the only spacecraft that travelled beyond Uranus and Neptune. We know of eight Neptune's moons. Many were first discovered when Voyager 2 flew by Neptune in 1989 and Proteus is so far the largest one.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.00000843
+                    </mass>
+                    
+                    <diameter>
+                        418
+                    </diameter>
+                    
+                    <density>
+                        1300
+                    </density>
+                    
+                    <speed>
+                        27400
+                    </speed>
+                    
+                    <daylength>
+                        26
+                    </daylength>
+                    
+                    <temperature>
+                        -235
+                    </temperature>
+                    
+                    <sundistance>
+                        30.1
+                    </sundistance>
+                </factoids>
+            </satellite>
+        </satellites>
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Pluto
+        </name>
+        
+        <type>
+            Dwarf planet
+        </type>
+        
+        <tab_image>
+            37_Pluto_small.png
+        </tab_image>
+        
+        <image>
+            37_Pluto_large.png
+        </image>
+        <teaser>
+            Outside of Neptune lies an asteroid belt called the Kuiper Belt, where Pluto is one of the largest bodies. After its discovery in 1930 Pluto was first considered a planet, but recently astronomers agreed that Pluto is significantly different and should be ascribed dwarf planet.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.00210
+            </mass>
+            
+            <diameter>
+                2270
+            </diameter>
+            
+            <density>
+                2030
+            </density>
+            
+            <speed>
+                16900
+            </speed>
+            
+            <daylength>
+                154
+            </daylength>
+            
+            <temperature>
+                -223
+            </temperature>
+            
+            <sundistance>
+                39.5
+            </sundistance>
+        </factoids>
+        
+        <satellites>
+            <satellite>
+                <name>
+                    Charon
+                </name>
+                <satellite_tab_image>
+                    38_Charon_small.png
+                </satellite_tab_image>
+                <satellite_image>
+                    36_Charon_large.png
+                </satellite_image>
+                <type>
+                    Moon
+                </type>
+                <teaser>
+                    Here on the outskirts of the solar system, the Sun is so far away that it looks no bigger than the head of a pin held at arm's length. Pluto's moon Charon is seen in the background.
+                </teaser>
+                <factoids>
+                    <mass>
+                        0.000271
+                    </mass>
+                    
+                    <diameter>
+                        1210
+                    </diameter>
+                    
+                    <density>
+                        1850
+                    </density>
+                    
+                    <speed>
+                        47500
+                    </speed>
+                    
+                    <daylength>
+                        154
+                    </daylength>
+                    
+                    <temperature>
+                        --236
+                    </temperature>
+                    
+                    <sundistance>
+                        39.5
+                    </sundistance>
+                </factoids>
+            </satellite>
+        </satellites>
+    </fact_item>
+    <fact_item>
+        <name>
+            Hale-Bopp
+        </name>
+        
+        <type>
+            Comet
+        </type>
+        
+        <tab_image>
+            39_HaleBopp_small.png
+        </tab_image>
+        
+        <image>
+            39_HaleBopp_large.png
+        </image>
+        <teaser>
+            Comets are dirty snowballs moving on long-stretched orbits around the Sun. The ice melts as the comet approaches the Sun. Gas and dust forms a cloud (the coma) around the nucleus, and two long tails stretch behind the coma.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.0000000000369
+            </mass>
+            
+            <diameter>
+                20
+            </diameter>
+            
+            <density>
+                500
+            </density>
+            
+            <speed>
+                3690
+            </speed>
+            
+            <daylength>
+                11.5
+            </daylength>
+            
+            <temperature>
+                -245
+            </temperature>
+            
+            <sundistance>
+                250
+            </sundistance>
+        </factoids>
+        
+    </fact_item>
+    <fact_item>
+        <name>
+            Halley
+        </name>
+        
+        <type>
+            Comet
+        </type>
+        
+        <tab_image>
+            40_Halley_small.png
+        </tab_image>
+        <image>
+            40_Halley_large.png
+        </image>
+        <teaser>
+            Most comets are far beyond Pluto's orbit in the Oort cloud surrounding the solar system. Halley's comet is different and often passes by Earth - every 76th years.	
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.0000000000330
+            </mass>
+            
+            <diameter>
+                15
+            </diameter>
+            
+            <density>
+                300
+            </density>
+            
+            <speed>
+                15900
+            </speed>
+            
+            <daylength>
+                52
+            </daylength>
+            
+            <temperature>
+                -238
+            </temperature>
+            
+            <sundistance>
+                17.9
+            </sundistance>
+        </factoids>
+        
+    </fact_item>
+    
+    <fact_item>
+        <name>
+            Shoemaker-Levy 9
+        </name>
+        
+        <type>
+            Comet
+        </type>
+        
+        <tab_image>
+            41_Shoemaker-Levy_small.png
+        </tab_image>
+        
+        <image>
+            41_Shoemaker-Levy_large.png
+        </image>
+        <teaser>
+            The picture shows the collision of comet Shoemaker-Levy 9 and Jupiter in 1994. All major telescopes observed this cosmic event. The collision released more energy than stored in all nuclear arsenals.	
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.000000000000250
+            </mass>
+            
+            <diameter>
+                1.8
+            </diameter>
+            
+            <density>
+                500
+            </density>
+            
+            <speed>
+                216000 (at collision)
+            </speed>
+            
+            <daylength>
+                0
+            </daylength>
+            
+            <temperature>
+                40000 (after collision)
+            </temperature>
+            
+            <sundistance>
+                5.20
+            </sundistance>
+        </factoids>
+        
+    </fact_item>
+    <fact_item>
+        <name>
+            Temple 1
+        </name>
+        
+        <type>
+            Comet
+        </type>
+        
+        <tab_image>
+            42_Temple1_small.png
+        </tab_image>
+        
+        <image>
+            42_Temple1_large.png
+        </image>
+        <teaser>
+            In 2005 NASA fired an 820 pound module of the Deep Impact satellite into Temple 1. The picture shows the impact that produced a 600 feet crater. This allowed scientists to study the comet's interior.
+        </teaser>
+        
+        <factoids>
+            <mass>
+                0.0000000000126
+            </mass>
+            
+            <diameter>
+                7.6
+            </diameter>
+            
+            <density>
+                620
+            </density>
+            
+            <speed>
+                37100
+            </speed>
+            
+            <daylength>
+                41
+            </daylength>
+            
+            <temperature>
+                31
+            </temperature>
+            
+            <sundistance>
+                3.12
+            </sundistance>
+        </factoids>
+        
+    </fact_item>
+</object_data>

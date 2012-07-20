@@ -1,0 +1,67 @@
+//
+//  ScrollingObjectViewController.h
+//  PlanetCards
+//
+//  Created by Beaudry Kock on 7/11/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+@interface ScrollingObjectViewController : UIViewController {
+    UIImageView *image_1;
+    UIImageView *image_2;
+    UIImageView *image_3;
+    UIImageView *image_4;
+    UIImageView *image_5;
+    
+    UILabel *image_label_1;
+    UILabel *image_label_2;
+    UILabel *image_label_3;
+    UILabel *image_label_4;
+    UILabel *image_label_5;
+    
+    NSArray *imageFilenames;
+    NSMutableArray *images;
+    NSArray *imageLabels;
+    NSArray *imageViews;
+    
+    UIView *currentBorder;
+    NSString *activeObjectName;
+    
+    int pageNumber;
+    NSNumber* numberOfPlanetaryObjects;
+    id parentController;
+}
+
+@property (nonatomic, retain) IBOutlet UIImageView *image_1;
+@property (nonatomic, retain) IBOutlet UIImageView *image_2;
+@property (nonatomic, retain) IBOutlet UIImageView *image_3;
+@property (nonatomic, retain) IBOutlet UIImageView *image_4;
+@property (nonatomic, retain) IBOutlet UIImageView *image_5;
+
+@property (nonatomic, retain) IBOutlet UILabel *image_label_1;
+@property (nonatomic, retain) IBOutlet UILabel *image_label_2;
+@property (nonatomic, retain) IBOutlet UILabel *image_label_3;
+@property (nonatomic, retain) IBOutlet UILabel *image_label_4;
+@property (nonatomic, retain) IBOutlet UILabel *image_label_5;
+@property (nonatomic, retain) id parentController;
+@property (nonatomic, retain) NSMutableArray *images;
+@property (nonatomic, retain) NSArray *imageLabels;
+@property (nonatomic, retain) NSArray *imageFilenames;
+@property (nonatomic, retain) NSArray *imageViews;
+@property (nonatomic, retain) NSNumber *numberOfPlanetaryObjects;
+@property (nonatomic, retain) NSString* activeObjectName;
+
+-(void)setup;
+- (id)initWithPageNumber:(int)page;
+-(void)loadImages;
+-(void)setImageForIndex:(NSUInteger)index;
+-(void)showNewPlanet:(UITapGestureRecognizer *)recognizer;
+-(void)setNumberOfPlanetaryObjects;
+-(BOOL)activeObjectInCurrentRange;
+-(void)setFrameToInitialPosition;
+-(void)setFrameToSlotIndex:(NSNumber*)index;
+
+@end

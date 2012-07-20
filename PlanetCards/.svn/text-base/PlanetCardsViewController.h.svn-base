@@ -1,0 +1,22 @@
+//
+//  PlanetCardsViewController.h
+//  PlanetCards
+//
+//  Created by Beaudry Kock on 7/2/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+@class PlanetaryObjectViewController;
+
+@interface PlanetCardsViewController : UIViewController {
+    PlanetaryObjectViewController *planetaryObjectViewController;
+}
+
+@property (nonatomic, retain) PlanetaryObjectViewController *planetaryObjectViewController;
+
+-(IBAction)exploreSolarSystem:(id)sender;
+
+@end
