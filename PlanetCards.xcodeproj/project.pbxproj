@@ -11,7 +11,6 @@
 		9F0654E014F2BDEA00F70DBF /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0654DF14F2BDEA00F70DBF /* CardView.xib */; };
 		9F0654E414F2D05A00F70DBF /* QuizIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */; };
 		9F0654E514F2D05A00F70DBF /* QuizIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0654E314F2D05A00F70DBF /* QuizIntroView.xib */; };
-		9F28ABB015B18E8100832502 /* lets_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F28ABAF15B18E8100832502 /* lets_play.png */; };
 		9F28ABB415B1981E00832502 /* gray_btn_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F28ABB315B1981E00832502 /* gray_btn_base.png */; };
 		9F28ABB715B19B6C00832502 /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */; };
 		9F2DCB2D14F6B030009C3C43 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB2C14F6B030009C3C43 /* GameCenterManager.m */; };
@@ -208,7 +207,6 @@
 		9F7FAC8D14F809F800DA6ED2 /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7FAC8B14F809F800DA6ED2 /* AcknowledgementsViewController.m */; };
 		9F7FAC8E14F809F800DA6ED2 /* AcknowledgementsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC8C14F809F800DA6ED2 /* AcknowledgementsView.xib */; };
 		9F7FAC9214F80E4C00DA6ED2 /* show_acknowledgements.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC9114F80E4C00DA6ED2 /* show_acknowledgements.png */; };
-		9F7FAC9514F8E4C800DA6ED2 /* game_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC9314F8E4C800DA6ED2 /* game_center.png */; };
 		9F7FAC9614F8E4C800DA6ED2 /* play_again.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC9414F8E4C800DA6ED2 /* play_again.png */; };
 		9F7FAC9E14F907AE00DA6ED2 /* exit_quiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC9D14F907AE00DA6ED2 /* exit_quiz.png */; };
 		9F7FACA014F9263E00DA6ED2 /* done_with_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FAC9F14F9263E00DA6ED2 /* done_with_about.png */; };
@@ -314,7 +312,6 @@
 		9F0654E114F2D05A00F70DBF /* QuizIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizIntroViewController.h; sourceTree = "<group>"; };
 		9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizIntroViewController.m; sourceTree = "<group>"; };
 		9F0654E314F2D05A00F70DBF /* QuizIntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizIntroView.xib; sourceTree = "<group>"; };
-		9F28ABAF15B18E8100832502 /* lets_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lets_play.png; sourceTree = "<group>"; };
 		9F28ABB315B1981E00832502 /* gray_btn_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_btn_base.png; sourceTree = "<group>"; };
 		9F28ABB515B19B6C00832502 /* UIUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUnderlinedButton.h; sourceTree = "<group>"; };
 		9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUnderlinedButton.m; sourceTree = "<group>"; };
@@ -520,7 +517,6 @@
 		9F7FAC8B14F809F800DA6ED2 /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		9F7FAC8C14F809F800DA6ED2 /* AcknowledgementsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcknowledgementsView.xib; sourceTree = "<group>"; };
 		9F7FAC9114F80E4C00DA6ED2 /* show_acknowledgements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_acknowledgements.png; sourceTree = "<group>"; };
-		9F7FAC9314F8E4C800DA6ED2 /* game_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_center.png; sourceTree = "<group>"; };
 		9F7FAC9414F8E4C800DA6ED2 /* play_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_again.png; sourceTree = "<group>"; };
 		9F7FAC9D14F907AE00DA6ED2 /* exit_quiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_quiz.png; sourceTree = "<group>"; };
 		9F7FAC9F14F9263E00DA6ED2 /* done_with_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done_with_about.png; sourceTree = "<group>"; };
@@ -738,11 +734,9 @@
 				9FD4DFE015B5BCB1007F2002 /* 298-circlex.png */,
 				9FD4DFE115B5BCB1007F2002 /* 298-circlex@2x.png */,
 				9F28ABB315B1981E00832502 /* gray_btn_base.png */,
-				9F28ABAF15B18E8100832502 /* lets_play.png */,
 				9F7FACB314F92EC000DA6ED2 /* tweet.png */,
 				9F7FAC9F14F9263E00DA6ED2 /* done_with_about.png */,
 				9F7FAC9D14F907AE00DA6ED2 /* exit_quiz.png */,
-				9F7FAC9314F8E4C800DA6ED2 /* game_center.png */,
 				9F7FAC9414F8E4C800DA6ED2 /* play_again.png */,
 				9F7FAC9114F80E4C00DA6ED2 /* show_acknowledgements.png */,
 				9F7FAC7F14F8082400DA6ED2 /* answer_basic_stacked.png */,
@@ -1410,7 +1404,6 @@
 				9F7FAC8814F8082400DA6ED2 /* skip.png in Resources */,
 				9F7FAC8E14F809F800DA6ED2 /* AcknowledgementsView.xib in Resources */,
 				9F7FAC9214F80E4C00DA6ED2 /* show_acknowledgements.png in Resources */,
-				9F7FAC9514F8E4C800DA6ED2 /* game_center.png in Resources */,
 				9F7FAC9614F8E4C800DA6ED2 /* play_again.png in Resources */,
 				9F7FAC9E14F907AE00DA6ED2 /* exit_quiz.png in Resources */,
 				9F7FACA014F9263E00DA6ED2 /* done_with_about.png in Resources */,
@@ -1421,7 +1414,6 @@
 				9F7FACBA14F94C7C00DA6ED2 /* Default@2x.png in Resources */,
 				9F6A27AD14FFAD8D00116E94 /* README.txt in Resources */,
 				9F6A27AE14FFAD8D00116E94 /* release_notes.txt in Resources */,
-				9F28ABB015B18E8100832502 /* lets_play.png in Resources */,
 				9F28ABB415B1981E00832502 /* gray_btn_base.png in Resources */,
 				9FD4DFE215B5BCB1007F2002 /* 298-circlex.png in Resources */,
 				9FD4DFE315B5BCB1007F2002 /* 298-circlex@2x.png in Resources */,
