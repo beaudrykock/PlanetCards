@@ -169,11 +169,7 @@
         [newCard setCardIndex: i];
         [newCard setParentController:self];
         
-        CGRect frame = CGRectMake(10.0, 50.0, kCardViewWidth, kCardViewHeight);
-        newCard.view.frame = frame;
-        
         [cards addObject:newCard];
-        
         [newCard release];
     }
     
@@ -356,6 +352,9 @@
     {
         CardViewController *newCard = [self.cards objectAtIndex:currentCardIndex+1];
     
+        CGRect frame = CGRectMake(10.0, 50.0, kCardViewWidth, kCardViewHeight);
+        newCard.view.frame = frame;
+        
         newCard.view.tag = ((currentCardIndex+1)+1)*100;
         NSLog(@"pushing card to bottom of view stack, with tag %i, underneath view with tag %i",((currentCardIndex+1)+1)*100, (currentCardIndex+1)*100);
         UIView *currentView = [self.view viewWithTag:(currentCardIndex+1)*100];
