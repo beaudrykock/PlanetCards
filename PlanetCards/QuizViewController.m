@@ -268,6 +268,38 @@
         // dismiss leaderboard
         [self leaderboardViewControllerDidFinish:nil];
     }
+    else if ([buttonTitle isEqualToString:@"Restart"])
+    {
+        [self invalidateAllTimers];
+        
+        UIView *overlayClear = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height)];
+        [overlayClear setBackgroundColor:[UIColor clearColor]];
+        [overlayClear setTag:kActivityIndicatorViewTag];
+        
+        UIView *overlayDark = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height)];
+        [overlayDark setBackgroundColor:[UIColor blackColor]];
+        [overlayDark setAlpha:0.8];
+        
+        UILabel *reloading = [[UILabel alloc] initWithFrame:CGRectMake((self.view.frame.size.width/2.0)-50, (self.view.frame.size.height/2.0)+37.5, 100.0, 100.0)];
+        [reloading setText:@"Restarting quiz"];
+        [reloading setFont:[UIFont fontWithName:@"Helvetica Neue" size:15.0]];
+        [reloading setTextAlignment:UITextAlignmentCenter];
+        [reloading setBackgroundColor:[UIColor clearColor]];
+        [reloading setTextColor:[UIColor whiteColor]];
+        
+        UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [activity setFrame:CGRectMake((self.view.frame.size.width/2.0)-37.5, (self.view.frame.size.height/2.0)-37.5, 75.0, 75.0)];
+        [overlayDark addSubview:activity];
+        [overlayDark addSubview:reloading];
+        [overlayClear addSubview:overlayDark];
+        [self.view addSubview:overlayClear];
+        [activity startAnimating];
+        [activity release];
+        [overlayDark release];
+        [overlayClear release];
+        [reloading release];
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(resetDeckAfterDelay) userInfo:nil repeats:NO];
+    }
 }
 
 - (void) processGameCenterAuth: (NSError*) error
@@ -765,12 +797,35 @@
     postQuizOptionsSheetShowing = NO;
 }
 
+// called from the reload button
+-(IBAction)newGameWhileInGame:(id)sender
+{
+    UIAlertView *areYouSure = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"You will lose your current score if you restart the quiz" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Restart", nil];
+    [areYouSure show];
+    [areYouSure release];
+    
+    
+}
+
+-(void)resetDeckAfterDelay
+{
+    [[self.view viewWithTag:kActivityIndicatorViewTag] removeFromSuperview];
+    [self resetDeck];
+}
+
 -(void)resetDeck
 {
     currentQuestionNumber = 40+arc4random_uniform(20);
     
+    if ([self.view viewWithTag:((currentCardIndex+1)*100)].superview != nil)
+        [[self.view viewWithTag:((currentCardIndex+1)*100)] removeFromSuperview];
+    
+    if ([self.view viewWithTag:((currentCardIndex+2)*100)].superview != nil)
+        [[self.view viewWithTag:((currentCardIndex+2)*100)] removeFromSuperview];
+        
     questionCount = 0;
     score = 0;
+    numberOfAnswers = -1;
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
     [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount]];

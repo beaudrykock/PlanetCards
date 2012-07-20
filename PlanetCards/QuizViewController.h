@@ -16,7 +16,7 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 
-@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, GameCenterManagerDelegate, UIActionSheetDelegate>
+@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, GameCenterManagerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     
     QuizDB *quizDB;

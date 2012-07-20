@@ -14,6 +14,7 @@
 #define kInfoViewTag 200
 #define kCardViewWidth 299.0
 #define kCardViewHeight 377.0
+#define kActivityIndicatorViewTag 29
 
 // XML parsing
 #define kRoot @"object_data"
