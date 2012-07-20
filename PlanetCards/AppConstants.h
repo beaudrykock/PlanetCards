@@ -78,6 +78,10 @@
 #define kQuizPlayCountKey @"quiz_play_count_key"
 #define kAllTimeBestScoreKey @"allTimeBestScoreKey"
 
+// MANIPULATING PLANETS AND SATELLITES
+#define kSatelliteType_moon 0
+#define kSatelliteType_comet 1
+
 // CONVERSION
 #define kSIUnit_mass @"kg"
 #define kSIUnit_diameter @"km"

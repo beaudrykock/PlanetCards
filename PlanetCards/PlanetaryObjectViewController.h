@@ -83,6 +83,8 @@
     NSMutableArray *planetaryImages;
     UIView *scrollableInterior;
     BOOL zooming;
+    
+    NSInteger satelliteType;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *scrollableInterior;

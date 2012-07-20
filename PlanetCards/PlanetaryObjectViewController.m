@@ -551,7 +551,7 @@
             restoreSatellites = YES;
         }
         
-        if (satellitesCountShowing)
+        if (satellitesCountShowing && satelliteType != kSatelliteType_comet)
         {
             [self hideSatellitesCount];
         }
@@ -570,9 +570,13 @@
         
         int index = [[self.view subviews] indexOfObject:self.mainScrollingObjectView];
         
-        if (self.moon.superview!=nil)
+        if (self.moon.superview!=nil && satelliteType==kSatelliteType_moon)
+        {
             index = [[self.view subviews] indexOfObject:self.backToPlanetButtonView];
-        
+        }
+        else if (self.moon.superview!=nil && satelliteType==kSatelliteType_comet) {
+            index = [[self.view subviews] indexOfObject:self.satelliteCountLabelView];
+        }
         [infoViewController.view setTag:kInfoViewTag];
         CGRect objectTitleView_frame = objectTitleFrame_1.frame; 
         CGRect offscreen_rect = CGRectMake(objectTitleView_frame.origin.x, -301.0, infoViewController.view.frame.size.width, infoViewController.view.frame.size.height);
@@ -804,6 +808,8 @@
 {
     NSArray *satellites = [objectDB arrayOfSatellitesForObjectAtIndex:lastPlanetaryObjectIndex];
     
+    satelliteType =kSatelliteType_moon;
+    
     // clear any info view if necessary
     if (infoViewDisplayed)
     {
@@ -854,6 +860,8 @@
         [self.moon removeFromSuperview];
     
     NSArray *comets = [objectDB arrayOfSatellitesForObjectAtIndex:11];
+    
+    satelliteType = kSatelliteType_comet;
    // NSLog(@"no in comets = %i", [comets count]);
     
    // NSLog(@"subindex = %i", subIndex);
@@ -865,6 +873,11 @@
         infoViewDisplayed = NO;
     }
     
+    if (satellitesShowing)
+    {
+        [self hideSatellites];
+    }
+    
     PlanetaryObject *objToDisplay = [comets objectAtIndex:subIndex];
     objectNameLabel.text = [objToDisplay name];
     objectTypeLabel.text = [objToDisplay type];
@@ -872,10 +885,16 @@
     NSString *largeImageFilename = [objToDisplay mainImageFilenameWithoutType];
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:largeImageFilename ofType:@"png"]];
     if (!self.moon)
+    {
         self.moon = [[UIImageView alloc] initWithFrame:CGRectMake(mainScrollingObjectView.frame.origin.x,
                                                                   mainScrollingObjectView.frame.origin.y,
                                                                   mainScrollingObjectView.frame.size.width,
                                                                   mainScrollingObjectView.frame.size.height)];
+        UITapGestureRecognizer *tap_info = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showPlanetaryInfo:)];
+        [tap_info setNumberOfTapsRequired:1];
+        [self.moon addGestureRecognizer: tap_info];
+        [self.moon setUserInteractionEnabled:YES];
+    }
     [self.moon setContentMode: UIViewContentModeScaleAspectFit];
     [self.moon setImage:image];
     [self.mainScrollingObjectView removeFromSuperview];
