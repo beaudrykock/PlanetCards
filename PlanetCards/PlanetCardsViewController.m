@@ -118,6 +118,8 @@
     [super viewDidLoad];
     
     [Utilities checkBundleCompleteness];
+    
+    
 }
 
 

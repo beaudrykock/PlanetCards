@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "DDGameKitHelper.h"
 @interface QuizIntroViewController : UIViewController
 {
     id parentController;

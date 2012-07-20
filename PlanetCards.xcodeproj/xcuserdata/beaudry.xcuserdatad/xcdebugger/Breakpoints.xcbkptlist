@@ -415,11 +415,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "420"
-         endingLineNumber = "420"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -457,11 +457,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "467"
-         endingLineNumber = "467"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-addCards"
          landmarkType = "5">
       </FileBreakpoint>
@@ -471,11 +471,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "490"
-         endingLineNumber = "490"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
          landmarkName = "-addCards"
          landmarkType = "5">
       </FileBreakpoint>
@@ -490,20 +490,6 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "45"
          endingLineNumber = "45"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "427"
-         endingLineNumber = "427"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -610,20 +596,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-activateGameCenter"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "PlanetCards/CardViewController.m"
          timestampString = "364421471.18392"
          startingColumnNumber = "9223372036854775807"
@@ -645,20 +617,6 @@
          startingLineNumber = "253"
          endingLineNumber = "253"
          landmarkName = "-ConvenientParser:forType:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
-         landmarkName = "-activateGameCenter"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -737,11 +695,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "715"
-         endingLineNumber = "715"
+         startingLineNumber = "408"
+         endingLineNumber = "408"
          landmarkName = "-runEndOfQuizFunctionality"
          landmarkType = "5">
       </FileBreakpoint>
@@ -793,11 +751,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "452"
-         endingLineNumber = "452"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
          landmarkName = "-startQuiz"
          landmarkType = "5">
       </FileBreakpoint>
@@ -950,130 +908,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "779"
-         endingLineNumber = "779"
-         landmarkName = "-actionSheet:clickedButtonAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "784"
-         endingLineNumber = "784"
-         landmarkName = "-actionSheet:clickedButtonAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "788"
-         endingLineNumber = "788"
-         landmarkName = "-actionSheet:clickedButtonAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "793"
-         endingLineNumber = "793"
-         landmarkName = "-actionSheet:clickedButtonAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
-         landmarkName = "-achievementViewControllerDidFinish:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
-         landmarkName = "-leaderboardViewControllerDidFinish:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "-leaderboardViewControllerDidFinish:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "307"
-         endingLineNumber = "307"
-         landmarkName = "-processGameCenterAuth:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "249"
-         endingLineNumber = "249"
-         landmarkName = "-alertView:didDismissWithButtonIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364152149.061588"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
-         landmarkName = "-showAchievements"
-         landmarkType = "5">
+         startingLineNumber = "504"
+         endingLineNumber = "504"
+         landmarkName = "@implementation QuizViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1119,11 +960,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "663"
-         endingLineNumber = "663"
+         startingLineNumber = "356"
+         endingLineNumber = "356"
          landmarkName = "-pushBottomCardView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1132,11 +973,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "584"
-         endingLineNumber = "584"
+         startingLineNumber = "277"
+         endingLineNumber = "277"
          landmarkName = "-nextCard"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1158,11 +999,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "493"
-         endingLineNumber = "493"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
          landmarkName = "-addCards"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1171,11 +1012,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "589"
-         endingLineNumber = "589"
+         startingLineNumber = "282"
+         endingLineNumber = "282"
          landmarkName = "-nextCard"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1184,11 +1025,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "652"
-         endingLineNumber = "652"
+         startingLineNumber = "345"
+         endingLineNumber = "345"
          landmarkName = "-prepBottomCard"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1197,12 +1038,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "967"
-         endingLineNumber = "967"
-         landmarkName = "-startTimer"
+         startingLineNumber = "695"
+         endingLineNumber = "695"
+         landmarkName = "-loadQuizDB"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1210,11 +1051,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "600"
-         endingLineNumber = "600"
+         startingLineNumber = "293"
+         endingLineNumber = "293"
          landmarkName = "-prepTimerParameters"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1223,11 +1064,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "543"
-         endingLineNumber = "543"
+         startingLineNumber = "236"
+         endingLineNumber = "236"
          landmarkName = "-answerQuestionIsCorrect:withSkip:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1366,12 +1207,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/QuizViewController.m"
-         timestampString = "364476390.643416"
+         timestampString = "364484703.160332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "997"
-         endingLineNumber = "997"
-         landmarkName = "-loseAnAnswer"
+         startingLineNumber = "725"
+         endingLineNumber = "725"
+         landmarkName = "-startTimer"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

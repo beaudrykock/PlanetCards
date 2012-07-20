@@ -62,6 +62,8 @@
     [letsPlayTap setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:letsPlayTap];
     [letsPlayTap release];
+    
+    [[DDGameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
 }
 
 - (void)viewDidUnload

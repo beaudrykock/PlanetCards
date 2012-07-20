@@ -11,7 +11,7 @@
 @implementation QuizViewController
 
 @synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, scoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView;
-@synthesize gameCenterManager, cachedHighestScore, currentScore, currentLeaderBoard, bestScoreResultLabel, personalBestScoreString, personalBestScoreDescription, leaderboardHighScoreString, leaderboardHighScoreDescription, tweetButton, skippingView;
+@synthesize bestScoreResultLabel, skippingView;
 @synthesize answerTimer, subTimer_1, subTimer_2, progressBarTimer, timerBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -64,211 +64,12 @@
     
 }
 
-#pragma mark - Game center
-- (void) showAlertWithTitle: (NSString*) title message: (NSString*) message
-{
-    UIAlertView* alert= [[[UIAlertView alloc] initWithTitle: title message: message 
-                                                   delegate: NULL cancelButtonTitle: @"OK" otherButtonTitles: NULL] autorelease];
-    [alert show];
-    
-}
 
--(void)activateGameCenter
-{
-    
-    self.currentLeaderBoard = kLeaderboardID;
-    self.currentScore = score;
-    
-    if([GameCenterManager isGameCenterAvailable])
-    {
-        if (!gameCenterActivated)
-        {
-            self.gameCenterManager= [[[GameCenterManager alloc] init] autorelease];
-            [self.gameCenterManager setDelegate: self];
-            [self.gameCenterManager authenticateLocalUser];
-        
-            [self updateCurrentScore];
-            [self submitHighScore];
-            
-            gameCenterActivated = YES;
-        }
-    }
-    else
-    {
-        [self showAlertWithTitle: @"Game Center Support Required!"
-                         message: @"The current device does not support Game Center, which this app requires."];
-    }
-    
-    [self.gameCenterManager retrieveTopTenScores]; // TESTING - writes scores to console
-    [self showLeaderboard];
-}
-
-- (void)showLeaderboard
-{
-    GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
-    if (leaderboardController != NULL) 
-    {
-        leaderboardController.category = self.currentLeaderBoard;
-        leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
-        leaderboardController.leaderboardDelegate = self; 
-        [self presentModalViewController: leaderboardController animated: YES];
-    }
-}
-
-- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-    [self dismissModalViewControllerAnimated: YES];
-    if (viewController)
-        [viewController release];
-    [self showPostQuizActionSheet];
-}
-
-- (void)showAchievements
-{
-    self.currentLeaderBoard = kLeaderboardID;
-    self.currentScore = score;
-    
-    if([GameCenterManager isGameCenterAvailable])
-    {
-        if (!gameCenterActivated)
-        {
-            self.gameCenterManager= [[[GameCenterManager alloc] init] autorelease];
-            [self.gameCenterManager setDelegate: self];
-            [self.gameCenterManager authenticateLocalUser];
-        
-            [self updateCurrentScore];
-            [self submitHighScore];
-            gameCenterActivated = YES;
-        }
-    }
-    else
-    {
-        [self showAlertWithTitle: @"Game Center Support Required!"
-                         message: @"The current device does not support Game Center, which is needed to show your achievements."];
-    }
-    
-    GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
-    if (achievements != NULL)
-    {
-        achievements.achievementDelegate = self;
-        [self presentModalViewController: achievements animated: YES];
-    }
-}
-
-- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
-{
-    [self dismissModalViewControllerAnimated: YES];
-    [viewController release];
-    [self showPostQuizActionSheet];
-}
-
-#pragma mark Score Handlers
-
-- (void) checkAchievements
-{
-    NSString* identifier= NULL;
-    double percentComplete= 0;
-    switch(self.currentScore)
-    {
-        case 10:
-        {
-            identifier= kAchievement50PercentOrMore;
-            percentComplete= 100.0;
-            break;
-        }
-            // UNCOMMENT FOR OTHER ACHIEVEMENTS
-            /*case 10:
-             {
-             identifier= kAchievementHidden20Taps;
-             percentComplete= 50.0;
-             break;
-             }
-             case 20:
-             {
-             identifier= kAchievementHidden20Taps;
-             percentComplete= 100.0;
-             break;
-             }
-             case 50:
-             {
-             identifier= kAchievementBigOneHundred;
-             percentComplete= 50.0;
-             break;
-             }
-             case 75:
-             {
-             identifier= kAchievementBigOneHundred;
-             percentComplete= 75.0;
-             break;
-             }
-             case 100:
-             {
-             identifier= kAchievementBigOneHundred;
-             percentComplete= 100.0;
-             break;
-             }*/
-            
-    }
-    if(identifier!= NULL)
-    {
-        [self.gameCenterManager submitAchievement: identifier percentComplete: percentComplete];
-    }
-}
-
-// NOTE: if want to have achievements, call this method when the score is updated
-// after each card is answered >> will show an achievements alert if an achievement is reached
-- (void) updateCurrentScore
-{
-    [self checkAchievements]; 
-}
-
-- (NSString*) currentLeaderboardHumanName
-{
-    return NSLocalizedString(currentLeaderBoard, @"Mapping the Leaderboard IDS");
-}
-
-#pragma mark Action Methods
-/*- (void) addOne;
-{
-    self.currentScore= self.currentScore + 1;
-    [self updateCurrentScore];
-}*/
-
-- (void) submitHighScore
-{
-    if(self.currentScore > 0)
-    {
-        [self.gameCenterManager reportScore: self.currentScore forCategory: self.currentLeaderBoard];
-    }
-}
-
-#pragma mark GameCenterDelegateProtocol Methods
-//Delegate method used by processGameCenterAuth to support looping waiting for game center authorization
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if ([buttonTitle isEqualToString:@"Try Again"])
-    {
-        if (authenticationAttempts<kMaxAuthenticationAttempts)
-        {
-            [self.gameCenterManager authenticateLocalUser];
-            authenticationAttempts++;
-        }
-        else {
-            UIAlertView* alert= [[UIAlertView alloc] initWithTitle: @"Try again later" 
-                                                           message: @"There is a problem with authentication, please try again later"
-                                                          delegate: self cancelButtonTitle: @"OK" otherButtonTitles: NULL];
-            [alert show];
-            [alert release];
-        }
-    }
-    else if ([buttonTitle isEqualToString:@"OK"])
-    {
-        // dismiss leaderboard
-        [self leaderboardViewControllerDidFinish:nil];
-    }
-    else if ([buttonTitle isEqualToString:@"Restart"])
+    if ([buttonTitle isEqualToString:@"Restart"])
     {
         [self invalidateAllTimers];
         
@@ -302,117 +103,6 @@
     }
 }
 
-- (void) processGameCenterAuth: (NSError*) error
-{
-    if(error == NULL)
-    {
-        [self.gameCenterManager reloadHighScoresForCategory: self.currentLeaderBoard];
-    }
-    else
-    {
-        UIAlertView* alert= [[UIAlertView alloc] initWithTitle: @"Authentication error" 
-                                                        message: [NSString stringWithFormat: @"%@", [error localizedDescription]]
-                                                       delegate: self cancelButtonTitle: @"Try Again" otherButtonTitles: NULL];
-        [alert show];
-        [alert release];
-    }
-    
-}
-
-- (void) mappedPlayerIDToPlayer: (GKPlayer*) player error: (NSError*) error;
-{
-    if((error == NULL) && (player != NULL))
-    {
-        self.leaderboardHighScoreDescription= [NSString stringWithFormat: @"%@ got:", player.alias];
-        
-        if(self.cachedHighestScore != NULL)
-        {
-            self.leaderboardHighScoreString= self.cachedHighestScore;
-        }
-        else
-        {
-            self.leaderboardHighScoreString= @"-";
-        }
-        
-    }
-    else
-    {
-        self.leaderboardHighScoreDescription= @"GameCenter Scores Unavailable";
-        self.leaderboardHighScoreDescription=  @"-";
-    }
-}
-
-- (void) reloadScoresComplete: (GKLeaderboard*) leaderBoard error: (NSError*) error;
-{
-    if(error == NULL)
-    {
-        bestScore = leaderBoard.localPlayerScore.value;
-        [self.bestScoreResultLabel setText:[NSString stringWithFormat: @"Best: %i", bestScore]];
-        if([leaderBoard.scores count] >0)
-        {
-            GKScore* allTime= [leaderBoard.scores objectAtIndex: 0];
-            self.cachedHighestScore= allTime.formattedValue;
-            [gameCenterManager mapPlayerIDtoPlayer: allTime.playerID];
-        }
-    }
-    else
-    {
-        [self.bestScoreResultLabel setText: @"GameCenter Scores Unavailable"];
-        [self showAlertWithTitle: @"Score Reload Failed!"
-                         message: [NSString stringWithFormat: @"Reason: %@", [error localizedDescription]]];
-    }
-}
-
-- (void) scoreReported: (NSError*) error;
-{
-    if(error == NULL)
-    {
-        [self.gameCenterManager reloadHighScoresForCategory: self.currentLeaderBoard];
-        [self showAlertWithTitle: @"High Score Reported!"
-                         message: [NSString stringWithFormat: @"", [error localizedDescription]]];
-    }
-    else
-    {
-        [self showAlertWithTitle: @"Score Report Failed!"
-                         message: [NSString stringWithFormat: @"Reason: %@", [error localizedDescription]]];
-    }
-}
-
-- (void) achievementSubmitted: (GKAchievement*) ach error:(NSError*) error;
-{
-    if((error == NULL) && (ach != NULL))
-    {
-        if(ach.percentComplete == 100.0)
-        {
-            [self showAlertWithTitle: @"Achievement Earned!"
-                             message: [NSString stringWithFormat: @"Great job!  You earned an achievement: \"%@\"", NSLocalizedString(ach.identifier, NULL)]];
-        }
-        else
-        {
-            if(ach.percentComplete > 0)
-            {
-                [self showAlertWithTitle: @"Achievement Progress!"
-                                 message: [NSString stringWithFormat: @"Great job!  You're %.0f\%% of the way to: \"%@\"",ach.percentComplete, NSLocalizedString(ach.identifier, NULL)]];
-            }
-        }
-    }
-    else
-    {
-        [self showAlertWithTitle: @"Achievement Submission Failed!"
-                         message: [NSString stringWithFormat: @"Reason: %@", [error localizedDescription]]];
-    }
-}
-
-- (void) achievementResetResult: (NSError*) error;
-{
-    self.currentScore= 0;
-    if(error != NULL)
-    {
-        [self showAlertWithTitle: @"Achievement Reset Failed!"
-                         message: [NSString stringWithFormat: @"Reason: %@", [error localizedDescription]]];
-    }
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -420,15 +110,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     [self loadQuizDB];
+    
     currentQuestionNumber = 40+arc4random_uniform(20);
     
-    // always start with front card
     [self addCards];
     
-    QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
-    [intro setParentController:self];
-    [self.view addSubview:intro.view];
     questionCount = 0;
     score = 0;
     numberOfAnswers = -1;
@@ -437,7 +125,7 @@
     [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
 
     [self prettify];
-    
+        
     subTimer_1_active = NO;
     subTimer_2_active = NO;
     
@@ -445,6 +133,11 @@
     
     [self resetProgressBar];
     [self resetTimerFlags];
+    
+    QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
+    [intro setParentController:self];
+    [self.view addSubview:intro.view];
+    
 }
 
 -(void)startQuiz
@@ -703,9 +396,12 @@
 #pragma mark - Post-quiz options
 -(void)runEndOfQuizFunctionality
 {
+    // report the score
+    [[DDGameKitHelper sharedGameKitHelper] submitScore:score category:kLeaderboardID];
+    
     resultView_outerFrame.layer.cornerRadius = 5.0;
     
-    CGRect startingFrame = CGRectMake(0, -154, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
+    CGRect startingFrame = CGRectMake(0, -460, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
     [resultView_outerFrame setFrame:startingFrame];
     
     [scoreResultLabel setText:[NSString stringWithFormat:@"Score: %i%% correct",score]];
@@ -714,6 +410,22 @@
     NSInteger allTimeScore = [Utilities getAllTimeBestScore];
     
     [bestScoreResultLabel setText:[NSString stringWithFormat:@"Best: %i%% correct",allTimeScore]];
+    
+    if (score>=25)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_1 percentComplete:100];
+    }
+    else if (score>=50)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_2 percentComplete:100];
+    }
+    else if (score>=75)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_3 percentComplete:100];
+    }
+    else if (score>99) {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_4 percentComplete:100];
+    }
     
     if (score <50)
     {
@@ -726,22 +438,16 @@
     
     CGRect newFrame = CGRectMake(0.0, 0.0, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
     [self.view addSubview:resultView_outerFrame];
-    UIView *lowerPane = [[UIView alloc] initWithFrame:CGRectMake(0.0, 154.0, 320.0, 308.0)];
-    [lowerPane setTag:500];
-    [lowerPane setBackgroundColor:[UIColor lightGrayColor]];
-    [lowerPane setAlpha:0.0];
-    [self.view addSubview:lowerPane];
-    [lowerPane release];
-    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.5];
     resultView_outerFrame.frame = newFrame;
-    [lowerPane setAlpha:0.8];
     [UIView commitAnimations];
 
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showPostQuizActionSheet) userInfo:nil repeats:NO];
+    // DEPRECATED in favor of icon buttons
+    //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showPostQuizActionSheet) userInfo:nil repeats:NO];
 }
 
+/*DEPRECATED
 -(void)showPostQuizActionSheet
 {
     if (!postQuizOptionsSheetShowing)
@@ -756,16 +462,44 @@
                                       ];
         [actionsheet showInView:self.view];
     }
+}*/
+
+#pragma mark - Post-game options
+-(IBAction)showLeaderboardFromPostQuiz:(id)sender
+{
+    [[DDGameKitHelper sharedGameKitHelper] showLeaderboard];
 }
+
+-(IBAction)newGameFromPostQuiz:(id)sender
+{
+    [self removePostQuizViews];
+    [self newGame];
+}
+
+-(IBAction)exitFromPostQuiz:(id)sender
+{
+    [self removePostQuizViews];
+    [self exploreSolarSystem];
+}
+
+-(IBAction)showAchievementsFromPostQuiz:(id)sender
+{
+    [[DDGameKitHelper sharedGameKitHelper] showAchievements];
+}
+
+-(IBAction)tweetFromPostQuiz:(id)sender
+{
+    [self tweetScore];
+}
+
 
 -(void)removePostQuizViews
 {
     if (self.resultView_innerFrame.superview!=nil)
         [self.resultView_outerFrame removeFromSuperview];
-    if ([self.view viewWithTag:500].superview !=nil)
-        [[self.view viewWithTag:500] removeFromSuperview];
 }
 
+/*DEPRECATED
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex ==0)
@@ -775,13 +509,15 @@
     }
     else if (buttonIndex ==1)
     {
-        [self activateGameCenter];
-        [self showLeaderboard];
+        [[DDGameKitHelper sharedGameKitHelper] showLeaderboard];
+        //[self activateGameCenter];
+        //[self showLeaderboard];
     }
     else if (buttonIndex ==2)
     {
-        [self activateGameCenter];
-        [self showAchievements];
+        [[DDGameKitHelper sharedGameKitHelper] showAchievements];
+        //[self activateGameCenter];
+        //[self showAchievements];
     }
     else if (buttonIndex ==3)
     {
@@ -795,7 +531,9 @@
     
     // COMMENT THIS OUT WHEN TESTING
     postQuizOptionsSheetShowing = NO;
-}
+}*/
+
+
 
 // called from the reload button
 -(IBAction)newGameWhileInGame:(id)sender
@@ -901,7 +639,7 @@
         [alertView release];
         // Dismiss the controller
         [self dismissModalViewControllerAnimated:YES];
-        [self showPostQuizActionSheet];
+        //self showPostQuizActionSheet]; // DEPRECATED
     };
     [twitter release];
     
@@ -1069,6 +807,30 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+-(void)dealloc
+{
+    [quizDB release];
+    [cards release];
+    [backgroundView release];
+    [scoreLabel release];
+    [bestScoreResultLabel release];
+    [questionCountLabel release];
+    [resultView_innerFrame release];
+    [resultView_outerFrame release];
+    [scoreResultLabel release];
+    [encouragingMessageLabel release];
+    [topFrameView release];
+    [skippingView release];
+    [answerTimer release];
+    [subTimer_1 release];
+    [subTimer_2 release];
+    [progressBarTimer release];
+    [timerBar release];
+        
+    [super dealloc];
 }
 
 @end

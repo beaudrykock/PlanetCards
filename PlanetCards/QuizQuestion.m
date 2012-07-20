@@ -80,13 +80,11 @@
 
 -(void)dealloc
 {
-    [super dealloc];
-    
     [level release];
     [question release];
     [questionImageFilename release];
     [quizAnswers release];
-    
+    [super dealloc];
 }
 
 @end

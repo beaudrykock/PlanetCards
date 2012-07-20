@@ -137,6 +137,10 @@
 //Leaderboard Category IDs
 #define kLeaderboardID @"021612_leaderboard_pk"
 #define kMaxAuthenticationAttempts 2
+#define kAchievement_1 @"com.planetcards.25percent"
+#define kAchievement_2 @"com.planetcards.50percent"
+#define kAchievement_3 @"com.planetcards.75percent"
+#define kAchievement_4 @"com.planetcards.100percent"
 
 //Achievement IDs
 #define kAchievement50PercentOrMore @"com.planetcards.50percent"

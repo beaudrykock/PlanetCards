@@ -11,12 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CardViewController.h"
 #import "QuizIntroViewController.h"
-#import "GameCenterController.h"
-#import "GameCenterManager.h"
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 
-@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, GameCenterManagerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     
     QuizDB *quizDB;
@@ -40,23 +38,8 @@
     IBOutlet UILabel *encouragingMessageLabel;
     id parentController;
     
-    // GAME CENTER
-    GameCenterManager* gameCenterManager;
-    int64_t  currentScore; // ONLY for game center - must be set with value of score variable above
-    NSString* cachedHighestScore;
-    
-    NSString* currentLeaderBoard;
-    NSString* personalBestScoreDescription;
-    NSString* personalBestScoreString;
-    
-    NSString* leaderboardHighScoreDescription;
-    NSString* leaderboardHighScoreString;
-    
-    BOOL gameCenterActivated;
     BOOL postQuizOptionsSheetShowing;
     UIView *topFrameView;
-    
-    IBOutlet UIButton *tweetButton;
     
     BOOL gameActive;
     NSInteger authenticationAttempts;
@@ -92,16 +75,7 @@
 @property (nonatomic, retain) IBOutlet UIView *resultView_outerFrame;
 @property (nonatomic, retain) IBOutlet UIView *resultView_innerFrame;
 @property (nonatomic, assign) id parentController;
-@property (nonatomic, retain) GameCenterManager *gameCenterManager;
-@property (nonatomic, assign) int64_t currentScore;
-@property (nonatomic, retain) NSString* cachedHighestScore;
-@property (nonatomic, retain) NSString* currentLeaderBoard;
-@property (nonatomic, retain) NSString* personalBestScoreDescription;
-@property (nonatomic, retain) NSString* personalBestScoreString;
-@property (nonatomic, retain) NSString* leaderboardHighScoreDescription;
-@property (nonatomic, retain) NSString* leaderboardHighScoreString;
 @property (nonatomic, retain) IBOutlet UIView *topFrameView;
-@property (nonatomic, retain) IBOutlet UIButton *tweetButton;
 @property (nonatomic, retain) NSTimer *answerTimer;
 @property (nonatomic, retain) NSTimer *subTimer_1;
 @property (nonatomic, retain) NSTimer *subTimer_2;
@@ -109,21 +83,13 @@
 @property (nonatomic, retain) IBOutlet UIProgressView* timerBar;
 
 -(void)loadQuizDB;
--(void)transitionCardsWithCorrect:(BOOL)isCorrect inTimeBlock:(NSInteger)block;
--(void)discard;
--(void)nextQuestionWithIsCorrect:(BOOL)isCorrect inTimeBlock:(NSInteger)block;
 -(void)addCards;
 -(void)newGame;
 -(void)resetDeck;
 -(void)exploreSolarSystem;
 -(IBAction)quitQuizFromButton:(id)sender;
 -(void)runEndOfQuizFunctionality;
--(void)activateGameCenter;
-- (void)showLeaderboard;
-- (void)showAchievements;
--(void)updateCurrentScore;
 -(void)skip;
-- (void) submitHighScore;
 -(void)prettify;
 -(void)tweetScore;
 -(void)showPostQuizActionSheet;
@@ -133,5 +99,9 @@
 -(void)skippingViewRemoved;
 -(void)nextCard;
 -(void)answerQuestionIsCorrect:(BOOL)isCorrect withSkip:(BOOL)isSkip;
-
+-(IBAction)showLeaderboardFromPostQuiz:(id)sender;
+-(IBAction)newGameFromPostQuiz:(id)sender;
+-(IBAction)exitFromPostQuiz:(id)sender;
+-(IBAction)showAchievementsFromPostQuiz:(id)sender;
+-(IBAction)tweetFromPostQuiz:(id)sender;
 @end
