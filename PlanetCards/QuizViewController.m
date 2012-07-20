@@ -792,8 +792,9 @@
 
 -(void)exploreSolarSystem
 {
-    [[self.view viewWithTag:((currentCardIndex+1)*100)] removeFromSuperview];
-    [[self.view viewWithTag:((currentCardIndex+2)*100)] removeFromSuperview];
+    [self invalidateAllTimers];
+    //[[self.view viewWithTag:((currentCardIndex+1)*100)] removeFromSuperview];
+    //[[self.view viewWithTag:((currentCardIndex+2)*100)] removeFromSuperview];
     
     if ([cards count]>0)
         [cards removeAllObjects];
