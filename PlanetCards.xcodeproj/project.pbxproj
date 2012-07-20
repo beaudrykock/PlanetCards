@@ -47,7 +47,6 @@
 		9F67CC4F1482A8310020AED7 /* 25_Mimas_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC251482A8310020AED7 /* 25_Mimas_large@2x.png */; };
 		9F67CC501482A8310020AED7 /* 26_Dione_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC261482A8310020AED7 /* 26_Dione_large@2x.png */; };
 		9F67CC511482A8310020AED7 /* 27_Rhea_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC271482A8310020AED7 /* 27_Rhea_large@2x.png */; };
-		9F67CC521482A8310020AED7 /* 28_uranus_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC281482A8310020AED7 /* 28_uranus_large@2x.png */; };
 		9F67CC531482A8310020AED7 /* 29_Oberon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC291482A8310020AED7 /* 29_Oberon_large@2x.png */; };
 		9F67CC541482A8310020AED7 /* 30_Titania_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC2A1482A8310020AED7 /* 30_Titania_large@2x.png */; };
 		9F67CC551482A8310020AED7 /* 31_Ariel_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67CC2B1482A8310020AED7 /* 31_Ariel_large@2x.png */; };
@@ -218,6 +217,7 @@
 		9F7FACB914F94C7600DA6ED2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FACB514F9496900DA6ED2 /* Default.png */; };
 		9F7FACBA14F94C7C00DA6ED2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F7FACB714F9496D00DA6ED2 /* Default@2x.png */; };
 		9F81F68D14718C6E00119912 /* PlanetaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81F68C14718C6E00119912 /* PlanetaryObject.m */; };
+		9F9B0AE015B9A08B00D61A70 /* 28_Uranus_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9B0ADF15B9A08B00D61A70 /* 28_Uranus_large@2x.png */; };
 		9FA2B10215B9747A00C7D916 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA2B10015B9747A00C7D916 /* 01-refresh.png */; };
 		9FA2B10315B9747A00C7D916 /* 01-refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA2B10115B9747A00C7D916 /* 01-refresh@2x.png */; };
 		9FA2B11015B9809E00C7D916 /* GKAchievementHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA2B10615B9809E00C7D916 /* GKAchievementHandler.m */; };
@@ -351,7 +351,6 @@
 		9F67CC251482A8310020AED7 /* 25_Mimas_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25_Mimas_large@2x.png"; sourceTree = "<group>"; };
 		9F67CC261482A8310020AED7 /* 26_Dione_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "26_Dione_large@2x.png"; sourceTree = "<group>"; };
 		9F67CC271482A8310020AED7 /* 27_Rhea_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "27_Rhea_large@2x.png"; sourceTree = "<group>"; };
-		9F67CC281482A8310020AED7 /* 28_uranus_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28_uranus_large@2x.png"; sourceTree = "<group>"; };
 		9F67CC291482A8310020AED7 /* 29_Oberon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29_Oberon_large@2x.png"; sourceTree = "<group>"; };
 		9F67CC2A1482A8310020AED7 /* 30_Titania_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30_Titania_large@2x.png"; sourceTree = "<group>"; };
 		9F67CC2B1482A8310020AED7 /* 31_Ariel_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "31_Ariel_large@2x.png"; sourceTree = "<group>"; };
@@ -529,6 +528,7 @@
 		9F7FACB714F9496D00DA6ED2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F81F68B14718C6E00119912 /* PlanetaryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlanetaryObject.h; path = PlanetCards/PlanetaryObject.h; sourceTree = "<group>"; };
 		9F81F68C14718C6E00119912 /* PlanetaryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlanetaryObject.m; path = PlanetCards/PlanetaryObject.m; sourceTree = "<group>"; };
+		9F9B0ADF15B9A08B00D61A70 /* 28_Uranus_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28_Uranus_large@2x.png"; sourceTree = "<group>"; };
 		9FA2B10015B9747A00C7D916 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
 		9FA2B10115B9747A00C7D916 /* 01-refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh@2x.png"; sourceTree = "<group>"; };
 		9FA2B10515B9809E00C7D916 /* GKAchievementHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKAchievementHandler.h; sourceTree = "<group>"; };
@@ -809,7 +809,7 @@
 				9F67CC251482A8310020AED7 /* 25_Mimas_large@2x.png */,
 				9F67CC261482A8310020AED7 /* 26_Dione_large@2x.png */,
 				9F67CC271482A8310020AED7 /* 27_Rhea_large@2x.png */,
-				9F67CC281482A8310020AED7 /* 28_uranus_large@2x.png */,
+				9F9B0ADF15B9A08B00D61A70 /* 28_Uranus_large@2x.png */,
 				9F67CC291482A8310020AED7 /* 29_Oberon_large@2x.png */,
 				9F67CC2A1482A8310020AED7 /* 30_Titania_large@2x.png */,
 				9F67CC2B1482A8310020AED7 /* 31_Ariel_large@2x.png */,
@@ -1258,7 +1258,6 @@
 				9F67CC4F1482A8310020AED7 /* 25_Mimas_large@2x.png in Resources */,
 				9F67CC501482A8310020AED7 /* 26_Dione_large@2x.png in Resources */,
 				9F67CC511482A8310020AED7 /* 27_Rhea_large@2x.png in Resources */,
-				9F67CC521482A8310020AED7 /* 28_uranus_large@2x.png in Resources */,
 				9F67CC531482A8310020AED7 /* 29_Oberon_large@2x.png in Resources */,
 				9F67CC541482A8310020AED7 /* 30_Titania_large@2x.png in Resources */,
 				9F67CC551482A8310020AED7 /* 31_Ariel_large@2x.png in Resources */,
@@ -1441,6 +1440,7 @@
 				9FA2B13615B991FF00C7D916 /* 53-house@2x.png in Resources */,
 				9FA2B13915B992DC00C7D916 /* 108-badge.png in Resources */,
 				9FA2B13A15B992DC00C7D916 /* 108-badge@2x.png in Resources */,
+				9F9B0AE015B9A08B00D61A70 /* 28_Uranus_large@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,6 +56,11 @@
     [self.question_image addGestureRecognizer:tap];
     [tap release];
     
+    // add same to the supplementalInfoView
+    UITapGestureRecognizer *tap_2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showSupplementalInformation:)];
+    [self.supplementalInfoView addGestureRecognizer:tap_2];
+    [tap_2 release];
+    
     [self.imageContainerView removeFromSuperview];
     [self.view insertSubview:self.imageContainerView belowSubview:self.buttonTray];
     

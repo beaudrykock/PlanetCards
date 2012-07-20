@@ -264,7 +264,7 @@
     if (questionCount == 20)
     {
         quizComplete = YES;
-        [self runEndOfQuizFunctionality];
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runEndOfQuizFunctionality) userInfo:nil repeats:NO];
     }
     else {
         [self nextCard];

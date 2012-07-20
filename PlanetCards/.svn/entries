@@ -1991,40 +1991,6 @@ dir
 
 add
 
-22_Tethys_large@2x.png
-file
-
-
-
-
-2011-10-22T21:55:23.000000Z
-7f641558566cc925184ef4153969f7b1
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-330685
-
 34_Neptun_small.png
 file
 
@@ -2058,6 +2024,40 @@ has-props
 
 
 7549
+
+22_Tethys_large@2x.png
+file
+
+
+
+
+2011-10-22T21:55:23.000000Z
+7f641558566cc925184ef4153969f7b1
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+330685
 
 test_yourself.png
 file
@@ -2127,40 +2127,6 @@ has-props
 
 4659
 
-11_Vesta_large@2x.png
-file
-
-
-
-
-2011-10-22T21:10:37.000000Z
-ca373937808098b524816e4bd2d02106
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-119841
-
 39_HaleBopp_small@2x.png
 file
 
@@ -2194,6 +2160,40 @@ has-props
 
 
 20379
+
+11_Vesta_large@2x.png
+file
+
+
+
+
+2011-10-22T21:10:37.000000Z
+ca373937808098b524816e4bd2d02106
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+119841
 
 41_Shoemaker-Levy_large.png
 file
@@ -2888,6 +2888,19 @@ has-props
 
 
 6701
+
+28_Uranus_large@2x.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
 
 15_Jupiter_large@2x.png
 file
@@ -3908,7 +3921,7 @@ file
 
 
 
-
+delete
 2011-10-22T22:44:14.000000Z
 0a16e8e4f4c9612f5c67be37f3109375
 2011-11-27T17:58:45.414578Z
