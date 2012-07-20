@@ -80,7 +80,7 @@
 @property (nonatomic, retain) IBOutlet UIView *correctIncorrectView;
 @property (nonatomic, retain) IBOutlet UIImageView *correctIncorrectImage;
 
-@property (nonatomic, retain) id parentController;
+@property (nonatomic, assign) id parentController;
 
 @property (nonatomic, retain) QuizDB *quizDB;
 

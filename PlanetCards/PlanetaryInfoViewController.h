@@ -42,7 +42,7 @@
 @property (nonatomic, retain) NSMutableArray *infoCategories;
 @property (nonatomic, retain) NSArray *infoValues;
 @property (nonatomic, retain) NSMutableArray *infoUnits;
-@property (nonatomic, retain) id parentController;
+@property (nonatomic, assign) id parentController;
 @property (nonatomic, retain) NSString *objectName;
 @property (nonatomic, retain) NSString *objectTeaser;
 @property (nonatomic, retain) IBOutlet UILabel *massValue;

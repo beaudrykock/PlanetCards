@@ -1012,7 +1012,7 @@
     
     [[self.cards objectAtIndex:currentCardIndex] answerPeriodExpired];
     [self invalidateAllTimers];
-    [self answerQuestionIsCorrect:NO];
+    [self answerQuestionIsCorrect:NO withSkip:NO];
 }
 
 -(void)resetTimerFlags

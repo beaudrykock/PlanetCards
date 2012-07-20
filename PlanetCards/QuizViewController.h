@@ -91,7 +91,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *encouragingMessageLabel;
 @property (nonatomic, retain) IBOutlet UIView *resultView_outerFrame;
 @property (nonatomic, retain) IBOutlet UIView *resultView_innerFrame;
-@property (nonatomic, retain) id parentController;
+@property (nonatomic, assign) id parentController;
 @property (nonatomic, retain) GameCenterManager *gameCenterManager;
 @property (nonatomic, assign) int64_t currentScore;
 @property (nonatomic, retain) NSString* cachedHighestScore;

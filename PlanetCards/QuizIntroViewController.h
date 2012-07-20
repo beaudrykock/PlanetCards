@@ -14,6 +14,6 @@
     id parentController;
 }
 
-@property (nonatomic, retain) id parentController;
+@property (nonatomic, assign) id parentController;
 
 @end

@@ -57,6 +57,11 @@
     // Do any additional setup after loading the view from its nib.
     
     self.view.layer.cornerRadius = 5.0;
+    
+    UITapGestureRecognizer *letsPlayTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(letsPlay:)];
+    [letsPlayTap setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:letsPlayTap];
+    [letsPlayTap release];
 }
 
 - (void)viewDidUnload
