@@ -451,7 +451,7 @@
 	UITouch *touch = [touches anyObject];
 	
 	//if ([touch view] == self.view) {
-        if (self.view.frame.origin.x < ((self.view.frame.size.width/2.0)*-1.0))
+        if (self.view.frame.origin.x < ((self.view.frame.size.width/4.0)*-1.0))
         {
             if (!timerExpired && !answered)
                 [self.parentController answerQuestionIsCorrect:NO withSkip:YES];
