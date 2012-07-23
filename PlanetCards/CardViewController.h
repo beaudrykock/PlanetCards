@@ -58,11 +58,8 @@
     BOOL supplementalInfoShowing;
     UILabel *postAnswerInstructions;
     
-    UIView *adView;
-    BOOL isAdVersion;
 }
 
-@property (nonatomic, retain) IBOutlet UIView *adView;
 @property (nonatomic, retain) IBOutlet UILabel *postAnswerInstructions;
 @property (nonatomic, retain) IBOutlet UIView *imageContainerView;
 @property (nonatomic, retain) IBOutlet UIView *supplementalInfoView;

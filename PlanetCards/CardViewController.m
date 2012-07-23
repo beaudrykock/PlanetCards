@@ -10,7 +10,7 @@
 
 @implementation CardViewController
 
-@synthesize question_image,question_frame,question, answer_1, answer_2, answer_3, answer_4, adView;
+@synthesize question_image,question_frame,question, answer_1, answer_2, answer_3, answer_4;
 @synthesize buttonBackground_right, buttonBackground_wrong, buttonBackground_corrected;
 @synthesize buttonArray;
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
@@ -42,13 +42,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    isAdVersion = YES;
-    
-    if (isAdVersion)
-    {
-        self.view = self.adView; 
-    }
-    
     [self loadButtonBackgrounds];
     
     [self stockButtonArray];
@@ -60,10 +53,11 @@
     
     // add gesture recognizer tap to the image
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showSupplementalInformation:)];
+    
     [self.question_image addGestureRecognizer:tap];
     
-    
     [tap release];
+    
     
     // add same to the supplementalInfoView
     UITapGestureRecognizer *tap_2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showSupplementalInformation:)];
