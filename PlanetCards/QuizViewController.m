@@ -238,10 +238,7 @@
         [self.skippingView removeFromSuperview];
     
     NSInteger block = (NSInteger)(currentQuestionInterval-secondsCount);
-    questionCount++;
     numberOfAnswers = -1; // flag as needing a reset so this is correctly handled in startTimers
-    
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
     
     if (isCorrect && block<=kFirstAnswerBlock) 
     {
@@ -257,18 +254,25 @@
     }
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
     
-    if (questionCount == 20)
+    if (questionCount == 19)
     {
+        // lock it down so user can't keep swiping the card
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         quizComplete = YES;
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runEndOfQuizFunctionality) userInfo:nil repeats:NO];
     }
     else {
+        
         [self nextCard];
     }
 }
 
 -(void)nextCard
 {
+    questionCount++;
+    
+    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
+    
     // update the index referencing the viewcontroller array
     currentCardIndex++;
     
@@ -340,10 +344,6 @@
     {
          [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:questionNumberForBottomCard];
     }
-    // and finally, slide a new view under the currently visible one
-    NSLog(@"ended ignoring interaction events");
-
-    
 }
 
 -(void)pushBottomCardView
@@ -440,10 +440,17 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.5];
     resultView_outerFrame.frame = newFrame;
+    [UIView setAnimationDidStopSelector:@selector(postQuizViewDidStopAnimating)];
+    [UIView setAnimationDelegate:self];
     [UIView commitAnimations];
 
     // DEPRECATED in favor of icon buttons
     //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showPostQuizActionSheet) userInfo:nil repeats:NO];
+}
+     
+-(void)postQuizViewDidStopAnimating
+{
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 }
 
 /*DEPRECATED
@@ -494,7 +501,7 @@
 
 -(void)removePostQuizViews
 {
-    if (self.resultView_innerFrame.superview!=nil)
+    if (self.resultView_outerFrame.superview!=nil)
         [self.resultView_outerFrame removeFromSuperview];
 }
 
@@ -552,6 +559,7 @@
 
 -(void)resetDeck
 {
+    
     currentQuestionNumber = 40+arc4random_uniform(20);
     
     if ([self.view viewWithTag:((currentCardIndex+1)*100)].superview != nil)
@@ -559,13 +567,14 @@
     
     if ([self.view viewWithTag:((currentCardIndex+2)*100)].superview != nil)
         [[self.view viewWithTag:((currentCardIndex+2)*100)] removeFromSuperview];
-        
+     
+    currentCardIndex = 0;
     questionCount = 0;
     score = 0;
     numberOfAnswers = -1;
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount]];
+    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount+1]];
     
     [cards removeAllObjects];
     

@@ -104,4 +104,5 @@
 -(IBAction)exitFromPostQuiz:(id)sender;
 -(IBAction)showAchievementsFromPostQuiz:(id)sender;
 -(IBAction)tweetFromPostQuiz:(id)sender;
+-(void)postQuizViewDidStopAnimating;
 @end
