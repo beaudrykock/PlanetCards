@@ -256,10 +256,7 @@
     
     if (questionCount == 19)
     {
-        // lock it down so user can't keep swiping the card
-        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         quizComplete = YES;
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runEndOfQuizFunctionality) userInfo:nil repeats:NO];
     }
     else {
         
@@ -377,6 +374,9 @@
     if (!quizComplete)
     {
         [self startTimer];
+    }
+    else {
+        [self runEndOfQuizFunctionality];
     }
 }
 

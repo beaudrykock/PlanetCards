@@ -290,6 +290,12 @@
         [self.correctIncorrectView setBackgroundColor:[UIColor colorWithRed:166.0/255.0 green:51.0/255.0 blue:54.0/255.0 alpha:1.0]];
         [self.correctIncorrectImage setImage:imageToSet];
         
+        // set text differently if end of quiz
+        if (currentQuestionNumber==kNumberOfQuestions)
+        {
+            
+        }
+        
     }
     else if (timerExpired)
     {
@@ -482,7 +488,7 @@
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
     
-    CGPoint endPoint = CGPointMake(0 - kCardViewWidth, -100.0f);
+    CGPoint endPoint = CGPointMake(0 - kCardViewWidth, 0.0f); // changed 07/23/12 from -100.0f y
     CGMutablePathRef curvedPath = CGPathCreateMutable();
     CGPathMoveToPoint(curvedPath, NULL, viewOrigin.x, viewOrigin.y);
     CGPathAddCurveToPoint(curvedPath, NULL, endPoint.x, viewOrigin.y, endPoint.x, viewOrigin.y, endPoint.x, endPoint.y);
