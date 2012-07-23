@@ -353,7 +353,7 @@
         newCard.view.frame = frame;
         
         newCard.view.tag = ((currentCardIndex+1)+1)*100;
-        NSLog(@"pushing card to bottom of view stack, with tag %i, underneath view with tag %i",((currentCardIndex+1)+1)*100, (currentCardIndex+1)*100);
+        //NSLog(@"pushing card to bottom of view stack, with tag %i, underneath view with tag %i",((currentCardIndex+1)+1)*100, (currentCardIndex+1)*100);
         UIView *currentView = [self.view viewWithTag:(currentCardIndex+1)*100];
         
         [self.view insertSubview:newCard.view belowSubview:currentView];

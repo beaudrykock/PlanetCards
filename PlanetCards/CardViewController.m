@@ -16,7 +16,7 @@
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
 @synthesize parentController;
 @synthesize quizDB;
-@synthesize buttonTray, supplementalInfoText, supplementalInfoView, supplementalInfoTitle, imageContainerView;
+@synthesize buttonTray, supplementalInfoText, supplementalInfoView, supplementalInfoTitle, imageContainerView, postAnswerInstructions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -288,14 +288,7 @@
         NSString *imageFilename = @"overlay_incorrect";
         UIImage *imageToSet = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageFilename ofType:@"png"]];
         [self.correctIncorrectView setBackgroundColor:[UIColor colorWithRed:166.0/255.0 green:51.0/255.0 blue:54.0/255.0 alpha:1.0]];
-        [self.correctIncorrectImage setImage:imageToSet];
-        
-        // set text differently if end of quiz
-        if (currentQuestionNumber==kNumberOfQuestions)
-        {
-            
-        }
-        
+        [self.correctIncorrectImage setImage:imageToSet];        
     }
     else if (timerExpired)
     {
@@ -309,6 +302,13 @@
     else {
         [self.correctIncorrectView setBackgroundColor:[UIColor colorWithRed:70.0/255.0 green:135.0/255.0 blue:10.0/255.0 alpha:1.0]];
     }
+    
+    // set text differently if end of quiz
+    if (currentQuestionNumber==(kNumberOfQuestions-1))
+    {
+        [self.postAnswerInstructions setText:@"Swipe the card to finish, or tap the image to learn more"];
+    }
+    
     self.correctIncorrectView.frame = CGRectMake(0.0, self.buttonTray.frame.origin.y, self.correctIncorrectView.frame.size.width, self.correctIncorrectView.frame.size.height);
     
     [self.view insertSubview:self.correctIncorrectView aboveSubview:self.imageContainerView];
@@ -578,6 +578,7 @@
     [correctIncorrectImage release];
     [quizDB release];
     [buttonTray release];
+    [postAnswerInstructions release];
 }
 
 

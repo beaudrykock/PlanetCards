@@ -56,8 +56,10 @@
     UILabel *supplementalInfoTitle;
     UITextView *supplementalInfoText;
     BOOL supplementalInfoShowing;
+    UILabel *postAnswerInstructions;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *postAnswerInstructions;
 @property (nonatomic, retain) IBOutlet UIView *imageContainerView;
 @property (nonatomic, retain) IBOutlet UIView *supplementalInfoView;
 @property (nonatomic, retain) IBOutlet UILabel *supplementalInfoTitle;

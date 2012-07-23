@@ -566,6 +566,14 @@
 					<int key="connectionID">130</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">postAnswerInstructions</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="562609945"/>
+					</object>
+					<int key="connectionID">131</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">submitAnswer:</string>
 						<reference key="source" ref="186500564"/>
@@ -768,7 +776,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">130</int>
+			<int key="maxID">131</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -804,6 +812,7 @@
 						<string key="correctIncorrectLabel">UILabel</string>
 						<string key="correctIncorrectView">UIView</string>
 						<string key="imageContainerView">UIView</string>
+						<string key="postAnswerInstructions">UILabel</string>
 						<string key="question">UILabel</string>
 						<string key="question_frame">UIView</string>
 						<string key="question_image">UIImageView</string>
@@ -847,6 +856,10 @@
 						<object class="IBToOneOutletInfo" key="imageContainerView">
 							<string key="name">imageContainerView</string>
 							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="postAnswerInstructions">
+							<string key="name">postAnswerInstructions</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="question">
 							<string key="name">question</string>
