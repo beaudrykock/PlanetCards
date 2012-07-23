@@ -182,6 +182,8 @@
     [newQuestion setLevel: [f numberFromString:[self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kLevel]]]];
     [newQuestion setQuestion: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kQuestion]]];
     [newQuestion setQuestionImageFilename: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kImage]]];
+    [newQuestion setSupplementalInfo: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kSupplement]]];
+    
     
     for (SMXMLElement *answerItem in [quizItem childrenNamed:kWrongAnswer])
     {

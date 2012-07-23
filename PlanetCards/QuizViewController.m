@@ -110,6 +110,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //[self loadInterstitialAd];
     
     [self loadQuizDB];
     
@@ -259,7 +260,6 @@
         quizComplete = YES;
     }
     else {
-        
         [self nextCard];
     }
 }
@@ -803,6 +803,24 @@
     [self resetTimerFlags];
     [self resetProgressBar];
 }
+
+#pragma mark - iAd
+/*
+-(void)loadInterstitialAd
+{
+    self.adInterstitial = [[ADInterstitialAd alloc] init];
+    self.adInterstitial.delegate = self;
+}
+
+-(BOOL)bannerAdIsReady
+{
+    //return self.adInterstitial.loaded;
+}
+
+-(void)showBannerAd
+{
+
+}*/
 
 - (void)viewDidUnload
 {

@@ -288,6 +288,7 @@
 		9FDA2A8D14CB223D001CAA0A /* info_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FDA2A8314CB223D001CAA0A /* info_selected@2x.png */; };
 		9FDA2A8E14CB223D001CAA0A /* test_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FDA2A8414CB223D001CAA0A /* test_btn.png */; };
 		9FDA2A8F14CB223D001CAA0A /* test_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FDA2A8514CB223D001CAA0A /* test_btn@2x.png */; };
+		9FF0FA3015BDBC0D00CC2BC7 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF0FA2F15BDBC0D00CC2BC7 /* iAd.framework */; };
 		9FF90A2F14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF90A2E14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m */; };
 		D93DD35713CB952D003D2512 /* scrollArrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D93DD35513CB952D003D2512 /* scrollArrow_back.png */; };
 		D93DD35813CB952D003D2512 /* scrollArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D93DD35613CB952D003D2512 /* scrollArrow.png */; };
@@ -609,6 +610,7 @@
 		9FDA2A8314CB223D001CAA0A /* info_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_selected@2x.png"; path = "Buttons/info_selected@2x.png"; sourceTree = "<group>"; };
 		9FDA2A8414CB223D001CAA0A /* test_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_btn.png; path = Buttons/test_btn.png; sourceTree = "<group>"; };
 		9FDA2A8514CB223D001CAA0A /* test_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test_btn@2x.png"; path = "Buttons/test_btn@2x.png"; sourceTree = "<group>"; };
+		9FF0FA2F15BDBC0D00CC2BC7 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		9FF90A2D14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+DisabledCopyPaste.h"; sourceTree = "<group>"; };
 		9FF90A2E14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+DisabledCopyPaste.m"; sourceTree = "<group>"; };
 		D93DD35513CB952D003D2512 /* scrollArrow_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollArrow_back.png; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FF0FA3015BDBC0D00CC2BC7 /* iAd.framework in Frameworks */,
 				9F7FACB214F92BC800DA6ED2 /* Accounts.framework in Frameworks */,
 				9F7FACAC14F92A0500DA6ED2 /* Twitter.framework in Frameworks */,
 				9F2DCB3314F6B6B7009C3C43 /* GameKit.framework in Frameworks */,
@@ -1007,6 +1010,7 @@
 		D9B77D0413BF6F3C00ED5BB1 = {
 			isa = PBXGroup;
 			children = (
+				9FF0FA2F15BDBC0D00CC2BC7 /* iAd.framework */,
 				D9B77D1913BF6F3D00ED5BB1 /* PlanetCards */,
 				D9B77D1213BF6F3D00ED5BB1 /* Frameworks */,
 				D9B77D1013BF6F3D00ED5BB1 /* Products */,

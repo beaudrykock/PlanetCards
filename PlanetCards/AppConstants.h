@@ -45,6 +45,7 @@
 #define kTemple @"Temple 1"
 #define kNumberOfCometsLessHaleBopp 3
 #define kNumberOfAsteroids 5
+#define kSupplement @"supplement"
 
 // QUIZ PARSING
 #define kQuizItem @"quiz_item"

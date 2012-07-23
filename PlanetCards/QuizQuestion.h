@@ -15,9 +15,10 @@
     NSString* question;
     NSMutableArray* quizAnswers;
     NSString *questionImageFilename;
-    
+    NSString *supplementalInfo;
 }
 
+@property (nonatomic, retain) NSString *supplementalInfo;
 @property (nonatomic, retain) NSNumber*level;
 @property (nonatomic, retain) NSString *question;
 @property (nonatomic, retain) NSMutableArray *quizAnswers;

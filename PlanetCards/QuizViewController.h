@@ -13,8 +13,9 @@
 #import "QuizIntroViewController.h"
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+#import "iAd/ADInterstitialAd.h"
 
-@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ADInterstitialAdDelegate>
 {
     
     QuizDB *quizDB;
