@@ -12,7 +12,7 @@
 
 @synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, scoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView;
 @synthesize bestScoreResultLabel, skippingView;
-@synthesize answerTimer, subTimer_1, subTimer_2, progressBarTimer, timerBar;
+@synthesize answerTimer, subTimer_1, subTimer_2, progressBarTimer, timerBar, lastFiveAnswers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,7 +114,7 @@
     
     [self loadQuizDB];
     
-    currentQuestionNumber = 40+arc4random_uniform(20);
+    currentQuestionNumber = [self selectStartingQuestionNumber];
     
     [self addCards];
     
@@ -139,6 +139,38 @@
     [intro setParentController:self];
     [self.view addSubview:intro.view];
     
+}
+
+-(NSInteger)selectStartingQuestionNumber
+{
+    // TODO: return the question number in the master array based on last user score
+    NSInteger lastScore = -1; //-1 persisting indicates first quiz run
+    lastScore = [Utilities getLastScore];
+    currentDifficultyLevel = 4; // always start at 4, so that avoid running off bottom of levels
+    currentDifficultyLevel = [Utilities getLastDifficultyLevel];
+    
+    if (score>=0 && score<25)
+    {
+        [self changeDifficultyLevelBy:-2];
+    }
+    else if (score>=0 && score<50)
+    {
+        [self changeDifficultyLevelBy:-1];
+    }
+    else if (score>=0 && score<75)
+    {
+        [self changeDifficultyLevelBy:1];
+    }
+    else if (score>=0 && score<=100)
+    {
+        [self changeDifficultyLevelBy:2];
+    }
+    
+    NSInteger startingNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
+    [Utilities setLastStartingQuestionNumber:startingNumber];
+    
+    //return startingNumber; // TODO: UNCOMMENT AFTER TAIS ASSIGNS QUESTION LEVELS
+    return 40+arc4random_uniform(20);
 }
 
 -(void)startQuiz
@@ -214,6 +246,8 @@
     } 
     
     [[self.cards objectAtIndex:currentCardIndex] prepCardForQuestionNumber:currentQuestionNumber];
+    //[[self.cards objectAtIndex:currentCardIndex] prepCardForQuestionNumber:[self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES]]; // TODO uncomment when ready for new difficulty approach
+    
     [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:currentQuestionNumber+1];
     
     [self.quizDB addQuestionAskedRecord:currentQuestionNumber];
@@ -232,6 +266,7 @@
     
     [self invalidateAllTimers];
     
+    [self.lastFiveAnswers addObject: [NSNumber numberWithBool:isCorrect]];
     wasLastQuestionAnsweredCorrect = isCorrect;
     
     // get rid of any skipping view that was added
@@ -306,11 +341,62 @@
     secondsCount = currentQuestionInterval;
 }
 
+// returns the next question in the difficulty order; if not available, returns the 
+// next available question from the difficulty order above that; if that's not available, 
+// keeps incrementing until there is availability
+-(NSInteger)getQuestionNumberInDifficultyOrder
+{
+    NSInteger questionNumber = 0;
+    if ([self.quizDB questionsAreAvailableAtDifficultyLevel:currentDifficultyLevel])
+    {
+        questionNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
+    }
+    else {
+        while (![self.quizDB questionsAreAvailableAtDifficultyLevel:currentDifficultyLevel])
+        {
+            [self changeDifficultyLevelBy:1];
+            
+            questionNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
+        }
+    }
+    
+    return questionNumber;
+}
+
 // the card added at the bottom of the view stack must be prepped based on the answer to the just removed card
 -(void)prepBottomCard
 {
     [self pushBottomCardView];
     
+    NSInteger questionNumberForBottomCard;
+    
+    if (currentCardIndex==5 || currentCardIndex==10 || currentCardIndex==15)
+    {
+        questionNumberForBottomCard = [self getQuestionNumberInDifficultyOrder];
+    }
+    else 
+    {
+        int correctCount = 0;
+        for (NSNumber *answerCorrectness in lastFiveAnswers)
+        {
+            if ([answerCorrectness boolValue]) correctCount++;
+        }
+        
+        int incorrectCount = [lastFiveAnswers count]-correctCount;
+        
+        if (incorrectCount==5)
+        {
+            [self changeDifficultyLevelBy:-1];
+        }
+        else if (incorrectCount<=1) 
+        {
+            [self changeDifficultyLevelBy:1];
+        }
+        
+        questionNumberForBottomCard = [self getQuestionNumberInDifficultyOrder];
+    }
+    
+    /*
     NSInteger block = (NSInteger)(currentQuestionInterval-secondsCount);
     NSInteger questionNumberForBottomCard = currentQuestionNumber;
     if (wasLastQuestionAnsweredCorrect && block<=kFirstAnswerBlock) 
@@ -331,16 +417,25 @@
      score += 2;
      //NSLog(@"question number after selection (block 3) = %i",currentQuestionNumber);
      }*/
+    /*
     else
     {
         questionNumberForBottomCard = [quizDB getRandomQuestionNumberFromCurrent: questionNumberForBottomCard inPrevious:5 withMinChoices: 2];
-    }
+    }*/
     
     // prep the bottom card
     if ([self.cards count]>currentCardIndex+1)
     {
          [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:questionNumberForBottomCard];
     }
+}
+
+-(void)changeDifficultyLevelBy:(NSInteger)change
+{
+    currentDifficultyLevel+=change;
+    
+    // sets difficulty level randomly if it hits min or max levels
+    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%20;
 }
 
 -(void)pushBottomCardView
@@ -405,7 +500,10 @@
     
     [scoreResultLabel setText:[NSString stringWithFormat:@"Score: %i%% correct",score]];
     
+    [Utilities setLastScore:score];
     [Utilities updateAllTimeBestScore:score];
+    [Utilities setLastDifficultyLevel:currentDifficultyLevel];
+    
     NSInteger allTimeScore = [Utilities getAllTimeBestScore];
     
     [bestScoreResultLabel setText:[NSString stringWithFormat:@"Best: %i%% correct",allTimeScore]];

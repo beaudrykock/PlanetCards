@@ -62,8 +62,11 @@
     float currentQuestionInterval;
     BOOL wasLastQuestionAnsweredCorrect;
     BOOL quizComplete;
+    NSInteger currentDifficultyLevel;
+    NSMutableArray *lastFiveAnswers; // YES/NO for correct
 }
 
+@property (nonatomic, retain) NSMutableArray *lastFiveAnswers;
 @property (nonatomic, retain) IBOutlet UIView *skippingView;
 @property (nonatomic, retain) NSMutableArray *cards;
 @property (nonatomic, retain) QuizDB *quizDB;
@@ -106,4 +109,5 @@
 -(IBAction)showAchievementsFromPostQuiz:(id)sender;
 -(IBAction)tweetFromPostQuiz:(id)sender;
 -(void)postQuizViewDidStopAnimating;
+-(NSInteger)selectStartingQuestionNumber;
 @end

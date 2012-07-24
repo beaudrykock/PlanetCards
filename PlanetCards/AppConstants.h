@@ -62,6 +62,13 @@
 #define kAnswerLossIntervalInSeconds 5
 #define kQuestionIntervalForTwoAnswersInSeconds 5
 
+// QUIZ LOGIC
+#define kLastScoreKey @"lastScore"
+#define kLastDifficultyLevelKey @"lastDifficultyLevel"
+#define kMinimumDifficultyLevel 1
+#define kMaximumDifficultyLevel 10
+#define kLastStartingQuestionNumberKey @"lastStartingQuestionNumber"
+
 // SCORING
 #define kIncorrectDelay 1.0
 #define kCorrectDelay 0.5

@@ -14,9 +14,11 @@
 @interface QuizDB : NSObject
 {
     NSMutableArray *quizQuestions;
+    NSMutableDictionary *quizQuestionsByDifficulty;
     NSMutableArray *questionsAsked;
 }
 
+@property (nonatomic, retain) NSMutableDictionary *quizQuestionsByDifficulty;
 @property (nonatomic, retain) NSMutableArray *quizQuestions;
 @property (nonatomic, retain) NSMutableArray *questionsAsked;
 
@@ -28,9 +30,11 @@
 -(NSInteger)getRightAnswerIndexForQuestion:(NSInteger)questionNumber;
 -(NSInteger)getRandomQuestionNumberFromCurrent:(NSInteger)currentQuestionNumber inNext: (NSInteger)count withMinChoices: (NSInteger)minChoices;
 -(NSInteger)getRandomQuestionNumberFromCurrent:(NSInteger)currentQuestionNumber inPrevious: (NSInteger)count withMinChoices: (NSInteger)minChoices;
+-(NSInteger)getRandomQuestionNumberWithDifficultyLevel:(NSInteger)difficultyLevel andRecord:(BOOL)record;
 -(BOOL)questionIsAskableWithNumber:(NSInteger)questionNumber;
 -(void)addQuestionAskedRecord:(NSInteger)questionNumber;
 -(NSInteger)getRandomQuestionNumber;
 -(UIImage*)getRandomImage;
+-(BOOL)questionsAreAvailableAtDifficultyLevel:(NSInteger)level;
 
 @end

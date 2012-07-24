@@ -80,10 +80,40 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:kAllTimeBestScoreKey] intValue];
 }
 
++(void)setLastScore:(NSInteger)lastScore
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:lastScore forKey:kLastScoreKey];
+}
+
++(NSInteger)getLastScore
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kLastScoreKey];
+}
+
 +(BOOL)iOS5available
 {
     return [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0;
 }
 
+
++(void)setLastDifficultyLevel:(NSInteger)lastDifficultyLevel
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:lastDifficultyLevel forKey:kLastDifficultyLevelKey];
+}
+
++(NSInteger)getLastDifficultyLevel
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey];
+}
+
++(void)setLastStartingQuestionNumber:(NSInteger)questionNumber
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:questionNumber forKey:kLastStartingQuestionNumberKey];
+}
+
++(NSInteger)getLastStartingQuestionNumber
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kLastStartingQuestionNumberKey];
+}
 
 @end

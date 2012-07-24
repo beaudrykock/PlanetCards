@@ -21,5 +21,6 @@
 -(IBAction)hide:(id)sender;
 -(IBAction)sendToBWCWithSafari:(id)sender;
 -(IBAction)sendToScientificPlaygroundWithSafari:(id)sender;
+-(IBAction)sendToMeloniWithSafari:(id)sender;
 
 @end

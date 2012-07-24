@@ -19,4 +19,10 @@
 +(void)updateAllTimeBestScore:(NSInteger)newScore;
 +(BOOL)iOS5available;
 +(NSString*)getUnitPreference;
++(void)setLastScore:(NSInteger)lastScore;
++(NSInteger)getLastScore;
++(void)setLastDifficultyLevel:(NSInteger)lastDifficultyLevel;
++(NSInteger)getLastDifficultyLevel;
++(void)setLastStartingQuestionNumber:(NSInteger)questionNumber;
++(NSInteger)getLastStartingQuestionNumber;
 @end

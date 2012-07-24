@@ -10,11 +10,12 @@
 
 @implementation QuizDB
 
-@synthesize quizQuestions, questionsAsked;
+@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty;
 
 -(void)loadContent
 {
-    quizQuestions = [[NSMutableArray alloc] initWithCapacity:200];
+    self.quizQuestions = [[NSMutableArray alloc] initWithCapacity:200];
+    self.quizQuestionsByDifficulty = [[NSMutableDictionary alloc] initWithCapacity:10];
     
     NSString *objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
 	NSData *data = [NSData dataWithContentsOfFile:objectXML];
@@ -33,7 +34,7 @@
         [self generateQuestionFromQuizItem: quizItem];
     }
     
-    questionsAsked = [[NSMutableArray arrayWithCapacity:60] retain];
+    questionsAsked = [[NSMutableArray arrayWithCapacity:20] retain];
 }
 
 -(UIImage*)getRandomImage
@@ -128,6 +129,56 @@
     return finalChoice;
 }
 
+-(NSInteger)getRandomQuestionNumberWithDifficultyLevel:(NSInteger)difficultyLevel andRecord:(BOOL)record
+{
+    NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:difficultyLevel]];
+    BOOL found = NO;
+    NSInteger questionNbr = 0;
+    NSInteger counter = 0;
+    for (int i = difficultyLevel; i<kMaximumDifficultyLevel; i++)
+    {
+        while (!found && counter<[indices count])
+        {
+            questionNbr = [[indices objectAtIndex:counter] intValue];
+            
+            if ([self questionIsAskableWithNumber:questionNbr])
+            {
+                found = YES;
+            }
+            counter++;
+        }
+        if (found)
+            break;
+    }
+    
+    NSAssert(found,@"Question should have been found");
+    
+    if (record)
+        [self addQuestionAskedRecord:questionNbr];
+    
+    return questionNbr;
+}
+
+-(BOOL)questionsAreAvailableAtDifficultyLevel:(NSInteger)level
+{
+    NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:level]];
+    BOOL found = NO;
+    NSInteger questionNbr = 0;
+    NSInteger counter = 0;
+    while (!found && counter<[indices count])
+    {
+        questionNbr = [[indices objectAtIndex:counter] intValue];
+            
+        if ([self questionIsAskableWithNumber:questionNbr])
+        {
+            found = YES;
+        }
+        counter++;
+    }
+    
+    return found;
+}
+
 -(NSInteger)getRandomQuestionNumber
 {
     BOOL found = NO;
@@ -179,7 +230,7 @@
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     
-    [newQuestion setLevel: [f numberFromString:[self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kLevel]]]];
+    [newQuestion setLevel: [[self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kLevel]] integerValue]];
     [newQuestion setQuestion: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kQuestion]]];
     [newQuestion setQuestionImageFilename: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kImage]]];
     [newQuestion setSupplementalInfo: [self stringStrippedOfWhitespaceAndNewlines:[quizItem valueWithPath:kSupplement]]];
@@ -203,7 +254,22 @@
     
     [newQuestion randomizeAnswers];
         
+    int count = [quizQuestions count];
+    [newQuestion setMasterArrayIndex:count];
     [quizQuestions addObject:newQuestion];
+    
+    if (![quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:[newQuestion level]]])
+    {
+        NSMutableArray *questionIndices = [[NSMutableArray alloc] initWithCapacity:10];
+        [questionIndices addObject:[NSNumber numberWithInt:[newQuestion masterArrayIndex]]];
+        [self.quizQuestionsByDifficulty setObject:questionIndices forKey:[NSNumber numberWithInt:[newQuestion level]]];
+        [questionIndices release];
+    }
+    else 
+    {
+        NSMutableArray *questionIndices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:[newQuestion level]]];
+        [questionIndices addObject:[NSNumber numberWithInt:[newQuestion masterArrayIndex]]];
+    }
     
     [f release];
     [newQuestion release];

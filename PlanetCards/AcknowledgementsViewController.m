@@ -43,6 +43,11 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.scientificplayground.com"]];
 }
 
+-(IBAction)sendToMeloniWithSafari:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.meloni.dk/resultat.php?search=planetkort&submit=S%F8g"]];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -59,6 +64,9 @@
     CGSize expectedSize_1 = [title sizeWithFont: [UIFont fontWithName:@"Helvetica Neue" size:13.0]];
     title = @"Scientific Playground";
     CGSize expectedSize_2 = [title sizeWithFont: [UIFont fontWithName:@"Helvetica Neue" size:13.0]];
+    title = @"Meloni Publishing Company";
+    CGSize expectedSize_3 = [title sizeWithFont: [UIFont fontWithName:@"Helvetica Neue" size:13.0]];
+    
     
     UIButton *bwcButton = [UIUnderlinedButton underlinedButton];
     bwcButton.frame=CGRectMake(developedBy.frame.origin.x+developedBy.frame.size.width, developedBy.frame.origin.y+2, expectedSize_1.width, expectedSize_2.height);
@@ -75,6 +83,14 @@
     [sciPlayButton setTitle:@"Scientific Playground" forState:UIControlStateNormal];
     [sciPlayButton addTarget:self action:@selector(sendToScientificPlaygroundWithSafari:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sciPlayButton];
+    
+    UIButton *meloniButton = [UIUnderlinedButton underlinedButton];
+    meloniButton.frame=CGRectMake(111.0, 358.0, expectedSize_3.width, expectedSize_3.height);
+    [meloniButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:13.0]];
+    [meloniButton.titleLabel setTextColor:[UIColor whiteColor]];
+    [meloniButton setTitle:@"Meloni Publishing Company" forState:UIControlStateNormal];
+    [meloniButton addTarget:self action:@selector(sendToMeloniWithSafari:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:meloniButton];
 }
 
 - (void)viewDidUnload

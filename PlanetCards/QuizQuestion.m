@@ -10,7 +10,7 @@
 
 @implementation QuizQuestion
 
-@synthesize question,questionImageFilename,quizAnswers,level,supplementalInfo;
+@synthesize question,questionImageFilename,quizAnswers,level,supplementalInfo, masterArrayIndex;
 
 -(void)setup
 {
