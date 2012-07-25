@@ -2,7 +2,7 @@
 <quiz_data>
     <quiz_item>
         <question>Which planet is furthest away from the sun?</question>
-        <level>0</level>
+        <level>1</level>
         <right_answer>Neptune</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -22,7 +22,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the name of Pluto's biggest moon?</question>
-        <level>2</level>
+        <level>1</level>
         <right_answer>Charon</right_answer>
         <wrong_answer>Oberon</wrong_answer>
         <wrong_answer>Mysteron</wrong_answer>
@@ -31,7 +31,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is closer to the sun?</question>
-        <level>3</level>
+        <level>1</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -40,7 +40,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is best known for its ring system?</question>
-        <level>4</level>
+        <level>1</level>
         <right_answer>Saturn</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Mercury</wrong_answer>
@@ -49,7 +49,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is Earth the largest planet in the Solar System?</question>
-        <level>5</level>
+        <level>1</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <image>04_Earth_large.png</image>
@@ -57,7 +57,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is bigger?</question>
-        <level>6</level>
+        <level>1</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>Moon</wrong_answer>
         <image>05_Moon_large.png</image>
@@ -65,7 +65,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many planets are there in the Solar System?</question>
-        <level>7</level>
+        <level>1</level>
         <right_answer>8</right_answer>
         <wrong_answer>7</wrong_answer>
         <wrong_answer>9</wrong_answer>
@@ -75,7 +75,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the warmest place in the Solar System?</question>
-        <level>8</level>
+        <level>1</level>
         <right_answer>Sun</right_answer>
         <wrong_answer>Mercury</wrong_answer>
         <wrong_answer>Venus</wrong_answer>
@@ -84,7 +84,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is furthest away from us?</question>
-        <level>9</level>
+        <level>1</level>
         <right_answer>Moon</right_answer>
         <wrong_answer>Clouds</wrong_answer>
         <image>04_Earth_large.png</image>
@@ -92,7 +92,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is the heaviest?</question>
-        <level>10</level>
+        <level>1</level>
         <right_answer>Jupiter</right_answer>
         <wrong_answer>Sun</wrong_answer>
         <wrong_answer>Saturn</wrong_answer>
@@ -101,7 +101,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is red?</question>
-        <level>11</level>
+        <level>2</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Venus</wrong_answer>
@@ -110,7 +110,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is bigger?</question>
-        <level>12</level>
+        <level>2</level>
         <right_answer>Sun</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <image>04_Earth_large.png</image>
@@ -118,7 +118,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is Mars made of chocolate?</question>
-        <level>13</level>
+        <level>2</level>
         <right_answer>Yes, and caramel</right_answer>
         <wrong_answer>No, licorice</wrong_answer>
         <wrong_answer>I don't know</wrong_answer>
@@ -128,7 +128,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is the Milky Way made of milk?</question>
-        <level>14</level>
+        <level>2</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <image>01_Sun_large.png</image>
@@ -136,7 +136,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the sun?</question>
-        <level>15</level>
+        <level>2</level>
         <right_answer>A star</right_answer>
         <wrong_answer>A planet</wrong_answer>
         <wrong_answer>A black hole</wrong_answer>
@@ -145,7 +145,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is an asteroid?</question>
-        <level>16</level>
+        <level>2</level>
         <right_answer>A rocky body orbiting the sun</right_answer>
         <wrong_answer>A child of a star</wrong_answer>
         <wrong_answer>A shooting star</wrong_answer>
@@ -154,7 +154,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where is 71% of the surface covered with water?</question>
-        <level>17</level>
+        <level>2</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>Europa</wrong_answer>
         <wrong_answer>Enceladus</wrong_answer>
@@ -164,7 +164,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the sun viewed from Pluto?</question>
-        <level>18</level>
+        <level>2</level>
         <right_answer>As big as the head of a pin held at full arms length</right_answer>
         <wrong_answer>As big as seen from Earth</wrong_answer>
         <wrong_answer>As big as the head of an apple held at full arms length</wrong_answer>
@@ -173,7 +173,7 @@
     </quiz_item>
     <quiz_item>
         <question>On how many planets in the Solar System is life present?</question>
-        <level>19</level>
+        <level>2</level>
         <right_answer>1</right_answer>
         <wrong_answer>2</wrong_answer>
         <wrong_answer>3</wrong_answer>
@@ -182,7 +182,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is the day on Mercury short or long compared to a Mercury year?</question>
-        <level>20</level>
+        <level>3</level>
         <right_answer>Long </right_answer>
         <wrong_answer>Short</wrong_answer>
         <image>02_Mercury_large.png</image>
@@ -190,7 +190,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is water ice present on the Moon?</question>
-        <level>21</level>
+        <level>3</level>
         <right_answer>Yes, near the poles</right_answer>
         <wrong_answer>No, it's completely dry</wrong_answer>
         <wrong_answer>Yes, it has oceans</wrong_answer>
@@ -199,7 +199,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is there ice on Mars?</question>
-        <level>22</level>
+        <level>3</level>
         <right_answer>Yes, at the poles</right_answer>
         <wrong_answer>Yes, frozen oceans</wrong_answer>
         <wrong_answer>No</wrong_answer>
@@ -208,7 +208,7 @@
     </quiz_item>
     <quiz_item>
         <question>How old is the surface of Enceladus?</question>
-        <level>23</level>
+        <level>3</level>
         <right_answer>Young - only 100 million years</right_answer>
         <wrong_answer>Old as the solar system</wrong_answer>
         <image>23_Enceladus_large.png</image>
@@ -216,7 +216,7 @@
     </quiz_item>
     <quiz_item>
         <question>When will Phobos collide with Mars?</question>
-        <level>24</level>
+        <level>3</level>
         <right_answer>In 50 million years</right_answer>
         <wrong_answer>Never</wrong_answer>
         <wrong_answer>Any minute now</wrong_answer>
@@ -225,7 +225,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is Ceres heavier than all other asteroids combined?</question>
-        <level>25</level>
+        <level>3</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>09_Ceres_large.png</image>
@@ -233,7 +233,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which moon is fully covered with frozen water?</question>
-        <level>26</level>
+        <level>3</level>
         <right_answer>Europa</right_answer>
         <wrong_answer>Io</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -243,7 +243,7 @@
     </quiz_item>
     <quiz_item>
         <question>What do you call rocks from space that land on Earth?</question>
-        <level>27</level>
+        <level>3</level>
         <right_answer>Meteorites</right_answer>
         <wrong_answer>UFOs</wrong_answer>
         <wrong_answer>Space cadets</wrong_answer>
@@ -253,7 +253,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is Ida's moon, Dactyl?</question>
-        <level>28</level>
+        <level>3</level>
         <right_answer>1.5 miles</right_answer>
         <wrong_answer>15 miles</wrong_answer>
         <wrong_answer>150 miles</wrong_answer>
@@ -263,7 +263,7 @@
     </quiz_item>
     <quiz_item>
         <question>Comets consist of...</question>
-        <level>29</level>
+        <level>3</level>
         <right_answer>Dirty ice</right_answer>
         <wrong_answer>Rock</wrong_answer>
         <wrong_answer>Gas</wrong_answer>
@@ -273,7 +273,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has the shortest orbit?</question>
-        <level>30</level>
+        <level>4</level>
         <right_answer>Mercury</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -283,7 +283,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the largest moon in the solar system?</question>
-        <level>31</level>
+        <level>4</level>
         <right_answer>Ganymede</right_answer>
         <wrong_answer>The Moon</wrong_answer>
         <wrong_answer>Titan</wrong_answer>
@@ -293,7 +293,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is an astronomical unit?</question>
-        <level>32</level>
+        <level>4</level>
         <right_answer>Earth-sun distance</right_answer>
         <wrong_answer>Earth mass</wrong_answer>
         <wrong_answer>Earth diameter</wrong_answer>
@@ -303,7 +303,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the Milky Way? </question>
-        <level>33</level>
+        <level>4</level>
         <right_answer>The galaxy where the solar system is located</right_answer>
         <wrong_answer>Small stars</wrong_answer>
         <wrong_answer>Light pollution</wrong_answer>
@@ -313,7 +313,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many days does Earth take to travel around the sun? </question>
-        <level>34</level>
+        <level>4</level>
         <right_answer>365 days</right_answer>
         <wrong_answer>24 hours</wrong_answer>
         <wrong_answer>1 light year</wrong_answer>
@@ -323,7 +323,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has a moon named Triton? </question>
-        <level>35</level>
+        <level>4</level>
         <right_answer>Neptune</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -333,7 +333,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is also sometimes called the morning star? </question>
-        <level>36</level>
+        <level>4</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -343,7 +343,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet moves fastest around the sun?</question>
-        <level>37</level>
+        <level>4</level>
         <right_answer>Mercury</right_answer>
         <wrong_answer>Venus</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -353,7 +353,7 @@
     </quiz_item>
     <quiz_item>
         <question>On which planet's surface is the pressure 100 times higher than on Earth?</question>
-        <level>38</level>
+        <level>4</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -363,7 +363,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has the strongest greenhouse effect?</question>
-        <level>39</level>
+        <level>4</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -373,7 +373,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which is the greatest body in the asteroid belt between Mars and Jupiter?</question>
-        <level>40</level>
+        <level>5</level>
         <right_answer>Ceres</right_answer>
         <wrong_answer>Kleopatra</wrong_answer>
         <wrong_answer>Vesta</wrong_answer>
@@ -383,7 +383,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many Apollo astronauts have walked on the Moon?</question>
-        <level>41</level>
+        <level>5</level>
         <right_answer>12</right_answer>
         <wrong_answer>3 </wrong_answer>
         <wrong_answer>92</wrong_answer>
@@ -393,7 +393,7 @@
     </quiz_item>
     <quiz_item>
         <question>When did humans last stand on the Moon?</question>
-        <level>42</level>
+        <level>5</level>
         <right_answer>1972</right_answer>
         <wrong_answer>1982</wrong_answer>
         <wrong_answer>1992</wrong_answer>
@@ -403,7 +403,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where is the warmest planet in the solar system?</question>
-        <level>43</level>
+        <level>5</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mercury</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -413,7 +413,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many moons does Jupiter have?</question>
-        <level>44</level>
+        <level>5</level>
         <right_answer>More than 60</right_answer>
         <wrong_answer>Less than 40</wrong_answer>
         <wrong_answer>4</wrong_answer>
@@ -423,7 +423,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where is life more likely to be found?</question>
-        <level>45</level>
+        <level>5</level>
         <right_answer>Europa</right_answer>
         <wrong_answer>Pluto </wrong_answer>
         <wrong_answer>Venus</wrong_answer>
@@ -433,7 +433,7 @@
     </quiz_item>
     <quiz_item>
         <question>How long has life existed on Earth?</question>
-        <level>46</level>
+        <level>5</level>
         <right_answer>More than 3.5 billion years</right_answer>
         <wrong_answer>13.7 billion years</wrong_answer>
         <wrong_answer>1 million years</wrong_answer>
@@ -443,7 +443,7 @@
     </quiz_item>
     <quiz_item>
         <question>Were Phobos and Deimos once asteroids?</question>
-        <level>47</level>
+        <level>5</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>08_Deimos_large.png</image>
@@ -451,7 +451,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many Moon rocks did the Apollo astronauts bring home?</question>
-        <level>48</level>
+        <level>5</level>
         <right_answer>382 kilogram</right_answer>
         <wrong_answer>None</wrong_answer>
         <wrong_answer>10 tonnes</wrong_answer>
@@ -461,7 +461,7 @@
     </quiz_item>
     <quiz_item>
         <question>How high is air pressure at the surface of Venus?</question>
-        <level>49</level>
+        <level>5</level>
         <right_answer>90 times Earth's</right_answer>
         <wrong_answer>1 atmosphere</wrong_answer>
         <wrong_answer>Same as on Earth</wrong_answer>
@@ -470,7 +470,7 @@
     </quiz_item>
     <quiz_item>
         <question>Do we have pieces of Vesta's former parent body on Earth?</question>
-        <level>50</level>
+        <level>6</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>11_Vesta_large.png</image>
@@ -478,7 +478,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which near-Earth asteroid presents a risk of collision with Earth?</question>
-        <level>51</level>
+        <level>6</level>
         <right_answer>Yes, Eros might</right_answer>
         <wrong_answer>Yes, Pluto might</wrong_answer>
         <wrong_answer>Yes, Ceres might</wrong_answer>
@@ -488,7 +488,7 @@
     </quiz_item>
     <quiz_item>
         <question>When did Shoemaker-Levy-9 break apart and collide with Jupiter?</question>
-        <level>52</level>
+        <level>6</level>
         <right_answer>1994</right_answer>
         <wrong_answer>1572</wrong_answer>
         <wrong_answer>1610</wrong_answer>
@@ -498,7 +498,7 @@
     </quiz_item>
     <quiz_item>
         <question>How often does Halley's comet travel by the Earth towards the sun?</question>
-        <level>53</level>
+        <level>6</level>
         <right_answer>Every 76 years</right_answer>
         <wrong_answer>Every 3.3 years</wrong_answer>
         <wrong_answer>Every 7 years</wrong_answer>
@@ -508,7 +508,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the name of the large crater on Mimas?</question>
-        <level>54</level>
+        <level>6</level>
         <right_answer>Herschel</right_answer>
         <wrong_answer>Chicxulub</wrong_answer>
         <wrong_answer>Valles Marineris</wrong_answer>
@@ -518,7 +518,7 @@
     </quiz_item>
     <quiz_item>
         <question>How much of Earth's surface is covered with water?</question>
-        <level>55</level>
+        <level>6</level>
         <right_answer>71%</right_answer>
         <wrong_answer>51%</wrong_answer>
         <wrong_answer>91%</wrong_answer>
@@ -528,7 +528,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where does the sun rise in the west and set in the east?</question>
-        <level>56</level>
+        <level>6</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -538,7 +538,7 @@
     </quiz_item>
     <quiz_item>
         <question>One hemisphere of Callisto is constantly facing Jupiter. This is called...</question>
-        <level>57</level>
+        <level>6</level>
         <right_answer>Synchronous rotation</right_answer>
         <wrong_answer>Spin-coupling</wrong_answer>
         <wrong_answer>Angular momentum</wrong_answer>
@@ -548,7 +548,7 @@
     </quiz_item>
     <quiz_item>
         <question>What are Saturn's rings made of?</question>
-        <level>58</level>
+        <level>6</level>
         <right_answer>Dirty ice, dust and pebbles</right_answer>
         <wrong_answer>Helium and hydrogen gas</wrong_answer>
         <wrong_answer>Giant boulders</wrong_answer>
@@ -558,7 +558,7 @@
     </quiz_item>
     <quiz_item>
         <question>What kept humans from exploring the surface of Titan before the 2004 Cassini-Huygens mission?</question>
-        <level>59</level>
+        <level>6</level>
         <right_answer>Titan's dense cloud cover</right_answer>
         <wrong_answer>Earth's opaque atmosphere</wrong_answer>
         <wrong_answer>Titan is always hiding behind Saturn</wrong_answer>
@@ -568,7 +568,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is special about Iapetus?</question>
-        <level>60</level>
+        <level>7</level>
         <right_answer>It is the "yin-yan" moon. </right_answer>
         <wrong_answer>Its surface is turned inside out</wrong_answer>
         <wrong_answer>Its shape is like a dog's bone</wrong_answer>
@@ -578,7 +578,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many Saturn moons do we know of?</question>
-        <level>61</level>
+        <level>7</level>
         <right_answer>More than 50</right_answer>
         <wrong_answer>18</wrong_answer>
         <wrong_answer>Less than 40</wrong_answer>
@@ -588,7 +588,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is Uranus' moon, Ariel, and most other moons of outside Jupiter made of?</question>
-        <level>62</level>
+        <level>7</level>
         <right_answer>Ice</right_answer>
         <wrong_answer>Rock</wrong_answer>
         <wrong_answer>Gas</wrong_answer>
@@ -598,7 +598,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the wind system visible in this image of Neptune?</question>
-        <level>63</level>
+        <level>7</level>
         <right_answer>Earth-sized</right_answer>
         <wrong_answer>Size of Sahara desert</wrong_answer>
         <wrong_answer>200 km across</wrong_answer>
@@ -608,7 +608,7 @@
     </quiz_item>
     <quiz_item>
         <question>How much energy was released, when comet Shoemaker-Levy-9 collided with Jupiter?</question>
-        <level>64</level>
+        <level>7</level>
         <right_answer>More than our entire nuclear arsenal</right_answer>
         <wrong_answer>Less than our entire nuclear arsenal</wrong_answer>
         <wrong_answer>Same as our entire nuclear arsenal</wrong_answer>
@@ -618,7 +618,7 @@
     </quiz_item>
     <quiz_item>
         <question>What will happen to Triton when it gets too close to Neptune?</question>
-        <level>65</level>
+        <level>7</level>
         <right_answer>Tidal break up. It forms of a ring like Saturn</right_answer>
         <wrong_answer>A gravity assist will lead to escape</wrong_answer>
         <wrong_answer>It will bounce back</wrong_answer>
@@ -628,7 +628,7 @@
     </quiz_item>
     <quiz_item>
         <question>When did/will Voyager 2 pass by Proteus?</question>
-        <level>66</level>
+        <level>7</level>
         <right_answer>1989</right_answer>
         <wrong_answer>1972</wrong_answer>
         <wrong_answer>2020</wrong_answer>
@@ -638,7 +638,7 @@
     </quiz_item>
     <quiz_item>
         <question>Who was the first living creature in space?</question>
-        <level>67</level>
+        <level>7</level>
         <right_answer>Laika - a Russian dog</right_answer>
         <wrong_answer>John Glenn - an American astronaut</wrong_answer>
         <wrong_answer>Yuri Gagarin - a Russian cosmonaut</wrong_answer>
@@ -648,7 +648,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has no ring?</question>
-        <level>68</level>
+        <level>7</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Neptune</wrong_answer>
@@ -658,7 +658,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is a shooting star?</question>
-        <level>69</level>
+        <level>7</level>
         <right_answer>A meteor passing into the Earth's atmosphere</right_answer>
         <wrong_answer>A Danish fish dish</wrong_answer>
         <wrong_answer>The death of a star</wrong_answer>
@@ -668,7 +668,7 @@
     </quiz_item>
     <quiz_item>
         <question>How long will it take NASA spacecraft New Horizons to reach Pluto?</question>
-        <level>70</level>
+        <level>8</level>
         <right_answer>12 years</right_answer>
         <wrong_answer>21 years</wrong_answer>
         <wrong_answer>12 months </wrong_answer>
@@ -678,7 +678,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there planets outside our own solar system orbiting distant stars?</question>
-        <level>71</level>
+        <level>8</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <wrong_answer>We don't know </wrong_answer>
@@ -687,7 +687,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet orbits around the Moon?</question>
-        <level>72</level>
+        <level>8</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>None</wrong_answer>
         <wrong_answer>Sun</wrong_answer>
@@ -697,7 +697,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where in the solar system are the most powerful volcanoes?</question>
-        <level>73</level>
+        <level>8</level>
         <right_answer>Io</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -707,7 +707,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where in the solar system is the largest volcano, Olympus Mons?</question>
-        <level>74</level>
+        <level>8</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Io</wrong_answer>
@@ -717,7 +717,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which spacecraft visited Uranus?</question>
-        <level>75</level>
+        <level>8</level>
         <right_answer>Voyager 2</right_answer>
         <wrong_answer>Apollo 17</wrong_answer>
         <wrong_answer>Challenger</wrong_answer>
@@ -727,7 +727,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is tipped over, rolling like a ball in its orbit around the sun?</question>
-        <level>76</level>
+        <level>8</level>
         <right_answer>Uranus</right_answer>
         <wrong_answer>Neptune</wrong_answer>
         <wrong_answer>Saturn</wrong_answer>
@@ -737,7 +737,7 @@
     </quiz_item>
     <quiz_item>
         <question>Neptune's winds are the strongest in the solar system. They have blown at...</question>
-        <level>77</level>
+        <level>8</level>
         <right_answer>2000 km/h</right_answer>
         <wrong_answer>200 km/h</wrong_answer>
         <wrong_answer>20,000 km/h</wrong_answer>
@@ -747,7 +747,7 @@
     </quiz_item>
     <quiz_item>
         <question>What are Mars' two moons?</question>
-        <level>78</level>
+        <level>8</level>
         <right_answer>Captured asteroids</right_answer>
         <wrong_answer>Left over debris from a giant impact </wrong_answer>
         <wrong_answer>Cheese, like our moon</wrong_answer>
@@ -757,7 +757,7 @@
     </quiz_item>
     <quiz_item>
         <question>When and by who was Pluto discovered?</question>
-        <level>79</level>
+        <level>8</level>
         <right_answer>1930 by Clyde Tombaugh</right_answer>
         <wrong_answer>1895 by Walt Disney</wrong_answer>
         <wrong_answer>1930 by Alfred Wegener</wrong_answer>
@@ -767,7 +767,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet's atmosphere contains 21 percent molecular oxygen?</question>
-        <level>80</level>
+        <level>9</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>Jupiter</wrong_answer>
         <wrong_answer>Saturn </wrong_answer>
@@ -777,7 +777,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of these planets have no moons?</question>
-        <level>81</level>
+        <level>9</level>
         <right_answer>Venus </right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -787,7 +787,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of these planets have no moons?</question>
-        <level>82</level>
+        <level>9</level>
         <right_answer>Mercury</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -797,7 +797,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which Jupiter moon have also experienced tectonic motion, like Earth?</question>
-        <level>83</level>
+        <level>9</level>
         <right_answer>Ganymede</right_answer>
         <wrong_answer>Phobos</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -807,7 +807,7 @@
     </quiz_item>
     <quiz_item>
         <question>When did the solar system form?</question>
-        <level>84</level>
+        <level>9</level>
         <right_answer>4.56 billion years ago</right_answer>
         <wrong_answer>4.56 million years ago</wrong_answer>
         <wrong_answer>6000 yrs ago</wrong_answer>
@@ -817,7 +817,7 @@
     </quiz_item>
     <quiz_item>
         <question>Why don't Tethys, Calypso and Telesto collide, since they share orbit around Saturn?</question>
-        <level>85</level>
+        <level>9</level>
         <right_answer>They move at the same speed</right_answer>
         <wrong_answer>They will in future</wrong_answer>
         <wrong_answer>They are so small that they always miss each other</wrong_answer>
@@ -827,7 +827,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where is it bright all summer long?</question>
-        <level>86</level>
+        <level>9</level>
         <right_answer>On Uranus' surface </right_answer>
         <wrong_answer>Hawaii</wrong_answer>
         <wrong_answer>Mars</wrong_answer>
@@ -837,7 +837,7 @@
     </quiz_item>
     <quiz_item>
         <question>How do we know the age of Oberon's surface?</question>
-        <level>87</level>
+        <level>9</level>
         <right_answer>High crater density</right_answer>
         <wrong_answer>Low crater density</wrong_answer>
         <wrong_answer>Radiometric ages of surface rocks</wrong_answer>
@@ -847,7 +847,7 @@
     </quiz_item>
     <quiz_item>
         <question>Why does Miranda look so special?</question>
-        <level>88</level>
+        <level>9</level>
         <right_answer>Collisions may have torn Miranda apart</right_answer>
         <wrong_answer>Sometimes bad things happen</wrong_answer>
         <wrong_answer>Miranda must have had oceans</wrong_answer>
@@ -857,7 +857,7 @@
     </quiz_item>
     <quiz_item>
         <question>Pluto is one of many bodies in the outer asteroid belt (Kuiper belt). What is its current status?</question>
-        <level>89</level>
+        <level>9</level>
         <right_answer>Dwarf planet</right_answer>
         <wrong_answer>Planet</wrong_answer>
         <wrong_answer>Comet</wrong_answer>
@@ -867,7 +867,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there aliens?</question>
-        <level>90</level>
+        <level>10</level>
         <right_answer>We do not know</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <wrong_answer>No</wrong_answer>
@@ -877,7 +877,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the nearest star to Earth?</question>
-        <level>91</level>
+        <level>10</level>
         <right_answer>The Sun</right_answer>
         <wrong_answer>Sirius</wrong_answer>
         <wrong_answer>Proxima Centauri</wrong_answer>
@@ -887,7 +887,7 @@
     </quiz_item>
     <quiz_item>
         <question>Can humans travel and live anywhere outside the Earth without space suits?</question>
-        <level>92</level>
+        <level>10</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <wrong_answer>Some can</wrong_answer>
@@ -897,7 +897,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the Universe?</question>
-        <level>93</level>
+        <level>10</level>
         <right_answer>13.7 billion light years</right_answer>
         <wrong_answer>Infinite</wrong_answer>
         <wrong_answer>As big as the milky way</wrong_answer>
@@ -907,7 +907,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there any planets in our solar system not in this app?</question>
-        <level>94</level>
+        <level>10</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <image>15_Jupiter_large.png</image>
@@ -915,7 +915,7 @@
     </quiz_item>
     <quiz_item>
         <question>Has any astronaut ever seen an Earth rise from the Moon?</question>
-        <level>95</level>
+        <level>10</level>
         <right_answer>Impossible: the Moon is always facing the Earth</right_answer>
         <wrong_answer>Yes, I have seen pictures</wrong_answer>
         <wrong_answer>They were there, but not during Earth rise</wrong_answer>
@@ -925,7 +925,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is there water ice present on all planet surfaces?</question>
-        <level>96</level>
+        <level>10</level>
         <right_answer>No, Mercury is too close to the sun</right_answer>
         <wrong_answer>No, Earth is the only one</wrong_answer>
         <wrong_answer>Yes, ice is fundamental</wrong_answer>
@@ -935,7 +935,7 @@
     </quiz_item>
     <quiz_item>
         <question>Why is Mars red?</question>
-        <level>97</level>
+        <level>10</level>
         <right_answer>Iron in the Martian crust</right_answer>
         <wrong_answer>Rain and clouds </wrong_answer>
         <wrong_answer>Fire from volcanoes</wrong_answer>
@@ -945,7 +945,7 @@
     </quiz_item>
     <quiz_item>
         <question>Mercury is closer to the sun than Venus, so why is Venus hotter?</question>
-        <level>98</level>
+        <level>10</level>
         <right_answer>Intense greenhouse warming</right_answer>
         <wrong_answer>Venus is bigger than Mercury</wrong_answer>
         <wrong_answer>Heat is flowing from its interior</wrong_answer>
@@ -955,7 +955,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of the following is not unique for Earth?</question>
-        <level>99</level>
+        <level>10</level>
         <right_answer>Oceans</right_answer>
         <wrong_answer>Humans</wrong_answer>
         <wrong_answer>Breathable atmosphere</wrong_answer>
@@ -965,7 +965,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is closer to the sun?</question>
-        <level>100</level>
+        <level>10</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Ceres</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -974,7 +974,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there any moons in our solar system not in this app?</question>
-        <level>101</level>
+        <level>10</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>27_Rhea_large.png</image>

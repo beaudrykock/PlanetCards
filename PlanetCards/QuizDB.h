@@ -10,18 +10,22 @@
 #import "SMXMLDocument.h"
 #import "QuizQuestion.h"
 #import "AppConstants.h"
+#import "Utilities.h"
 
 @interface QuizDB : NSObject
 {
     NSMutableArray *quizQuestions;
     NSMutableDictionary *quizQuestionsByDifficulty;
     NSMutableArray *questionsAsked;
+    NSInteger currentDifficultyLevel;
 }
 
+@property (nonatomic) NSInteger currentDifficultyLevel;
 @property (nonatomic, retain) NSMutableDictionary *quizQuestionsByDifficulty;
 @property (nonatomic, retain) NSMutableArray *quizQuestions;
 @property (nonatomic, retain) NSMutableArray *questionsAsked;
 
+-(NSInteger)getRandomQuestionNumberWithRecord:(BOOL)record;
 -(void)loadContent;
 -(NSString*)stringStrippedOfWhitespaceAndNewlines:(NSString*)oldString;
 -(void)generateQuestionFromQuizItem:(SMXMLElement*)quizItem;
@@ -36,5 +40,8 @@
 -(NSInteger)getRandomQuestionNumber;
 -(UIImage*)getRandomImage;
 -(BOOL)questionsAreAvailableAtDifficultyLevel:(NSInteger)level;
+-(void)changeDifficultyLevelBy:(NSInteger)change;
+-(NSInteger)knowledgeScoreForQuestionNumber:(NSInteger)questionNumber;
+-(NSInteger)speedScoreForQuestionNumber:(NSInteger)questionNumber inTimeBlock:(NSInteger)timeBlock;
 
 @end

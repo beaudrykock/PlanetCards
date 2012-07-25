@@ -10,8 +10,8 @@
 
 @implementation QuizViewController
 
-@synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, scoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView;
-@synthesize bestScoreResultLabel, skippingView;
+@synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, speedScoreResultLabel, knowledgeScoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView, questionScore, speedScore;
+@synthesize bestTotalScoreResultLabel,totalScoreResultLabel, skippingView;
 @synthesize answerTimer, subTimer_1, subTimer_2, progressBarTimer, timerBar, lastFiveAnswers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,7 +61,6 @@
     [self.skippingView setAlpha:0.0];
     [UIView setAnimationDelegate:self];
     [UIView commitAnimations];
-    
 }
 
 
@@ -119,10 +118,13 @@
     [self addCards];
     
     questionCount = 0;
-    score = 0;
-    numberOfAnswers = -1;
+    questionScore = 0;
+    speedScore = 0;
     
-    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
+    numberOfAnswers = -1;
+    self.lastFiveAnswers = [NSMutableArray arrayWithCapacity:5];
+    
+    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",questionScore+speedScore]];
     [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
 
     [self prettify];
@@ -143,34 +145,31 @@
 
 -(NSInteger)selectStartingQuestionNumber
 {
-    // TODO: return the question number in the master array based on last user score
     NSInteger lastScore = -1; //-1 persisting indicates first quiz run
     lastScore = [Utilities getLastScore];
-    currentDifficultyLevel = 4; // always start at 4, so that avoid running off bottom of levels
-    currentDifficultyLevel = [Utilities getLastDifficultyLevel];
-    
-    if (score>=0 && score<25)
+
+    if (lastScore>=0 && lastScore<25)
     {
-        [self changeDifficultyLevelBy:-2];
+        [self.quizDB changeDifficultyLevelBy:-2];
     }
-    else if (score>=0 && score<50)
+    else if (lastScore>=0 && lastScore<50)
     {
-        [self changeDifficultyLevelBy:-1];
+        [self.quizDB changeDifficultyLevelBy:-1];
     }
-    else if (score>=0 && score<75)
+    else if (lastScore>=0 && lastScore<75)
     {
-        [self changeDifficultyLevelBy:1];
+        [self.quizDB changeDifficultyLevelBy:1];
     }
-    else if (score>=0 && score<=100)
+    else if (lastScore>=0 && lastScore<=100)
     {
-        [self changeDifficultyLevelBy:2];
+        [self.quizDB changeDifficultyLevelBy:2];
     }
     
-    NSInteger startingNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
+    NSInteger startingNumber = [self.quizDB getRandomQuestionNumberWithRecord:YES];
     [Utilities setLastStartingQuestionNumber:startingNumber];
     
-    //return startingNumber; // TODO: UNCOMMENT AFTER TAIS ASSIGNS QUESTION LEVELS
-    return 40+arc4random_uniform(20);
+    return startingNumber; // TODO: UNCOMMENT AFTER TAIS ASSIGNS QUESTION LEVELS
+    //return 40+arc4random_uniform(20);
 }
 
 -(void)startQuiz
@@ -246,12 +245,7 @@
     } 
     
     [[self.cards objectAtIndex:currentCardIndex] prepCardForQuestionNumber:currentQuestionNumber];
-    //[[self.cards objectAtIndex:currentCardIndex] prepCardForQuestionNumber:[self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES]]; // TODO uncomment when ready for new difficulty approach
-    
-    [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:currentQuestionNumber+1];
-    
-    [self.quizDB addQuestionAskedRecord:currentQuestionNumber];
-    [self.quizDB addQuestionAskedRecord:currentQuestionNumber+1];
+    [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:[self.quizDB getRandomQuestionNumberWithRecord:YES]]; 
 }
 
 #pragma mark - Handling answering logic and functionality
@@ -273,22 +267,35 @@
     if (self.skippingView.superview != nil)
         [self.skippingView removeFromSuperview];
     
-    NSInteger block = (NSInteger)(currentQuestionInterval-secondsCount);
+    NSInteger elapsed = (NSInteger)(currentQuestionInterval-secondsCount);
+    NSInteger block = 4;
+    
+    // assign full points if it's only a two answer question
+    if (currentQuestionInterval == kDefaultQuestionIntervalInSeconds)
+    {
+        if (elapsed<kFirstAnswerBlock)
+        {
+            block=1;
+        }
+        else if (elapsed<kSecondAnswerBlock)
+        {
+            block=2;
+        }
+        else if (elapsed<kThirdAnswerBlock)
+        {
+            block=3;
+        }
+    }
+    
     numberOfAnswers = -1; // flag as needing a reset so this is correctly handled in startTimers
     
-    if (isCorrect && block<=kFirstAnswerBlock) 
+    if (isCorrect)
     {
-        score += 5;
+        knowledgeScore += [self.quizDB knowledgeScoreForQuestionNumber: currentQuestionNumber];
+        speedScore += [self.quizDB speedScoreForQuestionNumber:currentQuestionNumber inTimeBlock: block];
     }
-    else if (isCorrect && block<=kSecondAnswerBlock)
-    {
-        score += 4;
-    }
-    else if (isCorrect && block<=kThirdAnswerBlock)
-    {
-        score += 3;
-    }
-    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
+    
+    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",speedScore+knowledgeScore]];
     
     if (questionCount == 19)
     {
@@ -341,28 +348,6 @@
     secondsCount = currentQuestionInterval;
 }
 
-// returns the next question in the difficulty order; if not available, returns the 
-// next available question from the difficulty order above that; if that's not available, 
-// keeps incrementing until there is availability
--(NSInteger)getQuestionNumberInDifficultyOrder
-{
-    NSInteger questionNumber = 0;
-    if ([self.quizDB questionsAreAvailableAtDifficultyLevel:currentDifficultyLevel])
-    {
-        questionNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
-    }
-    else {
-        while (![self.quizDB questionsAreAvailableAtDifficultyLevel:currentDifficultyLevel])
-        {
-            [self changeDifficultyLevelBy:1];
-            
-            questionNumber = [self.quizDB getRandomQuestionNumberWithDifficultyLevel:currentDifficultyLevel andRecord:YES];
-        }
-    }
-    
-    return questionNumber;
-}
-
 // the card added at the bottom of the view stack must be prepped based on the answer to the just removed card
 -(void)prepBottomCard
 {
@@ -372,70 +357,38 @@
     
     if (currentCardIndex==5 || currentCardIndex==10 || currentCardIndex==15)
     {
-        questionNumberForBottomCard = [self getQuestionNumberInDifficultyOrder];
-    }
-    else 
-    {
         int correctCount = 0;
-        for (NSNumber *answerCorrectness in lastFiveAnswers)
+        for (NSNumber *answerCorrectness in self.lastFiveAnswers)
         {
             if ([answerCorrectness boolValue]) correctCount++;
         }
         
-        int incorrectCount = [lastFiveAnswers count]-correctCount;
+        int incorrectCount = [self.lastFiveAnswers count]-correctCount;
+        
+        // now clear the array
+        [self.lastFiveAnswers removeAllObjects];
         
         if (incorrectCount==5)
         {
-            [self changeDifficultyLevelBy:-1];
+            [self.quizDB changeDifficultyLevelBy:-1];
         }
-        else if (incorrectCount<=1) 
+        else if (incorrectCount<=1 && currentCardIndex == 10) 
         {
-            [self changeDifficultyLevelBy:1];
+            [self.quizDB changeDifficultyLevelBy:1];
         }
-        
-        questionNumberForBottomCard = [self getQuestionNumberInDifficultyOrder];
+
+        questionNumberForBottomCard = [self.quizDB getRandomQuestionNumberWithRecord:YES];
     }
-    
-    /*
-    NSInteger block = (NSInteger)(currentQuestionInterval-secondsCount);
-    NSInteger questionNumberForBottomCard = currentQuestionNumber;
-    if (wasLastQuestionAnsweredCorrect && block<=kFirstAnswerBlock) 
+    else 
     {
-        questionNumberForBottomCard+=5;
-        
-        questionNumberForBottomCard = [quizDB getRandomQuestionNumberFromCurrent: questionNumberForBottomCard inNext:5 withMinChoices: 2];
+        questionNumberForBottomCard = [self.quizDB getRandomQuestionNumberWithRecord:YES];
     }
-    else if (wasLastQuestionAnsweredCorrect && block<=kSecondAnswerBlock)
-    {
-        questionNumberForBottomCard = [quizDB getRandomQuestionNumberFromCurrent: questionNumberForBottomCard inNext:5 withMinChoices: 3];
-    }
-    /*else if (isCorrect && block<=kThirdAnswerBlock)
-     {
-     //NSLog(@"question number before selection (block 3) = %i",currentQuestionNumber);
-     currentQuestionNumber = [quizDB getRandomQuestionNumberFromCurrent: currentQuestionNumber inNext:5 withMinChoices: 4];
-     
-     score += 2;
-     //NSLog(@"question number after selection (block 3) = %i",currentQuestionNumber);
-     }*/
-    /*
-    else
-    {
-        questionNumberForBottomCard = [quizDB getRandomQuestionNumberFromCurrent: questionNumberForBottomCard inPrevious:5 withMinChoices: 2];
-    }*/
     
     // prep the bottom card
     if ([self.cards count]>currentCardIndex+1)
     {
          [[self.cards objectAtIndex:currentCardIndex+1] prepCardForQuestionNumber:questionNumberForBottomCard];
     }
-}
-
--(void)changeDifficultyLevelBy:(NSInteger)change
-{
-    currentDifficultyLevel+=change;
-    
-    // sets difficulty level randomly if it hits min or max levels
-    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%20;
 }
 
 -(void)pushBottomCardView
@@ -491,46 +444,88 @@
 -(void)runEndOfQuizFunctionality
 {
     // report the score
-    [[DDGameKitHelper sharedGameKitHelper] submitScore:score category:kLeaderboardID];
+    [[DDGameKitHelper sharedGameKitHelper] submitScore:(speedScore+knowledgeScore) category:kLeaderboardID];
     
     resultView_outerFrame.layer.cornerRadius = 5.0;
     
     CGRect startingFrame = CGRectMake(0, -460, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
     [resultView_outerFrame setFrame:startingFrame];
     
-    [scoreResultLabel setText:[NSString stringWithFormat:@"Score: %i%% correct",score]];
+    [self.knowledgeScoreResultLabel setText:[NSString stringWithFormat:@"Knowledge: %i/100",knowledgeScore]];
+    [self.speedScoreResultLabel setText:[NSString stringWithFormat:@"Speed: %i/100",speedScore]];
+    [self.totalScoreResultLabel setText:[NSString stringWithFormat:@"Total: %i/200",speedScore+knowledgeScore]];
     
-    [Utilities setLastScore:score];
-    [Utilities updateAllTimeBestScore:score];
-    [Utilities setLastDifficultyLevel:currentDifficultyLevel];
+    [Utilities setLastScore:knowledgeScore+speedScore];
+    [Utilities updateAllTimeBestScore:knowledgeScore+speedScore];
+    [Utilities setLastDifficultyLevel:[self.quizDB currentDifficultyLevel]];
     
     NSInteger allTimeScore = [Utilities getAllTimeBestScore];
     
-    [bestScoreResultLabel setText:[NSString stringWithFormat:@"Best: %i%% correct",allTimeScore]];
+    [self.bestTotalScoreResultLabel setText:[NSString stringWithFormat:@"Best: %i/200",allTimeScore]];
     
-    if (score>=25)
+    if (knowledgeScore>=25)
     {
-        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_1 percentComplete:100];
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kKnowledgeAchievement_1 percentComplete:100];
     }
-    else if (score>=50)
+    else if (knowledgeScore>=50)
     {
-        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_2 percentComplete:100];
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kKnowledgeAchievement_2 percentComplete:100];
     }
-    else if (score>=75)
+    else if (knowledgeScore>=75)
     {
-        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_3 percentComplete:100];
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kKnowledgeAchievement_3 percentComplete:100];
     }
-    else if (score>99) {
-        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kAchievement_4 percentComplete:100];
+    else if (knowledgeScore>99) {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kKnowledgeAchievement_4 percentComplete:100];
     }
     
-    if (score <50)
+    if (speedScore>=25)
     {
-        [encouragingMessageLabel setText:@"Better luck next time. Perhaps you'd like to learn more about the solar system?"];
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kSpeedAchievement_1 percentComplete:100];
+    }
+    else if (speedScore>=50)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kSpeedAchievement_2 percentComplete:100];
+    }
+    else if (speedScore>=75)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kSpeedAchievement_3 percentComplete:100];
+    }
+    else if (speedScore>99) {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kSpeedAchievement_4 percentComplete:100];
+    }
+    
+    if (speedScore+knowledgeScore>=50)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_1 percentComplete:100];
+    }
+    else if (speedScore+knowledgeScore>=100)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_2 percentComplete:100];
+    }
+    else if (speedScore+knowledgeScore>=175)
+    {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_3 percentComplete:100];
+    }
+    else if (speedScore+knowledgeScore>199) {
+        [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_4 percentComplete:100];
+    }
+    
+    if (knowledgeScore>50 && speedScore<50)
+    {
+        [self.encouragingMessageLabel setText:@"Nice going - you know your stuff! Perhaps now you can work on answering the questions faster"];
+    }
+    else if (knowledgeScore<50 && speedScore<50)
+    {
+        [self.encouragingMessageLabel setText:@"Great effort, but perhaps you'd like to learn more? PlanetCards can help you - exit the quiz and go explore the solar system using our gallery and knowledge bank"];
+    }
+    else if (knowledgeScore<50 && speedScore>50)
+    {
+        [self.encouragingMessageLabel setText:@"You're quick on the draw, but perhaps you'd like to learn more? PlanetCards can help you - exit the quiz and go explore the solar system using our gallery and knowledge bank"];
     }
     else
     {
-        [encouragingMessageLabel setText:@"Congratulations! Play again, and beat your score!"];
+        [self.encouragingMessageLabel setText:@"Congratulations! You're well on your way to being a master of solar system knowledge!"];
     }
     
     CGRect newFrame = CGRectMake(0.0, 0.0, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
@@ -657,6 +652,7 @@
 
 -(void)resetDeck
 {
+    currentQuestionNumber = [self selectStartingQuestionNumber];
     
     currentQuestionNumber = 40+arc4random_uniform(20);
     
@@ -668,13 +664,15 @@
      
     currentCardIndex = 0;
     questionCount = 0;
-    score = 0;
+    speedScore = 0;
+    knowledgeScore = 0;
     numberOfAnswers = -1;
     
-    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",score]];
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount+1]];
+    [self.scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",knowledgeScore+speedScore]];
+    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount+1]];
     
-    [cards removeAllObjects];
+    [self.cards removeAllObjects];
+    [self.lastFiveAnswers removeAllObjects];
     
     [self addCards];
     
@@ -723,7 +721,7 @@
     UIImage *tweetImage = [quizDB getRandomImage];
     [twitter addImage:tweetImage];
     [twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.scientificplayground.com/"]]];
-    [twitter setInitialText:[NSString stringWithFormat:@"I just scored %i/100 on PlanetCards!",score]];
+    [twitter setInitialText:[NSString stringWithFormat:@"I just scored %i/200 on PlanetCards!",knowledgeScore+speedScore]];
     
     // Show the controller
     [self presentModalViewController:twitter animated:YES];
@@ -940,11 +938,13 @@
     [cards release];
     [backgroundView release];
     [scoreLabel release];
-    [bestScoreResultLabel release];
+    [bestTotalScoreResultLabel release];
+    [speedScoreResultLabel release];
+    [knowledgeScoreResultLabel release];
+    [totalScoreResultLabel release];
     [questionCountLabel release];
     [resultView_innerFrame release];
     [resultView_outerFrame release];
-    [scoreResultLabel release];
     [encouragingMessageLabel release];
     [topFrameView release];
     [skippingView release];

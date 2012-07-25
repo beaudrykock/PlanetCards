@@ -74,7 +74,9 @@
 #define kCorrectDelay 0.5
 #define kFirstAnswerBlock 5
 #define kSecondAnswerBlock 10
-#define kThirdAnswerBlock 20
+#define kThirdAnswerBlock 15
+#define kFourthAnswerBlock 20
+#define kNumberOfTimeBlocks 4.0
 
 // PREFERENCES
 #define kUnitPreference @"kUnitPreference"
@@ -145,10 +147,20 @@
 //Leaderboard Category IDs
 #define kLeaderboardID @"021612_leaderboard_pk"
 #define kMaxAuthenticationAttempts 2
-#define kAchievement_1 @"com.planetcards.25percent"
-#define kAchievement_2 @"com.planetcards.50percent"
-#define kAchievement_3 @"com.planetcards.75percent"
-#define kAchievement_4 @"com.planetcards.100percent"
+#define kKnowledgeAchievement_1 @"com.planetcards.knowledge.1"
+#define kKnowledgeAchievement_2 @"com.planetcards.knowledge.2"
+#define kKnowledgeAchievement_3 @"com.planetcards.knowledge.3"
+#define kKnowledgeAchievement_4 @"com.planetcards.knowledge.4"
+
+#define kSpeedAchievement_1 @"com.planetcards.speed.1"
+#define kSpeedAchievement_2 @"com.planetcards.speed.2"
+#define kSpeedAchievement_3 @"com.planetcards.speed.3"
+#define kSpeedAchievement_4 @"com.planetcards.speed.4"
+
+#define kTotalAchievement_1 @"com.planetcards.25percent"
+#define kTotalAchievement_2 @"com.planetcards.50percent"
+#define kTotalAchievement_3 @"com.planetcards.75percent"
+#define kTotalAchievement_4 @"com.planetcards.100percent"
 
 //Achievement IDs
 #define kAchievement50PercentOrMore @"com.planetcards.50percent"

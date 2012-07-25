@@ -27,15 +27,18 @@
     NSMutableArray *cards;
     UIImageView *backgroundView;
     NSInteger baseQuestionNumber;
-    NSInteger score;
+    NSInteger knowledgeScore;
+    NSInteger speedScore;
     NSInteger bestScore;
     IBOutlet UILabel *scoreLabel;
-    IBOutlet UILabel *bestScoreResultLabel;
+    IBOutlet UILabel *bestTotalScoreResultLabel;
+    IBOutlet UILabel *totalScoreResultLabel;
     IBOutlet UILabel *questionCountLabel;
     
     IBOutlet UIView *resultView_outerFrame;
     IBOutlet UIView *resultView_innerFrame;
-    IBOutlet UILabel *scoreResultLabel;
+    IBOutlet UILabel *speedScoreResultLabel;
+    IBOutlet UILabel *knowledgeScoreResultLabel;
     IBOutlet UILabel *encouragingMessageLabel;
     id parentController;
     
@@ -62,10 +65,11 @@
     float currentQuestionInterval;
     BOOL wasLastQuestionAnsweredCorrect;
     BOOL quizComplete;
-    NSInteger currentDifficultyLevel;
     NSMutableArray *lastFiveAnswers; // YES/NO for correct
 }
 
+@property (nonatomic) NSInteger questionScore;
+@property (nonatomic) NSInteger speedScore;
 @property (nonatomic, retain) NSMutableArray *lastFiveAnswers;
 @property (nonatomic, retain) IBOutlet UIView *skippingView;
 @property (nonatomic, retain) NSMutableArray *cards;
@@ -73,8 +77,10 @@
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, retain) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, retain) IBOutlet UILabel *questionCountLabel;
-@property (nonatomic, retain) IBOutlet UILabel *scoreResultLabel;
-@property (nonatomic, retain) IBOutlet UILabel *bestScoreResultLabel;
+@property (nonatomic, retain) IBOutlet UILabel *knowledgeScoreResultLabel;
+@property (nonatomic, retain) IBOutlet UILabel *speedScoreResultLabel;
+@property (nonatomic, retain) IBOutlet UILabel *bestTotalScoreResultLabel;
+@property (nonatomic, retain) IBOutlet UILabel *totalScoreResultLabel;
 @property (nonatomic, retain) IBOutlet UILabel *encouragingMessageLabel;
 @property (nonatomic, retain) IBOutlet UIView *resultView_outerFrame;
 @property (nonatomic, retain) IBOutlet UIView *resultView_innerFrame;

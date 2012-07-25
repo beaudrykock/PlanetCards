@@ -10,7 +10,7 @@
 
 @implementation QuizDB
 
-@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty;
+@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty, currentDifficultyLevel;
 
 -(void)loadContent
 {
@@ -33,6 +33,8 @@
     {
         [self generateQuestionFromQuizItem: quizItem];
     }
+    
+    currentDifficultyLevel = [Utilities getLastDifficultyLevel];
     
     questionsAsked = [[NSMutableArray arrayWithCapacity:20] retain];
 }
@@ -61,6 +63,11 @@
     }
     
     [questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
+}
+
+-(void)resetQuestionAskedRecord
+{
+    [questionsAsked removeAllObjects];
 }
 
 -(NSInteger)getRandomQuestionNumberFromCurrent:(NSInteger)currentQuestionNumber inNext: (NSInteger)count withMinChoices: (NSInteger)minChoices
@@ -129,14 +136,25 @@
     return finalChoice;
 }
 
--(NSInteger)getRandomQuestionNumberWithDifficultyLevel:(NSInteger)difficultyLevel andRecord:(BOOL)record
+-(void)changeDifficultyLevelBy:(NSInteger)change
 {
-    NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:difficultyLevel]];
+    currentDifficultyLevel+=change;
+    
+    // sets difficulty level randomly if it hits min or max levels
+    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%20;
+}
+
+
+-(NSInteger)getRandomQuestionNumberWithRecord:(BOOL)record
+{
     BOOL found = NO;
     NSInteger questionNbr = 0;
     NSInteger counter = 0;
-    for (int i = difficultyLevel; i<kMaximumDifficultyLevel; i++)
+    for (int i = currentDifficultyLevel; i<kMaximumDifficultyLevel; i++)
     {
+        NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:i]];
+        counter = 0;
+        
         while (!found && counter<[indices count])
         {
             questionNbr = [[indices objectAtIndex:counter] intValue];
@@ -148,8 +166,34 @@
             counter++;
         }
         if (found)
+        {
+            currentDifficultyLevel = i;
             break;
+        }
     }
+    
+    // if still not found, likely that we ran off end of difficulty levels; in this case
+    // reset the question asked record and drop back in the middle
+    if (!found)
+    {
+        currentDifficultyLevel = 4;
+        [self resetQuestionAskedRecord];
+        
+        NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];
+        
+        while (!found && counter<[indices count])
+        {
+            questionNbr = [[indices objectAtIndex:counter] intValue];
+            
+            if ([self questionIsAskableWithNumber:questionNbr])
+            {
+                found = YES;
+            }
+            counter++;
+        }
+    }
+    
+    NSLog(@"Found question number %i at difficulty level %i", questionNbr, currentDifficultyLevel);
     
     NSAssert(found,@"Question should have been found");
     
@@ -157,26 +201,6 @@
         [self addQuestionAskedRecord:questionNbr];
     
     return questionNbr;
-}
-
--(BOOL)questionsAreAvailableAtDifficultyLevel:(NSInteger)level
-{
-    NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:level]];
-    BOOL found = NO;
-    NSInteger questionNbr = 0;
-    NSInteger counter = 0;
-    while (!found && counter<[indices count])
-    {
-        questionNbr = [[indices objectAtIndex:counter] intValue];
-            
-        if ([self questionIsAskableWithNumber:questionNbr])
-        {
-            found = YES;
-        }
-        counter++;
-    }
-    
-    return found;
 }
 
 -(NSInteger)getRandomQuestionNumber
@@ -255,6 +279,7 @@
     [newQuestion randomizeAnswers];
         
     int count = [quizQuestions count];
+    //NSLog(@"Adding question with index %i", count);
     [newQuestion setMasterArrayIndex:count];
     [quizQuestions addObject:newQuestion];
     
@@ -278,6 +303,26 @@
 -(NSString*)stringStrippedOfWhitespaceAndNewlines:(NSString*)oldString
 {
     return [oldString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+#pragma mark - Scoring
+-(NSInteger)knowledgeScoreForQuestionNumber:(NSInteger)questionNumber
+{
+    QuizQuestion *question = [self getQuestionNumbered:questionNumber];
+    return question.level;
+}
+
+-(NSInteger)speedScoreForQuestionNumber:(NSInteger)questionNumber inTimeBlock:(NSInteger)timeBlock
+{
+    QuizQuestion *question = [self getQuestionNumbered:questionNumber];
+    NSInteger maxScore = question.level;
+    
+    float pointsPerBlock = (maxScore*1.0)/kNumberOfTimeBlocks;
+    
+    float score = pointsPerBlock * timeBlock;
+    NSInteger intScore = roundf(score);
+    
+    return intScore;
 }
 
 -(void)dealloc

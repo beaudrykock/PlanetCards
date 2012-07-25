@@ -87,7 +87,9 @@
 
 +(NSInteger)getLastScore
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:kLastScoreKey];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:kLastScoreKey])
+        return [[NSUserDefaults standardUserDefaults] integerForKey:kLastScoreKey];
+    return -1;
 }
 
 +(BOOL)iOS5available
@@ -103,7 +105,10 @@
 
 +(NSInteger)getLastDifficultyLevel
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey])
+        return [[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey];
+    
+    return 4;
 }
 
 +(void)setLastStartingQuestionNumber:(NSInteger)questionNumber
