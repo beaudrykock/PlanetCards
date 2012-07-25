@@ -108,7 +108,11 @@
     if ([[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey])
         return [[NSUserDefaults standardUserDefaults] integerForKey:kLastDifficultyLevelKey];
     
+#ifdef LITE_VERSION
+    return 1;
+#else
     return 4;
+#endif
 }
 
 +(void)setLastStartingQuestionNumber:(NSInteger)questionNumber

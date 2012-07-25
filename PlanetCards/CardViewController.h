@@ -58,8 +58,13 @@
     BOOL supplementalInfoShowing;
     UILabel *postAnswerInstructions;
     
+    UIImageView *difficultyView;
+    
+    UIView *paidVersionOnlyView;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *paidVersionOnlyView;
+@property (nonatomic, retain) IBOutlet UIImageView *difficultyView;
 @property (nonatomic, retain) IBOutlet UILabel *postAnswerInstructions;
 @property (nonatomic, retain) IBOutlet UIView *imageContainerView;
 @property (nonatomic, retain) IBOutlet UIView *supplementalInfoView;

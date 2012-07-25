@@ -510,7 +510,9 @@
     else if (speedScore+knowledgeScore>199) {
         [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_4 percentComplete:100];
     }
-    
+#ifdef LITE_VERSION
+    [self.encouragingMessageLabel setText:@"Nice effort! Have another go or try learning some more by exiting the quiz and exploring the solar system using the PlanetCards gallery and knowledge bank. Remember: to score about 100, you need the paid version of PlanetCards. This unlocks 50 additional questions, plus other great functionality!"];
+#else
     if (knowledgeScore>50 && speedScore<50)
     {
         [self.encouragingMessageLabel setText:@"Nice going - you know your stuff! Perhaps now you can work on answering the questions faster"];
@@ -528,6 +530,7 @@
         [self.encouragingMessageLabel setText:@"Congratulations! You're well on your way to being a master of solar system knowledge!"];
     }
     
+#endif
     CGRect newFrame = CGRectMake(0.0, 0.0, resultView_outerFrame.frame.size.width, resultView_outerFrame.frame.size.height);
     [self.view addSubview:resultView_outerFrame];
     [UIView beginAnimations:nil context:NULL];

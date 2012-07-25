@@ -139,9 +139,13 @@
 -(void)changeDifficultyLevelBy:(NSInteger)change
 {
     currentDifficultyLevel+=change;
-    
+
     // sets difficulty level randomly if it hits min or max levels
-    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%20;
+#ifdef LITE_VERSION
+    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel_lite) currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel_lite;
+#else 
+    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel;
+#endif
 }
 
 
@@ -150,7 +154,13 @@
     BOOL found = NO;
     NSInteger questionNbr = 0;
     NSInteger counter = 0;
-    for (int i = currentDifficultyLevel; i<kMaximumDifficultyLevel; i++)
+    NSInteger maxDifficultyLevel = kMaximumDifficultyLevel;
+    
+#ifdef LITE_VERSION
+    maxDifficultyLevel = kMaximumDifficultyLevel_lite;
+#endif
+    
+    for (int i = currentDifficultyLevel; i<maxDifficultyLevel; i++)
     {
         NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:i]];
         counter = 0;
@@ -177,6 +187,10 @@
     if (!found)
     {
         currentDifficultyLevel = 4;
+        
+#ifdef LITE_VERSION
+        currentDifficultyLevel = 1;
+#endif
         [self resetQuestionAskedRecord];
         
         NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];

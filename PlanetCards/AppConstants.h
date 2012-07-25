@@ -67,6 +67,7 @@
 #define kLastDifficultyLevelKey @"lastDifficultyLevel"
 #define kMinimumDifficultyLevel 1
 #define kMaximumDifficultyLevel 10
+#define kMaximumDifficultyLevel_lite 5
 #define kLastStartingQuestionNumberKey @"lastStartingQuestionNumber"
 
 // SCORING

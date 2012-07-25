@@ -15,7 +15,7 @@
 @synthesize buttonArray;
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
 @synthesize parentController;
-@synthesize quizDB;
+@synthesize quizDB, difficultyView, paidVersionOnlyView;
 @synthesize buttonTray, supplementalInfoText, supplementalInfoView, supplementalInfoTitle, imageContainerView, postAnswerInstructions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -135,6 +135,8 @@
     [self hideAnswerButtons];
     //[self removeAnswerButtons];
     
+    [self.difficultyView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"diff_%i",[newQuestion level]]]];
+    
     if ([[newQuestion quizAnswers] count]==2)
     {
         [answer_1 setTitle:[[[newQuestion quizAnswers] objectAtIndex: 0] answer] forState:UIControlStateNormal];
@@ -188,6 +190,8 @@
     }
     
     [self hideAnswerButtons];
+    
+    [self.difficultyView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"diff_%i",[newQuestion level]]]];
     
     if ([[newQuestion quizAnswers] count]==2)
     {
@@ -339,6 +343,11 @@
 
 -(IBAction)showSupplementalInformation:(id)sender
 {
+#ifdef LITE_VERSION
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Paid version only" message:@"Sorry, but supplemental information is only available in the paid version of PlanetCards" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+    [alert release];
+#else
     if (self.correctIncorrectView.superview)
     {
         CGRect targetFrame = CGRectMake(self.correctIncorrectView.frame.origin.x, self.correctIncorrectView.frame.origin.y+self.correctIncorrectView.frame.size.height, self.correctIncorrectView.frame.size.width, self.correctIncorrectView.frame.size.height);
@@ -376,7 +385,7 @@
     }
     
     [UIView commitAnimations];
-    
+#endif  
 }
 
 -(void)removeCorrectionOverlay

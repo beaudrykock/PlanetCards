@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PlanetCards (BK MBP's conflicted copy 2012-07-18).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>PlanetCards copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>PlanetCards.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9F363D0415C058FF0022A967</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D9B77D0E13BF6F3D00ED5BB1</key>
 		<dict>
 			<key>primary</key>
