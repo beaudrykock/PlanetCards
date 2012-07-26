@@ -11,6 +11,8 @@
 		9F0654E014F2BDEA00F70DBF /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0654DF14F2BDEA00F70DBF /* CardView.xib */; };
 		9F0654E414F2D05A00F70DBF /* QuizIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */; };
 		9F0654E514F2D05A00F70DBF /* QuizIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0654E314F2D05A00F70DBF /* QuizIntroView.xib */; };
+		9F1EDBD615C198F2001CACCD /* planetcards_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1EDBD415C198F2001CACCD /* planetcards_ad.png */; };
+		9F1EDBD715C198F2001CACCD /* planetcards_ad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1EDBD515C198F2001CACCD /* planetcards_ad@2x.png */; };
 		9F28ABB415B1981E00832502 /* gray_btn_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F28ABB315B1981E00832502 /* gray_btn_base.png */; };
 		9F28ABB715B19B6C00832502 /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */; };
 		9F2DCB2D14F6B030009C3C43 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB2C14F6B030009C3C43 /* GameCenterManager.m */; };
@@ -652,6 +654,8 @@
 		9F0654E114F2D05A00F70DBF /* QuizIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizIntroViewController.h; sourceTree = "<group>"; };
 		9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizIntroViewController.m; sourceTree = "<group>"; };
 		9F0654E314F2D05A00F70DBF /* QuizIntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizIntroView.xib; sourceTree = "<group>"; };
+		9F1EDBD415C198F2001CACCD /* planetcards_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planetcards_ad.png; sourceTree = "<group>"; };
+		9F1EDBD515C198F2001CACCD /* planetcards_ad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "planetcards_ad@2x.png"; sourceTree = "<group>"; };
 		9F28ABB315B1981E00832502 /* gray_btn_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_btn_base.png; sourceTree = "<group>"; };
 		9F28ABB515B19B6C00832502 /* UIUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUnderlinedButton.h; sourceTree = "<group>"; };
 		9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUnderlinedButton.m; sourceTree = "<group>"; };
@@ -1469,6 +1473,8 @@
 		D9B77D1A13BF6F3D00ED5BB1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F1EDBD415C198F2001CACCD /* planetcards_ad.png */,
+				9F1EDBD515C198F2001CACCD /* planetcards_ad@2x.png */,
 				9F363CDA15C053B60022A967 /* Difficulty levels */,
 				9F6F966E1471978F006F5803 /* AppConstants.h */,
 				9FA6F6E714F00F1400447799 /* PlanetCardsQuizData.xml */,
@@ -1898,6 +1904,8 @@
 				9F363E4415C058FF0022A967 /* diff_10@2x.png in Resources */,
 				9F363E4D15C059AC0022A967 /* app_icon_lite@2x.png in Resources */,
 				9F363E4F15C059BB0022A967 /* app_icon_lite.png in Resources */,
+				9F1EDBD615C198F2001CACCD /* planetcards_ad.png in Resources */,
+				9F1EDBD715C198F2001CACCD /* planetcards_ad@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

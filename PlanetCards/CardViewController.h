@@ -61,8 +61,10 @@
     UIImageView *difficultyView;
     
     UIView *paidVersionOnlyView;
+    BOOL bannerAdShowing;
 }
 
+@property (nonatomic) BOOL bannerAdShowing;
 @property (nonatomic, retain) IBOutlet UIView *paidVersionOnlyView;
 @property (nonatomic, retain) IBOutlet UIImageView *difficultyView;
 @property (nonatomic, retain) IBOutlet UILabel *postAnswerInstructions;
@@ -113,5 +115,6 @@
 -(void)setCardIndex:(NSInteger)_cardIndex;
 -(void)removeCorrectionOverlay;
 -(IBAction)showSupplementalInformation:(id)sender;
+-(void)makeSpaceForAd;
 
 @end

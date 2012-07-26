@@ -10,9 +10,9 @@
 
 @implementation QuizViewController
 
-@synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, speedScoreResultLabel, knowledgeScoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView, questionScore, speedScore;
+@synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, speedScoreResultLabel, knowledgeScoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView, questionScore, speedScore, adBannerView, adBannerViewIsVisible, placeholderBanner, answerTimer_start, lossTimer_start,progressBarTimer_start;
 @synthesize bestTotalScoreResultLabel,totalScoreResultLabel, skippingView;
-@synthesize answerTimer, subTimer_1, subTimer_2, progressBarTimer, timerBar, lastFiveAnswers;
+@synthesize answerTimer, lossTimer, progressBarTimer, timerBar, lastFiveAnswers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -129,9 +129,6 @@
 
     [self prettify];
         
-    subTimer_1_active = NO;
-    subTimer_2_active = NO;
-    
     currentQuestionInterval = kDefaultQuestionIntervalInSeconds;
     
     [self resetProgressBar];
@@ -140,6 +137,10 @@
     QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
     [intro setParentController:self];
     [self.view addSubview:intro.view];
+    
+#ifdef LITE_VERSION
+    self.timerBar.frame = CGRectMake(self.timerBar.frame.origin.x, self.timerBar.frame.origin.y-50.0, self.timerBar.frame.size.width, self.timerBar.frame.size.height);
+#endif
     
 }
 
@@ -174,12 +175,17 @@
 
 -(void)startQuiz
 {
+#ifdef LITE_VERSION
+    [self createAdBannerView];
+#endif
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     NSInteger quizPlayCount = [prefs integerForKey:kQuizPlayCountKey];
     quizPlayCount++;
     [prefs setInteger:quizPlayCount forKey:kQuizPlayCountKey];
     [prefs synchronize];
+    quizActive = YES;
     
     [self prepTimerParameters];
     
@@ -253,6 +259,7 @@
 // call this FIRST from the card when a response is completed
 -(void)answerQuestionIsCorrect:(BOOL)isCorrect withSkip:(BOOL)isSkip
 {
+    quizActive = NO;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
     if (!isSkip)
@@ -346,6 +353,9 @@
     }
     
     secondsCount = currentQuestionInterval;
+    answersLost = 0;
+    answerTimer_elapsed = 0;
+    lossTimer_elapsed = 0;
 }
 
 // the card added at the bottom of the view stack must be prepped based on the answer to the just removed card
@@ -421,6 +431,7 @@
     
     if (!quizComplete)
     {
+        quizActive = YES;
         [self startTimer];
     }
     else {
@@ -805,30 +816,33 @@
 }
 
 #pragma mark - Question timing
+
+// only call this ONCE at start of card period - restart is separate call
 -(void)startTimer
 {
     [self prepTimerParameters];
     
-    NSLog(@"starting timers...");
-    NSLog(@"currentQuestionInterval = %f", currentQuestionInterval);
-    NSLog(@"number of answers = %i", numberOfAnswers);
+    //NSLog(@"starting timers...");
+    //NSLog(@"currentQuestionInterval = %f", currentQuestionInterval);
+    //NSLog(@"number of answers = %i", numberOfAnswers);
     
     self.progressBarTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgressBar) userInfo:nil repeats:YES];
+    self.progressBarTimer_start = [NSDate date];
+    
     self.answerTimer = [NSTimer scheduledTimerWithTimeInterval: currentQuestionInterval target: self selector: @selector(answerPeriodExpired) userInfo: nil repeats: NO];
+    self.answerTimer_start = [NSDate date];
     
     // sub timers
     if (numberOfAnswers==3)
     {
-        self.subTimer_1 = [NSTimer scheduledTimerWithTimeInterval: kAnswerLossIntervalInSeconds target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
+        maxAnswersToLose = 1;
     }
-    else if (numberOfAnswers ==4)
+    else if (numberOfAnswers==4)
     {
-        self.subTimer_1 = [NSTimer scheduledTimerWithTimeInterval: kAnswerLossIntervalInSeconds target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
-        self.subTimer_2 = [NSTimer scheduledTimerWithTimeInterval: kAnswerLossIntervalInSeconds*2 target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
-        subTimer_1_active = YES;
-        subTimer_2_active = YES;
+        maxAnswersToLose = 2;
     }
-    
+    self.lossTimer = [NSTimer scheduledTimerWithTimeInterval: kAnswerLossIntervalInSeconds target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
+    self.lossTimer_start = [NSDate date];
 }
 
 -(void)updateProgressBar
@@ -839,16 +853,14 @@
 
 -(void)loseAnAnswer
 {
-    if (subTimer_1_active && subTimer_2_active)
+    if (answersLost<maxAnswersToLose)
     {
-        subTimer_1_active = NO;
+        [[self.cards objectAtIndex:currentCardIndex] loseAnAnswer];
+        answersLost++;
+        
+        self.lossTimer = [NSTimer scheduledTimerWithTimeInterval: kAnswerLossIntervalInSeconds target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
+        self.lossTimer_start = [NSDate date];
     }
-    else
-    {
-        subTimer_2_active = NO;
-    }
-    
-    [[self.cards objectAtIndex:currentCardIndex] loseAnAnswer];
 }
 
 -(void)answerPeriodExpired
@@ -863,8 +875,6 @@
 -(void)resetTimerFlags
 {
     timerExpired = NO;
-    subTimer_1_active = NO;
-    subTimer_2_active = NO;
 }
 
 -(void)resetProgressBar
@@ -883,13 +893,10 @@
         }
     }
     
-    if (subTimer_1_active)
+    if (self.lossTimer)
     {
-        [self.subTimer_1 invalidate];
-    }
-    if (subTimer_2_active)
-    {
-        [self.subTimer_2 invalidate];
+        if ([self.lossTimer isValid])
+            [self.lossTimer invalidate];
     }
     
     if (self.progressBarTimer)
@@ -902,24 +909,6 @@
     [self resetTimerFlags];
     [self resetProgressBar];
 }
-
-#pragma mark - iAd
-/*
--(void)loadInterstitialAd
-{
-    self.adInterstitial = [[ADInterstitialAd alloc] init];
-    self.adInterstitial.delegate = self;
-}
-
--(BOOL)bannerAdIsReady
-{
-    //return self.adInterstitial.loaded;
-}
-
--(void)showBannerAd
-{
-
-}*/
 
 - (void)viewDidUnload
 {
@@ -934,9 +923,173 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - iAd
+- (void)createAdBannerView {
+    Class classAdBannerView = NSClassFromString(@"ADBannerView");
+    if (classAdBannerView != nil) {
+        self.adBannerView = [[[classAdBannerView alloc]
+                              initWithFrame:CGRectZero] autorelease];
+        [adBannerView setRequiredContentSizeIdentifiers:[NSSet setWithObjects:
+                                                          ADBannerContentSizeIdentifierPortrait,
+                                                          ADBannerContentSizeIdentifierLandscape, nil]];
+        
+        [adBannerView setCurrentContentSizeIdentifier:
+         ADBannerContentSizeIdentifierPortrait];
+        
+        [adBannerView setFrame:CGRectOffset([adBannerView frame], 0,
+                                             480.0)];
+        [adBannerView setDelegate:self];
+        
+        [self.view addSubview:adBannerView];
+    }
+    
+    // always add the placeholder
+    [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
+    [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
+    [self.view addSubview:self.placeholderBanner];
+}
+
+-(void)showAdBannerView
+{
+    if (adBannerView != nil) {
+        [adBannerView setCurrentContentSizeIdentifier:
+             ADBannerContentSizeIdentifierPortrait];
+        [UIView beginAnimations:@"fixupViews" context:nil];
+        if (adBannerViewIsVisible) {
+            CGRect adBannerViewFrame = [adBannerView frame];
+            self.placeholderBanner.frame = adBannerViewFrame;
+            adBannerViewFrame.origin.x = 0;
+            adBannerViewFrame.origin.y = self.view.frame.size.height-50.0;
+            [adBannerView setFrame:adBannerViewFrame];
+        } else {
+            CGRect adBannerViewFrame = [adBannerView frame];
+            self.placeholderBanner.frame = adBannerViewFrame;
+            adBannerViewFrame.origin.x = 0;
+            adBannerViewFrame.origin.y = self.view.frame.size.height;
+            [adBannerView setFrame:adBannerViewFrame];
+        }
+        [UIView commitAnimations];
+    }
+}
+
+- (int)getBannerHeight:(UIDeviceOrientation)orientation {
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        return 32;
+    } else {
+        return 50;
+    }
+}
+
+- (int)getBannerHeight {
+    return [self getBannerHeight:[UIDevice currentDevice].orientation];
+}
+
+#pragma mark ADBannerViewDelegate
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    if (!adBannerViewIsVisible) {
+        adBannerViewIsVisible = YES;
+        [self showAdBannerView];
+    }
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    if (adBannerViewIsVisible)
+    {
+        adBannerViewIsVisible = NO;
+        [self showAdBannerView];
+    }
+}
+
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
+{
+    NSLog(@"Banner view is beginning an ad action");
+    BOOL shouldExecuteAction = YES;// [self allowActionToRun]; // your application implements this method
+    if (!willLeave && shouldExecuteAction)
+    {
+        // insert code here to suspend any services that might conflict with the advertisement
+        if (!quizComplete)
+            [self suspendTimers];
+    }
+    return shouldExecuteAction;
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+    [self restartQuiz];
+}
+
+-(void)suspendTimers
+{
+    // timers to suspend include
+    // - progress timer update
+    // - lossTimer
+    // - answerTimer
+    
+    NSTimeInterval elapsed_1 = [[NSDate date] timeIntervalSinceDate:answerTimer_start];
+    NSTimeInterval elapsed_2 = [[NSDate date] timeIntervalSinceDate:lossTimer_start];
+    NSTimeInterval elapsed_3 = [[NSDate date] timeIntervalSinceDate:progressBarTimer_start];
+    
+    timersElapsedTime = nil;
+    timersElapsedTime = [[NSArray arrayWithObjects:[NSNumber numberWithInteger:elapsed_1],
+                                                  [NSNumber numberWithInteger:elapsed_2],
+                                                   [NSNumber numberWithInteger:elapsed_3],nil] retain];
+    suspendedProgressBarValue = self.timerBar.progress;
+    [self invalidateAllTimersForAdView];
+}
+
+-(void)invalidateAllTimersForAdView
+{
+    if (self.answerTimer)
+    {
+        if ([self.answerTimer isValid])
+            [self.answerTimer invalidate];
+    }
+    
+    if (self.lossTimer)
+    {
+        if ([self.lossTimer isValid])
+            [self.lossTimer invalidate];
+    }
+    
+    if (self.progressBarTimer)
+    {
+        if ([self.progressBarTimer isValid])
+            [self.progressBarTimer invalidate];
+    }
+}
+
+-(void)restartQuiz
+{
+    [self.timerBar setProgress:suspendedProgressBarValue];
+    
+    // always restart the answer and progress bar timer
+    self.progressBarTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgressBar) userInfo:nil repeats:YES];
+    self.progressBarTimer_start = [NSDate date];
+    
+    NSNumber *elapsed = (NSNumber*)[timersElapsedTime objectAtIndex:0];
+    answerTimer_elapsed += [elapsed integerValue];
+    NSTimeInterval remaining = currentQuestionInterval-answerTimer_elapsed;
+    NSLog(@"remaining = %f", remaining);
+    self.answerTimer = [NSTimer scheduledTimerWithTimeInterval: remaining target: self selector: @selector(answerPeriodExpired) userInfo: nil repeats: NO];
+    self.answerTimer_start = [NSDate date];
+    
+    NSNumber *elapsed_loss = (NSNumber*)[timersElapsedTime objectAtIndex:1];
+    lossTimer_elapsed += [elapsed_loss integerValue];
+    remaining = kAnswerLossIntervalInSeconds-lossTimer_elapsed;
+    self.lossTimer = [NSTimer scheduledTimerWithTimeInterval: remaining  target: self selector: @selector(loseAnAnswer) userInfo: nil repeats: NO];
+    self.lossTimer_start = [NSDate date];
+    
+    timersElapsedTime = nil;
+}
 
 -(void)dealloc
 {
+    [timersElapsedTime release];
+    [placeholderBanner release];
+    [lastFiveAnswers release];
+    [adBannerView release];
     [quizDB release];
     [cards release];
     [backgroundView release];
@@ -952,8 +1105,7 @@
     [topFrameView release];
     [skippingView release];
     [answerTimer release];
-    [subTimer_1 release];
-    [subTimer_2 release];
+    [lossTimer release];
     [progressBarTimer release];
     [timerBar release];
         

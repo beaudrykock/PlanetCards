@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9F363D0415C058FF0022A967"
-               BuildableName = "PlanetCards copy.app"
+               BuildableName = "PlanetCards Lite.app"
                BlueprintName = "PlanetCards Lite"
                ReferencedContainer = "container:PlanetCards.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F363D0415C058FF0022A967"
-            BuildableName = "PlanetCards copy.app"
+            BuildableName = "PlanetCards Lite.app"
             BlueprintName = "PlanetCards Lite"
             ReferencedContainer = "container:PlanetCards.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F363D0415C058FF0022A967"
-            BuildableName = "PlanetCards copy.app"
+            BuildableName = "PlanetCards Lite.app"
             BlueprintName = "PlanetCards Lite"
             ReferencedContainer = "container:PlanetCards.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9F363D0415C058FF0022A967"
-            BuildableName = "PlanetCards copy.app"
+            BuildableName = "PlanetCards Lite.app"
             BlueprintName = "PlanetCards Lite"
             ReferencedContainer = "container:PlanetCards.xcodeproj">
          </BuildableReference>

@@ -12,7 +12,7 @@
 
 @synthesize question_image,question_frame,question, answer_1, answer_2, answer_3, answer_4;
 @synthesize buttonBackground_right, buttonBackground_wrong, buttonBackground_corrected;
-@synthesize buttonArray;
+@synthesize buttonArray, bannerAdShowing;
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
 @synthesize parentController;
 @synthesize quizDB, difficultyView, paidVersionOnlyView;
@@ -68,8 +68,43 @@
     [self.view insertSubview:self.imageContainerView belowSubview:self.buttonTray];
     
     //[self prepCard];
-        
     originalFrame = CGRectMake(10.0, 50.0, kCardViewWidth, kCardViewHeight);
+    
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+#ifdef LITE_VERSION
+    if (!bannerAdShowing)
+        [self makeSpaceForAd];
+#endif
+}
+
+-(void)makeSpaceForAd
+{
+    bannerAdShowing = YES;
+    float change = 50.0;
+    
+    CGRect newViewFrame = CGRectMake(self.view.frame.origin.x,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-change);
+    CGRect newButtonTrayFrame = CGRectMake(self.buttonTray.frame.origin.x,self.buttonTray.frame.origin.y-change, self.buttonTray.frame.size.width, self.buttonTray.frame.size.height);
+    CGRect newImageViewContainerFrame = CGRectMake(self.imageContainerView.frame.origin.x,self.imageContainerView.frame.origin.y, self.imageContainerView.frame.size.width, self.imageContainerView.frame.size.height-change);
+    CGRect newQuestionImageFrame = CGRectMake(self.question_image.frame.origin.x,self.question_image.frame.origin.y, self.question_image.frame.size.width, self.question_image.frame.size.height-change);
+    //CGRect newAnswerFrame_1 = CGRectMake(self.answer_1.frame.origin.x,self.answer_1.frame.origin.y-change, self.answer_1.frame.size.width, self.answer_1.frame.size.height);
+    //CGRect newAnswerFrame_2 = CGRectMake(self.answer_2.frame.origin.x,self.answer_2.frame.origin.y-change, self.answer_2.frame.size.width, self.answer_2.frame.size.height);
+    //CGRect newAnswerFrame_3 = CGRectMake(self.answer_3.frame.origin.x,self.answer_3.frame.origin.y-change, self.answer_3.frame.size.width, self.answer_3.frame.size.height);
+    //CGRect newAnswerFrame_4 = CGRectMake(self.answer_4.frame.origin.x,self.answer_4.frame.origin.y-change, self.answer_4.frame.size.width, self.answer_4.frame.size.height);
+    
+    self.view.frame = newViewFrame;
+    self.buttonTray.frame = newButtonTrayFrame;
+    self.imageContainerView.frame = newImageViewContainerFrame;
+    self.question_image.frame = newQuestionImageFrame;
+    //self.answer_1.frame = newAnswerFrame_1;
+    //self.answer_2.frame = newAnswerFrame_2;
+    //self.answer_3.frame = newAnswerFrame_3;
+    //self.answer_4.frame = newAnswerFrame_4;
+    
+    originalFrame = CGRectMake(10.0, 50.0, kCardViewWidth, kCardViewHeight-change);
 }
 
 -(void)setCurrentQuestionNumber:(NSInteger)questionNumber

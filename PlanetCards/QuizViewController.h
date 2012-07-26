@@ -13,9 +13,9 @@
 #import "QuizIntroViewController.h"
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
-#import "iAd/ADInterstitialAd.h"
+#import "iAd/ADBannerView.h"
 
-@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ADInterstitialAdDelegate>
+@interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ADBannerViewDelegate>
 {
     
     QuizDB *quizDB;
@@ -51,23 +51,43 @@
     
     // TIMERS
     NSTimer* answerTimer;
-    NSTimer* subTimer_1;
+    NSTimer* lossTimer;
     NSTimer* subTimer_2;
     NSTimer *progressBarTimer;
     NSInteger numberOfAnswers;
     IBOutlet UIProgressView *timerBar;
     float secondsCount;
-    
-    BOOL subTimer_1_active;
-    BOOL subTimer_2_active;
+    NSDate *answerTimer_start;
+    NSDate *lossTimer_start;
+    NSDate *progressBarTimer_start;
+    float suspendedProgressBarValue;
+    NSTimeInterval answerTimer_elapsed;
+    NSTimeInterval lossTimer_elapsed;
+    BOOL lossTimer_fired;
+    BOOL lossTimer_active;
     BOOL timerExpired;
+    NSInteger answersLost;
+    NSInteger maxAnswersToLose;
     
     float currentQuestionInterval;
+    BOOL quizActive;
     BOOL wasLastQuestionAnsweredCorrect;
     BOOL quizComplete;
     NSMutableArray *lastFiveAnswers; // YES/NO for correct
+    
+    id adBannerView;
+    BOOL adBannerViewIsVisible;
+    
+    UIImageView *placeholderBanner;
+    NSArray* timersElapsedTime;
 }
 
+@property (nonatomic, retain) NSDate *answerTimer_start;
+@property (nonatomic, retain) NSDate *lossTimer_start;
+@property (nonatomic, retain) NSDate *progressBarTimer_start;
+@property (nonatomic, retain) IBOutlet UIImageView *placeholderBanner;
+@property (nonatomic, retain) id adBannerView;
+@property (nonatomic) BOOL adBannerViewIsVisible;
 @property (nonatomic) NSInteger questionScore;
 @property (nonatomic) NSInteger speedScore;
 @property (nonatomic, retain) NSMutableArray *lastFiveAnswers;
@@ -87,8 +107,7 @@
 @property (nonatomic, assign) id parentController;
 @property (nonatomic, retain) IBOutlet UIView *topFrameView;
 @property (nonatomic, retain) NSTimer *answerTimer;
-@property (nonatomic, retain) NSTimer *subTimer_1;
-@property (nonatomic, retain) NSTimer *subTimer_2;
+@property (nonatomic, retain) NSTimer *lossTimer;
 @property (nonatomic, retain) NSTimer *progressBarTimer;
 @property (nonatomic, retain) IBOutlet UIProgressView* timerBar;
 
@@ -116,4 +135,8 @@
 -(IBAction)tweetFromPostQuiz:(id)sender;
 -(void)postQuizViewDidStopAnimating;
 -(NSInteger)selectStartingQuestionNumber;
+-(void)restartQuiz;
+-(void)suspendTimers;
+-(void)invalidateAllTimersForAdView;
+
 @end
