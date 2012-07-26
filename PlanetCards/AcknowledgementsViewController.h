@@ -13,8 +13,10 @@
 {
     UILabel *developedBy;
     UILabel *supportFrom;
+    UILabel *viewTitle;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *viewTitle;
 @property (nonatomic, retain) IBOutlet UILabel *developedBy;
 @property (nonatomic, retain) IBOutlet UILabel *supportFrom;
 

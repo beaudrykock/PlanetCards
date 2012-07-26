@@ -454,6 +454,10 @@
 #pragma mark - Post-quiz options
 -(void)runEndOfQuizFunctionality
 {
+    // remove the ad banner view
+    if (adBannerViewIsVisible)
+        [self showAdBannerView];
+    
     // report the score
     [[DDGameKitHelper sharedGameKitHelper] submitScore:(speedScore+knowledgeScore) category:kLeaderboardID];
     

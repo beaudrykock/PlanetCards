@@ -9,7 +9,7 @@
 #import "AcknowledgementsViewController.h"
 
 @implementation AcknowledgementsViewController
-@synthesize developedBy, supportFrom;
+@synthesize developedBy, supportFrom, viewTitle;
 
 -(IBAction)hide:(id)sender
 {
@@ -53,6 +53,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+#ifdef LITE_VERSION
+    [self.viewTitle setText:@"About PlanetCards Lite"];
+#endif
     
     [self loadUrlButtons];
     // Do any additional setup after loading the view from its nib.

@@ -22,7 +22,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the name of Pluto's biggest moon?</question>
-        <level>1</level>
+        <level>6</level>
         <right_answer>Charon</right_answer>
         <wrong_answer>Oberon</wrong_answer>
         <wrong_answer>Mysteron</wrong_answer>
@@ -31,7 +31,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is closer to the sun?</question>
-        <level>1</level>
+        <level>3</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -40,7 +40,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is best known for its ring system?</question>
-        <level>1</level>
+        <level>2</level>
         <right_answer>Saturn</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Mercury</wrong_answer>
@@ -65,7 +65,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many planets are there in the Solar System?</question>
-        <level>1</level>
+        <level>4</level>
         <right_answer>8</right_answer>
         <wrong_answer>7</wrong_answer>
         <wrong_answer>9</wrong_answer>
@@ -75,11 +75,11 @@
     </quiz_item>
     <quiz_item>
         <question>What is the warmest place in the Solar System?</question>
-        <level>1</level>
+        <level>4</level>
         <right_answer>Sun</right_answer>
         <wrong_answer>Mercury</wrong_answer>
         <wrong_answer>Venus</wrong_answer>
-        <image>02_Mercury_large.png</image> %%maybe image of the Sun
+        <image>01_Sun_large.png</image>
         <supplement>The Sun is 15 million degrees Celsius in the center and about 5700 at the surface</supplement>
     </quiz_item>
     <quiz_item>
@@ -92,7 +92,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is the heaviest?</question>
-        <level>1</level>
+        <level>4</level>
         <right_answer>Jupiter</right_answer>
         <wrong_answer>Sun</wrong_answer>
         <wrong_answer>Saturn</wrong_answer>
@@ -101,7 +101,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is red?</question>
-        <level>2</level>
+        <level>5</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Venus</wrong_answer>
@@ -110,7 +110,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is bigger?</question>
-        <level>2</level>
+        <level>1</level>
         <right_answer>Sun</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <image>04_Earth_large.png</image>
@@ -118,7 +118,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is Mars made of chocolate?</question>
-        <level>2</level>
+        <level>3</level>
         <right_answer>Yes, and caramel</right_answer>
         <wrong_answer>No, licorice</wrong_answer>
         <wrong_answer>I don't know</wrong_answer>
@@ -128,7 +128,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is the Milky Way made of milk?</question>
-        <level>2</level>
+        <level>3</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <image>01_Sun_large.png</image>
@@ -136,7 +136,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the sun?</question>
-        <level>2</level>
+        <level>4</level>
         <right_answer>A star</right_answer>
         <wrong_answer>A planet</wrong_answer>
         <wrong_answer>A black hole</wrong_answer>
@@ -145,7 +145,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is an asteroid?</question>
-        <level>2</level>
+        <level>5</level>
         <right_answer>A rocky body orbiting the sun</right_answer>
         <wrong_answer>A child of a star</wrong_answer>
         <wrong_answer>A shooting star</wrong_answer>
@@ -154,7 +154,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where is 71% of the surface covered with water?</question>
-        <level>2</level>
+        <level>3</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>Europa</wrong_answer>
         <wrong_answer>Enceladus</wrong_answer>
@@ -164,10 +164,10 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the sun viewed from Pluto?</question>
-        <level>2</level>
+        <level>7</level>
         <right_answer>As big as the head of a pin held at full arms length</right_answer>
         <wrong_answer>As big as seen from Earth</wrong_answer>
-        <wrong_answer>As big as the head of an apple held at full arms length</wrong_answer>
+        <wrong_answer>As big as an apple held at full arms length</wrong_answer>
         <image>37_Pluto_large.png</image>
         <supplement>none</supplement>
     </quiz_item>
@@ -182,7 +182,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is the day on Mercury short or long compared to a Mercury year?</question>
-        <level>3</level>
+        <level>7</level>
         <right_answer>Long </right_answer>
         <wrong_answer>Short</wrong_answer>
         <image>02_Mercury_large.png</image>
@@ -190,7 +190,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is water ice present on the Moon?</question>
-        <level>3</level>
+        <level>8</level>
         <right_answer>Yes, near the poles</right_answer>
         <wrong_answer>No, it's completely dry</wrong_answer>
         <wrong_answer>Yes, it has oceans</wrong_answer>
@@ -199,7 +199,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is there ice on Mars?</question>
-        <level>3</level>
+        <level>8</level>
         <right_answer>Yes, at the poles</right_answer>
         <wrong_answer>Yes, frozen oceans</wrong_answer>
         <wrong_answer>No</wrong_answer>
@@ -208,7 +208,7 @@
     </quiz_item>
     <quiz_item>
         <question>How old is the surface of Enceladus?</question>
-        <level>3</level>
+        <level>9</level>
         <right_answer>Young - only 100 million years</right_answer>
         <wrong_answer>Old as the solar system</wrong_answer>
         <image>23_Enceladus_large.png</image>
@@ -216,7 +216,7 @@
     </quiz_item>
     <quiz_item>
         <question>When will Phobos collide with Mars?</question>
-        <level>3</level>
+        <level>7</level>
         <right_answer>In 50 million years</right_answer>
         <wrong_answer>Never</wrong_answer>
         <wrong_answer>Any minute now</wrong_answer>
@@ -225,7 +225,7 @@
     </quiz_item>
     <quiz_item>
         <question>Is Ceres heavier than all other asteroids combined?</question>
-        <level>3</level>
+        <level>5</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>09_Ceres_large.png</image>
@@ -233,7 +233,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which moon is fully covered with frozen water?</question>
-        <level>3</level>
+        <level>7</level>
         <right_answer>Europa</right_answer>
         <wrong_answer>Io</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -243,7 +243,7 @@
     </quiz_item>
     <quiz_item>
         <question>What do you call rocks from space that land on Earth?</question>
-        <level>3</level>
+        <level>4</level>
         <right_answer>Meteorites</right_answer>
         <wrong_answer>UFOs</wrong_answer>
         <wrong_answer>Space cadets</wrong_answer>
@@ -253,7 +253,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is Ida's moon, Dactyl?</question>
-        <level>3</level>
+        <level>9</level>
         <right_answer>1.5 miles</right_answer>
         <wrong_answer>15 miles</wrong_answer>
         <wrong_answer>150 miles</wrong_answer>
@@ -263,7 +263,7 @@
     </quiz_item>
     <quiz_item>
         <question>Comets consist of...</question>
-        <level>3</level>
+        <level>5</level>
         <right_answer>Dirty ice</right_answer>
         <wrong_answer>Rock</wrong_answer>
         <wrong_answer>Gas</wrong_answer>
@@ -283,7 +283,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the largest moon in the solar system?</question>
-        <level>4</level>
+        <level>10</level>
         <right_answer>Ganymede</right_answer>
         <wrong_answer>The Moon</wrong_answer>
         <wrong_answer>Titan</wrong_answer>
@@ -303,7 +303,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the Milky Way? </question>
-        <level>4</level>
+        <level>6</level>
         <right_answer>The galaxy where the solar system is located</right_answer>
         <wrong_answer>Small stars</wrong_answer>
         <wrong_answer>Light pollution</wrong_answer>
@@ -313,7 +313,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many days does Earth take to travel around the sun? </question>
-        <level>4</level>
+        <level>3</level>
         <right_answer>365 days</right_answer>
         <wrong_answer>24 hours</wrong_answer>
         <wrong_answer>1 light year</wrong_answer>
@@ -323,7 +323,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has a moon named Triton? </question>
-        <level>4</level>
+        <level>8</level>
         <right_answer>Neptune</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -333,7 +333,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet is also sometimes called the morning star? </question>
-        <level>4</level>
+        <level>6</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
@@ -353,7 +353,7 @@
     </quiz_item>
     <quiz_item>
         <question>On which planet's surface is the pressure 100 times higher than on Earth?</question>
-        <level>4</level>
+        <level>6</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -362,8 +362,8 @@
         <supplement>The high pressure works as a blanket keeping Venus' surface at the same temperature all around the globe, day or night. The temperature on Venus only varies about 1 degree Celsius</supplement>
     </quiz_item>
     <quiz_item>
-        <question>Which planet has the strongest greenhouse effect?</question>
-        <level>4</level>
+        <question>Which one has the strongest greenhouse effect?</question>
+        <level>10</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -373,7 +373,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which is the greatest body in the asteroid belt between Mars and Jupiter?</question>
-        <level>5</level>
+        <level>7</level>
         <right_answer>Ceres</right_answer>
         <wrong_answer>Kleopatra</wrong_answer>
         <wrong_answer>Vesta</wrong_answer>
@@ -383,7 +383,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many Apollo astronauts have walked on the Moon?</question>
-        <level>5</level>
+        <level>4</level>
         <right_answer>12</right_answer>
         <wrong_answer>3 </wrong_answer>
         <wrong_answer>92</wrong_answer>
@@ -402,8 +402,8 @@
         <supplement>Apollo 17 was the final mission of the Apollo program</supplement>
     </quiz_item>
     <quiz_item>
-        <question>Where is the warmest planet in the solar system?</question>
-        <level>5</level>
+        <question>Which is the warmest planet in the solar system?</question>
+        <level>6</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mercury</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -413,19 +413,19 @@
     </quiz_item>
     <quiz_item>
         <question>How many moons does Jupiter have?</question>
-        <level>5</level>
+        <level>8</level>
         <right_answer>More than 60</right_answer>
         <wrong_answer>Less than 40</wrong_answer>
         <wrong_answer>4</wrong_answer>
         <wrong_answer>More than 100</wrong_answer>
         <image>15_Jupiter_large.png</image>
-        <supplement>The number of known moons around Jupiter is constantly increasing as better telescopes and satellite missions to the outer planet makes it possible to discover additional small moons</supplement>
+        <supplement>The number of known moons around Jupiter is constantly increasing as better telescopes and satellite missions to the outer planet makes it possible to discover the smaller moons</supplement>
     </quiz_item>
     <quiz_item>
         <question>Where is life more likely to be found?</question>
-        <level>5</level>
+        <level>7</level>
         <right_answer>Europa</right_answer>
-        <wrong_answer>Pluto </wrong_answer>
+        <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Venus</wrong_answer>
         <wrong_answer>Mercury</wrong_answer>
         <image>03_Venus_large.png</image>
@@ -433,7 +433,7 @@
     </quiz_item>
     <quiz_item>
         <question>How long has life existed on Earth?</question>
-        <level>5</level>
+        <level>6</level>
         <right_answer>More than 3.5 billion years</right_answer>
         <wrong_answer>13.7 billion years</wrong_answer>
         <wrong_answer>1 million years</wrong_answer>
@@ -451,7 +451,7 @@
     </quiz_item>
     <quiz_item>
         <question>How many Moon rocks did the Apollo astronauts bring home?</question>
-        <level>5</level>
+        <level>9</level>
         <right_answer>382 kilogram</right_answer>
         <wrong_answer>None</wrong_answer>
         <wrong_answer>10 tonnes</wrong_answer>
@@ -461,8 +461,9 @@
     </quiz_item>
     <quiz_item>
         <question>How high is air pressure at the surface of Venus?</question>
-        <level>5</level>
+        <level>7</level>
         <right_answer>90 times Earth's</right_answer>
+        <wrong_answer>0.01 atmosphere</wrong_answer>
         <wrong_answer>1 atmosphere</wrong_answer>
         <wrong_answer>Same as on Earth</wrong_answer>
         <image>03_Venus_large.png</image>
@@ -470,25 +471,223 @@
     </quiz_item>
     <quiz_item>
         <question>Do we have pieces of Vesta's former parent body on Earth?</question>
-        <level>6</level>
+        <level>10</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>11_Vesta_large.png</image>
         <supplement>The Howardite, Eucrite and Diogenite meteorites come from a differentiated parent body in the asteroid belt, perhaps the asteroid Vesta. It is still debated whether these meteorites and Vesta share the same origin</supplement>
     </quiz_item>
     <quiz_item>
-        <question>Which near-Earth asteroid presents a risk of collision with Earth?</question>
+        <question>Are there any moons in our solar system not in this app?</question>
+        <level>5</level>
+        <right_answer>Yes</right_answer>
+        <wrong_answer>No</wrong_answer>
+        <image>27_Rhea_large.png</image>
+        <supplement>Many actually. But a number of the moons are small and not very well known</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which mission was first to land on Mars?</question>
+        <level>8</level>
+        <right_answer>Viking</right_answer>
+        <wrong_answer>Mars Express</wrong_answer>
+        <wrong_answer>Curiosity</wrong_answer>
+        <wrong_answer>Mars Exploration Rovers</wrong_answer>
+        <image>06_Mars_large.png</image>
+        <supplement>NASA's Viking 1 and 2 missions were launched in 1975 and were first to successfully land on Mars in 1976</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the greatest danger for astronauts in space?</question>
+        <level>7</level>
+        <right_answer>Solar and cosmic radiation</right_answer>
+        <wrong_answer>No burgers</wrong_answer>
+        <wrong_answer>No gravity</wrong_answer>
+        <wrong_answer>Asteroid collisions</wrong_answer>
+        <image>42_Temple1_large.png</image>
+        <supplement>Without the protective ozone-layer, UV radiation or a protective space suit, both x-ray flares from the Sun and cosmic rays from interstellar space can kill you</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which one is larger?</question>
+        <level>4</level>
+        <right_answer>Venus</right_answer>
+        <wrong_answer>Comet Halley</wrong_answer>
+        <wrong_answer>Miranda</wrong_answer>
+        <wrong_answer>Ceres</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>none</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which one is larger?</question>
         <level>6</level>
+        <right_answer>Titan</right_answer>
+        <wrong_answer>Ida</wrong_answer>
+        <wrong_answer>Vesta</wrong_answer>
+        <wrong_answer>Deimos</wrong_answer>
+        <image>11_Vesta_large.png</image>
+        <supplement>Being a planet, Venus is larger than the asteroids and one of Mars' tiny moons</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Where has no spacecraft ever landed?</question>
+        <level>7</level>
+        <right_answer>Dione</right_answer>
+        <wrong_answer>Mars</wrong_answer>
+        <wrong_answer>Titan</wrong_answer>
+        <wrong_answer>Moon</wrong_answer>
+        <image>26_Dione_large.png</image>
+        <supplement>An Apollo mission visited the Moon in the 1969-1972. The Huygens mission visited Titan in 2005. Mars' surface has been explored since the Viking mission in 1976, but no space craft has ever landed on the saturnian moon, Dione</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this moon?</question>
+        <level>6</level>
+        <right_answer>Titan</right_answer>
+        <wrong_answer>Ganymede</wrong_answer>
+        <wrong_answer>Iapetus</wrong_answer>
+        <wrong_answer>Proterus</wrong_answer>
+        <image>21_Titan_large.png</image>
+        <supplement>none</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this asteroid?</question>
+        <level>7</level>
+        <right_answer>Kleopatra</right_answer>
+        <wrong_answer>Ida</wrong_answer>
+        <wrong_answer>Ceres</wrong_answer>
+        <wrong_answer>Vesta</wrong_answer>
+        <image>14_Kleopatra_large.png</image>
+        <supplement>none</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this planet?</question>
+        <level>6</level>
+        <right_answer>Neptune</right_answer>
+        <wrong_answer>Uranus</wrong_answer>
+        <wrong_answer>Saturn</wrong_answer>
+        <wrong_answer>Earth</wrong_answer>
+        <image>34_Neptun_large.png</image>
+        <supplement>none</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this comet?</question>
+        <level>7</level>
+        <right_answer>Temple 1</right_answer>
+        <wrong_answer>Hale Bopp</wrong_answer>
+        <wrong_answer>Halley</wrong_answer>
+        <wrong_answer>Shoemaker-Levy 9</wrong_answer>
+        <image>42_Temple1_large.png</image>
+        <supplement>NASA's Deep Impact probe visited comet Temple 1 in 2005. Part of the probe was launched to crash into the comet, while the other part measured the chemical constituents of the bright spray from the impact site</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this moon?</question>
+        <level>6</level>
+        <right_answer>Enceladus</right_answer>
+        <wrong_answer>Io</wrong_answer>
+        <wrong_answer>Iapetus</wrong_answer>
+        <wrong_answer>Europa</wrong_answer>
+        <image>23_Enceladus_large.png</image>
+        <supplement>Powerful volcanic eruptions have been observed in the outer solar system on Io, Triton and Enceladus. Analyses of the gases spewed revealed that Enceladus is hiding liquid water under its icy surface</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this asteroid?</question>
+        <level>9</level>
+        <right_answer>Mathilde</right_answer>
+        <wrong_answer>Ida</wrong_answer>
+        <wrong_answer>Ceres</wrong_answer>
+        <wrong_answer>Vesta</wrong_answer>
+        <image>10_mathilde_large.png</image>
+        <supplement>On its way to Eros in 1997, space shuttle NEAR passed by Mathilde. Rocks from space found on Earth are called meteorites. Most meteorites have the same composition as Mathilde</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the name of this planet?</question>
+        <level>4</level>
+        <right_answer>Mercury</right_answer>
+        <wrong_answer>Mars</wrong_answer>
+        <wrong_answer>Venus</wrong_answer>
+        <wrong_answer>Earth</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>Mercury rotates so slowly that a day on Mercury is longer than its year. In the equatorial regions temperatures reach 430ºC at daytime and -185ºC at night</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What was the name of this impacting comet?</question>
+        <level>6</level>
+        <right_answer>Shoemaker-Levy 9</right_answer>
+        <wrong_answer>Tempel 1</wrong_answer>
+        <wrong_answer>Hale Bopp</wrong_answer>
+        <wrong_answer>Halley</wrong_answer>
+        <image>41_Shoemaker-Levy_large.png</image>
+        <supplement>The picture shows the collision of comet Shoemaker-Levy 9 and Jupiter in 1994. All major telescopes observed this cosmic event. The collision released more energy than stored in the world's entire nuclear arsenal</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is this?</question>
+        <level>4</level>
+        <right_answer>A comet</right_answer>
+        <wrong_answer>A moon</wrong_answer>
+        <wrong_answer>A star</wrong_answer>
+        <wrong_answer>An asteroid</wrong_answer>
+        <image>40_Halley_large.png</image>
+        <supplement>The image is of the Comet Halley</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is this?</question>
+        <level>4</level>
+        <right_answer>A star</right_answer>
+        <wrong_answer>A planet</wrong_answer>
+        <wrong_answer>A comet</wrong_answer>
+        <wrong_answer>A moon</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun is a star - classified as a main sequence G2V "yellow dwarf", because its visible radiation is most intense in the yellow-green portion of the spectrum</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What are these?</question>
+        <level>6</level>
+        <right_answer>Asteroids</right_answer>
+        <wrong_answer>Planet and moon</wrong_answer>
+        <wrong_answer>Comets</wrong_answer>
+        <wrong_answer>Dwarf planets</wrong_answer>
+        <image>13_Ida_large.png</image>
+        <supplement>In 1993 NASA space shuttle Galilei shot this picture of asteroid Ida and its tiny moon, Dactyl. A pure coincidence revealed this little moon on the photographs. Dactyl measures just 1 mile across in its longest dimension</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which one is hotter at the surface?</question>
+        <level>6</level>
+        <right_answer>Venus</right_answer>
+        <wrong_answer>Earth</wrong_answer>
+        <wrong_answer>Io</wrong_answer>
+        <wrong_answer>Jupiter</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>Venus is closer to the Sun and therefore hotter. It also suffers from strong greenhouse warming</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why do we not have a better picture of Proteus?</question>
+        <level>2</level>
+        <right_answer>No space mission has ever taken a better one</right_answer>
+        <wrong_answer>Voyager 2 carried bad cameras</wrong_answer>
+        <wrong_answer>Better pictures are kept secret</wrong_answer>
+        <wrong_answer>This is a brilliant photograph</wrong_answer>
+        <image>36_Proteus_large.png</image>
+        <supplement>Voyager 1 and 2 are the only spacecraft that travelled beyond Uranus and Neptune. We know of eight moons of Neptune. Many were first discovered when Voyager 2 flew by Neptune in 1989. Proteus is so far the largest one. Yet, no better pictures have ever been taken.</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the real name of the "Pizza Moon"?</question>
+        <level>7</level>
+        <right_answer>Io</right_answer>
+        <wrong_answer>Callisto</wrong_answer>
+        <wrong_answer>Titan</wrong_answer>
+        <wrong_answer>Europa</wrong_answer>
+        <image>17_Io_large.png</image>
+        <supplement>Io's volcanic activity is greater than anywhere else in the solar system. Its volcanoes produce plumes of sulfur that give the moon its yellow color. Some volcanoes are higher than Mount Everest and eject lava directly into space.</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which near-Earth asteroid presents a risk of collision with Earth?</question>
+        <level>9</level>
         <right_answer>Yes, Eros might</right_answer>
         <wrong_answer>Yes, Pluto might</wrong_answer>
         <wrong_answer>Yes, Ceres might</wrong_answer>
-        <wrong_answer>No</wrong_answer>
+        <wrong_answer>None of the above</wrong_answer>
         <image>12_Eros_large.png</image>
         <supplement>Eros is currently a Mars-crosser asteroid, but dynamical simulations suggest that it could develop into an Earth-crosser asteroid in "just" 2 million years</supplement>
     </quiz_item>
     <quiz_item>
         <question>When did Shoemaker-Levy-9 break apart and collide with Jupiter?</question>
-        <level>6</level>
+        <level>7</level>
         <right_answer>1994</right_answer>
         <wrong_answer>1572</wrong_answer>
         <wrong_answer>1610</wrong_answer>
@@ -498,7 +697,7 @@
     </quiz_item>
     <quiz_item>
         <question>How often does Halley's comet travel by the Earth towards the sun?</question>
-        <level>6</level>
+        <level>7</level>
         <right_answer>Every 76 years</right_answer>
         <wrong_answer>Every 3.3 years</wrong_answer>
         <wrong_answer>Every 7 years</wrong_answer>
@@ -508,7 +707,7 @@
     </quiz_item>
     <quiz_item>
         <question>What is the name of the large crater on Mimas?</question>
-        <level>6</level>
+        <level>9</level>
         <right_answer>Herschel</right_answer>
         <wrong_answer>Chicxulub</wrong_answer>
         <wrong_answer>Valles Marineris</wrong_answer>
@@ -518,7 +717,7 @@
     </quiz_item>
     <quiz_item>
         <question>How much of Earth's surface is covered with water?</question>
-        <level>6</level>
+        <level>5</level>
         <right_answer>71%</right_answer>
         <wrong_answer>51%</wrong_answer>
         <wrong_answer>91%</wrong_answer>
@@ -528,7 +727,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where does the sun rise in the west and set in the east?</question>
-        <level>6</level>
+        <level>10</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
@@ -558,7 +757,7 @@
     </quiz_item>
     <quiz_item>
         <question>What kept humans from exploring the surface of Titan before the 2004 Cassini-Huygens mission?</question>
-        <level>6</level>
+        <level>8</level>
         <right_answer>Titan's dense cloud cover</right_answer>
         <wrong_answer>Earth's opaque atmosphere</wrong_answer>
         <wrong_answer>Titan is always hiding behind Saturn</wrong_answer>
@@ -568,8 +767,8 @@
     </quiz_item>
     <quiz_item>
         <question>What is special about Iapetus?</question>
-        <level>7</level>
-        <right_answer>It is the "yin-yan" moon. </right_answer>
+        <level>8</level>
+        <right_answer>Its surface is yin-yang, both black and white</right_answer>
         <wrong_answer>Its surface is turned inside out</wrong_answer>
         <wrong_answer>Its shape is like a dog's bone</wrong_answer>
         <wrong_answer>It is the Pizza moon.</wrong_answer>
@@ -578,11 +777,11 @@
     </quiz_item>
     <quiz_item>
         <question>How many Saturn moons do we know of?</question>
-        <level>7</level>
+        <level>5</level>
         <right_answer>More than 50</right_answer>
         <wrong_answer>18</wrong_answer>
         <wrong_answer>Less than 40</wrong_answer>
-        <wrong_answer>only 6</wrong_answer>
+        <wrong_answer>6</wrong_answer>
         <image>20_Saturn_large.png</image>
         <supplement>Many moons are so small that they can only be observed from spacecraft traveling to Saturn</supplement>
     </quiz_item>
@@ -598,7 +797,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the wind system visible in this image of Neptune?</question>
-        <level>7</level>
+        <level>9</level>
         <right_answer>Earth-sized</right_answer>
         <wrong_answer>Size of Sahara desert</wrong_answer>
         <wrong_answer>200 km across</wrong_answer>
@@ -608,7 +807,7 @@
     </quiz_item>
     <quiz_item>
         <question>How much energy was released, when comet Shoemaker-Levy-9 collided with Jupiter?</question>
-        <level>7</level>
+        <level>3</level>
         <right_answer>More than our entire nuclear arsenal</right_answer>
         <wrong_answer>Less than our entire nuclear arsenal</wrong_answer>
         <wrong_answer>Same as our entire nuclear arsenal</wrong_answer>
@@ -628,13 +827,13 @@
     </quiz_item>
     <quiz_item>
         <question>When did/will Voyager 2 pass by Proteus?</question>
-        <level>7</level>
+        <level>6</level>
         <right_answer>1989</right_answer>
         <wrong_answer>1972</wrong_answer>
         <wrong_answer>2020</wrong_answer>
         <wrong_answer>2001</wrong_answer>
         <image>36_Proteus_large.png</image>
-        <supplement>NASA's Voyager 2 shuttle was launched from Florida in 1977. How long was the travel to Proteus?</supplement>
+        <supplement>NASA's Voyager 2 shuttle was launched from Florida in 1977. How long was then the travel to Proteus?</supplement>
     </quiz_item>
     <quiz_item>
         <question>Who was the first living creature in space?</question>
@@ -648,17 +847,17 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet has no ring?</question>
-        <level>7</level>
+        <level>6</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Neptune</wrong_answer>
         <wrong_answer>Uranus</wrong_answer>
         <image>20_Saturn_large.png</image>
-        <supplement>Only the giant planets have rings. Rings of dust and small boulders orbit the larger planets because their strong gravitational field attract material, while preventing moons from accreting close to the planet (within the Roche limit, ca. 1.25 planetary radii from the planet)</supplement>
+        <supplement>Only the giant planets have rings. Rings of dust and small boulders orbit the larger planets because their strong gravitational field attract material, but also prevent moons from accreting close to the planet (tidal forces are too strong within the Roche limit, roughly 1 planetary radii from the planet)</supplement>
     </quiz_item>
     <quiz_item>
         <question>What is a shooting star?</question>
-        <level>7</level>
+        <level>4</level>
         <right_answer>A meteor passing into the Earth's atmosphere</right_answer>
         <wrong_answer>A Danish fish dish</wrong_answer>
         <wrong_answer>The death of a star</wrong_answer>
@@ -668,7 +867,7 @@
     </quiz_item>
     <quiz_item>
         <question>How long will it take NASA spacecraft New Horizons to reach Pluto?</question>
-        <level>8</level>
+        <level>7</level>
         <right_answer>12 years</right_answer>
         <wrong_answer>21 years</wrong_answer>
         <wrong_answer>12 months </wrong_answer>
@@ -678,7 +877,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there planets outside our own solar system orbiting distant stars?</question>
-        <level>8</level>
+        <level>7</level>
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <wrong_answer>We don't know </wrong_answer>
@@ -687,7 +886,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet orbits around the Moon?</question>
-        <level>8</level>
+        <level>6</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>None</wrong_answer>
         <wrong_answer>Sun</wrong_answer>
@@ -707,7 +906,7 @@
     </quiz_item>
     <quiz_item>
         <question>Where in the solar system is the largest volcano, Olympus Mons?</question>
-        <level>8</level>
+        <level>7</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Earth</wrong_answer>
         <wrong_answer>Io</wrong_answer>
@@ -717,13 +916,13 @@
     </quiz_item>
     <quiz_item>
         <question>Which spacecraft visited Uranus?</question>
-        <level>8</level>
+        <level>6</level>
         <right_answer>Voyager 2</right_answer>
         <wrong_answer>Apollo 17</wrong_answer>
         <wrong_answer>Challenger</wrong_answer>
         <wrong_answer>Cassini-Huygens</wrong_answer>
         <image>28_uranus_large.png</image>
-        <supplement>There has been very few missions to the outer solar system, so our knowledge about these planets is limited</supplement>
+        <supplement>There has been very few missions to the outer solar system, so our knowledge about these planets is limited.</supplement>
     </quiz_item>
     <quiz_item>
         <question>Which planet is tipped over, rolling like a ball in its orbit around the sun?</question>
@@ -737,7 +936,7 @@
     </quiz_item>
     <quiz_item>
         <question>Neptune's winds are the strongest in the solar system. They have blown at...</question>
-        <level>8</level>
+        <level>10</level>
         <right_answer>2000 km/h</right_answer>
         <wrong_answer>200 km/h</wrong_answer>
         <wrong_answer>20,000 km/h</wrong_answer>
@@ -747,7 +946,7 @@
     </quiz_item>
     <quiz_item>
         <question>What are Mars' two moons?</question>
-        <level>8</level>
+        <level>4</level>
         <right_answer>Captured asteroids</right_answer>
         <wrong_answer>Left over debris from a giant impact </wrong_answer>
         <wrong_answer>Cheese, like our moon</wrong_answer>
@@ -757,7 +956,7 @@
     </quiz_item>
     <quiz_item>
         <question>When and by who was Pluto discovered?</question>
-        <level>8</level>
+        <level>9</level>
         <right_answer>1930 by Clyde Tombaugh</right_answer>
         <wrong_answer>1895 by Walt Disney</wrong_answer>
         <wrong_answer>1930 by Alfred Wegener</wrong_answer>
@@ -767,7 +966,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which planet's atmosphere contains 21 percent molecular oxygen?</question>
-        <level>9</level>
+        <level>3</level>
         <right_answer>Earth</right_answer>
         <wrong_answer>Jupiter</wrong_answer>
         <wrong_answer>Saturn </wrong_answer>
@@ -777,7 +976,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of these planets have no moons?</question>
-        <level>9</level>
+        <level>4</level>
         <right_answer>Venus </right_answer>
         <wrong_answer>Saturn</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -787,7 +986,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of these planets have no moons?</question>
-        <level>9</level>
+        <level>4</level>
         <right_answer>Mercury</right_answer>
         <wrong_answer>Pluto</wrong_answer>
         <wrong_answer>Earth</wrong_answer>
@@ -796,18 +995,18 @@
         <supplement>Mercury has no moon. Planet formation is thought to proceed as larger and larger planetesimals and protoplanets collide. The existence of Earth's moon could simply be a result of chance. Mercury is small and close to the Sun, and thus hasn't been captured and kept any smaller asteroids in orbit after its formation</supplement>
     </quiz_item>
     <quiz_item>
-        <question>Which Jupiter moon have also experienced tectonic motion, like Earth?</question>
-        <level>9</level>
+        <question>Which Jupiter moon has also experienced tectonics, like Earth?</question>
+        <level>10</level>
         <right_answer>Ganymede</right_answer>
         <wrong_answer>Phobos</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
         <wrong_answer>Pan</wrong_answer>
         <image>16_Ganymede_large.png</image>
-        <supplement>Tectonic break-up of a planet's crust and movement of crustal layers atop each other (thrust faults) have been observed on all the inner planets and on several moons, including Ganymede, Enceladus, Europa and Ganymede</supplement>
+        <supplement>Tectonic break-up of a planet's crust and movement of crustal layers atop each other (thrust faults) have been observed on all the inner planets and on several moons, including Ganymede, Enceladus, Europa and Ganymede.</supplement>
     </quiz_item>
     <quiz_item>
         <question>When did the solar system form?</question>
-        <level>9</level>
+        <level>4</level>
         <right_answer>4.56 billion years ago</right_answer>
         <wrong_answer>4.56 million years ago</wrong_answer>
         <wrong_answer>6000 yrs ago</wrong_answer>
@@ -817,7 +1016,7 @@
     </quiz_item>
     <quiz_item>
         <question>Why don't Tethys, Calypso and Telesto collide, since they share orbit around Saturn?</question>
-        <level>9</level>
+        <level>5</level>
         <right_answer>They move at the same speed</right_answer>
         <wrong_answer>They will in future</wrong_answer>
         <wrong_answer>They are so small that they always miss each other</wrong_answer>
@@ -827,37 +1026,37 @@
     </quiz_item>
     <quiz_item>
         <question>Where is it bright all summer long?</question>
-        <level>9</level>
+        <level>6</level>
         <right_answer>On Uranus' surface </right_answer>
         <wrong_answer>Hawaii</wrong_answer>
         <wrong_answer>Mars</wrong_answer>
         <wrong_answer>Moon</wrong_answer>
         <image>01_Sun_large.png</image>
-        <supplement>This is because the rotation axis of Uranus is tilted 90 degrees</supplement>
+        <supplement>This is because the rotation axis of Uranus is tilted 90 degrees, so that each hemisphere is pointing towards the Sun during summer. Can you imagine how the Sun moves across the Uranian sky?</supplement>
     </quiz_item>
     <quiz_item>
         <question>How do we know the age of Oberon's surface?</question>
-        <level>9</level>
+        <level>8</level>
         <right_answer>High crater density</right_answer>
         <wrong_answer>Low crater density</wrong_answer>
         <wrong_answer>Radiometric ages of surface rocks</wrong_answer>
         <wrong_answer>We have no clue</wrong_answer>
         <image>29_Oberon_large.png</image>
-        <supplement>Craters form from impacts of accreting material, and impacts were more frequent in the earliest ages of the solar system. An old surface has therefore collected more craters than a young one. On Earth, however, wind and rain is actively eroding the surface, leaving no traces of the oldest craters.</supplement>
+        <supplement>Craters form from impactors and impact frequency was higher in the earliest ages of the solar system. An old surface is therefore densely space with craters compared to a young one. On Earth, wind and rain is constantly eroding and cleaning the surface, leaving no traces of the oldest craters.</supplement>
     </quiz_item>
     <quiz_item>
         <question>Why does Miranda look so special?</question>
-        <level>9</level>
+        <level>8</level>
         <right_answer>Collisions may have torn Miranda apart</right_answer>
         <wrong_answer>Sometimes bad things happen</wrong_answer>
-        <wrong_answer>Miranda must have had oceans</wrong_answer>
+        <wrong_answer>Miranda once had oceans</wrong_answer>
         <wrong_answer>Lack of sunlight</wrong_answer>
         <image>33_Miranda_large.png</image>
         <supplement>Violent collisions with other bodies can have traumatic consequences for moons and planets</supplement>
     </quiz_item>
     <quiz_item>
         <question>Pluto is one of many bodies in the outer asteroid belt (Kuiper belt). What is its current status?</question>
-        <level>9</level>
+        <level>4</level>
         <right_answer>Dwarf planet</right_answer>
         <wrong_answer>Planet</wrong_answer>
         <wrong_answer>Comet</wrong_answer>
@@ -867,17 +1066,17 @@
     </quiz_item>
     <quiz_item>
         <question>Are there aliens?</question>
-        <level>10</level>
+        <level>3</level>
         <right_answer>We do not know</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <wrong_answer>No</wrong_answer>
         <wrong_answer>We all are</wrong_answer>
         <image>04_Earth_large.png</image>
-        <supplement>Since we have never had documented contact with any aliens (extra terrestrial life forms), we simply don't know</supplement>
+        <supplement>We simply don't know, because we have neither found any traces of extraterrestrial life or documented contact with any aliens, but we are still looking...</supplement>
     </quiz_item>
     <quiz_item>
         <question>What is the nearest star to Earth?</question>
-        <level>10</level>
+        <level>4</level>
         <right_answer>The Sun</right_answer>
         <wrong_answer>Sirius</wrong_answer>
         <wrong_answer>Proxima Centauri</wrong_answer>
@@ -887,7 +1086,7 @@
     </quiz_item>
     <quiz_item>
         <question>Can humans travel and live anywhere outside the Earth without space suits?</question>
-        <level>10</level>
+        <level>1</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <wrong_answer>Some can</wrong_answer>
@@ -897,7 +1096,7 @@
     </quiz_item>
     <quiz_item>
         <question>How big is the Universe?</question>
-        <level>10</level>
+        <level>6</level>
         <right_answer>13.7 billion light years</right_answer>
         <wrong_answer>Infinite</wrong_answer>
         <wrong_answer>As big as the milky way</wrong_answer>
@@ -907,7 +1106,7 @@
     </quiz_item>
     <quiz_item>
         <question>Are there any planets in our solar system not in this app?</question>
-        <level>10</level>
+        <level>3</level>
         <right_answer>No</right_answer>
         <wrong_answer>Yes</wrong_answer>
         <image>15_Jupiter_large.png</image>
@@ -915,17 +1114,17 @@
     </quiz_item>
     <quiz_item>
         <question>Has any astronaut ever seen an Earth rise from the Moon?</question>
-        <level>10</level>
+        <level>9</level>
         <right_answer>Impossible: the Moon is always facing the Earth</right_answer>
         <wrong_answer>Yes, I have seen pictures</wrong_answer>
         <wrong_answer>They were there, but not during Earth rise</wrong_answer>
         <wrong_answer>No man has ever been on the Moon</wrong_answer>
         <image>05_Moon_large.png</image>
-        <supplement>The famous picture "Earth-rise" was taken onboard NASA Apollo 8 mission in 1968</supplement>
+        <supplement>You may think you have seen a picture of Earth-rise from the moon. However, the famous picture "Earth-rise" was taken onboard NASA Apollo 8 mission in 1968.</supplement>
     </quiz_item>
     <quiz_item>
         <question>Is there water ice present on all planet surfaces?</question>
-        <level>10</level>
+        <level>4</level>
         <right_answer>No, Mercury is too close to the sun</right_answer>
         <wrong_answer>No, Earth is the only one</wrong_answer>
         <wrong_answer>Yes, ice is fundamental</wrong_answer>
@@ -935,7 +1134,7 @@
     </quiz_item>
     <quiz_item>
         <question>Why is Mars red?</question>
-        <level>10</level>
+        <level>7</level>
         <right_answer>Iron in the Martian crust</right_answer>
         <wrong_answer>Rain and clouds </wrong_answer>
         <wrong_answer>Fire from volcanoes</wrong_answer>
@@ -945,7 +1144,7 @@
     </quiz_item>
     <quiz_item>
         <question>Mercury is closer to the sun than Venus, so why is Venus hotter?</question>
-        <level>10</level>
+        <level>8</level>
         <right_answer>Intense greenhouse warming</right_answer>
         <wrong_answer>Venus is bigger than Mercury</wrong_answer>
         <wrong_answer>Heat is flowing from its interior</wrong_answer>
@@ -955,7 +1154,7 @@
     </quiz_item>
     <quiz_item>
         <question>Which of the following is not unique for Earth?</question>
-        <level>10</level>
+        <level>6</level>
         <right_answer>Oceans</right_answer>
         <wrong_answer>Humans</wrong_answer>
         <wrong_answer>Breathable atmosphere</wrong_answer>
@@ -965,19 +1164,12 @@
     </quiz_item>
     <quiz_item>
         <question>Which one is closer to the sun?</question>
-        <level>10</level>
+        <level>5</level>
         <right_answer>Mars</right_answer>
         <wrong_answer>Ceres</wrong_answer>
         <wrong_answer>Jupiter</wrong_answer>
+        <wrong_answer>Pluto</wrong_answer>
         <image>15_Jupiter_large.png</image>
         <supplement>none</supplement>
-    </quiz_item>
-    <quiz_item>
-        <question>Are there any moons in our solar system not in this app?</question>
-        <level>10</level>
-        <right_answer>Yes</right_answer>
-        <wrong_answer>No</wrong_answer>
-        <image>27_Rhea_large.png</image>
-        <supplement>Many actually. But many of the moons are small and not very well known</supplement>
     </quiz_item>
 </quiz_data>
