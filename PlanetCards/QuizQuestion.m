@@ -32,7 +32,7 @@
 {
     NSString *cleanFilename = [questionImageFilename stringByReplacingOccurrencesOfString: @".png" withString: @""];
     
-    return cleanFilename;
+   return cleanFilename;
 }
 
 -(BOOL)isAnswerRight:(NSInteger)answerNumber

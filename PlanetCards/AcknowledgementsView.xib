@@ -121,7 +121,7 @@
 					<object class="IBUIButton" id="345919863">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{24, 397}, {276, 43}}</string>
+						<string key="NSFrame">{{22, 397}, {276, 43}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -300,7 +300,7 @@
 						<string key="NSFrame">{{0, 6}, {320, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="823038433"/>
+						<reference key="NSNextKeyView" ref="702209765"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -325,12 +325,13 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUILabel" id="558469388">
+					<object class="IBUILabel" id="702209765">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{141, 31}, {42, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="823038433"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -440,7 +441,7 @@
 							<reference ref="422466434"/>
 							<reference ref="288294439"/>
 							<reference ref="414113600"/>
-							<reference ref="558469388"/>
+							<reference ref="702209765"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -512,7 +513,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
-						<reference key="object" ref="558469388"/>
+						<reference key="object" ref="702209765"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>

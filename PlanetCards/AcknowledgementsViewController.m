@@ -102,6 +102,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.developedBy = nil;
+    self.supportFrom = nil;
+    self.viewTitle = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -110,6 +113,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
+-(void)dealloc
+{
+    [developedBy release];
+    [supportFrom release];
+    [viewTitle release];
+    
+    [super dealloc];
+}
 
 @end
