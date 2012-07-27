@@ -60,8 +60,7 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
+        
     [scrollableInterior release];
     [planetaryImages release];
     [scrollingObjectView release];
@@ -97,6 +96,8 @@
     [mainScrollingObjectView release];
     [backToPlanetInnerContainerView release];
     [moon release];
+    
+    [super dealloc];
 }
 
 

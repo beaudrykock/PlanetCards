@@ -16,8 +16,6 @@
 
 -(void)dealloc
 {
-    [super dealloc];
-    
     [name release];
     [type release];
     [teaser release];
@@ -32,6 +30,7 @@
     [tabImage release];
     [mainImage release];
 
+    [super dealloc];
 }
 
 -(NSArray*)arrayOfFactoids

@@ -17,10 +17,10 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
     [planetaryObjectViewController release];
     [quizViewController release];
+    
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

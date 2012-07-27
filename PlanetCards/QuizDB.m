@@ -341,10 +341,12 @@
 
 -(void)dealloc
 {
-    [super dealloc];
     
     [quizQuestions release];
     [questionsAsked release];
+    [quizQuestionsByDifficulty release];
+    
+    [super dealloc];
     
 }
 

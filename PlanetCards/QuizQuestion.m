@@ -79,6 +79,7 @@
 
 -(void)dealloc
 {
+    [supplementalInfo release];
     [question release];
     [questionImageFilename release];
     [quizAnswers release];

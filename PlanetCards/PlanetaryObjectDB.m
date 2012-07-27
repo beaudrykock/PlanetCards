@@ -15,9 +15,10 @@
 
 -(void)dealloc
 {
-    [super dealloc];
     
     [planetaryObjects release];
+    
+    [super dealloc];
 }
 
 -(void)loadContent

@@ -14,10 +14,10 @@
 
 -(void)dealloc
 {
-    [super dealloc];
-    
     [isRight release];
     [answer release];
+    
+    [super dealloc];
 }
 
 
