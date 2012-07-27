@@ -428,12 +428,7 @@
     [self.correctIncorrectView removeFromSuperview];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -608,9 +603,36 @@
     cardIndex = _cardIndex;
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    
+    self.paidVersionOnlyView = nil;
+    self.difficultyView = nil;
+    self.postAnswerInstructions = nil;
+    self.imageContainerView = nil;
+    self.supplementalInfoText = nil;
+    self.supplementalInfoTitle = nil;
+    self.supplementalInfoView = nil;
+    self.question_image = nil;
+    self.question_frame = nil;
+    self.question = nil;
+    self.answer_1 = nil;
+    self.answer_2 = nil;
+    self.answer_3 = nil;
+    self.answer_4 = nil;
+    self.correctIncorrectImage = nil;
+    self.correctIncorrectLabel = nil;
+    self.correctIncorrectView = nil;
+    self.buttonTray = nil;
+}
+
 -(void)dealloc
 {
-    [super dealloc];
+    [paidVersionOnlyView release];
+    [difficultyView release];
     [imageContainerView release];
     [supplementalInfoText release];
     [supplementalInfoTitle release];
@@ -632,6 +654,8 @@
     [quizDB release];
     [buttonTray release];
     [postAnswerInstructions release];
+    
+    [super dealloc];
 }
 
 

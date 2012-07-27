@@ -28,10 +28,42 @@
     return self;
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    
+    self.scrollableInterior = nil;
+    self.planetaryImages = nil;
+    self.satelliteCountInnerContainerView = nil;
+    self.backToPlanetInnerContainerView = nil;
+    self.moon = nil;
+    self.scrollingObjectView = nil;
+    self.objectNameLabel = nil;
+    self.objectTypeLabel = nil;
+    self.pageControl = nil;
+    self.objectTitleFrame_1 = nil;
+    self.objectTitleFrame_2 = nil;
+    self.objectTitleFrame_3 = nil;
+    self.satelliteCountLabelView = nil;
+    self.satelliteCountLabel = nil;
+    self.moreSatellitesButtonLabel = nil;
+    self.moreSatellitesButtonView = nil;
+    self.homeButton = nil;
+    self.infoButton = nil;
+    self.backToPlanetButtonView = nil;
+    self.backToPlanetLabel = nil;
+    self.backgroundTopPanel = nil;
+    self.infoTab = nil;
+}
+
 - (void)dealloc
 {
     [super dealloc];
     
+    [scrollableInterior release];
+    [planetaryImages release];
     [scrollingObjectView release];
     [pageControl release];
     [scrollingViewControllers release];
@@ -61,6 +93,7 @@
     [numberOfPlanetaryObjects release];
     [homeButton release];
     [infoButton release];
+    [infoTab release];
     [mainScrollingObjectView release];
     [backToPlanetInnerContainerView release];
     [moon release];
@@ -166,12 +199,7 @@
     //self.mainScrollingObjectView.maximumZoomScale=1.5;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

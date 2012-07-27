@@ -22,9 +22,33 @@
     return self;
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    
+    self.massValue = nil;
+    self.dayLengthValue = nil;
+    self.speedValue = nil;
+    self.densityValue = nil;
+    self.diameterValue = nil;
+    self.temperatureValue = nil;
+    self.sunDistanceValue = nil;
+    self.teaser = nil;
+    self.massUnits = nil;
+    self.diameterUnits = nil;
+    self.densityUnits = nil;
+    self.speedUnits = nil;
+    self.dayLengthUnits = nil;
+    self.temperatureUnits = nil;
+    self.sunDistanceUnits = nil;
+    
+}
+
 - (void)dealloc
 {
-    [super dealloc];
+    
     [infoUnits release];
     [infoValues release];
     [infoCategories release];
@@ -46,6 +70,8 @@
     [sunDistanceValue release];
     [teaser release];
     [massUnits release];
+    
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -376,12 +402,7 @@
 	[super viewWillAppear:animated];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

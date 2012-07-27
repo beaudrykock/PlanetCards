@@ -910,12 +910,7 @@
     [self resetProgressBar];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -1090,12 +1085,37 @@
     timersElapsedTime = nil;
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    
+    self.placeholderBanner = nil;
+    self.skippingView = nil;
+    self.backgroundView = nil;
+    self.scoreLabel = nil;
+    self.questionCountLabel = nil;
+    self.knowledgeScoreResultLabel = nil;
+    self.speedScoreResultLabel = nil;
+    self.bestTotalScoreResultLabel = nil;
+    self.totalScoreResultLabel = nil;
+    self.encouragingMessageLabel = nil;
+    self.resultView_innerFrame = nil;
+    self.resultView_outerFrame = nil;
+    self.topFrameView = nil;
+    self.timerBar = nil;
+}
+
 -(void)dealloc
 {
-    [timersElapsedTime release];
+    [answerTimer_start release];
+    [lossTimer_start release];
+    [progressBarTimer_start release];
     [placeholderBanner release];
-    [lastFiveAnswers release];
     [adBannerView release];
+    [timersElapsedTime release];
+    [lastFiveAnswers release];
     [quizDB release];
     [cards release];
     [backgroundView release];

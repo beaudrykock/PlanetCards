@@ -16,7 +16,6 @@
 		9F28ABB415B1981E00832502 /* gray_btn_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F28ABB315B1981E00832502 /* gray_btn_base.png */; };
 		9F28ABB715B19B6C00832502 /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */; };
 		9F2DCB2D14F6B030009C3C43 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB2C14F6B030009C3C43 /* GameCenterManager.m */; };
-		9F2DCB3114F6B153009C3C43 /* GameCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB3014F6B153009C3C43 /* GameCenterController.m */; };
 		9F2DCB3314F6B6B7009C3C43 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2DCB3214F6B6B7009C3C43 /* GameKit.framework */; };
 		9F33A9C214ED955200368A53 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F33A9C114ED955200368A53 /* home.png */; };
 		9F363CF015C053C50022A967 /* diff_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F363CDC15C053C50022A967 /* diff_1.png */; };
@@ -57,7 +56,6 @@
 		9F363D1515C058FF0022A967 /* QuizIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */; };
 		9F363D1615C058FF0022A967 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9249814F56E81005752F5 /* Utilities.m */; };
 		9F363D1715C058FF0022A967 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB2C14F6B030009C3C43 /* GameCenterManager.m */; };
-		9F363D1815C058FF0022A967 /* GameCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DCB3014F6B153009C3C43 /* GameCenterController.m */; };
 		9F363D1915C058FF0022A967 /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7FAC8B14F809F800DA6ED2 /* AcknowledgementsViewController.m */; };
 		9F363D1A15C058FF0022A967 /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */; };
 		9F363D1B15C058FF0022A967 /* GKAchievementHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA2B10615B9809E00C7D916 /* GKAchievementHandler.m */; };
@@ -661,8 +659,6 @@
 		9F28ABB615B19B6C00832502 /* UIUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUnderlinedButton.m; sourceTree = "<group>"; };
 		9F2DCB2B14F6B030009C3C43 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenterManager.h; path = PlanetCards/GameCenterManager.h; sourceTree = "<group>"; };
 		9F2DCB2C14F6B030009C3C43 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenterManager.m; path = PlanetCards/GameCenterManager.m; sourceTree = "<group>"; };
-		9F2DCB2F14F6B153009C3C43 /* GameCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterController.h; sourceTree = "<group>"; };
-		9F2DCB3014F6B153009C3C43 /* GameCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterController.m; sourceTree = "<group>"; };
 		9F2DCB3214F6B6B7009C3C43 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9F33A9C114ED955200368A53 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		9F363CDC15C053C50022A967 /* diff_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diff_1.png; sourceTree = "<group>"; };
@@ -1530,8 +1526,6 @@
 				9F0654DA14F2BC9E00F70DBF /* CardViewController.m */,
 				9F0654E114F2D05A00F70DBF /* QuizIntroViewController.h */,
 				9F0654E214F2D05A00F70DBF /* QuizIntroViewController.m */,
-				9F2DCB2F14F6B153009C3C43 /* GameCenterController.h */,
-				9F2DCB3014F6B153009C3C43 /* GameCenterController.m */,
 				9F7FAC8A14F809F800DA6ED2 /* AcknowledgementsViewController.h */,
 				9F7FAC8B14F809F800DA6ED2 /* AcknowledgementsViewController.m */,
 			);
@@ -2222,7 +2216,6 @@
 				9F363D1515C058FF0022A967 /* QuizIntroViewController.m in Sources */,
 				9F363D1615C058FF0022A967 /* Utilities.m in Sources */,
 				9F363D1715C058FF0022A967 /* GameCenterManager.m in Sources */,
-				9F363D1815C058FF0022A967 /* GameCenterController.m in Sources */,
 				9F363D1915C058FF0022A967 /* AcknowledgementsViewController.m in Sources */,
 				9F363D1A15C058FF0022A967 /* UIUnderlinedButton.m in Sources */,
 				9F363D1B15C058FF0022A967 /* GKAchievementHandler.m in Sources */,
@@ -2254,7 +2247,6 @@
 				9F0654E414F2D05A00F70DBF /* QuizIntroViewController.m in Sources */,
 				9FD9249914F56E81005752F5 /* Utilities.m in Sources */,
 				9F2DCB2D14F6B030009C3C43 /* GameCenterManager.m in Sources */,
-				9F2DCB3114F6B153009C3C43 /* GameCenterController.m in Sources */,
 				9F7FAC8D14F809F800DA6ED2 /* AcknowledgementsViewController.m in Sources */,
 				9F28ABB715B19B6C00832502 /* UIUnderlinedButton.m in Sources */,
 				9FA2B11015B9809E00C7D916 /* GKAchievementHandler.m in Sources */,
