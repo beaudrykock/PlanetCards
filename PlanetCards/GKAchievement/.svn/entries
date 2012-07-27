@@ -26,20 +26,6 @@ add
 
 7722bdcf-eb31-40b8-9909-5e381bf90d66
 
-LICENSE
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
 GKAchievementHandler.m
 file
 
@@ -76,20 +62,6 @@ has-props
 has-prop-mods
 
 GKAchievementNotification.m
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
-README.md
 file
 
 

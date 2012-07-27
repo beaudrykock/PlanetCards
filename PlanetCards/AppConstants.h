@@ -69,7 +69,9 @@
 #define kMaximumDifficultyLevel 10
 #define kMaximumDifficultyLevel_lite 5
 #define kLastStartingQuestionNumberKey @"lastStartingQuestionNumber"
-
+#define kMaximumQuizPlaysBeforeRepeatCorrectAnswered 3
+#define kQuestionsAnsweredCorrectlyKey @"questionsAnsweredCorrectlyKey"
+#define kQuizDataFilename @"quizData"
 // SCORING
 #define kIncorrectDelay 1.0
 #define kCorrectDelay 0.5
@@ -80,6 +82,7 @@
 #define kNumberOfTimeBlocks 4.0
 
 // PREFERENCES
+#define kResetPreference @"kResetPreference"
 #define kUnitPreference @"kUnitPreference"
 #define kConvenientUnits @"Convenient"
 #define kSIUnits @"SI"
@@ -88,6 +91,7 @@
 #define kMetricUnitKey @"metric_units"
 #define kVibrationKey @"vibration_on"
 #define kQuizPlayCountKey @"quiz_play_count_key"
+#define kAnswerTrackingQuizCountKey @"answerTrackingQuizCountKey"
 #define kAllTimeBestScoreKey @"allTimeBestScoreKey"
 
 // MANIPULATING PLANETS AND SATELLITES
@@ -163,7 +167,7 @@
 #define kTotalAchievement_3 @"com.planetcards.75percent"
 #define kTotalAchievement_4 @"com.planetcards.100percent"
 
-//Achievement IDs
-#define kAchievement50PercentOrMore @"com.planetcards.50percent"
-//#define kAchievement75PercentOrMore @"com.planetcards.75percent"
-//#define kAchievement90PercentOrMore @"com.planetcards.90percent"
+// ANALYTICS
+#define kGoogleAnalyticsKey @"UA-33693897-1"
+#define kQuizAction @"quiz play event"
+static const NSInteger kGANDispatchPeriodSec = 300;

@@ -13,6 +13,7 @@
     
 }
 
++(BOOL)reset;
 +(BOOL)vibrationOn;
 +(void)checkBundleCompleteness;
 +(NSInteger)getAllTimeBestScore;
@@ -25,4 +26,13 @@
 +(NSInteger)getLastDifficultyLevel;
 +(void)setLastStartingQuestionNumber:(NSInteger)questionNumber;
 +(NSInteger)getLastStartingQuestionNumber;
++(void)addQuizPlay;
++(NSInteger)quizPlays;
++(void)addAnswerTrackingQuizPlay;
++(NSInteger)answerTrackingQuizPlays;
++(void)resetAnswerTrackingQuizPlays;
++(BOOL)shouldReset;
++(void)clearReset;
++(void)removeQuizRecords;
+
 @end

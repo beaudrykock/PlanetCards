@@ -12,7 +12,7 @@
 
 @synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, speedScoreResultLabel, knowledgeScoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView, questionScore, speedScore, adBannerView, adBannerViewIsVisible, placeholderBanner, answerTimer_start, lossTimer_start,progressBarTimer_start;
 @synthesize bestTotalScoreResultLabel,totalScoreResultLabel, skippingView;
-@synthesize answerTimer, lossTimer, progressBarTimer, timerBar, lastFiveAnswers;
+@synthesize answerTimer, lossTimer, progressBarTimer, timerBar, lastXAnswers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -109,6 +109,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    if ([Utilities shouldReset])
+    {
+        [[DDGameKitHelper sharedGameKitHelper] resetAchievements];
+        [Utilities removeQuizRecords];
+    }
+    
     //[self loadInterstitialAd];
     
     [self loadQuizDB];
@@ -122,7 +128,7 @@
     speedScore = 0;
     
     numberOfAnswers = -1;
-    self.lastFiveAnswers = [NSMutableArray arrayWithCapacity:5];
+    self.lastXAnswers = [NSMutableArray arrayWithCapacity:5];
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",questionScore+speedScore]];
     [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
@@ -178,12 +184,12 @@
     [self createAdBannerView];
 #endif
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([Utilities answerTrackingQuizPlays] == kMaximumQuizPlaysBeforeRepeatCorrectAnswered)
+    {
+        [Utilities resetAnswerTrackingQuizPlays];
+        [self.quizDB resetQuestionsAnsweredCorrectlyRecord];
+    }
     
-    NSInteger quizPlayCount = [prefs integerForKey:kQuizPlayCountKey];
-    quizPlayCount++;
-    [prefs setInteger:quizPlayCount forKey:kQuizPlayCountKey];
-    [prefs synchronize];
     quizActive = YES;
     
     [self prepTimerParameters];
@@ -258,6 +264,32 @@
 // call this FIRST from the card when a response is completed
 -(void)answerQuestionIsCorrect:(BOOL)isCorrect withSkip:(BOOL)isSkip
 {
+    NSError *error;
+    if (isCorrect)
+    {
+        if (![[GANTracker sharedTracker] trackEvent:kQuizAction
+                                             action:@"Correct answer"
+                                              label:[NSString stringWithFormat:@"%i", currentQuestionNumber]
+                                              value:0
+                                          withError:&error]) {
+            NSLog(@"GANTracker error, %@", [error localizedDescription]);
+        }
+    }
+    else
+    {
+        if (![[GANTracker sharedTracker] trackEvent:kQuizAction
+                                             action:@"Incorrect answer"
+                                              label:[NSString stringWithFormat:@"%i", currentQuestionNumber]
+                                              value:0
+                                          withError:&error]) {
+            NSLog(@"GANTracker error, %@", [error localizedDescription]);
+        }
+    }
+    
+    [self.quizDB setLastQuestionWasCorrect:isCorrect];
+    if (isCorrect)
+        [self.quizDB addQuestionAnsweredCorrectlyRecord:currentQuestionNumber];
+    
     quizActive = NO;
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
@@ -266,7 +298,7 @@
     
     [self invalidateAllTimers];
     
-    [self.lastFiveAnswers addObject: [NSNumber numberWithBool:isCorrect]];
+    [self.lastXAnswers addObject: [NSNumber numberWithBool:isCorrect]];
     wasLastQuestionAnsweredCorrect = isCorrect;
     
     // get rid of any skipping view that was added
@@ -364,24 +396,24 @@
     
     NSInteger questionNumberForBottomCard;
     
-    if (currentCardIndex==5 || currentCardIndex==10 || currentCardIndex==15)
+    if (currentCardIndex%3==0)
     {
         int correctCount = 0;
-        for (NSNumber *answerCorrectness in self.lastFiveAnswers)
+        for (NSNumber *answerCorrectness in self.lastXAnswers)
         {
             if ([answerCorrectness boolValue]) correctCount++;
         }
         
-        int incorrectCount = [self.lastFiveAnswers count]-correctCount;
+        int incorrectCount = [self.lastXAnswers count]-correctCount;
         
         // now clear the array
-        [self.lastFiveAnswers removeAllObjects];
+        [self.lastXAnswers removeAllObjects];
         
-        if (incorrectCount==5)
+        if (incorrectCount==3)
         {
             [self.quizDB changeDifficultyLevelBy:-1];
         }
-        else if (incorrectCount<=1 && currentCardIndex == 10) 
+        else if (correctCount==3)
         {
             [self.quizDB changeDifficultyLevelBy:1];
         }
@@ -453,6 +485,14 @@
 #pragma mark - Post-quiz options
 -(void)runEndOfQuizFunctionality
 {
+    // QUIZ PLAY TRACKING
+    [Utilities addQuizPlay];
+    [Utilities addAnswerTrackingQuizPlay];
+    
+    // QUIZ FUNCTIONS
+    [self.quizDB resetQuestionsAskedRecord];
+    [self.quizDB writeQuizData];
+    
     // remove the ad banner view
     if (adBannerViewIsVisible)
         [self showAdBannerView];
@@ -687,7 +727,7 @@
     [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount+1]];
     
     [self.cards removeAllObjects];
-    [self.lastFiveAnswers removeAllObjects];
+    [self.lastXAnswers removeAllObjects];
     
     [self addCards];
     
@@ -1115,7 +1155,7 @@
     [placeholderBanner release];
     [adBannerView release];
     [timersElapsedTime release];
-    [lastFiveAnswers release];
+    [lastXAnswers release];
     [quizDB release];
     [cards release];
     [backgroundView release];

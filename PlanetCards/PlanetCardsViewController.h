@@ -18,8 +18,10 @@
 @interface PlanetCardsViewController : UIViewController {
     PlanetaryObjectViewController *planetaryObjectViewController;
     QuizViewController *quizViewController;
+    UIImageView *backgroundView;
 }
 
+@property (nonatomic, retain) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, retain) PlanetaryObjectViewController *planetaryObjectViewController;
 @property (nonatomic, retain) QuizViewController *quizViewController;
 

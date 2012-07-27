@@ -2307,6 +2307,20 @@ has-props
 
 20379
 
+libGoogleAnalytics.a
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
 NSMutableArray_shuffle.h
 file
 0
@@ -2429,6 +2443,20 @@ has-props
 
 
 6070
+
+Default_lite@2x.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
 
 210-twitterbird@2x.png
 file
@@ -2586,6 +2614,20 @@ has-props
 
 
 25843
+
+42-info@2x.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
 
 10_mathilde_small@2x.png
 file
@@ -2858,6 +2900,20 @@ has-props
 
 
 160061
+
+Default_lite.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
 
 PlanetCardsViewController.h
 file
@@ -4260,6 +4316,20 @@ has-props
 
 
 10084
+
+42-info.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
 
 PlanetaryInfoViewController.m
 file
@@ -6116,6 +6186,13 @@ has-props
 
 
 32209
+
+GANTracker.h
+file
+0
+
+
+add
 
 01-refresh@2x.png
 file

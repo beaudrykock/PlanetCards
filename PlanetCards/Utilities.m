@@ -11,9 +11,19 @@
 
 @implementation Utilities
 
++(BOOL)shouldReset
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kResetPreference];
+}
+
++(void)clearReset
+{
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kResetPreference];
+}
+
 +(NSString*)getUnitPreference
 {
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference]); 
+    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference]);
     return [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference];
 }
 
@@ -27,7 +37,7 @@
 +(void)checkBundleCompleteness
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
+    //NSLog(@"%@", [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys]);
     
     if (prefs)
     {
@@ -49,6 +59,21 @@
             [prefs synchronize];
         }
     }
+}
+
++(void)removeQuizRecords
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kAllTimeBestScoreKey];
+    [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:kLastScoreKey];
+#ifdef LITE_VERSION
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kLastDifficultyLevelKey];
+#else
+    [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:kLastDifficultyLevelKey];
+#endif
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kQuizPlayCountKey];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kAnswerTrackingQuizCountKey];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(void)updateAllTimeBestScore:(NSInteger)newScore
@@ -77,12 +102,15 @@
 
 +(NSInteger)getAllTimeBestScore
 {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:kAllTimeBestScoreKey] intValue];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:kAllTimeBestScoreKey])
+        return [[NSUserDefaults standardUserDefaults] integerForKey:kAllTimeBestScoreKey];
+    return 0;
 }
 
 +(void)setLastScore:(NSInteger)lastScore
 {
     [[NSUserDefaults standardUserDefaults] setInteger:lastScore forKey:kLastScoreKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(NSInteger)getLastScore
@@ -101,6 +129,7 @@
 +(void)setLastDifficultyLevel:(NSInteger)lastDifficultyLevel
 {
     [[NSUserDefaults standardUserDefaults] setInteger:lastDifficultyLevel forKey:kLastDifficultyLevelKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(NSInteger)getLastDifficultyLevel
@@ -118,11 +147,44 @@
 +(void)setLastStartingQuestionNumber:(NSInteger)questionNumber
 {
     [[NSUserDefaults standardUserDefaults] setInteger:questionNumber forKey:kLastStartingQuestionNumberKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(NSInteger)getLastStartingQuestionNumber
 {
     return [[NSUserDefaults standardUserDefaults] integerForKey:kLastStartingQuestionNumberKey];
+}
+
++(NSInteger)quizPlays
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kQuizPlayCountKey];
+}
+
++(void)addQuizPlay
+{
+    NSInteger quizPlayCount = [[NSUserDefaults standardUserDefaults] integerForKey:kQuizPlayCountKey];
+    quizPlayCount++;
+    [[NSUserDefaults standardUserDefaults] setInteger:quizPlayCount forKey:kQuizPlayCountKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(NSInteger)answerTrackingQuizPlays
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kAnswerTrackingQuizCountKey];
+}
+
++(void)addAnswerTrackingQuizPlay
+{
+    NSInteger quizPlayCount = [[NSUserDefaults standardUserDefaults] integerForKey:kAnswerTrackingQuizCountKey];
+    quizPlayCount++;
+    [[NSUserDefaults standardUserDefaults] setInteger:quizPlayCount forKey:kAnswerTrackingQuizCountKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void)resetAnswerTrackingQuizPlays
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kAnswerTrackingQuizCountKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

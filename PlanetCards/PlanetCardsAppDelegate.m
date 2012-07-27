@@ -20,11 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // TEST
-    [Utilities getUnitPreference];
-    
     // Override point for customization after application launch.
     [TestFlight takeOff:@"6410a6f8585edb65208670f4da2dfba3_NDM3MzMyMDExLTExLTI4IDA0OjU3OjI0LjQ5NTU5Nw"];
+    
+    [self startGoogleAnalytics];
     
     objectDB = [[PlanetaryObjectDB alloc]init];
     [objectDB loadContent];
@@ -76,10 +75,19 @@
      */
 }
 
+-(void)startGoogleAnalytics
+{
+    [[GANTracker sharedTracker] startTrackerWithAccountID:kGoogleAnalyticsKey
+                                           dispatchPeriod:kGANDispatchPeriodSec
+                                                 delegate:nil];
+}
+
 - (void)dealloc
 {
     [_window release];
     [_viewController release];
+    [quizDB release];
+    [objectDB release];
     [super dealloc];
 }
 

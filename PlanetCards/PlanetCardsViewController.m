@@ -19,7 +19,7 @@
 {
     [planetaryObjectViewController release];
     [quizViewController release];
-    
+    [backgroundView release];
     [super dealloc];
 }
 
@@ -117,6 +117,10 @@
 {
     [super viewDidLoad];
     
+#ifdef LITE_VERSION
+    [self.backgroundView setImage:[UIImage imageNamed:@"Default_lite.png"]];
+#endif
+    
     [Utilities checkBundleCompleteness];
     
     
@@ -128,6 +132,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.backgroundView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

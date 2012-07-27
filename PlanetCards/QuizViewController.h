@@ -14,6 +14,7 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import "iAd/ADBannerView.h"
+#import "GANTracker.h"
 
 @interface QuizViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ADBannerViewDelegate>
 {
@@ -73,7 +74,7 @@
     BOOL quizActive;
     BOOL wasLastQuestionAnsweredCorrect;
     BOOL quizComplete;
-    NSMutableArray *lastFiveAnswers; // YES/NO for correct
+    NSMutableArray *lastXAnswers; // YES/NO for correct
     
     id adBannerView;
     BOOL adBannerViewIsVisible;
@@ -90,7 +91,7 @@
 @property (nonatomic) BOOL adBannerViewIsVisible;
 @property (nonatomic) NSInteger questionScore;
 @property (nonatomic) NSInteger speedScore;
-@property (nonatomic, retain) NSMutableArray *lastFiveAnswers;
+@property (nonatomic, retain) NSMutableArray *lastXAnswers;
 @property (nonatomic, retain) IBOutlet UIView *skippingView;
 @property (nonatomic, retain) NSMutableArray *cards;
 @property (nonatomic, retain) QuizDB *quizDB;

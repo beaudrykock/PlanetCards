@@ -16,14 +16,18 @@
 {
     NSMutableArray *quizQuestions;
     NSMutableDictionary *quizQuestionsByDifficulty;
-    NSMutableArray *questionsAsked;
+    NSMutableArray *questionsAsked; // reset after each quiz
+    NSMutableArray *questionsAnsweredCorrectly; // reset after every 3 quizzes
     NSInteger currentDifficultyLevel;
+    BOOL lastQuestionWasCorrect;
 }
 
+@property (nonatomic) BOOL lastQuestionWasCorrect;
 @property (nonatomic) NSInteger currentDifficultyLevel;
 @property (nonatomic, retain) NSMutableDictionary *quizQuestionsByDifficulty;
 @property (nonatomic, retain) NSMutableArray *quizQuestions;
 @property (nonatomic, retain) NSMutableArray *questionsAsked;
+@property (nonatomic, retain) NSMutableArray *questionsAnsweredCorrectly;
 
 -(NSInteger)getRandomQuestionNumberWithRecord:(BOOL)record;
 -(void)loadContent;
@@ -43,5 +47,10 @@
 -(void)changeDifficultyLevelBy:(NSInteger)change;
 -(NSInteger)knowledgeScoreForQuestionNumber:(NSInteger)questionNumber;
 -(NSInteger)speedScoreForQuestionNumber:(NSInteger)questionNumber inTimeBlock:(NSInteger)timeBlock;
+-(void)resetQuestionsAnsweredCorrectlyRecord;
+-(void)resetQuestionsAskedRecord;
+-(void)addQuestionAnsweredCorrectlyRecord:(NSInteger)questionNumber;
+-(void)writeQuizData;
+-(void)readQuizData;
 
 @end

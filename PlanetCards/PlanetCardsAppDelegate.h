@@ -10,6 +10,7 @@
 #import "PlanetaryObjectDB.h"
 #import "QuizDB.h"
 #import "TestFlight.h"
+#import "GANTracker.h"
 
 @class PlanetCardsViewController;
 
@@ -22,5 +23,7 @@
 @property (nonatomic, retain) PlanetaryObjectDB *objectDB;
 @property (nonatomic, retain) QuizDB *quizDB;
 @property (nonatomic, retain) IBOutlet PlanetCardsViewController *viewController;
+
+-(void)startGoogleAnalytics;
 
 @end

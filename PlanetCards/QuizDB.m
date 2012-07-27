@@ -10,12 +10,16 @@
 
 @implementation QuizDB
 
-@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty, currentDifficultyLevel;
+@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty, currentDifficultyLevel, lastQuestionWasCorrect, questionsAnsweredCorrectly;
 
 -(void)loadContent
 {
+    [self readQuizData];
+    
     self.quizQuestions = [[NSMutableArray alloc] initWithCapacity:200];
-    self.quizQuestionsByDifficulty = [[NSMutableDictionary alloc] initWithCapacity:10];
+    
+    if (!self.quizQuestionsByDifficulty)
+        self.quizQuestionsByDifficulty = [[NSMutableDictionary alloc] initWithCapacity:10];
     
     NSString *objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
 	NSData *data = [NSData dataWithContentsOfFile:objectXML];
@@ -36,7 +40,8 @@
     
     currentDifficultyLevel = [Utilities getLastDifficultyLevel];
     
-    questionsAsked = [[NSMutableArray arrayWithCapacity:20] retain];
+    self.questionsAsked = [NSMutableArray arrayWithCapacity:20];
+    self.questionsAnsweredCorrectly = [NSMutableArray arrayWithCapacity:50];
 }
 
 -(UIImage*)getRandomImage
@@ -50,24 +55,32 @@
 
 -(BOOL)questionIsAskableWithNumber:(NSInteger)questionNumber
 {
-    BOOL questionInArray = [questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]];
-    if (questionInArray) return NO;
+    BOOL questionAskedInCurrentQuiz = [self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]];
+    BOOL questionAskedCorrectlyInLastThree = [self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]];
+    
+    if (questionAskedInCurrentQuiz || questionAskedCorrectlyInLastThree) return NO;
     return YES;
 }
 
 -(void)addQuestionAskedRecord:(NSInteger)questionNumber;
 {
-    if ([questionsAsked count]==60)
-    {
-        [questionsAsked removeAllObjects];
-    }
-    
-    [questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
+    [self.questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
 }
 
--(void)resetQuestionAskedRecord
+-(void)addQuestionAnsweredCorrectlyRecord:(NSInteger)questionNumber
 {
-    [questionsAsked removeAllObjects];
+    [self.questionsAnsweredCorrectly addObject:[NSNumber numberWithInt:questionNumber]];
+}
+
+
+-(void)resetQuestionsAskedRecord
+{
+    [self.questionsAsked removeAllObjects];
+}
+
+-(void)resetQuestionsAnsweredCorrectlyRecord
+{
+    [self.questionsAnsweredCorrectly removeAllObjects];
 }
 
 -(NSInteger)getRandomQuestionNumberFromCurrent:(NSInteger)currentQuestionNumber inNext: (NSInteger)count withMinChoices: (NSInteger)minChoices
@@ -157,12 +170,19 @@
     NSInteger maxDifficultyLevel = kMaximumDifficultyLevel;
     
 #ifdef LITE_VERSION
-    maxDifficultyLevel = kMaximumDifficultyLevel_lite;
+    maxDifficultyLevel = kMaximumDifficultyLevel_lite+1;
 #endif
     
-    for (int i = currentDifficultyLevel; i<maxDifficultyLevel; i++)
+    int direction = 1;
+    if (!lastQuestionWasCorrect)
     {
-        NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:i]];
+        direction = -1;
+        maxDifficultyLevel = 0;
+    }
+    
+    for (int i = currentDifficultyLevel; i != maxDifficultyLevel; i += direction)
+    {
+        NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];
         counter = 0;
         
         while (!found && counter<[indices count])
@@ -339,13 +359,36 @@
     return intScore;
 }
 
+#pragma mark - Writing quiz records to file
+-(void)writeQuizData
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:self.questionsAnsweredCorrectly forKey:kQuestionsAnsweredCorrectlyKey];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataFilename = [documentsDirectory stringByAppendingPathComponent:kQuizDataFilename];
+    [dict writeToFile:dataFilename atomically:YES];
+}
+
+-(void)readQuizData
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataFilename = [documentsDirectory stringByAppendingPathComponent:kQuizDataFilename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:dataFilename])
+    {
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dataFilename];        
+        self.questionsAnsweredCorrectly = (NSMutableArray*)[dict objectForKey:kQuestionsAnsweredCorrectlyKey];
+    }
+}
+
 -(void)dealloc
 {
     
     [quizQuestions release];
     [questionsAsked release];
     [quizQuestionsByDifficulty release];
-    
+    [questionsAnsweredCorrectly release];
     [super dealloc];
     
 }
