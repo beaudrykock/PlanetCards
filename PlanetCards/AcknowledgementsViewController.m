@@ -9,7 +9,7 @@
 #import "AcknowledgementsViewController.h"
 
 @implementation AcknowledgementsViewController
-@synthesize developedBy, supportFrom, viewTitle;
+@synthesize developedBy, supportFrom, viewTitle, upgradeButton;
 
 -(IBAction)hide:(id)sender
 {
@@ -55,11 +55,22 @@
     [super viewDidLoad];
     
 #ifdef LITE_VERSION
-    [self.viewTitle setText:@"About PlanetCards Lite"];
+    [self.viewTitle setText:@"PlanetCards Lite"];
+#else
+    [self.upgradeButton setHidden:YES];
 #endif
     
     [self loadUrlButtons];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(IBAction)goToStore:(id)sender
+{
+    NSString *urlStr = kPlanetCardsPaidLink;
+    NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    if (![[UIApplication sharedApplication] openURL:url])
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
 }
 
 -(void)loadUrlButtons
@@ -105,6 +116,7 @@
     self.developedBy = nil;
     self.supportFrom = nil;
     self.viewTitle = nil;
+    self.upgradeButton = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -118,7 +130,7 @@
     [developedBy release];
     [supportFrom release];
     [viewTitle release];
-    
+    [upgradeButton release];
     [super dealloc];
 }
 

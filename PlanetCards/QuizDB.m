@@ -64,14 +64,15 @@
 
 -(void)addQuestionAskedRecord:(NSInteger)questionNumber;
 {
-    [self.questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
+    if (![self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]])
+        [self.questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
 }
 
 -(void)addQuestionAnsweredCorrectlyRecord:(NSInteger)questionNumber
 {
-    [self.questionsAnsweredCorrectly addObject:[NSNumber numberWithInt:questionNumber]];
+    if (![self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]])
+        [self.questionsAnsweredCorrectly addObject:[NSNumber numberWithInt:questionNumber]];
 }
-
 
 -(void)resetQuestionsAskedRecord
 {
@@ -211,7 +212,7 @@
 #ifdef LITE_VERSION
         currentDifficultyLevel = 1;
 #endif
-        [self resetQuestionAskedRecord];
+        [self resetQuestionsAskedRecord];
         
         NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];
         
@@ -226,10 +227,6 @@
             counter++;
         }
     }
-    
-    NSLog(@"Found question number %i at difficulty level %i", questionNbr, currentDifficultyLevel);
-    
-    NSAssert(found,@"Question should have been found");
     
     if (record)
         [self addQuestionAskedRecord:questionNbr];
@@ -377,7 +374,7 @@
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:dataFilename])
     {
-        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dataFilename];        
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dataFilename];
         self.questionsAnsweredCorrectly = (NSMutableArray*)[dict objectForKey:kQuestionsAnsweredCorrectlyKey];
     }
 }

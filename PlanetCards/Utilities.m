@@ -13,7 +13,9 @@
 
 +(BOOL)shouldReset
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kResetPreference];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kResetPreference])
+        return [[NSUserDefaults standardUserDefaults] boolForKey:kResetPreference];
+    return NO;
 }
 
 +(void)clearReset
@@ -56,6 +58,12 @@
         if (nil == [prefs objectForKey:kVibrationKey])
         {
             [prefs setBool:NO forKey:kVibrationKey];
+            [prefs synchronize];
+        }
+        
+        if (nil == [prefs objectForKey:kResetPreference])
+        {
+            [prefs setBool:NO forKey:kResetPreference];
             [prefs synchronize];
         }
     }

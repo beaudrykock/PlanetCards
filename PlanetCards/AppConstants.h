@@ -150,24 +150,27 @@
 
 // GAME CENTER
 //Leaderboard Category IDs
-#define kLeaderboardID @"021612_leaderboard_pk"
+#define kLeaderboardID @"grp.021612_leaderboard_pk"
 #define kMaxAuthenticationAttempts 2
-#define kKnowledgeAchievement_1 @"com.planetcards.knowledge.1"
-#define kKnowledgeAchievement_2 @"com.planetcards.knowledge.2"
-#define kKnowledgeAchievement_3 @"com.planetcards.knowledge.3"
-#define kKnowledgeAchievement_4 @"com.planetcards.knowledge.4"
+#define kKnowledgeAchievement_1 @"grp.com.planetcards.knowledge.1"
+#define kKnowledgeAchievement_2 @"grp.com.planetcards.knowledge.2"
+#define kKnowledgeAchievement_3 @"grp.com.planetcards.knowledge.3"
+#define kKnowledgeAchievement_4 @"grp.com.planetcards.knowledge.4"
 
-#define kSpeedAchievement_1 @"com.planetcards.speed.1"
-#define kSpeedAchievement_2 @"com.planetcards.speed.2"
-#define kSpeedAchievement_3 @"com.planetcards.speed.3"
-#define kSpeedAchievement_4 @"com.planetcards.speed.4"
+#define kSpeedAchievement_1 @"grp.com.planetcards.speed.1"
+#define kSpeedAchievement_2 @"grp.com.planetcards.speed.2"
+#define kSpeedAchievement_3 @"grp.com.planetcards.speed.3"
+#define kSpeedAchievement_4 @"grp.com.planetcards.speed.4"
 
-#define kTotalAchievement_1 @"com.planetcards.25percent"
-#define kTotalAchievement_2 @"com.planetcards.50percent"
-#define kTotalAchievement_3 @"com.planetcards.75percent"
-#define kTotalAchievement_4 @"com.planetcards.100percent"
+#define kTotalAchievement_1 @"grp.com.planetcards.25percent"
+#define kTotalAchievement_2 @"grp.com.planetcards.50percent"
+#define kTotalAchievement_3 @"grp.com.planetcards.75percent"
+#define kTotalAchievement_4 @"grp.com.planetcards.100percent"
 
 // ANALYTICS
 #define kGoogleAnalyticsKey @"UA-33693897-1"
 #define kQuizAction @"quiz play event"
 static const NSInteger kGANDispatchPeriodSec = 300;
+
+// APP UPGRADE LINK
+#define kPlanetCardsPaidLink @"http//itunes.com/apps/planetcards for iphone"

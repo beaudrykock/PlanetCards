@@ -631,6 +631,10 @@
 		9FE860ED15C2F96F002B2AFA /* gk-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE860EA15C2F96E002B2AFA /* gk-icon.png */; };
 		9FE860EE15C2F96F002B2AFA /* gk-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE860EB15C2F96E002B2AFA /* gk-icon@2x.png */; };
 		9FE860EF15C2F96F002B2AFA /* gk-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE860EB15C2F96E002B2AFA /* gk-icon@2x.png */; };
+		9FE8610215C313D7002B2AFA /* upgrade_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE8610015C313CB002B2AFA /* upgrade_btn.png */; };
+		9FE8610315C313D7002B2AFA /* upgrade_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE8610015C313CB002B2AFA /* upgrade_btn.png */; };
+		9FE8610415C313D7002B2AFA /* upgrade_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE8610115C313CE002B2AFA /* upgrade_btn@2x.png */; };
+		9FE8610515C313D7002B2AFA /* upgrade_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE8610115C313CE002B2AFA /* upgrade_btn@2x.png */; };
 		9FF0FA3015BDBC0D00CC2BC7 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF0FA2F15BDBC0D00CC2BC7 /* iAd.framework */; };
 		9FF90A2F14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF90A2E14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m */; };
 		D93DD35713CB952D003D2512 /* scrollArrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D93DD35513CB952D003D2512 /* scrollArrow_back.png */; };
@@ -980,6 +984,8 @@
 		9FE860E715C2F5D0002B2AFA /* Default_lite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default_lite@2x.png"; sourceTree = "<group>"; };
 		9FE860EA15C2F96E002B2AFA /* gk-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gk-icon.png"; sourceTree = "<group>"; };
 		9FE860EB15C2F96E002B2AFA /* gk-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gk-icon@2x.png"; sourceTree = "<group>"; };
+		9FE8610015C313CB002B2AFA /* upgrade_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_btn.png; sourceTree = "<group>"; };
+		9FE8610115C313CE002B2AFA /* upgrade_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upgrade_btn@2x.png"; sourceTree = "<group>"; };
 		9FF0FA2F15BDBC0D00CC2BC7 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		9FF90A2D14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+DisabledCopyPaste.h"; sourceTree = "<group>"; };
 		9FF90A2E14EC2F26006E5EFB /* UITextView+DisabledCopyPaste.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+DisabledCopyPaste.m"; sourceTree = "<group>"; };
@@ -1141,6 +1147,8 @@
 		9F6CEF461451E4DB0059B72C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				9FE8610015C313CB002B2AFA /* upgrade_btn.png */,
+				9FE8610115C313CE002B2AFA /* upgrade_btn@2x.png */,
 				9FE860D115C2ED01002B2AFA /* 42-info.png */,
 				9FE860D215C2ED01002B2AFA /* 42-info@2x.png */,
 				9FA2B13715B992DC00C7D916 /* 108-badge.png */,
@@ -1925,6 +1933,8 @@
 				9FE860E915C2F5D1002B2AFA /* Default_lite@2x.png in Resources */,
 				9FE860ED15C2F96F002B2AFA /* gk-icon.png in Resources */,
 				9FE860EF15C2F96F002B2AFA /* gk-icon@2x.png in Resources */,
+				9FE8610315C313D7002B2AFA /* upgrade_btn.png in Resources */,
+				9FE8610515C313D7002B2AFA /* upgrade_btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2212,6 +2222,8 @@
 				9FE860D515C2ED02002B2AFA /* 42-info@2x.png in Resources */,
 				9FE860EC15C2F96F002B2AFA /* gk-icon.png in Resources */,
 				9FE860EE15C2F96F002B2AFA /* gk-icon@2x.png in Resources */,
+				9FE8610215C313D7002B2AFA /* upgrade_btn.png in Resources */,
+				9FE8610415C313D7002B2AFA /* upgrade_btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

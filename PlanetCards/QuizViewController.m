@@ -113,6 +113,7 @@
     {
         [[DDGameKitHelper sharedGameKitHelper] resetAchievements];
         [Utilities removeQuizRecords];
+        [Utilities clearReset];
     }
     
     //[self loadInterstitialAd];
@@ -154,19 +155,19 @@
 {
     NSInteger lastScore = [Utilities getLastScore];
 
-    if (lastScore>=0 && lastScore<25)
+    if (lastScore>=0 && lastScore<50)
     {
         [self.quizDB changeDifficultyLevelBy:-2];
     }
-    else if (lastScore>=0 && lastScore<50)
+    else if (lastScore>=0 && lastScore<100)
     {
         [self.quizDB changeDifficultyLevelBy:-1];
     }
-    else if (lastScore>=0 && lastScore<75)
+    else if (lastScore>=0 && lastScore<150)
     {
         [self.quizDB changeDifficultyLevelBy:1];
     }
-    else if (lastScore>=0 && lastScore<=100)
+    else if (lastScore>=0 && lastScore<=200)
     {
         [self.quizDB changeDifficultyLevelBy:2];
     }
@@ -301,10 +302,6 @@
     [self.lastXAnswers addObject: [NSNumber numberWithBool:isCorrect]];
     wasLastQuestionAnsweredCorrect = isCorrect;
     
-    // get rid of any skipping view that was added
-    if (self.skippingView.superview != nil)
-        [self.skippingView removeFromSuperview];
-    
     NSInteger elapsed = (NSInteger)(currentQuestionInterval-secondsCount);
     NSInteger block = 4;
     
@@ -340,7 +337,8 @@
         quizComplete = YES;
     }
     else {
-        [self nextCard];
+        [self performSelectorOnMainThread:@selector(nextCard) withObject:nil waitUntilDone:NO];
+        //[self nextCard];
     }
 }
 
@@ -348,7 +346,7 @@
 {
     questionCount++;
     
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
+    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
     
     // update the index referencing the viewcontroller array
     currentCardIndex++;
@@ -479,7 +477,6 @@
     topFrameView.layer.shadowOffset = CGSizeMake(-5, 5);
     topFrameView.layer.shadowOffset = CGSizeMake(-5, 5);
     topFrameView.layer.shadowOpacity = 0.5;
-       
 }
 
 #pragma mark - Post-quiz options
@@ -986,8 +983,21 @@
     {
         [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
         [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
+        [self.placeholderBanner setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToStore)];
+        [self.placeholderBanner addGestureRecognizer:tap];
+        [tap release];
         [self.view addSubview:self.placeholderBanner];
     }
+}
+
+-(void)goToStore
+{
+    NSString *urlStr = kPlanetCardsPaidLink;
+    NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    if (![[UIApplication sharedApplication] openURL:url])
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
 }
 
 -(void)showAdBannerView
@@ -1045,7 +1055,7 @@
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
 {
-    NSLog(@"Banner view is beginning an ad action");
+    //NSLog(@"Banner view is beginning an ad action");
     BOOL shouldExecuteAction = YES;// [self allowActionToRun]; // your application implements this method
     if (!willLeave && shouldExecuteAction)
     {
@@ -1112,7 +1122,7 @@
     NSNumber *elapsed = (NSNumber*)[timersElapsedTime objectAtIndex:0];
     answerTimer_elapsed += [elapsed integerValue];
     NSTimeInterval remaining = currentQuestionInterval-answerTimer_elapsed;
-    NSLog(@"remaining = %f", remaining);
+    //NSLog(@"remaining = %f", remaining);
     self.answerTimer = [NSTimer scheduledTimerWithTimeInterval: remaining target: self selector: @selector(answerPeriodExpired) userInfo: nil repeats: NO];
     self.answerTimer_start = [NSDate date];
     

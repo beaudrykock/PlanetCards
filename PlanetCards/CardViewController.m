@@ -221,10 +221,16 @@
     numberOfAnswers = [[newQuestion quizAnswers] count];
     
     [question setText:[newQuestion question]];
+    
+#ifdef LITE_VERSION
+    [self.supplementalInfoText setText:@"Sorry - only available in the paid version of PlanetCards"];
+    [self.supplementalInfoText setTextAlignment:UITextAlignmentCenter];
+#else
     if (![[newQuestion supplementalInfo] isEqualToString:@"none"])
     {
         [self.supplementalInfoText setText:[newQuestion supplementalInfo]];
     }
+#endif
     
     [self hideAnswerButtons];
     
@@ -320,7 +326,14 @@
         if ([Utilities vibrationOn])
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
-    [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
+    dispatch_queue_t queue = dispatch_get_global_queue(
+                                                       DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+        [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
+    });
+    
+        
     
     [self showCorrectIncorrectOverlay];
 }

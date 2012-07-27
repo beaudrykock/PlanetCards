@@ -958,6 +958,20 @@ has-props
 en.lproj
 dir
 
+upgrade_btn@2x.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
 40_Halley_large@2x.png
 file
 
@@ -6411,6 +6425,20 @@ has-props
 
 
 23818
+
+upgrade_btn.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
 
 06_Mars_large@2x.png
 file

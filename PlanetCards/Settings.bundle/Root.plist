@@ -22,16 +22,6 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<true/>
-			<key>Key</key>
-			<string>metric_units</string>
-			<key>Title</key>
-			<string>Earth units</string>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
 			<false/>
 			<key>Key</key>
 			<string>vibration_on</string>
@@ -61,6 +51,24 @@
 				<string>SI</string>
 				<string>Earth</string>
 			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Quiz</string>
+			<key>FooterText</key>
+			<string>Warning: resetting quiz will delete all achievements and scores</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<false/>
+			<key>Key</key>
+			<string>kResetPreference</string>
+			<key>Title</key>
+			<string>Reset quiz</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
