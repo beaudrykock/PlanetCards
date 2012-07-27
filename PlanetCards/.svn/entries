@@ -2307,6 +2307,13 @@ has-props
 
 20379
 
+NSMutableArray_shuffle.h
+file
+0
+
+
+add
+
 41_Shoemaker-Levy_large.png
 file
 
@@ -2436,6 +2443,13 @@ add
 
 has-props
 has-prop-mods
+
+NSMutableArray_shuffle.m
+file
+0
+
+
+add
 
 28_Uranus_small.png
 file

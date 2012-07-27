@@ -77,10 +77,8 @@
     return [quizAnswers count];
 }
 
-
 -(void)dealloc
 {
-    [level release];
     [question release];
     [questionImageFilename release];
     [quizAnswers release];

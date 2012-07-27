@@ -137,7 +137,7 @@
     QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
     [intro setParentController:self];
     [self.view addSubview:intro.view];
-    
+   
 #ifdef LITE_VERSION
     self.timerBar.frame = CGRectMake(self.timerBar.frame.origin.x, self.timerBar.frame.origin.y-50.0, self.timerBar.frame.size.width, self.timerBar.frame.size.height);
 #endif
@@ -146,8 +146,7 @@
 
 -(NSInteger)selectStartingQuestionNumber
 {
-    NSInteger lastScore = -1; //-1 persisting indicates first quiz run
-    lastScore = [Utilities getLastScore];
+    NSInteger lastScore = [Utilities getLastScore];
 
     if (lastScore>=0 && lastScore<25)
     {
@@ -169,7 +168,7 @@
     NSInteger startingNumber = [self.quizDB getRandomQuestionNumberWithRecord:YES];
     [Utilities setLastStartingQuestionNumber:startingNumber];
     
-    return startingNumber; // TODO: UNCOMMENT AFTER TAIS ASSIGNS QUESTION LEVELS
+    return startingNumber;
     //return 40+arc4random_uniform(20);
 }
 
@@ -672,8 +671,6 @@
 {
     currentQuestionNumber = [self selectStartingQuestionNumber];
     
-    currentQuestionNumber = 40+arc4random_uniform(20);
-    
     if ([self.view viewWithTag:((currentCardIndex+1)*100)].superview != nil)
         [[self.view viewWithTag:((currentCardIndex+1)*100)] removeFromSuperview];
     
@@ -696,7 +693,6 @@
     
     QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
     [intro setParentController:self];
-    
     [self.view addSubview:intro.view];
 }
 
@@ -931,26 +927,32 @@
 - (void)createAdBannerView {
     Class classAdBannerView = NSClassFromString(@"ADBannerView");
     if (classAdBannerView != nil) {
-        self.adBannerView = [[[classAdBannerView alloc]
-                              initWithFrame:CGRectZero] autorelease];
-        [adBannerView setRequiredContentSizeIdentifiers:[NSSet setWithObjects:
-                                                          ADBannerContentSizeIdentifierPortrait,
-                                                          ADBannerContentSizeIdentifierLandscape, nil]];
-        
-        [adBannerView setCurrentContentSizeIdentifier:
-         ADBannerContentSizeIdentifierPortrait];
-        
-        [adBannerView setFrame:CGRectOffset([adBannerView frame], 0,
-                                             480.0)];
-        [adBannerView setDelegate:self];
-        
-        [self.view addSubview:adBannerView];
+        if ([self.adBannerView superview]==nil)
+        {
+            self.adBannerView = [[[classAdBannerView alloc]
+                                  initWithFrame:CGRectZero] autorelease];
+            [adBannerView setRequiredContentSizeIdentifiers:[NSSet setWithObjects:
+                                                              ADBannerContentSizeIdentifierPortrait,
+                                                              ADBannerContentSizeIdentifierLandscape, nil]];
+            
+            [adBannerView setCurrentContentSizeIdentifier:
+             ADBannerContentSizeIdentifierPortrait];
+            
+            [adBannerView setFrame:CGRectOffset([adBannerView frame], 0,
+                                                 480.0)];
+            [adBannerView setDelegate:self];
+            
+            [self.view addSubview:adBannerView];
+        }
     }
     
     // always add the placeholder
-    [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
-    [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
-    [self.view addSubview:self.placeholderBanner];
+    if ([self.placeholderBanner superview]==nil)
+    {
+        [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
+        [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
+        [self.view addSubview:self.placeholderBanner];
+    }
 }
 
 -(void)showAdBannerView
