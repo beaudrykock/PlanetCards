@@ -949,23 +949,27 @@
         NSString *countStr = nil;
         if (count>1)
         {
-            countStr = [NSString stringWithFormat:@"%i%@", count, @" moons"];
+            //countStr = [NSString stringWithFormat:@"%i%@", count, @" moons"];
+            countStr = @"Moons";
             
         }
         else
         {
-            countStr = [NSString stringWithFormat:@"%i%@", count, @" moon"];
+            //countStr = [NSString stringWithFormat:@"%i%@", count, @" moon"];
+            countStr = @"Moon";
         }
         
         if ([[planetaryObject name] isEqualToString:kCeres])
         {
             if (count>1)
             {
-                countStr = [NSString stringWithFormat:@"%i%@", count, @" asteroids"];
+                //countStr = [NSString stringWithFormat:@"%i%@", count, @" asteroids"];
+                countStr = @"Asteroids";
             }
             else
             {
-                countStr = [NSString stringWithFormat:@"%i%@", count, @" asteroid"];
+                //countStr = [NSString stringWithFormat:@"%i%@", count, @" asteroid"];
+                countStr = @"Asteroid";
             }
         }
         countStr = [countStr uppercaseString];
@@ -973,7 +977,8 @@
         
         if ([[planetaryObject type] isEqualToString:kCometType])
         {
-            [satelliteCountLabel setText:@"ALL COMETS"];
+            //[satelliteCountLabel setText:@"ALL COMETS"];
+            [satelliteCountLabel setText:@"COMETS"];
         }
        
         satelliteCountInnerContainerView.layer.cornerRadius = 5.0;

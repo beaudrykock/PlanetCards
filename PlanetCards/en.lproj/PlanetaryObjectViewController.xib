@@ -2,22 +2,22 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11E53</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.47</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.SystemVersion">12A269</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
+		<string key="IBDocument.AppKitVersion">1187</string>
+		<string key="IBDocument.HIToolboxVersion">624.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">1498</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBUILabel</string>
+			<string>IBProxyObject</string>
 			<string>IBUIButton</string>
 			<string>IBUIImageView</string>
-			<string>IBUIView</string>
+			<string>IBUILabel</string>
 			<string>IBUIScrollView</string>
-			<string>IBProxyObject</string>
+			<string>IBUIView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -375,7 +375,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">1 Moon</string>
+								<string key="IBUIText">Moons</string>
 								<reference key="IBUITextColor" ref="599527677"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -383,11 +383,11 @@
 								<int key="IBUITextAlignment">1</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
-									<double key="pointSize">9</double>
+									<double key="pointSize">12</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
-									<double key="NSSize">9</double>
+									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -414,7 +414,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="51415914">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -428,7 +428,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{21, 5}, {56, 16}}</string>
 								<reference key="NSSuperview" ref="767694350"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:328</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -454,7 +453,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 6}, {15, 15}}</string>
 								<reference key="NSSuperview" ref="767694350"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="678240276"/>
 								<string key="NSReuseIdentifierKey">_NS:567</string>
 								<int key="IBUIContentMode">1</int>
@@ -468,7 +466,6 @@
 						</object>
 						<string key="NSFrame">{{4, 4}, {75, 25}}</string>
 						<reference key="NSSuperview" ref="51415914"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="376810168"/>
 						<string key="NSReuseIdentifierKey">_NS:196</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -479,19 +476,15 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{83, 33}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="767694350"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="648765800"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIImageView" id="458368523">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{15, 15}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:567</string>
 				<int key="IBUIContentMode">1</int>
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -905,6 +898,14 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
+					<string key="className">NSMutableArray</string>
+					<string key="superclassName">NSArray</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSMutableArray.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">PlanetaryObjectViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -959,9 +960,11 @@
 							<string>objectTitleFrame_3</string>
 							<string>objectTypeLabel</string>
 							<string>pageControl</string>
+							<string>planetaryImages</string>
 							<string>satelliteCountInnerContainerView</string>
 							<string>satelliteCountLabel</string>
 							<string>satelliteCountLabelView</string>
+							<string>scrollableInterior</string>
 							<string>scrollingObjectView</string>
 						</object>
 						<object class="NSArray" key="dict.values">
@@ -982,8 +985,10 @@
 							<string>UIView</string>
 							<string>UILabel</string>
 							<string>UIPageControl</string>
+							<string>NSMutableArray</string>
 							<string>UIView</string>
 							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIView</string>
 							<string>UIScrollView</string>
 						</object>
@@ -1008,9 +1013,11 @@
 							<string>objectTitleFrame_3</string>
 							<string>objectTypeLabel</string>
 							<string>pageControl</string>
+							<string>planetaryImages</string>
 							<string>satelliteCountInnerContainerView</string>
 							<string>satelliteCountLabel</string>
 							<string>satelliteCountLabelView</string>
+							<string>scrollableInterior</string>
 							<string>scrollingObjectView</string>
 						</object>
 						<object class="NSArray" key="dict.values">
@@ -1080,6 +1087,10 @@
 								<string key="candidateClassName">UIPageControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">planetaryImages</string>
+								<string key="candidateClassName">NSMutableArray</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">satelliteCountInnerContainerView</string>
 								<string key="candidateClassName">UIView</string>
 							</object>
@@ -1089,6 +1100,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">satelliteCountLabelView</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">scrollableInterior</string>
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -1137,6 +1152,6 @@
 				<string>{15, 65}</string>
 			</object>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
 </archive>
