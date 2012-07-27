@@ -345,11 +345,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "959"
-         endingLineNumber = "959"
+         startingLineNumber = "961"
+         endingLineNumber = "961"
          landmarkName = "-backToPlanet"
          landmarkType = "5">
       </FileBreakpoint>
@@ -597,11 +597,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/CardViewController.m"
-         timestampString = "365009404.475477"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
          landmarkName = "-submitAnswer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -723,11 +723,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "964"
-         endingLineNumber = "964"
+         startingLineNumber = "966"
+         endingLineNumber = "966"
          landmarkName = "-backToPlanet"
          landmarkType = "5">
       </FileBreakpoint>
@@ -829,11 +829,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "900"
-         endingLineNumber = "900"
+         startingLineNumber = "901"
+         endingLineNumber = "901"
          landmarkName = "-showCometAtSubIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -972,11 +972,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/CardViewController.m"
-         timestampString = "365009404.475477"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "215"
-         endingLineNumber = "215"
+         startingLineNumber = "214"
+         endingLineNumber = "214"
          landmarkName = "-prepCardForQuestionNumber:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1050,11 +1050,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/CardViewController.m"
-         timestampString = "365088578.791674"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "475"
-         endingLineNumber = "475"
+         startingLineNumber = "474"
+         endingLineNumber = "474"
          landmarkName = "-touchesBegan:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1102,11 +1102,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1037"
-         endingLineNumber = "1037"
+         startingLineNumber = "1040"
+         endingLineNumber = "1040"
          landmarkName = "-viewForZoomingInScrollView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1115,11 +1115,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1060"
-         endingLineNumber = "1060"
+         startingLineNumber = "1063"
+         endingLineNumber = "1063"
          landmarkName = "-scrollViewDidEndZooming:withView:atScale:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1128,11 +1128,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365089326.724601"
+         timestampString = "365090314.763712"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1057"
-         endingLineNumber = "1057"
+         startingLineNumber = "1060"
+         endingLineNumber = "1060"
          landmarkName = "-scrollViewDidEndZooming:withView:atScale:"
          landmarkType = "5">
       </FileBreakpoint>

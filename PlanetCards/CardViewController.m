@@ -165,8 +165,11 @@
     
     [self.question setText:[newQuestion question]];
     
+#ifdef LITE_VERSION
+    [self.supplementalInfoText setText:@"Sorry - only available in the paid version of PlanetCards! Upgrade today!"];
+#else
     [self.supplementalInfoText setText:[newQuestion supplementalInfo]];
-    
+#endif
     [self hideAnswerButtons];
     //[self removeAnswerButtons];
     
@@ -377,11 +380,6 @@
 
 -(IBAction)showSupplementalInformation:(id)sender
 {
-#ifdef LITE_VERSION
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Paid version only" message:@"Sorry, but supplemental information is only available in the paid version of PlanetCards" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-    [alert release];
-#else
     if (self.correctIncorrectView.superview)
     {
         CGRect targetFrame = CGRectMake(self.correctIncorrectView.frame.origin.x, self.correctIncorrectView.frame.origin.y+self.correctIncorrectView.frame.size.height, self.correctIncorrectView.frame.size.width, self.correctIncorrectView.frame.size.height);
@@ -419,7 +417,6 @@
     }
     
     [UIView commitAnimations];
-#endif  
 }
 
 -(void)removeCorrectionOverlay
