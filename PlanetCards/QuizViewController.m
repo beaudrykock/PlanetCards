@@ -734,7 +734,7 @@
     // Optional: set an image, url and initial text
     UIImage *tweetImage = [quizDB getRandomImage];
     [twitter addImage:tweetImage];
-    [twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.scientificplayground.com/"]]];
+    [twitter addURL:[NSURL URLWithString:@"http://www.scientificplayground.com/"]];
     [twitter setInitialText:[NSString stringWithFormat:@"I just scored %i/200 on PlanetCards!",knowledgeScore+speedScore]];
     
     // Show the controller
@@ -744,12 +744,12 @@
     twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
     {
         NSString *title = @"Tweet Status";
-        NSString *msg; 
+        NSString *msg = @"";
         
         if (result == TWTweetComposeViewControllerResultCancelled)
-            msg = @"Tweet composition was canceled.";
+            msg = @"Tweet canceled";
         else if (result == TWTweetComposeViewControllerResultDone)
-            msg = @"Tweet composition completed.";
+            msg = @"Tweet sent!";
         
         // Show alert to see how things went...
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];

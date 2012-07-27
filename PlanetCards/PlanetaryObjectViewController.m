@@ -242,6 +242,7 @@
         UITapGestureRecognizer *tap_info = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showPlanetaryInfo:)];
         [tap_info setNumberOfTapsRequired:1];
         [newPlanet addGestureRecognizer: tap_info];
+        [tap_info release];
         [newPlanet setUserInteractionEnabled:YES];
         
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(image_pos_x, image_pos_y, 306.0, 337.0)];
@@ -874,6 +875,7 @@
         UITapGestureRecognizer *tap_info = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showPlanetaryInfo:)];
         [tap_info setNumberOfTapsRequired:1];
         [self.moon addGestureRecognizer: tap_info];
+        [tap_info release];
         [self.moon setUserInteractionEnabled:YES];
     }
     [self.moon setContentMode: UIViewContentModeScaleAspectFit];
@@ -922,6 +924,7 @@
         UITapGestureRecognizer *tap_info = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showPlanetaryInfo:)];
         [tap_info setNumberOfTapsRequired:1];
         [self.moon addGestureRecognizer: tap_info];
+        [tap_info release];
         [self.moon setUserInteractionEnabled:YES];
     }
     [self.moon setContentMode: UIViewContentModeScaleAspectFit];
@@ -962,6 +965,7 @@
     UIView *view = [[[UIView alloc] init] autorelease];
     [view setTag:lastPlanetaryObjectIndex];
     [view addGestureRecognizer:falseGesture];
+    [falseGesture release];
     
     //[falseGesture release];
     [self showPlanetaryObjectAtPage:mainScrollViewPage];

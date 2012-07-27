@@ -206,7 +206,6 @@
     NSString *imageFilename = [newQuestion questionImageFilenameWithoutType];
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageFilename ofType:@"png"]];
     self.question_image = [[UIImageView alloc] initWithImage:image];
-    [image release];
 }
                                            
 
@@ -502,23 +501,19 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-	UITouch *touch = [touches anyObject];
-	
-	//if ([touch view] == self.view) {
-        if (self.view.frame.origin.x < ((self.view.frame.size.width/4.0)*-1.0))
-        {
-            if (!timerExpired && !answered)
-                [self.parentController answerQuestionIsCorrect:NO withSkip:YES];
-            [self animateCardOffscreen];  
-        }
-        else {
-            [self restoreCardPosition];
-        }
-		// Disable user interaction so subsequent touches don't interfere with animation
-		//self.slideView.userInteractionEnabled = NO;
-		//[self animateViewOffScreen];
-		return;
-	//}		
+    if (self.view.frame.origin.x < ((self.view.frame.size.width/4.0)*-1.0))
+    {
+        if (!timerExpired && !answered)
+            [self.parentController answerQuestionIsCorrect:NO withSkip:YES];
+        [self animateCardOffscreen];  
+    }
+    else {
+        [self restoreCardPosition];
+    }
+    // Disable user interaction so subsequent touches don't interfere with animation
+    //self.slideView.userInteractionEnabled = NO;
+    //[self animateViewOffScreen];
+    return;
 }
 
 -(void)animateCardOffscreen
