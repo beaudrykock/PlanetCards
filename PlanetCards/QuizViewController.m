@@ -336,13 +336,19 @@
     }
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",speedScore+knowledgeScore]];
+    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+2)]];
     
     if (questionCount == 19)
     {
         quizComplete = YES;
     }
     else {
-        [self nextCard];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        
+        dispatch_async(queue, ^{
+            [self nextCard];
+        });
+        
     }
 }
 
@@ -350,7 +356,7 @@
 {
     questionCount++;
     
-    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
+    //[self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+1)]];
     
     // update the index referencing the viewcontroller array
     currentCardIndex++;
@@ -364,7 +370,9 @@
     [self prepTimerParameters];
     
     NSLog(@"Current question number based on card now displayed = %i", currentQuestionNumber);
-    [self prepBottomCard];
+    
+    [self performSelectorOnMainThread:@selector(prepBottomCard) withObject:nil waitUntilDone:NO];
+    //[self prepBottomCard];
 }
 
 -(void)prepTimerParameters

@@ -327,7 +327,7 @@
         if ([Utilities vibrationOn])
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
-    [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
+    //[[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
 
     
     [self showCorrectIncorrectOverlay];
@@ -376,14 +376,15 @@
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     [self.correctIncorrectView setFrame:targetFrame];
-    //[UIView setAnimationDelegate:self];
-    //[UIView setAnimationDidStopSelector:@selector(transitionDidStop:finished:context:)];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(answerFeedbackOverlayDidAnimate)];
     [UIView commitAnimations];
 }
 
-- (void)transitionDidStop:(NSString *)animationID finished:(BOOL)finished context:(void *)context
+- (void)answerFeedbackOverlayDidAnimate
 {
-    [correctIncorrectView setFrame:CGRectMake(-400, -400, correctIncorrectView.frame.size.width, correctIncorrectView.frame.size.height)];
+    [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
+
 }
 
 -(IBAction)showSupplementalInformation:(id)sender
