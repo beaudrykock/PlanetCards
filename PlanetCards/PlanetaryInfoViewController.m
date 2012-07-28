@@ -379,13 +379,13 @@
     }
     else 
     {
-        [massUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_mass]];
-        [densityUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_density]];
-        [diameterUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_diameter]];
-        [speedUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_speed]];
-        [dayLengthUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_dayLength]];
+        [massUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_mass]];
+        [densityUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_density]];
+        [diameterUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_diameter]];
+        [speedUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_speed]];
+        [dayLengthUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_dayLength]];
         [temperatureUnits setText:kEarthUnit_temperature];
-        [sunDistanceUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3",kEarthUnit_sunDistance]];
+        [sunDistanceUnits setText:[NSString stringWithFormat:@"%@%@",@"\u02E3 ",kEarthUnit_sunDistance]];
     }
 }
 
