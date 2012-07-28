@@ -628,6 +628,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
+    self.supplementalInfoUpgradeView = nil;
     self.paidVersionOnlyView = nil;
     self.difficultyView = nil;
     self.postAnswerInstructions = nil;
@@ -650,6 +651,7 @@
 
 -(void)dealloc
 {
+    [supplementalInfoUpgradeView release];
     [paidVersionOnlyView release];
     [difficultyView release];
     [imageContainerView release];
