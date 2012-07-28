@@ -62,8 +62,10 @@
     
     UIView *paidVersionOnlyView;
     BOOL bannerAdShowing;
+    UIView *supplementalInfoUpgradeView;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *supplementalInfoUpgradeView;
 @property (nonatomic) BOOL bannerAdShowing;
 @property (nonatomic, retain) IBOutlet UIView *paidVersionOnlyView;
 @property (nonatomic, retain) IBOutlet UIImageView *difficultyView;

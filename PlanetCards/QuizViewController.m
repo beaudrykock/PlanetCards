@@ -153,6 +153,7 @@
 
 -(NSInteger)selectStartingQuestionNumber
 {
+    /*
     NSInteger lastScore = [Utilities getLastScore];
 
     if (lastScore>=0 && lastScore<50)
@@ -170,7 +171,7 @@
     else if (lastScore>=0 && lastScore<=200)
     {
         [self.quizDB changeDifficultyLevelBy:2];
-    }
+    }*/
     
     NSInteger startingNumber = [self.quizDB getRandomQuestionNumberWithRecord:YES];
     [Utilities setLastStartingQuestionNumber:startingNumber];
@@ -261,12 +262,10 @@
 }
 
 #pragma mark - Handling answering logic and functionality
-
-// call this FIRST from the card when a response is completed
--(void)answerQuestionIsCorrect:(BOOL)isCorrect withSkip:(BOOL)isSkip
+-(void)answerAnalyticsIsCorrect:(NSNumber*)isCorrect
 {
     NSError *error;
-    if (isCorrect)
+    if ([isCorrect boolValue])
     {
         if (![[GANTracker sharedTracker] trackEvent:kQuizAction
                                              action:@"Correct answer"
@@ -286,6 +285,12 @@
             NSLog(@"GANTracker error, %@", [error localizedDescription]);
         }
     }
+}
+
+// call this FIRST from the card when a response is completed
+-(void)answerQuestionIsCorrect:(BOOL)isCorrect withSkip:(BOOL)isSkip
+{
+    [self performSelectorInBackground:@selector(answerAnalyticsIsCorrect:) withObject:[NSNumber numberWithBool:isCorrect]];
     
     [self.quizDB setLastQuestionWasCorrect:isCorrect];
     if (isCorrect)
@@ -337,8 +342,7 @@
         quizComplete = YES;
     }
     else {
-        [self performSelectorOnMainThread:@selector(nextCard) withObject:nil waitUntilDone:NO];
-        //[self nextCard];
+        [self nextCard];
     }
 }
 

@@ -14,7 +14,7 @@
 @synthesize buttonBackground_right, buttonBackground_wrong, buttonBackground_corrected;
 @synthesize buttonArray, bannerAdShowing;
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
-@synthesize parentController;
+@synthesize parentController, supplementalInfoUpgradeView;
 @synthesize quizDB, difficultyView, paidVersionOnlyView;
 @synthesize buttonTray, supplementalInfoText, supplementalInfoView, supplementalInfoTitle, imageContainerView, postAnswerInstructions;
 
@@ -166,7 +166,8 @@
     [self.question setText:[newQuestion question]];
     
 #ifdef LITE_VERSION
-    [self.supplementalInfoText setText:@"Sorry - only available in the paid version of PlanetCards! Upgrade today!"];
+    [self.supplementalInfoText setText:@""];
+    [self.supplementalInfoTitle setText:@""];
 #else
     [self.supplementalInfoText setText:[newQuestion supplementalInfo]];
 #endif
@@ -223,8 +224,8 @@
     [question setText:[newQuestion question]];
     
 #ifdef LITE_VERSION
-    [self.supplementalInfoText setText:@"Sorry - only available in the paid version of PlanetCards"];
-    [self.supplementalInfoText setTextAlignment:UITextAlignmentCenter];
+    [self.supplementalInfoText setText:@""];
+    [self.supplementalInfoTitle setText:@""];
 #else
     if (![[newQuestion supplementalInfo] isEqualToString:@"none"])
     {
@@ -326,14 +327,8 @@
         if ([Utilities vibrationOn])
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
-    dispatch_queue_t queue = dispatch_get_global_queue(
-                                                       DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
-    dispatch_async(queue, ^{
-        [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
-    });
-    
-        
+    [[self parentController] answerQuestionIsCorrect:answeredCorrect withSkip:NO];
+
     
     [self showCorrectIncorrectOverlay];
 }
@@ -393,6 +388,17 @@
 
 -(IBAction)showSupplementalInformation:(id)sender
 {
+#ifdef LITE_VERSION
+    if (!self.supplementalInfoUpgradeView.superview)
+    {
+        [self.supplementalInfoView addSubview:self.supplementalInfoUpgradeView];
+        [self.supplementalInfoUpgradeView setFrame:CGRectMake(14.0, 20.0, self.supplementalInfoUpgradeView.frame.size.width, self.supplementalInfoUpgradeView.frame.size.height)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goToStore)];
+        [self.supplementalInfoView addGestureRecognizer: tap];
+        [tap release];
+    }
+#endif
+    
     if (self.correctIncorrectView.superview)
     {
         CGRect targetFrame = CGRectMake(self.correctIncorrectView.frame.origin.x, self.correctIncorrectView.frame.origin.y+self.correctIncorrectView.frame.size.height, self.correctIncorrectView.frame.size.width, self.correctIncorrectView.frame.size.height);
@@ -413,7 +419,6 @@
     if (!supplementalInfoShowing)
     {
         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.imageContainerView cache:YES];
-        
         [self.question_image removeFromSuperview];
         [self.imageContainerView addSubview:self.supplementalInfoView];
         [self.imageContainerView sendSubviewToBack:self.question_image];
@@ -606,6 +611,15 @@
 -(void)setCardIndex:(NSInteger)_cardIndex
 {
     cardIndex = _cardIndex;
+}
+
+-(void)goToStore
+{
+    NSString *urlStr = kPlanetCardsPaidLink;
+    NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    if (![[UIApplication sharedApplication] openURL:url])
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
 }
 
 - (void)viewDidUnload

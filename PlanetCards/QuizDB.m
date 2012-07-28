@@ -57,7 +57,7 @@
 {
     BOOL questionAskedInCurrentQuiz = [self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]];
     BOOL questionAskedCorrectlyInLastThree = [self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]];
-    
+    NSLog(@"askability for question number %i = %i, %i", questionNumber, questionAskedInCurrentQuiz, questionAskedCorrectlyInLastThree);
     if (questionAskedInCurrentQuiz || questionAskedCorrectlyInLastThree) return NO;
     return YES;
 }
@@ -65,13 +65,19 @@
 -(void)addQuestionAskedRecord:(NSInteger)questionNumber;
 {
     if (![self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]])
+    {
+        NSLog(@"adding question asked record for number %i", questionNumber);
         [self.questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
+    }
 }
 
 -(void)addQuestionAnsweredCorrectlyRecord:(NSInteger)questionNumber
 {
     if (![self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]])
+    {
+        NSLog(@"adding question answered correctly record for number %i", questionNumber);
         [self.questionsAnsweredCorrectly addObject:[NSNumber numberWithInt:questionNumber]];
+    }
 }
 
 -(void)resetQuestionsAskedRecord
@@ -213,6 +219,8 @@
         currentDifficultyLevel = 1;
 #endif
         [self resetQuestionsAskedRecord];
+        [self resetQuestionsAnsweredCorrectlyRecord];
+        [Utilities resetAnswerTrackingQuizPlays];
         
         NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];
         

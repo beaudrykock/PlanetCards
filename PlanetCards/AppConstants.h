@@ -69,7 +69,7 @@
 #define kMaximumDifficultyLevel 10
 #define kMaximumDifficultyLevel_lite 5
 #define kLastStartingQuestionNumberKey @"lastStartingQuestionNumber"
-#define kMaximumQuizPlaysBeforeRepeatCorrectAnswered 3
+#define kMaximumQuizPlaysBeforeRepeatCorrectAnswered 5
 #define kQuestionsAnsweredCorrectlyKey @"questionsAnsweredCorrectlyKey"
 #define kQuizDataFilename @"quizData"
 // SCORING
