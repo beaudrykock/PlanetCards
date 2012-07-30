@@ -116,6 +116,8 @@
 {
     [super viewDidLoad];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    
 #ifdef LITE_VERSION
     [self.backgroundView setImage:[UIImage imageNamed:@"Default_lite.png"]];
 #endif

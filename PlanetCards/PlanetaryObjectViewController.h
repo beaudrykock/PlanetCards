@@ -85,8 +85,10 @@
     BOOL zooming;
     
     NSInteger satelliteType;
+    UIButton *exitTarget;
 }
 
+@property (nonatomic, retain) UIButton *exitTarget;
 @property (nonatomic, retain) IBOutlet UIView *scrollableInterior;
 @property (nonatomic, retain) IBOutlet NSMutableArray *planetaryImages;
 @property (nonatomic, retain) IBOutlet UIView *satelliteCountInnerContainerView;

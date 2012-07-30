@@ -96,7 +96,7 @@
 							<object class="IBUILabel" id="178610861">
 								<reference key="NSNextResponder" ref="215491967"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{4, 4}, {125, 21}}</string>
+								<string key="NSFrame">{{5, 4}, {139, 21}}</string>
 								<reference key="NSSuperview" ref="215491967"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="751421293"/>
@@ -126,7 +126,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{55, 6}, {132, 29}}</string>
+						<string key="NSFrame">{{35, 6}, {152, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="178610861"/>
@@ -145,12 +145,11 @@
 							<object class="IBUIButton" id="29830860">
 								<reference key="NSNextResponder" ref="91069320"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{2, 1}, {45, 27}}</string>
+								<string key="NSFrame">{{2, 1}, {24, 27}}</string>
 								<reference key="NSSuperview" ref="91069320"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="215491967"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUIContentMode">1</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -168,7 +167,7 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">home_btn.png</string>
+									<string key="NSResourceName">exit_quiz.png</string>
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<string key="name">Helvetica-Bold</string>
@@ -183,7 +182,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{6, 6}, {48, 29}}</string>
+						<string key="NSFrame">{{6, 6}, {28, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="29830860"/>
@@ -299,7 +298,6 @@
 						<string key="NSFrame">{{302, 388}, {20, 65}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -368,7 +366,6 @@
 								<string key="NSFrame">{{3, 3}, {59, 15}}</string>
 								<reference key="NSSuperview" ref="785601846"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:328</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -625,15 +622,6 @@
 						<reference key="destination" ref="785601846"/>
 					</object>
 					<int key="connectionID">83</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">home:</string>
-						<reference key="source" ref="29830860"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">28</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1140,7 +1128,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>back_arrow.png</string>
 				<string>bg-tile-x3-screeen.png</string>
-				<string>home_btn.png</string>
+				<string>exit_quiz.png</string>
 				<string>info_btn.png</string>
 				<string>scroll_end_cap_L.png</string>
 				<string>scroll_end_cap_R.png</string>
@@ -1149,7 +1137,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{20, 28}</string>
 				<string>{960, 480}</string>
-				<string>{46, 23}</string>
+				<string>{50, 56}</string>
 				<string>{35, 25}</string>
 				<string>{15, 65}</string>
 				<string>{15, 65}</string>

@@ -17,7 +17,7 @@
 @synthesize homeButton, infoButton;
 @synthesize backToPlanetLabel, backToPlanetButtonView;
 @synthesize backgroundTopPanel;
-@synthesize infoTab, mainScrollingObjectView, moon, backToPlanetInnerContainerView, satelliteCountInnerContainerView, planetaryImages, scrollableInterior;
+@synthesize infoTab, mainScrollingObjectView, moon, backToPlanetInnerContainerView, satelliteCountInnerContainerView, planetaryImages, scrollableInterior, exitTarget;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,7 +60,7 @@
 
 - (void)dealloc
 {
-        
+    [exitTarget release];
     [scrollableInterior release];
     [planetaryImages release];
     [scrollingObjectView release];
@@ -99,8 +99,6 @@
     
     [super dealloc];
 }
-
-
 
 - (void)animationDidStop:(NSString*)animationID finished:(BOOL)finished context:(void *)context 
 {
@@ -195,6 +193,10 @@
     self.activeObjectName = [self.objectDB objectNameForIndex: mainScrollViewPage];
     self.objectNameLabel.text = [self.activeObjectName uppercaseString];
     self.objectTypeLabel.text = [[self.objectDB objectTypeForIndex: mainScrollViewPage] uppercaseString];
+
+    self.exitTarget = [[UIButton alloc] initWithFrame:CGRectMake(8.0, 8.0, 44.0, 44.0)];
+    [self.exitTarget addTarget:self action:@selector(home:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:exitTarget];
     
     //self.mainScrollingObjectView.minimumZoomScale=1.0;
     //self.mainScrollingObjectView.maximumZoomScale=1.5;
@@ -442,7 +444,7 @@
 
 -(IBAction)home:(id)sender
 {
-    
+    [self.homeButton setHighlighted:YES];
     CGRect frame = [self.view frame];
     
     // insert code here to remove quiz view controller
