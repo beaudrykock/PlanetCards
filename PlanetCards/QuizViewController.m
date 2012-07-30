@@ -11,7 +11,7 @@
 @implementation QuizViewController
 
 @synthesize cards, quizDB, backgroundView, scoreLabel, questionCountLabel, speedScoreResultLabel, knowledgeScoreResultLabel, encouragingMessageLabel, resultView_outerFrame, resultView_innerFrame, parentController, topFrameView, questionScore, speedScore, adBannerView, adBannerViewIsVisible, placeholderBanner, answerTimer_start, lossTimer_start,progressBarTimer_start;
-@synthesize bestTotalScoreResultLabel,totalScoreResultLabel, skippingView;
+@synthesize bestTotalScoreResultLabel,totalScoreResultLabel, skippingView, exitTarget;
 @synthesize answerTimer, lossTimer, progressBarTimer, timerBar, lastXAnswers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -124,6 +124,11 @@
     [self prettify];
     [self resetProgressBar];
     [self resetTimerFlags];
+   
+    self.exitTarget = [[UIButton alloc] initWithFrame:CGRectMake(11.0, 10.0, 44.0, 44.0)];
+    [self.exitTarget addTarget:self action:@selector(quitQuizFromButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:exitTarget];
+    
     QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
     [intro setParentController:self];
     [self.view addSubview:intro.view];

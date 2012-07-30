@@ -942,15 +942,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">quitQuizFromButton:</string>
-						<reference key="source" ref="486547915"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">122</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">newGameWhileInGame:</string>
 						<reference key="source" ref="327083179"/>
 						<reference key="destination" ref="372490531"/>

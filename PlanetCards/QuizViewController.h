@@ -81,8 +81,11 @@
     
     UIImageView *placeholderBanner;
     NSArray* timersElapsedTime;
+    
+    UIButton *exitTarget;
 }
 
+@property (nonatomic, retain) UIButton *exitTarget;
 @property (nonatomic, retain) NSDate *answerTimer_start;
 @property (nonatomic, retain) NSDate *lossTimer_start;
 @property (nonatomic, retain) NSDate *progressBarTimer_start;
