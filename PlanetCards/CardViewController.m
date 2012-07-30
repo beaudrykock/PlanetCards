@@ -12,7 +12,7 @@
 
 @synthesize question_image,question_frame,question, answer_1, answer_2, answer_3, answer_4;
 @synthesize buttonBackground_right, buttonBackground_wrong, buttonBackground_corrected;
-@synthesize buttonArray, bannerAdShowing;
+@synthesize buttonArray, bannerAdShowing, supplementalInfoAppIcon;
 @synthesize correctIncorrectView, correctIncorrectLabel, correctIncorrectImage;
 @synthesize parentController, supplementalInfoUpgradeView;
 @synthesize quizDB, difficultyView, paidVersionOnlyView;

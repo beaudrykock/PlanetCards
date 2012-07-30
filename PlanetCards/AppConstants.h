@@ -173,4 +173,4 @@
 static const NSInteger kGANDispatchPeriodSec = 300;
 
 // APP UPGRADE LINK
-#define kPlanetCardsPaidLink @"http//itunes.com/apps/planetcards for iphone"
+#define kPlanetCardsPaidLink @"http://itunes.apple.com/app/planetcards%20for%20iphone/id503510674?mt=8"

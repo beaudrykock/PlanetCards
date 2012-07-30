@@ -492,11 +492,9 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIImageView" id="296235558">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{57, 57}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -522,7 +520,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Upgrade to the paid version of PlanetCards in the app store</string>
+						<string key="IBUIText">Only available in paid PlanetCards; tap to view in the app store</string>
 						<reference key="IBUITextColor" ref="5317951"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -532,11 +530,11 @@
 							<string key="name">HelveticaNeue-Light</string>
 							<string key="family">Helvetica Neue</string>
 							<int key="traits">0</int>
-							<double key="pointSize">15</double>
+							<double key="pointSize">13</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">HelveticaNeue-Medium</string>
-							<double key="NSSize">15</double>
+							<double key="NSSize">13</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -996,6 +994,7 @@
 						<string key="question">UILabel</string>
 						<string key="question_frame">UIView</string>
 						<string key="question_image">UIImageView</string>
+						<string key="supplementalInfoAppIcon">UIImageView</string>
 						<string key="supplementalInfoText">UITextView</string>
 						<string key="supplementalInfoTitle">UILabel</string>
 						<string key="supplementalInfoUpgradeView">UIView</string>
@@ -1060,6 +1059,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="question_image">
 							<string key="name">question_image</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="supplementalInfoAppIcon">
+							<string key="name">supplementalInfoAppIcon</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="supplementalInfoText">
