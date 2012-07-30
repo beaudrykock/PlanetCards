@@ -965,6 +965,100 @@
         <supplement>Saturn was the Roman god of agriculture; Venus, the Roman god of love; and Mercury, the Roman messenger god. Nowadays, we don't usually name new planets after deities</supplement>
     </quiz_item>
     <quiz_item>
+        <question>Mars is half the diameter of Earth - true or false?</question>
+        <level>3</level>
+        <right_answer>True</right_answer>
+        <wrong_answer>False</wrong_answer>
+        <image>06_Mars_large.png</image>
+        <supplement>Mars is 6792 km in diameter, while the Earth is 12756.1 km in diameter.</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why is Uranus rotating on its side?</question>
+        <level>3</level>
+        <right_answer>Likely due to a large collision</right_answer>
+        <wrong_answer>All planets end up like that</wrong_answer>
+        <wrong_answer>Depends which way is up</wrong_answer>
+        <wrong_answer>The sun's gravitational pull</wrong_answer>
+        <image>28_Uranus_large.png</image>
+        <supplement>Scientists think that Uranus, which is the only planetary body whose equator is close to right angles with its orbit, ended up this way because of a collision with a massive object - perhaps as large as Earth</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why does the Martian atmosphere have a reddish hue?</question>
+        <level>3</level>
+        <right_answer>Iron-rich dust is in the atmosphere</right_answer>
+        <wrong_answer>It's just a trick of the eyes</wrong_answer>
+        <wrong_answer>The clouds are hot and glowing</wrong_answer>
+        <wrong_answer>Because the ground is also red</wrong_answer>
+        <image>06_Mars_large.png</image>
+        <supplement>The ground surface is indeed also made of iron-rich minerals, but it's these minerals being kicked up into the atmosphere which gives the atmosphere a reddish color</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Who first documented Jupiter's moons?</question>
+        <level>3</level>
+        <right_answer>Galileo Galilei</right_answer>
+        <wrong_answer>Copernicus</wrong_answer>
+        <wrong_answer>Richard Dawkins</wrong_answer>
+        <wrong_answer>Jim Watson</wrong_answer>
+        <image>15_Jupiter_large.png</image>
+        <supplement>Galileo discovered Jupiter's four moons (Io, Europa, Ganymede and Callisto) in 1610, using a very primitive telescope by today's standards'</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What causes Saturns atmospheric bands?</question>
+        <level>3</level>
+        <right_answer>Interior heat plus super-fast winds</right_answer>
+        <wrong_answer>Algae growth</wrong_answer>
+        <wrong_answer>Ocean currents</wrong_answer>
+        <wrong_answer>Distortion in our telescopes</wrong_answer>
+        <image>20_Saturn_large.png</image>
+        <supplement>The winds in Saturn's atmosphere have blown at 500 meters per second at its equator, about 5 times as fast as the strongest hurricanes on Earth. The gold and yellow bands visible in the atmosphere are the result of these winds combined with heat released from the planet's interior</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the size of the NASA robotic rover, Curiosity, due to land on Mars in 2012?</question>
+        <level>5</level>
+        <right_answer>A large car</right_answer>
+        <wrong_answer>A golf cart</wrong_answer>
+        <wrong_answer>A shopping cart</wrong_answer>
+        <image>06_Mars_large.png</image>
+        <supplement>Curiosity is a robotic buggy that is also a mobile laboratory. It is scheduled to land sometime in 2012 using a unique deployment mechanism: lowered from the upper stage on a tether, as the spacecraft hovers above the surface</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Jupiter has a similar composition to a star: true or false?</question>
+        <level>5</level>
+        <right_answer>True</right_answer>
+        <wrong_answer>False</wrong_answer>
+        <image>15_Jupiter_large.png</image>
+        <supplement>Jupiter has a very similar composition to a star, but never grew large enough to ignite like other stars</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why can't surface water survive as liquid on Mars?</question>
+        <level>5</level>
+        <right_answer>Its atmosphere is too thin and it's too cold</right_answer>
+        <wrong_answer>The solar wind sucks it away</wrong_answer>
+        <wrong_answer>The Martians drink it all</wrong_answer>
+        <wrong_answer>It drains into the soil</wrong_answer>
+        <image>06_Mars_large.png</image>
+        <supplement>Scientists suggest that water may periodically appear on Mars' surface in liquid form, but because of the low temperatures and thin atmosphere, it will not last long and either evaporate or freeze</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How do scientists think Jupiter's ring system may have formed?</question>
+        <level>5</level>
+        <right_answer>Dust from asteroid impacts with its moons</right_answer>
+        <wrong_answer>Volcanic eruptions</wrong_answer>
+        <wrong_answer>Capture of passing debris</wrong_answer>
+        <image>15_Jupiter_large.png</image>
+        <supplement>Data sent back from the Galileo spacecraft in 1995 suggested that dust in the ring system came from asteroid impacts with Jupiter's inner moons. Galileo, and its companion spacecraft Cassini-Huygens, also sent back information on the Jupiter's magnetosphere, auroras and the solar wind</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Apart from helium, Saturn is also composed mainly of what?</question>
+        <level>5</level>
+        <right_answer>Hydrogen</right_answer>
+        <wrong_answer>Oxygen</wrong_answer>
+        <wrong_answer>Sodium</wrong_answer>
+        <wrong_answer>Iron</wrong_answer>
+        <image>20_Saturn_large.png</image>
+        <supplement>Saturn is mostly hydrogen and helium. Earth is mostly nitrogen and oxygen</supplement>
+    </quiz_item>
+    <quiz_item>
         <question>Which of these statements is factually incorrect?</question>
         <level>2</level>
         <right_answer>The sun orbits around the Earth</right_answer>

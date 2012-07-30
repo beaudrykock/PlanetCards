@@ -394,6 +394,12 @@
     
     NSInteger questionNumberForBottomCard;
     
+    NSInteger levelChangeInterval = 3;
+    
+#ifdef LITE_VERSION
+    levelChangeInterval = 5;
+#endif
+    
     if (currentCardIndex%3==0)
     {
         int correctCount = 0;
@@ -781,18 +787,18 @@
     // Called when the tweet dialog has been closed
     twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
     {
-        NSString *title = @"Tweet Status";
+        NSString *title = @"Tweet sent";
         NSString *msg = @"";
         
-        if (result == TWTweetComposeViewControllerResultCancelled)
-            msg = @"Tweet canceled";
-        else if (result == TWTweetComposeViewControllerResultDone)
-            msg = @"Tweet sent!";
-        
-        // Show alert to see how things went...
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [alertView show];
-        [alertView release];
+        if (result == TWTweetComposeViewControllerResultDone)
+        {
+            msg = @"Your tweet was sent successfully";
+            
+            // Show alert to see how things went...
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            [alertView release];
+        }
         // Dismiss the controller
         [self dismissModalViewControllerAnimated:YES];
         //self showPostQuizActionSheet]; // DEPRECATED
