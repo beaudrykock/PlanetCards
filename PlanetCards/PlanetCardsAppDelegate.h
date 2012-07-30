@@ -11,6 +11,7 @@
 #import "QuizDB.h"
 #import "TestFlight.h"
 #import "GANTracker.h"
+#import "DDGameKitHelper.h"
 
 @class PlanetCardsViewController;
 

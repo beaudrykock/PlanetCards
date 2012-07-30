@@ -25,12 +25,21 @@
     
     [self startGoogleAnalytics];
     
-    objectDB = [[PlanetaryObjectDB alloc]init];
-    [objectDB loadContent];
+    self.objectDB = [[PlanetaryObjectDB alloc]init];
+    [self.objectDB loadContent];
     
-    quizDB = [[QuizDB alloc] init];
-    [quizDB loadContent];
+    self.quizDB = [[QuizDB alloc] init];
+    [self.quizDB loadContent];
         
+    if ([Utilities shouldReset])
+    {
+        [[DDGameKitHelper sharedGameKitHelper] resetAchievements];
+        [self.quizDB resetQuestionsAnsweredCorrectlyRecord];
+        [self.quizDB resetQuestionsAskedRecord];
+        [Utilities removeQuizRecords];
+        [Utilities clearReset];
+    }
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -64,6 +73,16 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if ([Utilities shouldReset])
+    {
+        [[DDGameKitHelper sharedGameKitHelper] resetAchievements];
+        [self.quizDB resetQuestionsAnsweredCorrectlyRecord];
+        [self.quizDB resetQuestionsAskedRecord];
+        [Utilities removeQuizRecords];
+        [Utilities clearReset];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

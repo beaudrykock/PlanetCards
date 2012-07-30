@@ -109,13 +109,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if ([Utilities shouldReset])
-    {
-        [[DDGameKitHelper sharedGameKitHelper] resetAchievements];
-        [Utilities removeQuizRecords];
-        [Utilities clearReset];
-    }
-    
     [self loadQuizDB];
     
     numberOfAnswers = -1;

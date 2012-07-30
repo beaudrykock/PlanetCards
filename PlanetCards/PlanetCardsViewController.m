@@ -71,12 +71,12 @@
          self.quizViewController.parentController = self;
          
      }
-    CGRect frame = [quizViewController.view frame];
+    [self.view addSubview:self.quizViewController.view];
+    
+    CGRect frame = [self.quizViewController.view frame];
     frame.origin.x = 340;
     
-    quizViewController.view.frame = frame;
-    
-    [self.view addSubview:quizViewController.view];
+    self.quizViewController.view.frame = frame;
     
     CGRect newViewFrame = self.view.frame;
     

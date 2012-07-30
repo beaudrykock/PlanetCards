@@ -354,7 +354,7 @@
 -(NSInteger)knowledgeScoreForQuestionNumber:(NSInteger)questionNumber
 {
     QuizQuestion *question = [self getQuestionNumbered:questionNumber];
-    NSLog(@"returning knowledge score of %i", question.level);
+    //NSLog(@"returning knowledge score of %i", question.level);
     return question.level;
 }
 
@@ -367,7 +367,7 @@
     
     float score = pointsPerBlock * timeBlock;
     NSInteger intScore = roundf(score);
-    NSLog(@"returning speed score of %i", intScore);
+    //NSLog(@"returning speed score of %i", intScore);
     return intScore;
 }
 
