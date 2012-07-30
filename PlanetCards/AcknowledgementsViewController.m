@@ -103,7 +103,7 @@
     [self.view addSubview:bwcButton];
     
     UIButton *sciPlayButton = [UIUnderlinedButton underlinedButton];
-    sciPlayButton.frame=CGRectMake(supportFrom.frame.origin.x+supportFrom.frame.size.width, supportFrom.frame.origin.y+4, expectedSize_2.width, expectedSize_2.height);
+    sciPlayButton.frame=CGRectMake(supportFrom.frame.origin.x+supportFrom.frame.size.width, supportFrom.frame.origin.y+5, expectedSize_2.width, expectedSize_2.height);
     [sciPlayButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:13.0]];
     [sciPlayButton.titleLabel setTextColor:[UIColor whiteColor]];
     [sciPlayButton setTitle:@"Scientific Playground" forState:UIControlStateNormal];
@@ -111,7 +111,7 @@
     [self.view addSubview:sciPlayButton];
     
     UIButton *meloniButton = [UIUnderlinedButton underlinedButton];
-    meloniButton.frame=CGRectMake(111.0, 358.0, expectedSize_3.width, expectedSize_3.height);
+    meloniButton.frame=CGRectMake(111.0, 359.0, expectedSize_3.width, expectedSize_3.height);
     [meloniButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:13.0]];
     [meloniButton.titleLabel setTextColor:[UIColor whiteColor]];
     [meloniButton setTitle:@"Meloni Publishing Company" forState:UIControlStateNormal];
