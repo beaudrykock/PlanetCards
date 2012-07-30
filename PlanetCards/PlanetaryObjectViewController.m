@@ -363,8 +363,8 @@
         CGPoint offset_lower = self.scrollingObjectView.contentOffset;
         CGPoint offset_upper = self.mainScrollingObjectView.contentOffset;
         float offset_x_as_percent = offset_upper.x/self.mainScrollingObjectView.contentSize.width;
-        NSLog(@"current offset lower x = %f", offset_lower.x);
-        NSLog(@"computed offset lower x = %f", offset_x_as_percent*self.scrollingObjectView.contentSize.width);
+        //NSLog(@"current offset lower x = %f", offset_lower.x);
+        //NSLog(@"computed offset lower x = %f", offset_x_as_percent*self.scrollingObjectView.contentSize.width);
         if (!((offset_x_as_percent*self.scrollingObjectView.contentSize.width)>=offset_lower.x &&
             ((offset_x_as_percent*self.scrollingObjectView.contentSize.width)+45.0)<=(offset_lower.x+self.scrollingObjectView.frame.size.width)))
         {
@@ -502,7 +502,7 @@
     controlledScrolling = YES;
     
     float upper_offset = (mainScrollViewPage*1.0)/(totalPages*1.0) * self.mainScrollingObjectView.contentSize.width;
-    NSLog(@"upper offset = %f", upper_offset);
+    //NSLog(@"upper offset = %f", upper_offset);
     CGRect scrollTo = CGRectMake(upper_offset, 0.0, self.mainScrollingObjectView.frame.size.width, self.mainScrollingObjectView.frame.size.height);
     
     [self.mainScrollingObjectView scrollRectToVisible:scrollTo animated:YES];
@@ -823,7 +823,7 @@
 -(void)showComet:(UITapGestureRecognizer*)gesture
 {
     keepSatelliteStrip = YES;
-    NSLog(@"[gesture.view tag] = %i", [gesture.view tag]);
+    //NSLog(@"[gesture.view tag] = %i", [gesture.view tag]);
     [self showCometAtSubIndex: [gesture.view tag]];
 }
 
@@ -1037,7 +1037,7 @@
 -(UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     //return [self.mainScrollingObjectView.subviews objectAtIndex:0];
-    NSLog(@"Scrollview tag = %i", scrollView.tag);
+    //NSLog(@"Scrollview tag = %i", scrollView.tag);
     return [scrollView.subviews objectAtIndex:0];
 }
 

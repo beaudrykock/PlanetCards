@@ -240,7 +240,7 @@
          }
          */
         card.view.tag = (i+1)*100;
-        NSLog(@"adding view with tag %i", card.view.tag);
+        //NSLog(@"adding view with tag %i", card.view.tag);
         [self.view addSubview: card.view];
         card.view.frame = frame;
     } 
@@ -357,7 +357,7 @@
     
     [self prepTimerParameters];
     
-    NSLog(@"Current question number based on card now displayed = %i", currentQuestionNumber);
+    //NSLog(@"Current question number based on card now displayed = %i", currentQuestionNumber);
     
     [self performSelectorOnMainThread:@selector(prepBottomCard) withObject:nil waitUntilDone:NO];
     //[self prepBottomCard];
@@ -928,7 +928,7 @@
 
 -(void)invalidateAllTimers
 {
-    NSLog(@"Invalidating all timers");
+    //NSLog(@"Invalidating all timers");
     if (self.answerTimer)
     {
         if ([self.answerTimer isValid])

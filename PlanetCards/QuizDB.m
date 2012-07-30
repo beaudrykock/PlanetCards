@@ -38,11 +38,13 @@
         [self generateQuestionFromQuizItem: quizItem];
     }
     
+    /*
     for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
     {
         NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
         NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
     }
+     */
     
     currentDifficultyLevel = [Utilities getLastDifficultyLevel];
     
@@ -63,7 +65,7 @@
 {
     BOOL questionAskedInCurrentQuiz = [self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]];
     BOOL questionAskedCorrectlyInLastThree = [self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]];
-    NSLog(@"askability for question number %i = %i, %i", questionNumber, questionAskedInCurrentQuiz, questionAskedCorrectlyInLastThree);
+    //NSLog(@"askability for question number %i = %i, %i", questionNumber, questionAskedInCurrentQuiz, questionAskedCorrectlyInLastThree);
     if (questionAskedInCurrentQuiz || questionAskedCorrectlyInLastThree) return NO;
     return YES;
 }
@@ -72,7 +74,7 @@
 {
     if (![self.questionsAsked containsObject:[NSNumber numberWithInt:questionNumber]])
     {
-        NSLog(@"adding question asked record for number %i", questionNumber);
+        //NSLog(@"adding question asked record for number %i", questionNumber);
         [self.questionsAsked addObject:[NSNumber numberWithInt:questionNumber]];
     }
 }
@@ -81,7 +83,7 @@
 {
     if (![self.questionsAnsweredCorrectly containsObject:[NSNumber numberWithInt:questionNumber]])
     {
-        NSLog(@"adding question answered correctly record for number %i", questionNumber);
+        //NSLog(@"adding question answered correctly record for number %i", questionNumber);
         [self.questionsAnsweredCorrectly addObject:[NSNumber numberWithInt:questionNumber]];
     }
 }

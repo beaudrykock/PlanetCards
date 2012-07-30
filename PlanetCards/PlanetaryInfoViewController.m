@@ -93,10 +93,10 @@
     [teaser setTextColor:[UIColor whiteColor]];
     [teaser setText: objectTeaser];
     [self.teaser setUserInteractionEnabled:NO];
-    for (int i = 0; i<6; i++)
-    {
-        NSLog(@"%@",[[self infoValues] objectAtIndex:i]);
-    }
+    //for (int i = 0; i<6; i++)
+    //{
+    //    NSLog(@"%@",[[self infoValues] objectAtIndex:i]);
+    //}
     
     NSString*pref = [Utilities getUnitPreference]; 
     if ([pref isEqualToString: kConvenientUnits])
@@ -220,7 +220,7 @@
 
 -(NSString*)ConvenientParser:(NSString*)earth forType:(NSString*)type
 {
-    NSLog(@"earth = %@",earth);
+    //NSLog(@"earth = %@",earth);
     NSNumber *originalVal = nil;
     NSNumber *newVal = nil;
     float ovf = 0.0f;
@@ -308,43 +308,43 @@
         unichar chara=[inputNumber characterAtIndex:i] ;
         switch (chara) {
             case '1':
-                NSLog(@"1");
+                //NSLog(@"1");
                 outp=[outp stringByAppendingFormat:@"\u00B9"];
                 break;
             case '2':
-                NSLog(@"2");
+                //NSLog(@"2");
                 outp=[outp stringByAppendingFormat:@"\u00B2"];
                 break;
             case '3':
-                NSLog(@"3");
+                //NSLog(@"3");
                 outp=[outp stringByAppendingFormat:@"\u00B3"];
                 break;
             case '4':
-                NSLog(@"4");
+                //NSLog(@"4");
                 outp=[outp stringByAppendingFormat:@"\u2074"];
                 break;
             case '5':
-                NSLog(@"5");
+                //NSLog(@"5");
                 outp=[outp stringByAppendingFormat:@"\u2075"];
                 break;
             case '6':
-                NSLog(@"6");
+                //NSLog(@"6");
                 outp=[outp stringByAppendingFormat:@"\u2076"];
                 break;
             case '7':
-                NSLog(@"7");
+                //NSLog(@"7");
                 outp=[outp stringByAppendingFormat:@"\u2077"];
                 break;
             case '8':
-                NSLog(@"8");
+                //NSLog(@"8");
                 outp=[outp stringByAppendingFormat:@"\u2078"];
                 break;
             case '9':
-                NSLog(@"9");
+                //NSLog(@"9");
                 outp=[outp stringByAppendingFormat:@"\u2079"];
                 break;
             case '0':
-                NSLog(@"0");
+                //NSLog(@"0");
                 outp=[outp stringByAppendingFormat:@"\u2070"];
                 break;
             default:

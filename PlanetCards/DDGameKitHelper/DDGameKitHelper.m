@@ -93,7 +93,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
         bool isOSVer41 = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
         
         isGameCenterAvailable = (isLocalPlayerAvailable && isOSVer41);
-        NSLog(@"GameCenter available = %@", isGameCenterAvailable ? @"YES" : @"NO");
+        //NSLog(@"GameCenter available = %@", isGameCenterAvailable ? @"YES" : @"NO");
         
         if (isGameCenterAvailable)
             [self registerForLocalPlayerAuthChange];
@@ -144,11 +144,11 @@ static DDGameKitHelper *instanceOfGameKitHelper;
          {
              if (error != nil)
              {
-                 NSLog(@"error authenticating player");
+                 //NSLog(@"error authenticating player");
              }
              else
              {
-                 NSLog(@"player authenticated");
+                 //NSLog(@"player authenticated");
              }
          }];
     }
@@ -175,7 +175,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
         return;
     }
     
-    NSLog(@"onLocalPlayerAuthenticationChanged. reloading scores and achievements and resynchronzing.");
+    //NSLog(@"onLocalPlayerAuthenticationChanged. reloading scores and achievements and resynchronzing.");
     
     if (localPlayer.playerID != nil)
     {
@@ -188,12 +188,12 @@ static DDGameKitHelper *instanceOfGameKitHelper;
     
     if (currentPlayerID != nil && [currentPlayerID compare:newPlayerID] == NSOrderedSame)
     {
-        NSLog(@"player is the same");
+        //NSLog(@"player is the same");
         return;
     }
     
     self.currentPlayerID = newPlayerID;
-    NSLog(@"currentPlayerID=%@", currentPlayerID);
+   // NSLog(@"currentPlayerID=%@", currentPlayerID);
     
     [self initScores];
     [self initAchievements];
@@ -229,7 +229,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
         scores = [[NSMutableDictionary alloc] init];
     }
     
-    NSLog(@"scores initialized: %d", scores.count);
+    //NSLog(@"scores initialized: %d", scores.count);
 }
 
 -(void) initAchievements
@@ -249,7 +249,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
         achievements = [[NSMutableDictionary alloc] init];
     }
     
-    NSLog(@"achievements initialized: %d", achievements.count);
+    //NSLog(@"achievements initialized: %d", achievements.count);
 }
 
 - (void) saveScores
@@ -258,7 +258,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
     NSString* file = [libraryPath stringByAppendingPathComponent:currentPlayerID];
     file = [file stringByAppendingString:kScoresFile];
     [NSKeyedArchiver archiveRootObject:scores toFile:file];
-    NSLog(@"scores saved: %d", scores.count);
+   // NSLog(@"scores saved: %d", scores.count);
 }
 
 -(void) saveAchievements
@@ -267,12 +267,12 @@ static DDGameKitHelper *instanceOfGameKitHelper;
     NSString* file = [libraryPath stringByAppendingPathComponent:currentPlayerID];
     file = [file stringByAppendingString:kAchievementsFile];
     [NSKeyedArchiver archiveRootObject:achievements toFile:file];
-    NSLog(@"achievements saved: %d", achievements.count);
+    //NSLog(@"achievements saved: %d", achievements.count);
 }
 
 -(void) synchronizeScores
 {
-    NSLog(@"synchronizing scores");
+    //NSLog(@"synchronizing scores");
     
     // get the top score for each category for current player and compare it to the game center score for the same category
     
@@ -280,7 +280,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
      {
          if (error != nil)
          {
-             NSLog(@"unable to synchronize scores");
+             //NSLog(@"unable to synchronize scores");
              return;
          }
          
@@ -296,7 +296,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
               {
                   if (error != nil)
                   {
-                      NSLog(@"unable to synchronize scores");
+                      //NSLog(@"unable to synchronize scores");
                       return;
                   }
                   
@@ -307,38 +307,38 @@ static DDGameKitHelper *instanceOfGameKitHelper;
                   
                   if (gcScore == nil && localScore == nil)
                   {
-                      NSLog(@"%@(%lld,%lld): no score yet. nothing to synch", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): no score yet. nothing to synch", category, gcScore.value, localScore.value);
                   }
                   
                   else if (gcScore == nil)
                   {
-                      NSLog(@"%@(%lld,%lld): gc score missing. reporting local score", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): gc score missing. reporting local score", category, gcScore.value, localScore.value);
                       [localScore reportScoreWithCompletionHandler:^(NSError* error) {}];
                   }
                   
                   else if (localScore == nil)
                   {
-                      NSLog(@"%@(%lld,%lld): local score missing. caching gc score", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): local score missing. caching gc score", category, gcScore.value, localScore.value);
                       [scores setObject:gcScore forKey:gcScore.category];
                       [self saveScores];
                   }
                   
                   else if ([delegate compare:localScore.value to:gcScore.value])
                   {
-                      NSLog(@"%@(%lld,%lld): local score more current than gc score. reporting local score", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): local score more current than gc score. reporting local score", category, gcScore.value, localScore.value);
                       [localScore reportScoreWithCompletionHandler:^(NSError* error) {}];
                   }
                   
                   else if ([delegate compare:gcScore.value to:localScore.value])
                   {
-                      NSLog(@"%@(%lld,%lld): gc score is more current than local score. caching gc score", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): gc score is more current than local score. caching gc score", category, gcScore.value, localScore.value);
                       [scores setObject:gcScore forKey:gcScore.category];
                       [self saveScores];
                   }
                   
                   else
                   {
-                      NSLog(@"%@(%lld,%lld): scores are equal. nothing to synch", category, gcScore.value, localScore.value);
+                      //NSLog(@"%@(%lld,%lld): scores are equal. nothing to synch", category, gcScore.value, localScore.value);
                   }
               }];
              
@@ -349,7 +349,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
 
 -(void) synchronizeAchievements
 {
-    NSLog(@"synchronizing achievements");
+    //NSLog(@"synchronizing achievements");
     
     // get the achievements from game center
     
@@ -357,7 +357,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
      {
          if (error != nil)
          {
-             NSLog(@"unable to synchronize achievements");
+             //NSLog(@"unable to synchronize achievements");
              return;
          }
          
@@ -374,7 +374,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
              GKAchievement *gcAchievement = [gcAchievements objectForKey:identifier];
              if (gcAchievement == nil)
              {
-                 NSLog(@"achievement %@ not in game center. reporting it", identifier);
+                 //NSLog(@"achievement %@ not in game center. reporting it", identifier);
                  [[achievements objectForKey:identifier] reportAchievementWithCompletionHandler:^(NSError* error) {}];
              }
          }
@@ -385,7 +385,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
              GKAchievement* localAchievement = [achievements objectForKey:gcAchievement.identifier];
              if (localAchievement == nil)
              {
-                 NSLog(@"achievement %@ not stored locally. storing it", gcAchievement.identifier);
+                 //NSLog(@"achievement %@ not stored locally. storing it", gcAchievement.identifier);
                  [achievements setObject:gcAchievement forKey:gcAchievement.identifier];
              }
          }
@@ -402,7 +402,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
         return;
     
     // always report the new score
-    NSLog(@"reporting score of %lld for %@", value, category);
+    //NSLog(@"reporting score of %lld for %@", value, category);
     GKScore* newScore = [[GKScore alloc] initWithCategory:category];
     newScore.value = value;
     [newScore reportScoreWithCompletionHandler:^(NSError* error) 
@@ -411,7 +411,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
          GKScore* score = [self getScoreByCategory:category];
          if ([delegate compare:value to:score.value])
          {
-             NSLog(@"new high score of %lld for %@", score.value, category);
+             //NSLog(@"new high score of %lld for %@", score.value, category);
              score.value = value;
              [self saveScores];
              [delegate onSubmitScore:value];
@@ -443,7 +443,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
     GKAchievement* achievement = [self getAchievement:identifier];
     if (achievement.percentComplete < percent)
     {
-        NSLog(@"new achievement %@ reported", achievement.identifier);
+        //NSLog(@"new achievement %@ reported", achievement.identifier);
         achievement.percentComplete = percent;
         [achievement reportAchievementWithCompletionHandler:^(NSError* error)
          {
@@ -469,7 +469,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
 
 - (void)loadAchievementDescriptions
 {
-    NSLog(@"loading achievement descriptions");
+    //NSLog(@"loading achievement descriptions");
     
     [GKAchievementDescription loadAchievementDescriptionsWithCompletionHandler:^(NSArray *achievementDesc, NSError *error) 
      {
@@ -477,7 +477,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
          
          if (error != nil)
          {
-             NSLog(@"unable to load achievements");
+             //NSLog(@"unable to load achievements");
              return;
          }
          
@@ -486,7 +486,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
              [achievementDescriptions setObject:description forKey:description.identifier];    
          }
          
-         NSLog(@"achievement descriptions initialized: %d", achievementDescriptions.count);
+         //NSLog(@"achievement descriptions initialized: %d", achievementDescriptions.count);
      }];
 }
 
@@ -506,7 +506,7 @@ static DDGameKitHelper *instanceOfGameKitHelper;
     
     [GKAchievement resetAchievementsWithCompletionHandler:^(NSError* error) {}];
     
-    NSLog(@"achievements reset");
+    //NSLog(@"achievements reset");
 }
 
 -(UIViewController*) getRootViewController
