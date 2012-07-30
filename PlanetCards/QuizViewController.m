@@ -400,7 +400,7 @@
     levelChangeInterval = 5;
 #endif
     
-    if (currentCardIndex%3==0)
+    if (currentCardIndex%levelChangeInterval==0)
     {
         int correctCount = 0;
         for (NSNumber *answerCorrectness in self.lastXAnswers)
