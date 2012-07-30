@@ -582,6 +582,7 @@
         
         if (satellitesCountShowing && satelliteType != kSatelliteType_comet)
         {
+            restoreSatelliteCount = YES;
             [self hideSatellitesCount];
         }
         
@@ -634,9 +635,11 @@
         [self closeInfoView];
         infoViewDisplayed = NO;
                 
-        if (!satellitesCountShowing)
+        if (!satellitesCountShowing && restoreSatelliteCount)
+        {
             [self addSatellitesIndicatorForObjectAtIndex:lastPlanetaryObjectIndex];
-        
+            restoreSatelliteCount = NO;
+        }
         if (!satellitesShowing && restoreSatellites)
         {
             [self restoreSatellites];

@@ -86,6 +86,8 @@
     
     NSInteger satelliteType;
     UIButton *exitTarget;
+    
+    BOOL restoreSatelliteCount;
 }
 
 @property (nonatomic, retain) UIButton *exitTarget;
