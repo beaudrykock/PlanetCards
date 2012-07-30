@@ -56,6 +56,14 @@
     
 #ifdef LITE_VERSION
     [self.viewTitle setText:@"PlanetCards Lite"];
+    
+    UIImageView *placeholderBanner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"planetcards_ad.png"]];
+    [placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, 320.0, 50.0)];
+    [placeholderBanner setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToStore:)];
+    [placeholderBanner addGestureRecognizer:tap];
+    [tap release];
+    [self.view addSubview:placeholderBanner];
 #else
     [self.upgradeButton setHidden:YES];
 #endif

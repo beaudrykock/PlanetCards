@@ -1319,7 +1319,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanetCards/AcknowledgementsViewController.m"
@@ -1485,19 +1485,6 @@
          startingLineNumber = "74"
          endingLineNumber = "74"
          landmarkName = "-challengeYourself:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PlanetCards/PlanetaryObjectViewController.m"
-         timestampString = "365341508.350846"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "640"
-         endingLineNumber = "640"
-         landmarkName = "-showPlanetaryInfo:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
