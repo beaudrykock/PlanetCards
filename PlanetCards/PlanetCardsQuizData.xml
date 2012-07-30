@@ -27,7 +27,7 @@
         <wrong_answer>Oberon</wrong_answer>
         <wrong_answer>Mysteron</wrong_answer>
         <image>37_Pluto_large.png</image>
-        <supplement>Charon is only half the size of Pluto, therefore the two bodies can be considered a double planet</supplement>
+        <supplement>Charon is only half the size of Pluto, therefore the two bodies can be seen as a double dwarf planet</supplement>
     </quiz_item>
     <quiz_item>
         <question>Which planet is closer to the sun?</question>
@@ -163,11 +163,11 @@
         <supplement>The Earth is the only place we have liquid water</supplement>
     </quiz_item>
     <quiz_item>
-        <question>How big is the sun viewed from Pluto?</question>
+        <question>Sitting on Pluto, the sun is as big as…</question>
         <level>7</level>
-        <right_answer>As big as the head of a pin held at full arms length</right_answer>
-        <wrong_answer>As big as seen from Earth</wrong_answer>
-        <wrong_answer>As big as an apple held at full arms length</wrong_answer>
+        <right_answer>the head of a pin held at full arms length</right_answer>
+        <wrong_answer>the sun seen from Earth</wrong_answer>
+        <wrong_answer>a basketball held at full arms length</wrong_answer>
         <image>37_Pluto_large.png</image>
         <supplement>none</supplement>
     </quiz_item>
@@ -352,7 +352,7 @@
         <supplement>none</supplement>
     </quiz_item>
     <quiz_item>
-        <question>On which planet's surface is the pressure 100 times higher than on Earth?</question>
+        <question>On which planet's surface is the pressure 90 times greater than on Earth?</question>
         <level>6</level>
         <right_answer>Venus</right_answer>
         <wrong_answer>Mars</wrong_answer>
@@ -457,7 +457,7 @@
         <wrong_answer>10 tonnes</wrong_answer>
         <wrong_answer>14 gram</wrong_answer>
         <image>05_Moon_large.png</image>
-        <supplement>In the same period unmanned Russian spacecraft brought about 300 grams of material from the Moon back to Earth. These rare samples have given a lot of new knowledge about the Moon and how it formed</supplement>
+        <supplement>In the same period unmanned Russian spacecrafts brought about 300 grams of material from the Moon back to Earth. These rare samples have given a lot of new knowledge about the Moon and how it formed</supplement>
     </quiz_item>
     <quiz_item>
         <question>How high is air pressure at the surface of Venus?</question>
@@ -953,6 +953,176 @@
         <wrong_answer>Threatening hazards to Mars missions</wrong_answer>
         <image>07_Phobos_large.png</image>
         <supplement>The origin of Phobos and Deimos is still controversial, but they are chemically similar to some asteroids. Phobos is orbiting so close that it will end in a collision with Mars</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Jupiter is named after which Roman god?</question>
+        <level>3</level>
+        <right_answer>King of the gods</right_answer>
+        <wrong_answer>God of agriculture</wrong_answer>
+        <wrong_answer>God of love</wrong_answer>
+        <wrong_answer>Messenger of the gods</wrong_answer>
+        <image>15_Jupiter_large.png</image>
+        <supplement>Saturn was the Roman god of agriculture; Venus, the Roman god of love; and Mercury, the Roman messenger god. Nowadays, we don't usually name new planets after deities</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which of these statements is factually incorrect?</question>
+        <level>2</level>
+        <right_answer>The sun orbits around the Earth</right_answer>
+        <wrong_answer>Saturn is a planet with rings</wrong_answer>
+        <wrong_answer>Jupiter is a large planet made of gas</wrong_answer>
+        <wrong_answer>The sun is a black hole</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The Earth, along with all the other planets in our solar system, orbits around the sun. Once upon a time, astronomers believed the sun did orbit the Earth, and it took work by Copernicus in 1543 to disprove this theory</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Roughly how many stars are there in the milky way?</question>
+        <level>2</level>
+        <right_answer>100 billion</right_answer>
+        <wrong_answer>10 million</wrong_answer>
+        <wrong_answer>100 trillion</wrong_answer>
+        <wrong_answer>10,000</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun is only one of over 100 billion starts in the Milky Way, which is another name for the galaxy in which our solar system is located</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Without the sun's energy, what would life be like on Earth?</question>
+        <level>2</level>
+        <right_answer>There would be no life at all</right_answer>
+        <wrong_answer>It would be colder, but livable</wrong_answer>
+        <wrong_answer>Only small animals would survive</wrong_answer>
+        <wrong_answer>Plants would be a different color</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun's energy is essential to life on Earth. Total solar irradiance is between 1.365 and 1.369 kW/m2</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the closest star to the Earth?</question>
+        <level>2</level>
+        <right_answer>The sun</right_answer>
+        <wrong_answer>Beteljus</wrong_answer>
+        <wrong_answer>Orion</wrong_answer>
+        <wrong_answer>The morning star</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun is about 93 million miles, or 150 million km, from the Earth. This is also known as an astronomical unit (AU), which astronomers use to measure distances across the solar system</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why does Mercury have so many craters?</question>
+        <level>2</level>
+        <right_answer>It has very little atmosphere</right_answer>
+        <wrong_answer>It has just been lucky</wrong_answer>
+        <wrong_answer>The sun burns meteors up before they hit</wrong_answer>
+        <wrong_answer>The craters have all been washed away</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>The atmosphere is what protects the Earth from many meteorite impacts that would otherwise leave us looking like the surface of Mercury (or the moon, which also has very little atmosphere)</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Why is there no volcanic activity at the surface of Mercury?</question>
+        <level>9</level>
+        <right_answer>The outer crust is too strong for volcanoes</right_answer>
+        <wrong_answer>The planet has cooled too much</wrong_answer>
+        <wrong_answer>Magma is sluggish that close to the sun</wrong_answer>
+        <wrong_answer>There is, we just can't see it</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>As the planet cooled after format, the outer crust has contracted and become stronger, eventually becoming so strong that no magma can reach the surface - hence ending volcanic activity</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which of these planets is about the same size as Earth?</question>
+        <level>2</level>
+        <right_answer>Venus</right_answer>
+        <wrong_answer>Mercury</wrong_answer>
+        <wrong_answer>Saturn</wrong_answer>
+        <wrong_answer>Jupiter</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Venus is roughly the same size as Earth, with a radius of 6,051.8 km (Earth's radius is 6,371 km). Mercury has a radius of only 2,439.7 km, while Saturn and Jupiter are monsters at 58,232 and 69,911 km radius respectively</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Which is the brightest planet in the sky?</question>
+        <level>2</level>
+        <right_answer>Venus</right_answer>
+        <wrong_answer>Earth</wrong_answer>
+        <wrong_answer>Saturn</wrong_answer>
+        <wrong_answer>Uranus</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Because it is so close to Earth, and because of reflecting clouds at its surface, Venus appears to be the brightest planet in the sky</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the principal component of the Venusian atmosphere?</question>
+        <level>10</level>
+        <right_answer>Carbon dioxide</right_answer>
+        <wrong_answer>Nitrogen dioxide</wrong_answer>
+        <wrong_answer>Ozone</wrong_answer>
+        <wrong_answer>Oxygen</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>The Venusian atmosphere also has clouds of sulfuric acid and only trace amounts of water, making it a thoroughly unpleasant place to visit</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>When was Venus discovered?</question>
+        <level>1</level>
+        <right_answer>650 AD</right_answer>
+        <wrong_answer>Yesterday</wrong_answer>
+        <wrong_answer>1994</wrong_answer>
+        <wrong_answer>It's not a real planet</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Venus is most definitely a real planet and was discovered by Mayan astronomers, who made detailed observations of the planet and used it to help develop their complex calendar</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Maxwell Montes, the highest mountain on Venus, is about as high as:</question>
+        <level>10</level>
+        <right_answer>Mount Everest</right_answer>
+        <wrong_answer>K2</wrong_answer>
+        <wrong_answer>Aconcagua</wrong_answer>
+        <wrong_answer>The Matterhorn</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Maxwell Montes is about 11 km high, while Everest is about 8.8 km high</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What does Earth have that other planets do not?</question>
+        <level>1</level>
+        <right_answer>Life</right_answer>
+        <wrong_answer>Mountains</wrong_answer>
+        <wrong_answer>Ice</wrong_answer>
+        <wrong_answer>Volcanoes</wrong_answer>
+        <image>04_Earth_large.png</image>
+        <supplement>Earth has water, which is critical to life, but is also at just the right distance from the sun that life can survive and thrive</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What causes Earth seasons?</question>
+        <level>10</level>
+        <right_answer>The axis of rotation being tilted</right_answer>
+        <wrong_answer>An elliptical orbit around the sun</wrong_answer>
+        <wrong_answer>Its volcanic activity</wrong_answer>
+        <wrong_answer>Its proximity to the sun</wrong_answer>
+        <image>04_Earth_large.png</image>
+        <supplement>Earth is titled on its axis of rotation by 23.45 degrees. In the northern hemisphere summer the northern hemisphere is titled towards the sun, while the southern hemisphere is tilted away producing winter in the south</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What constitutes the bulk of Earth atmosphere?</question>
+        <level>1</level>
+        <right_answer>Nitrogen</right_answer>
+        <wrong_answer>Oxygen</wrong_answer>
+        <wrong_answer>Water vapor</wrong_answer>
+        <wrong_answer>Sulfur</wrong_answer>
+        <image>04_Earth_large.png</image>
+        <supplement>Earth's atmosphere is 78 percent nitrogen, 21 percent oxygen and 1 percent other components</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What shape is Earth's magnetic field in space?</question>
+        <level>10</level>
+        <right_answer>A tear-drop</right_answer>
+        <wrong_answer>A perfect circle</wrong_answer>
+        <wrong_answer>A dodecahedron</wrong_answer>
+        <wrong_answer>Egg-shaped</wrong_answer>
+        <image>04_Earth_large.png</image>
+        <supplement>Earth's magnetic field is generated by the rotation of the planet and its molten nickel-and-iron core. Charged particles emitted by the sun interact with this field to create a tear-drop shape</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How does the moon help sustain life on Earth?</question>
+        <level>10</level>
+        <right_answer>By moderating the Earth's axial wobble</right_answer>
+        <wrong_answer>By blocking dangerous solar radiation</wrong_answer>
+        <wrong_answer>By providing extra minerals to use</wrong_answer>
+        <wrong_answer>By attracting meteors</wrong_answer>
+        <image>05_Moon_large.png</image>
+        <supplement>The gravitational effect of the moon reduces the extent to which the Earth wobbles on its axis of rotation, meaning that the global climate is more stable and making it easier for life on Earth to flourish</supplement>
     </quiz_item>
     <quiz_item>
         <question>When and by who was Pluto discovered?</question>

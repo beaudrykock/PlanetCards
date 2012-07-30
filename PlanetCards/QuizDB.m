@@ -38,6 +38,12 @@
         [self generateQuestionFromQuizItem: quizItem];
     }
     
+    for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
+    {
+        NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
+        NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
+    }
+    
     currentDifficultyLevel = [Utilities getLastDifficultyLevel];
     
     self.questionsAsked = [NSMutableArray arrayWithCapacity:20];
@@ -348,6 +354,7 @@
 -(NSInteger)knowledgeScoreForQuestionNumber:(NSInteger)questionNumber
 {
     QuizQuestion *question = [self getQuestionNumbered:questionNumber];
+    NSLog(@"returning knowledge score of %i", question.level);
     return question.level;
 }
 
@@ -360,7 +367,7 @@
     
     float score = pointsPerBlock * timeBlock;
     NSInteger intScore = roundf(score);
-    
+    NSLog(@"returning speed score of %i", intScore);
     return intScore;
 }
 

@@ -116,31 +116,21 @@
         [Utilities clearReset];
     }
     
-    //[self loadInterstitialAd];
-    
     [self loadQuizDB];
-    
-    currentQuestionNumber = [self selectStartingQuestionNumber];
-    
-    [self addCards];
-    
-    questionCount = 0;
-    questionScore = 0;
-    speedScore = 0;
     
     numberOfAnswers = -1;
     self.lastXAnswers = [NSMutableArray arrayWithCapacity:5];
-    
-    [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",questionScore+speedScore]];
-    [questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
-
-    [self prettify];
-        
+    questionCount = 0;
+    questionScore = 0;
+    speedScore = 0;
     currentQuestionInterval = kDefaultQuestionIntervalInSeconds;
-    
+    currentQuestionNumber = [self selectStartingQuestionNumber];
+    [self addCards];
+    [self.scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",questionScore+speedScore]];
+    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", 1]];
+    [self prettify];
     [self resetProgressBar];
     [self resetTimerFlags];
-    
     QuizIntroViewController* intro = [[QuizIntroViewController alloc] initWithNibName:@"QuizIntroView" bundle:nil];
     [intro setParentController:self];
     [self.view addSubview:intro.view];
@@ -336,13 +326,13 @@
     }
     
     [scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",speedScore+knowledgeScore]];
-    [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+2)]];
-    
     if (questionCount == 19)
     {
         quizComplete = YES;
     }
     else {
+        [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", (questionCount+2)]];
+        
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
         
         dispatch_async(queue, ^{
@@ -731,6 +721,7 @@
     speedScore = 0;
     knowledgeScore = 0;
     numberOfAnswers = -1;
+    quizComplete = NO;
     
     [self.scoreLabel setText: [NSString stringWithFormat: @"%i POINTS",knowledgeScore+speedScore]];
     [self.questionCountLabel setText:[NSString stringWithFormat:@"%i/20 QUESTIONS", questionCount+1]];

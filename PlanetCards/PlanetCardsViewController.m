@@ -90,7 +90,6 @@
     newViewFrame.origin.x = 0.0;
     newViewFrame.origin.y = 0.0;
     quizViewController.view.frame = newViewFrame;
-    
     [UIView commitAnimations];
 
 }
