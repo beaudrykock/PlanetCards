@@ -15,10 +15,8 @@
     UILabel *developedBy;
     UILabel *supportFrom;
     UILabel *viewTitle;
-    UIButton *upgradeButton;
 }
 
-@property (nonatomic, retain) IBOutlet UIButton *upgradeButton;
 @property (nonatomic, retain) IBOutlet UILabel *viewTitle;
 @property (nonatomic, retain) IBOutlet UILabel *developedBy;
 @property (nonatomic, retain) IBOutlet UILabel *supportFrom;

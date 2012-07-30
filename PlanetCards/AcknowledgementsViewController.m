@@ -9,7 +9,7 @@
 #import "AcknowledgementsViewController.h"
 
 @implementation AcknowledgementsViewController
-@synthesize developedBy, supportFrom, viewTitle, upgradeButton;
+@synthesize developedBy, supportFrom, viewTitle;
 
 -(IBAction)hide:(id)sender
 {
@@ -64,9 +64,12 @@
     [placeholderBanner addGestureRecognizer:tap];
     [tap release];
     [self.view addSubview:placeholderBanner];
-#else
-    [self.upgradeButton setHidden:YES];
+    [placeholderBanner release];
 #endif
+    
+    UITapGestureRecognizer *exitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide:)];
+    [self.view addGestureRecognizer:exitTap];
+    [exitTap release];
     
     [self loadUrlButtons];
     // Do any additional setup after loading the view from its nib.
@@ -124,7 +127,6 @@
     self.developedBy = nil;
     self.supportFrom = nil;
     self.viewTitle = nil;
-    self.upgradeButton = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -138,7 +140,6 @@
     [developedBy release];
     [supportFrom release];
     [viewTitle release];
-    [upgradeButton release];
     [super dealloc];
 }
 
