@@ -566,10 +566,7 @@
 #pragma mark - Info view management
 -(void)remoteCall_closeInfo
 {
-    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"info_btn" ofType:@"png"]];
-    [infoButton setImage:image forState:UIControlStateNormal];
-    [self closeInfoView];
-    infoViewDisplayed = NO;
+    [self showPlanetaryInfo:nil];
 }
 
 -(IBAction)showPlanetaryInfo:(id)sender

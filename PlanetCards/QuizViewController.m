@@ -1160,6 +1160,7 @@
 
 -(void)dealloc
 {
+    [exitTarget release];
     [answerTimer_start release];
     [lossTimer_start release];
     [progressBarTimer_start release];
