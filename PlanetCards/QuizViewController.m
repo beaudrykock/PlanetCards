@@ -568,7 +568,7 @@
         [[DDGameKitHelper sharedGameKitHelper] reportAchievement:kTotalAchievement_4 percentComplete:100];
     }
 #ifdef LITE_VERSION
-    [self.encouragingMessageLabel setText:@"Nice effort! Have another go or try learning some more by exiting the quiz and exploring the solar system using the PlanetCards gallery and knowledge bank. Remember: to score about 100, you need the paid version of PlanetCards. This unlocks 50 additional questions, plus other great functionality!"];
+    [self.encouragingMessageLabel setText:@"Nice effort! Running out of questions, or are the questions too easy? Upgrade to the paid version and unlock 70 additional (and harder) questions, plus other great functionality!"];
 #else
     if (knowledgeScore>50 && speedScore<50)
     {
