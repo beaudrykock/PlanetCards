@@ -73,7 +73,7 @@
             }
             
             NSAssert(loadedSuccessfully, @"Data not loaded successfully");
-            BOOL writtenSuccessfully = [self writeQuizDataToFile:data];
+            BOOL writtenSuccessfully = [myself writeQuizDataToFile:data];
             NSAssert(writtenSuccessfully, @"Data not written successfully");
             
             // create a new SMXMLDocument with the contents of sample.xml
