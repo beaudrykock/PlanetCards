@@ -54,6 +54,7 @@
 #define kQuestion @"question"
 #define kWrongAnswer @"wrong_answer"
 #define kRightAnswer @"right_answer"
+#define kQuizDBLoaded @"quiz loaded"
 
 // QUIZ VIEW MANIPULATION
 #define kFrontCard 0

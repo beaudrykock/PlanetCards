@@ -19,8 +19,10 @@
     PlanetaryObjectViewController *planetaryObjectViewController;
     QuizViewController *quizViewController;
     UIImageView *backgroundView;
+    UIActivityIndicatorView *quizPrepAV;
 }
 
+@property (nonatomic, retain) UIActivityIndicatorView *quizPrepAV;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, retain) PlanetaryObjectViewController *planetaryObjectViewController;
 @property (nonatomic, retain) QuizViewController *quizViewController;

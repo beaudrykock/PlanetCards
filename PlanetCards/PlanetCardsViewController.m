@@ -13,13 +13,14 @@
 @implementation PlanetCardsViewController
 
 @synthesize planetaryObjectViewController;
-@synthesize quizViewController;
+@synthesize quizViewController, quizPrepAV;
 
 - (void)dealloc
 {
     [planetaryObjectViewController release];
     [quizViewController release];
     [backgroundView release];
+    [quizPrepAV release];
     [super dealloc];
 }
 
@@ -64,34 +65,56 @@
 
 -(IBAction)challengeYourself:(id)sender
 {
-     if (self.quizViewController == nil)
-     {
-         QuizViewController *quizController = [[[QuizViewController alloc] initWithNibName:@"QuizView" bundle: nil] autorelease];
-         self.quizViewController = quizController;
-         self.quizViewController.parentController = self;
-         
-     }
-    [self.view addSubview:self.quizViewController.view];
-    
-    CGRect frame = [self.quizViewController.view frame];
-    frame.origin.x = 340;
-    
-    self.quizViewController.view.frame = frame;
-    
-    CGRect newViewFrame = self.view.frame;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:.5];
-    
-    // Slide up based on y axis
-    // A better solution over a hard-coded value would be to
-    // determine the size of the title and msg labels and 
-    // set this value accordingly
-    newViewFrame.origin.x = 0.0;
-    newViewFrame.origin.y = 0.0;
-    quizViewController.view.frame = newViewFrame;
-    [UIView commitAnimations];
-
+    PlanetCardsAppDelegate *appDelegate = (PlanetCardsAppDelegate *)[[UIApplication sharedApplication] delegate];
+    QuizDB* quizDB = [appDelegate quizDB];
+    if ([quizDB contentLoaded])
+    {
+        if (self.quizPrepAV.isAnimating)
+        {
+            [self.quizPrepAV stopAnimating];
+            [self.quizPrepAV removeFromSuperview];
+            [[NSNotificationCenter defaultCenter] removeObserver:self];
+        }
+         if (self.quizViewController == nil)
+         {
+             QuizViewController *quizController = [[[QuizViewController alloc] initWithNibName:@"QuizView" bundle: nil] autorelease];
+             self.quizViewController = quizController;
+             self.quizViewController.parentController = self;
+             
+         }
+        [self.view addSubview:self.quizViewController.view];
+        
+        CGRect frame = [self.quizViewController.view frame];
+        frame.origin.x = 340;
+        
+        self.quizViewController.view.frame = frame;
+        
+        CGRect newViewFrame = self.view.frame;
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.5];
+        
+        // Slide up based on y axis
+        // A better solution over a hard-coded value would be to
+        // determine the size of the title and msg labels and 
+        // set this value accordingly
+        newViewFrame.origin.x = 0.0;
+        newViewFrame.origin.y = 0.0;
+        quizViewController.view.frame = newViewFrame;
+        [UIView commitAnimations];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(challengeYourself:)
+                                                     name:kQuizDBLoaded
+                                                   object:nil];
+        
+        self.quizPrepAV = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(256.0, 394.0, 50.0,50.0)];
+        [self.quizPrepAV setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+        [self.view addSubview:self.quizPrepAV];
+        [self.quizPrepAV startAnimating];
+    }
 }
 
 -(void)clearQuizView

@@ -10,7 +10,7 @@
 
 @implementation QuizDB
 
-@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty, currentDifficultyLevel, lastQuestionWasCorrect, questionsAnsweredCorrectly;
+@synthesize quizQuestions, questionsAsked, quizQuestionsByDifficulty, currentDifficultyLevel, lastQuestionWasCorrect, questionsAnsweredCorrectly, contentLoaded;
 
 -(void)loadContent
 {
@@ -93,6 +93,10 @@
                 NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
             }
         }
+        contentLoaded = YES;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kQuizDBLoaded object:nil];
+        });
     });
     
     //////////
@@ -229,11 +233,25 @@
 {
     currentDifficultyLevel+=change;
 
-    // sets difficulty level randomly if it hits min or max levels
+    // sets difficulty level randomly if it hits max level; back to minimum if less than minimum
 #ifdef LITE_VERSION
-    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel_lite) currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel_lite;
+    if (currentDifficultyLevel>kMaximumDifficultyLevel_lite)
+    {
+        currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel_lite;
+    }
+    else if (currentDifficultyLevel<kMinimumDifficultyLevel)
+    {
+        currentDifficultyLevel = kMinimumDifficultyLevel;
+    }
 #else 
-    if (currentDifficultyLevel<kMinimumDifficultyLevel || currentDifficultyLevel>kMaximumDifficultyLevel) currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel;
+    if (currentDifficultyLevel>kMaximumDifficultyLevel)
+    {
+        currentDifficultyLevel = arc4random()%kMaximumDifficultyLevel;
+    }
+    else if (currentDifficultyLevel<kMinimumDifficultyLevel)
+    {
+        currentDifficultyLevel = kMinimumDifficultyLevel;
+    }
 #endif
 }
 

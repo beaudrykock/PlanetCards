@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <quiz_data>
     <quiz_item>
+        <question>Why can't we see Neptune without telescopes?</question>
+        <level>1</level>
+        <right_answer>It's just too far away'</right_answer>
+        <wrong_answer>Jupiter is blocking the view</wrong_answer>
+        <wrong_answer>We can, you just have to look in the right place</wrong_answer>
+        <image>34_Neptun_large.png</image>
+        <supplement>Neptune is 4.5 billion km (2.8 billion miles) from Earth, and consequently far too far away to see with the naked eye</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Neptune has very strong winds: true or false?</question>
+        <level>1</level>
+        <right_answer>True</right_answer>
+        <wrong_answer>False</wrong_answer>
+        <image>34_Neptun_large.png</image>
+        <supplement>Neptune's storms have been known to move at nearly 1,200 km (750 miles) per hour</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Neptune has rings: true or false?</question>
+        <level>1</level>
+        <right_answer>True</right_answer>
+        <wrong_answer>False</wrong_answer>
+        <image>34_Neptun_large.png</image>
+        <supplement>Neptune has six rings that we know of, with uneven shape and size</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>In what year was Neptune discovered?</question>
+        <level>1</level>
+        <right_answer>1846</right_answer>
+        <wrong_answer>2010</wrong_answer>
+        <wrong_answer>120 AD</wrong_answer>
+        <wrong_answer>1900</wrong_answer>
+        <image>34_Neptun_large.png</image>
+        <supplement>Neptune was discovered in 1846 using mathematical calculations. The same year, Neptune's largest moon, Triton, was also found</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Do comets have water?</question>
+        <level>1</level>
+        <right_answer>Yes</right_answer>
+        <wrong_answer>No</wrong_answer>
+        <image>39_HaleBopp_large.png</image>
+        <supplement>Comets are mostly ice coated darker organic material</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What happens to comets as they get nearer the sun?</question>
+        <level>1</level>
+        <right_answer>Some of their ice melts and forms an atmosphere</right_answer>
+        <wrong_answer>They veer away</wrong_answer>
+        <wrong_answer>Comets don't go near the sun</wrong_answer>
+        <image>40_Halley_large.png</image>
+        <supplement>The atmosphere that forms when comet ice melts is called a coma; they can be hundreds of thousands of km across</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What do scientists call comets that get too close to the sun?</question>
+        <level>1</level>
+        <right_answer>Sun-grazers</right_answer>
+        <wrong_answer>Heat-fiends</wrong_answer>
+        <wrong_answer>Sunburned</wrong_answer>
+        <wrong_answer>Lost</wrong_answer>
+        <image>40_Halley_large.png</image>
+        <supplement>Comets that get too close to the sun may crash directly in, or break up and evaporate in the face of the sun's intense heat</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Have scientists ever managed to get a spacecraft near a comet?</question>
+        <level>1</level>
+        <right_answer>Yes</right_answer>
+        <wrong_answer>No</wrong_answer>
+        <image>42_Temple1_large.png</image>
+        <supplement>Yes. The Stardust mission flew within 236 km (147 miles) of Comet Wild 2 in 2004. The Deep Impact mission in 2005 actually released an impactor into the path of Tempel 1, to learn more about the comet's composition</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How do we generally name comets these days?</question>
+        <level>1</level>
+        <right_answer>For their discoverer</right_answer>
+        <wrong_answer>For whatever TV show is on</wrong_answer>
+        <wrong_answer>For whichever planet is nearby</wrong_answer>
+        <wrong_answer>It's random'</wrong_answer>
+        <image>42_Temple1_large.png</image>
+        <supplement>Comets are generally named, today, for their discovered, whether a human or a spacecraft. Historically, however, there were no particular customs around naming</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>When was Pluto discovered?</question>
+        <level>1</level>
+        <right_answer>1930</right_answer>
+        <wrong_answer>2012</wrong_answer>
+        <wrong_answer>1200 BC</wrong_answer>
+        <image>37_Pluto_large.png</image>
+        <supplement>Pluto was discovered in 1930 by Clyde Tombaugh</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Who came up with Pluto's name?</question>
+        <level>1</level>
+        <right_answer>An 11 year old in Oxford, England</right_answer>
+        <wrong_answer>The International Astronomical Union</wrong_answer>
+        <wrong_answer>Disney</wrong_answer>
+        <image>37_Pluto_large.png</image>
+        <supplement>In 1930, Venetia Burney of Oxford, England, had the idea to name this newly discovered solar system object after the Roman God of the Underworld. Her suggestion was accepted!</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is Pluto?</question>
+        <level>1</level>
+        <right_answer>A dwarf planet</right_answer>
+        <wrong_answer>A gas giant</wrong_answer>
+        <wrong_answer>A moon</wrong_answer>
+        <image>37_Pluto_large.png</image>
+        <supplement>Pluto is a dwarf planet, more developed than an asteroid but different from the other planets we know. Pluto is smaller than Earth's moon</supplement>
+    </quiz_item>
+    <quiz_item>
         <question>Which planet is furthest away from the sun?</question>
         <level>1</level>
         <right_answer>Neptune</right_answer>
@@ -37,6 +144,97 @@
         <wrong_answer>Earth</wrong_answer>
         <image>01_Sun_large.png</image>
         <supplement>none</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How unique is our sun?</question>
+        <level>2</level>
+        <right_answer>Not unique at all</right_answer>
+        <wrong_answer>It's only one of its kind</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun might be special to us, but there are billions of stars in the galaxy</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What is the main role of NASA's Solar Dynamics Observatory?</question>
+        <level>2</level>
+        <right_answer>To help make better space weather forecasts</right_answer>
+        <wrong_answer>To see how close we can get</wrong_answer>
+        <wrong_answer>To study the sun's gravitational field</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The SDO will observe the sun's atmosphere across several wavelengths, and is designed to help us understand the causes of solar variability</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>The sun's density is...</question>
+        <level>2</level>
+        <right_answer>About a 1/4 of the Earth's</right_answer>
+        <wrong_answer>Six times the Earth's</wrong_answer>
+        <wrong_answer>Equal to the Earth's</wrong_answer>
+        <wrong_answer>Unknown</wrong_answer>
+        <image>01_Sun_large.png</image>
+        <supplement>The sun has a density of 1.490 g/cm3. This is roughly a quarter of Earth's density</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How fast does Mercury orbit in relation to Earth's orbital velocity?</question>
+        <level>2</level>
+        <right_answer>1.59 x Earth's</right_answer>
+        <wrong_answer>0.1 x Earth's</wrong_answer>
+        <wrong_answer>5.3 x Earth's</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>Mercury orbits at 170,503 km (105,946 miles) per hour</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Something weighing 45 kg in Earth weighs how much on Mercury?</question>
+        <level>2</level>
+        <right_answer>17 kg</right_answer>
+        <wrong_answer>90 kg</wrong_answer>
+        <wrong_answer>143 kg</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>Mercury has a surface gravity of 3.7 m/s2</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>When was Mercury discovered?</question>
+        <level>2</level>
+        <right_answer>1902</right_answer>
+        <wrong_answer>We're not sure</wrong_answer>
+        <wrong_answer>1510</wrong_answer>
+        <image>02_Mercury_large.png</image>
+        <supplement>Mercury was known to ancient civilizations, and we're not sure exactly when it was discovered</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What's unusual about the way Venus spins?</question>
+        <level>2</level>
+        <right_answer>It's the opposite direction to most planets</right_answer>
+        <wrong_answer>It's totally random</wrong_answer>
+        <wrong_answer>Venus doesn't spin</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Venus spins the opposite way to most planets, east to west. Earth spins west to east. One theory is that this is due to huge impacts early on in Venus' history, which stopped or even reversed its rotation</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>Venus has about the same density as Earth: true or false?</question>
+        <level>2</level>
+        <right_answer>True</right_answer>
+        <wrong_answer>False</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>Venus has a density of 5.243 g/cm3, which is comparable to Earth's</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>How many moons of Venus are there?</question>
+        <level>2</level>
+        <right_answer>0</right_answer>
+        <wrong_answer>2</wrong_answer>
+        <wrong_answer>18</wrong_answer>
+        <wrong_answer>7</wrong_answer>
+        <image>03_Venus_large.png</image>
+        <supplement>There are no known moons of Venus</supplement>
+    </quiz_item>
+    <quiz_item>
+        <question>What causes much of Earth's weather?</question>
+        <level>2</level>
+        <right_answer>Atmospheric water vapor</right_answer>
+        <wrong_answer>Tides</wrong_answer>
+        <wrong_answer>Volcanoes</wrong_answer>
+        <wrong_answer>Global warming</wrong_answer>
+        <image>04_Earth_large.png</image>
+        <supplement>The presence and distribution of atmospheric water vapor is critical in generating Earth's weather patterns</supplement>
     </quiz_item>
     <quiz_item>
         <question>Which planet is best known for its ring system?</question>

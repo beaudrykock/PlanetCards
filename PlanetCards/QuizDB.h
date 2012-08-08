@@ -21,8 +21,10 @@
     NSMutableArray *questionsAnsweredCorrectly; // reset after every 3 quizzes
     NSInteger currentDifficultyLevel;
     BOOL lastQuestionWasCorrect;
+    BOOL contentLoaded;
 }
 
+@property (nonatomic) BOOL contentLoaded;
 @property (nonatomic) BOOL lastQuestionWasCorrect;
 @property (nonatomic) NSInteger currentDifficultyLevel;
 @property (nonatomic, retain) NSMutableDictionary *quizQuestionsByDifficulty;
