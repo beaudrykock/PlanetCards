@@ -26,6 +26,8 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     dispatch_async(queue, ^{
+        __block typeof (self)myself = self;
+        
         NSString *objectXML = nil;
         NSData *data = nil;
         BOOL loadedSuccessfully = NO;
@@ -85,12 +87,12 @@
             
             for (SMXMLElement *quizItem in [root childrenNamed:kQuizItem])
             {
-                [self generateQuestionFromQuizItem: quizItem];
+                [myself generateQuestionFromQuizItem: quizItem];
             }
             
-            for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
+            for (NSNumber *key in [myself.quizQuestionsByDifficulty allKeys])
             {
-                NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
+                NSMutableArray *arr= (NSMutableArray*)[myself.quizQuestionsByDifficulty objectForKey:key];
                 NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
             }
         }

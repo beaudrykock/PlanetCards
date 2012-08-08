@@ -694,21 +694,18 @@
     postQuizOptionsSheetShowing = NO;
 }*/
 
-
-
 // called from the reload button
 -(IBAction)newGameWhileInGame:(id)sender
 {
     UIAlertView *areYouSure = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"You will lose your current score if you restart the quiz" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Restart", nil];
     [areYouSure show];
     [areYouSure release];
-    
-    
 }
 
 -(void)resetDeckAfterDelay
 {
-    [[self.view viewWithTag:kActivityIndicatorViewTag] removeFromSuperview];
+    if ([self.view viewWithTag:kActivityIndicatorViewTag].superview)
+        [[self.view viewWithTag:kActivityIndicatorViewTag] removeFromSuperview];
     [self resetDeck];
 }
 
