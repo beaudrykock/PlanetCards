@@ -1064,7 +1064,7 @@
         <right_answer>The sun orbits around the Earth</right_answer>
         <wrong_answer>Saturn is a planet with rings</wrong_answer>
         <wrong_answer>Jupiter is a large planet made of gas</wrong_answer>
-        <wrong_answer>The sun is a black hole</wrong_answer>
+        <wrong_answer>The sun is a star</wrong_answer>
         <image>01_Sun_large.png</image>
         <supplement>The Earth, along with all the other planets in our solar system, orbits around the sun. Once upon a time, astronomers believed the sun did orbit the Earth, and it took work by Copernicus in 1543 to disprove this theory</supplement>
     </quiz_item>
@@ -1437,3 +1437,4 @@
         <supplement>none</supplement>
     </quiz_item>
 </quiz_data>
+</xml>

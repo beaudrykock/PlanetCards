@@ -17,6 +17,7 @@
 #define kActivityIndicatorViewTag 29
 
 // XML parsing
+#define kXmlDataFile @"xmlDataFile"
 #define kRoot @"object_data"
 #define kFactItem @"fact_item"
 #define kSatellites @"satellites"
@@ -72,6 +73,8 @@
 #define kMaximumQuizPlaysBeforeRepeatCorrectAnswered 5
 #define kQuestionsAnsweredCorrectlyKey @"questionsAnsweredCorrectlyKey"
 #define kQuizDataFilename @"quizData"
+#define RANDOM_SELECTION
+
 // SCORING
 #define kIncorrectDelay 1.0
 #define kCorrectDelay 0.5

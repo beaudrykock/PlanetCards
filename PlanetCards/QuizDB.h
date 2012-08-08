@@ -11,6 +11,7 @@
 #import "QuizQuestion.h"
 #import "AppConstants.h"
 #import "Utilities.h"
+#import "ASIHTTPRequest.h"
 
 @interface QuizDB : NSObject
 {

@@ -11,6 +11,32 @@
 
 @implementation Utilities
 
++(BOOL)hasInternet
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+    if (internetStatus != NotReachable) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+    
+}
+
++(NSString*)cachePath:(NSString *)filename
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	NSString *cacheDirectory = [paths objectAtIndex:0];
+	NSString *cacheFolder = [cacheDirectory stringByAppendingPathComponent: @"com.scientificplayground.planetcards"];
+#ifdef LITE_VERSION
+    cacheFolder = [cacheDirectory stringByAppendingPathComponent: @"com.scientificplayground.planetcards.lite"];
+#endif
+    
+    //NSLog(@"cachePath = %@", [cacheFolder stringByAppendingPathComponent: filename]);
+    return [cacheFolder stringByAppendingPathComponent: filename];
+}
+
 +(BOOL)shouldReset
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kResetPreference])

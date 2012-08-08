@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
 @interface Utilities : NSObject
 {
@@ -34,5 +35,7 @@
 +(BOOL)shouldReset;
 +(void)clearReset;
 +(void)removeQuizRecords;
++(BOOL)hasInternet;
++(NSString*)cachePath:(NSString *)filename;
 
 @end

@@ -35,6 +35,13 @@ beaudry.kock@mac.com
 
 ()
 
+ASINetworkQueue.h
+file
+0
+
+
+add
+
 27_Rhea_large.png
 file
 
@@ -68,6 +75,13 @@ has-props
 
 
 68416
+
+ASINetworkQueue.m
+file
+0
+
+
+add
 
 SecondLevelViewController.h
 file
@@ -218,6 +232,13 @@ beaudry.kock@mac.com
 
 
 251
+
+ASIHTTPRequestConfig.h
+file
+0
+
+
+add
 
 30_Titania_large@2x.png
 file
@@ -1541,6 +1562,13 @@ beaudry.kock@mac.com
 
 3617
 
+ASIAuthenticationDialog.h
+file
+0
+
+
+add
+
 PlanetCards-Info.plist
 file
 
@@ -1622,6 +1650,13 @@ add
 
 has-props
 has-prop-mods
+
+ASIAuthenticationDialog.m
+file
+0
+
+
+add
 
 scrollArrow.png
 file
@@ -1854,6 +1889,13 @@ has-props
 
 555455
 
+ASIHTTPRequest.h
+file
+0
+
+
+add
+
 09_Ceres_large@2x.png
 file
 
@@ -1888,6 +1930,13 @@ has-props
 
 191104
 
+ASIHTTPRequest.m
+file
+0
+
+
+add
+
 18_Callisto_large@2x.png
 file
 
@@ -1921,6 +1970,13 @@ has-props
 
 
 540246
+
+ASIFormDataRequest.h
+file
+0
+
+
+add
 
 26_Dione_small@2x.png
 file
@@ -2078,6 +2134,13 @@ dir
 
 
 delete
+
+ASIFormDataRequest.m
+file
+0
+
+
+add
 
 ScrollingObjectView.xib
 file
@@ -3075,6 +3138,13 @@ has-props
 
 453404
 
+ASIInputStream.h
+file
+0
+
+
+add
+
 01-refresh.png
 file
 0
@@ -3136,6 +3206,13 @@ has-props
 
 
 3991
+
+ASIInputStream.m
+file
+0
+
+
+add
 
 40_Halley_small@2x.png
 file
@@ -3518,40 +3595,6 @@ has-props
 
 116744
 
-29_Oberon_small@2x.png
-file
-
-
-
-
-2011-10-22T22:49:24.000000Z
-ee6ca12bbcda1ea9d76bcce203f8c93a
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-16756
-
 25_Mimas_large@2x.png
 file
 
@@ -3585,6 +3628,40 @@ has-props
 
 
 136550
+
+29_Oberon_small@2x.png
+file
+
+
+
+
+2011-10-22T22:49:24.000000Z
+ee6ca12bbcda1ea9d76bcce203f8c93a
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16756
 
 41_Shoemaker-Levy_small@2x.png
 file
@@ -3620,40 +3697,6 @@ has-props
 
 12207
 
-23_Enceladus_small@2x.png
-file
-
-
-
-
-2011-10-22T22:07:12.000000Z
-37813aa4950bfe43039b16d99b5ac813
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-19253
-
 40_Halley_small.png
 file
 
@@ -3687,6 +3730,40 @@ has-props
 
 
 8070
+
+23_Enceladus_small@2x.png
+file
+
+
+
+
+2011-10-22T22:07:12.000000Z
+37813aa4950bfe43039b16d99b5ac813
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19253
 
 18_Callisto_small.png
 file
@@ -3871,6 +3948,13 @@ has-props
 
 
 7751
+
+ASIHTTPRequestDelegate.h
+file
+0
+
+
+add
 
 GKAchievement
 dir
@@ -4179,6 +4263,13 @@ has-props
 
 3277
 
+ASICacheDelegate.h
+file
+0
+
+
+add
+
 31_Ariel_small@2x.png
 file
 
@@ -4448,6 +4539,13 @@ has-props
 
 520346
 
+ASIDataCompressor.h
+file
+0
+
+
+add
+
 17_Io_large.png
 file
 
@@ -4515,6 +4613,13 @@ has-props
 
 
 584500
+
+ASIDataCompressor.m
+file
+0
+
+
+add
 
 home_btn.png
 file
@@ -4707,6 +4812,13 @@ add
 
 has-props
 has-prop-mods
+
+Reachability.h
+file
+0
+
+
+add
 
 PlanetCardsAppDelegate.m
 file
@@ -4906,6 +5018,13 @@ file
 
 add
 
+Reachability.m
+file
+0
+
+
+add
+
 22_Tethys_small.png
 file
 
@@ -5097,6 +5216,13 @@ has-props
 
 117008
 
+ASIDownloadCache.h
+file
+0
+
+
+add
+
 01_Sun_small.png
 file
 
@@ -5164,6 +5290,13 @@ has-props
 
 
 6451
+
+ASIDownloadCache.m
+file
+0
+
+
+add
 
 35_Triton_large.png
 file
@@ -6705,6 +6838,13 @@ add
 has-props
 has-prop-mods
 
+ASIDataDecompressor.h
+file
+0
+
+
+add
+
 diff_9.png
 file
 0
@@ -6752,6 +6892,13 @@ has-props
 
 
 21662
+
+ASIDataDecompressor.m
+file
+0
+
+
+add
 
 20_Saturn_small.png
 file
@@ -6951,6 +7098,40 @@ add
 has-props
 has-prop-mods
 
+22_Tethys_large.png
+file
+
+
+
+
+2011-10-22T21:55:34.000000Z
+e1704c05848b7ae82cfac54a32d6e591
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+92573
+
 11_Vesta_large.png
 file
 
@@ -6985,39 +7166,12 @@ has-props
 
 42683
 
-22_Tethys_large.png
+ASIProgressDelegate.h
 file
+0
 
 
-
-
-2011-10-22T21:55:34.000000Z
-e1704c05848b7ae82cfac54a32d6e591
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-92573
+add
 
 28_Uranus_large.png
 file
@@ -7087,40 +7241,6 @@ has-props
 
 112445
 
-03_Venus_small@2x.png
-file
-
-
-
-
-2011-09-11T09:14:24.000000Z
-f977f6a0946311de7d6d8797e902b1fe
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-23712
-
 42_Temple1_small.png
 file
 
@@ -7155,7 +7275,41 @@ has-props
 
 2512
 
-diff_4@2x.png
+03_Venus_small@2x.png
+file
+
+
+
+
+2011-09-11T09:14:24.000000Z
+f977f6a0946311de7d6d8797e902b1fe
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+23712
+
+home_btn@2x.png
 file
 0
 
@@ -7169,7 +7323,7 @@ add
 has-props
 has-prop-mods
 
-home_btn@2x.png
+diff_4@2x.png
 file
 0
 
@@ -7435,40 +7589,6 @@ has-props
 
 11282
 
-22_Tethys_small@2x.png
-file
-
-
-
-
-2011-10-22T21:55:48.000000Z
-00cc7685d28b1349cb3dcb0bbf2110b1
-2011-11-27T17:58:45.414578Z
-2
-beaudry.kock@mac.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-14496
-
 11_Vesta_small@2x.png
 file
 
@@ -7502,6 +7622,40 @@ has-props
 
 
 11493
+
+22_Tethys_small@2x.png
+file
+
+
+
+
+2011-10-22T21:55:48.000000Z
+00cc7685d28b1349cb3dcb0bbf2110b1
+2011-11-27T17:58:45.414578Z
+2
+beaudry.kock@mac.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14496
 
 31_Ariel_small.png
 file

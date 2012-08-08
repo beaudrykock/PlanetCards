@@ -14,42 +14,105 @@
 
 -(void)loadContent
 {
-    [self readQuizData];
+    [self readQuizUserData];
+    currentDifficultyLevel = [Utilities getLastDifficultyLevel];
     
+    self.questionsAsked = [NSMutableArray arrayWithCapacity:20];
+    self.questionsAnsweredCorrectly = [NSMutableArray arrayWithCapacity:50];
     self.quizQuestions = [[NSMutableArray alloc] initWithCapacity:200];
-    
     if (!self.quizQuestionsByDifficulty)
         self.quizQuestionsByDifficulty = [[NSMutableDictionary alloc] initWithCapacity:10];
     
-    NSString *objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
-	NSData *data = [NSData dataWithContentsOfFile:objectXML];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    // create a new SMXMLDocument with the contents of sample.xml
-	SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
+    dispatch_async(queue, ^{
+        NSString *objectXML = nil;
+        NSData *data = nil;
+        BOOL loadedSuccessfully = NO;
+        if (![Utilities hasInternet])
+        {
+            NSLog(@"No internet - trying to load quiz data from cache");
+            data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
+            if (!data)
+            {
+                NSLog(@"No cache - trying to load quiz data from file");
+                objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
+                data = [NSData dataWithContentsOfFile:objectXML];
+            }
+            loadedSuccessfully = YES;
+        }
+        else {
+            // load from URL
+            NSString *urlString = @"http://web62557.aiso.net/app-resources/planetcards/PlanetCardsQuizData.xml";
+            // alternative: @"http://web62557.aiso.net/cultivate/VegVanStops.xml";
+            ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+            [request setTimeOutSeconds:10.0];
+            [request startSynchronous];
+            
+            data = [request responseData];
+            //NSLog(@"data contents = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            if (!data)
+            {
+                NSLog(@"Internet load failed - trying to load quiz data from cache");
+                data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
+                if (!data)
+                {
+                    NSLog(@"No cache and internet load failed - trying to load quiz data from file");
+                    objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
+                    data = [NSData dataWithContentsOfFile:objectXML];
+                }
+                loadedSuccessfully = YES;
+            }
+            else
+            {
+                NSLog(@"Loaded quiz data from URL");
+                loadedSuccessfully = YES;
+            }
+            
+            NSAssert(loadedSuccessfully, @"Data not loaded successfully");
+            BOOL writtenSuccessfully = [self writeQuizDataToFile:data];
+            NSAssert(writtenSuccessfully, @"Data not written successfully");
+            
+            NSString *objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
+            NSData *data = [NSData dataWithContentsOfFile:objectXML];
+            
+            // create a new SMXMLDocument with the contents of sample.xml
+            SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
+            
+            // demonstrate -description of document/element classes
+            //NSLog(@"Document:\n %@", document);
+            
+            // Pull out the <rdf> node
+            SMXMLElement *root = document.root;
+            
+            for (SMXMLElement *quizItem in [root childrenNamed:kQuizItem])
+            {
+                [self generateQuestionFromQuizItem: quizItem];
+            }
+
+        }
+    });
     
-	// demonstrate -description of document/element classes
-	//NSLog(@"Document:\n %@", document);
+    //////////
+       
     
-    // Pull out the <rdf> node
-	SMXMLElement *root = document.root;
-    
-    for (SMXMLElement *quizItem in [root childrenNamed:kQuizItem])
-    {
-        [self generateQuestionFromQuizItem: quizItem];
-    }
-    
-    /*
     for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
     {
         NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
         NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
     }
-     */
+        
     
-    currentDifficultyLevel = [Utilities getLastDifficultyLevel];
+}
+
+-(BOOL)writeQuizDataToFile:(NSData*)data
+{
+    return [data writeToFile:[Utilities cachePath:kXmlDataFile] atomically:YES];
+}
+
+-(BOOL)readQuizQuestionData
+{
     
-    self.questionsAsked = [NSMutableArray arrayWithCapacity:20];
-    self.questionsAnsweredCorrectly = [NSMutableArray arrayWithCapacity:50];
 }
 
 -(UIImage*)getRandomImage
@@ -191,21 +254,30 @@
     int direction = 1;
     if (!lastQuestionWasCorrect)
     {
+        //NSLog(@"Last question incorrect - reversing search direction");
         direction = -1;
         maxDifficultyLevel = 0;
     }
     
     for (int i = currentDifficultyLevel; i != maxDifficultyLevel; i += direction)
     {
+        //NSLog(@"Difficulty level %i", i);
         NSMutableArray *indices = [self.quizQuestionsByDifficulty objectForKey:[NSNumber numberWithInt:currentDifficultyLevel]];
         counter = 0;
         
         while (!found && counter<[indices count])
         {
-            questionNbr = [[indices objectAtIndex:counter] intValue];
-            
+            #ifdef RANDOM_SELECTION
+                questionNbr = [[indices objectAtIndex:arc4random_uniform([indices count]-1)] intValue];
+            #else
+                questionNbr = [[indices objectAtIndex:counter] intValue];
+            #endif
             if ([self questionIsAskableWithNumber:questionNbr])
             {
+                //NSLog(@"found askable question with number %i", questionNbr);
+                //QuizQuestion *question = [self getQuestionNumbered:questionNbr];
+                //NSLog(@"askable question text = %@", [question question]);
+                
                 found = YES;
             }
             counter++;
@@ -221,6 +293,9 @@
     // reset the question asked record and drop back in the middle
     if (!found)
     {
+        counter = 0;
+        
+        //NSLog(@"not found, so resetting difficulty level");
         currentDifficultyLevel = 4;
         
 #ifdef LITE_VERSION
@@ -374,7 +449,7 @@
 }
 
 #pragma mark - Writing quiz records to file
--(void)writeQuizData
+-(void)writeQuizUserData
 {
     NSDictionary *dict = [NSDictionary dictionaryWithObject:self.questionsAnsweredCorrectly forKey:kQuestionsAnsweredCorrectlyKey];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -383,7 +458,7 @@
     [dict writeToFile:dataFilename atomically:YES];
 }
 
--(void)readQuizData
+-(void)readQuizUserData
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
