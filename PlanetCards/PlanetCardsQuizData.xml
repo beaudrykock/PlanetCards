@@ -3,7 +3,7 @@
     <quiz_item>
         <question>Why can't we see Neptune without telescopes?</question>
         <level>1</level>
-        <right_answer>It's just too far away'</right_answer>
+        <right_answer>It's just too far away</right_answer>
         <wrong_answer>Jupiter is blocking the view</wrong_answer>
         <wrong_answer>We can, you just have to look in the right place</wrong_answer>
         <image>34_Neptun_large.png</image>
@@ -41,14 +41,15 @@
         <right_answer>Yes</right_answer>
         <wrong_answer>No</wrong_answer>
         <image>39_HaleBopp_large.png</image>
-        <supplement>Comets are mostly ice coated darker organic material</supplement>
+        <supplement>Comets are mostly ice coated with darker organic material</supplement>
     </quiz_item>
     <quiz_item>
         <question>What happens to comets as they get nearer the sun?</question>
         <level>1</level>
-        <right_answer>Some of their ice melts and forms an atmosphere</right_answer>
+        <right_answer>Ice melts and forms a coma</right_answer>
         <wrong_answer>They veer away</wrong_answer>
-        <wrong_answer>Comets don't go near the sun</wrong_answer>
+        <wrong_answer>Comets never go near the sun</wrong_answer>
+        <wrong_answer>They get sucked in</wrong_answer>
         <image>40_Halley_large.png</image>
         <supplement>The atmosphere that forms when comet ice melts is called a coma; they can be hundreds of thousands of km across</supplement>
     </quiz_item>
@@ -76,9 +77,9 @@
         <right_answer>For their discoverer</right_answer>
         <wrong_answer>For whatever TV show is on</wrong_answer>
         <wrong_answer>For whichever planet is nearby</wrong_answer>
-        <wrong_answer>It's random'</wrong_answer>
+        <wrong_answer>It's random</wrong_answer>
         <image>42_Temple1_large.png</image>
-        <supplement>Comets are generally named, today, for their discovered, whether a human or a spacecraft. Historically, however, there were no particular customs around naming</supplement>
+        <supplement>Comets are generally named, today, for their discoverer, whether a human or a spacecraft. Historically, however, there were no particular customs around naming</supplement>
     </quiz_item>
     <quiz_item>
         <question>When was Pluto discovered?</question>

@@ -43,7 +43,8 @@
         }
         else {
             // load from URL
-            NSString *urlString = @"http://web62557.aiso.net/app-resources/planetcards/PlanetCardsQuizData.xml";
+            NSString *urlString = @"http://www.scientificplayground.com/app-resources/planetcards/PlanetCardsQuizData.xml";
+            //NSString *urlString = @"http://web62557.aiso.net/app-resources/planetcards/PlanetCardsQuizData.xml";
             // alternative: @"http://web62557.aiso.net/cultivate/VegVanStops.xml";
             ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
             [request setTimeOutSeconds:10.0];

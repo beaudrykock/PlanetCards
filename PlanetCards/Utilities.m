@@ -174,7 +174,7 @@
 #ifdef LITE_VERSION
     return 1;
 #else
-    return 4;
+    return 1;
 #endif
 }
 
