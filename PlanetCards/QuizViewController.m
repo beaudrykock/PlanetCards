@@ -397,7 +397,7 @@
     NSInteger levelChangeInterval = 3;
     
 #ifdef LITE_VERSION
-    levelChangeInterval = 5;
+    levelChangeInterval = 3;
 #endif
     
     if (currentCardIndex%levelChangeInterval==0)
@@ -494,7 +494,7 @@
     
     // QUIZ FUNCTIONS
     [self.quizDB resetQuestionsAskedRecord];
-    [self.quizDB writeQuizData];
+    [self.quizDB writeQuizUserData];
     
     // remove the ad banner view
     if (adBannerViewIsVisible)

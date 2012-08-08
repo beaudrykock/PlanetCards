@@ -73,9 +73,6 @@
             BOOL writtenSuccessfully = [self writeQuizDataToFile:data];
             NSAssert(writtenSuccessfully, @"Data not written successfully");
             
-            NSString *objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
-            NSData *data = [NSData dataWithContentsOfFile:objectXML];
-            
             // create a new SMXMLDocument with the contents of sample.xml
             SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
             
@@ -89,18 +86,19 @@
             {
                 [self generateQuestionFromQuizItem: quizItem];
             }
-
+            
+            for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
+            {
+                NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
+                NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
+            }
         }
     });
     
     //////////
        
     
-    for (NSNumber *key in [self.quizQuestionsByDifficulty allKeys])
-    {
-        NSMutableArray *arr= (NSMutableArray*)[self.quizQuestionsByDifficulty objectForKey:key];
-        NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
-    }
+    
         
     
 }

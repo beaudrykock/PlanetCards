@@ -51,7 +51,7 @@
 -(void)resetQuestionsAnsweredCorrectlyRecord;
 -(void)resetQuestionsAskedRecord;
 -(void)addQuestionAnsweredCorrectlyRecord:(NSInteger)questionNumber;
--(void)writeQuizData;
--(void)readQuizData;
+-(void)writeQuizUserData;
+-(void)readQuizUserData;
 
 @end
