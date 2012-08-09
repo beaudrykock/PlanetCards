@@ -33,16 +33,17 @@
         BOOL loadedSuccessfully = NO;
         if (![Utilities hasInternet])
         {
-            NSLog(@"No internet - trying to load quiz data from cache");
+            //NSLog(@"No internet - trying to load quiz data from cache");
             data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
             NSString *dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             //NSLog(@"data contents = %@", dataAsStr);
             if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
             {
-                NSLog(@"No cache - trying to load quiz data from file");
+                //NSLog(@"No cache - trying to load quiz data from file");
                 objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
                 data = [NSData dataWithContentsOfFile:objectXML];
             }
+            [dataAsStr release];
             loadedSuccessfully = YES;
         }
         else {
@@ -55,31 +56,33 @@
             [request startSynchronous];
             
             data = [request responseData];
+            [request release];
             NSString *dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             //NSLog(@"data contents = %@", dataAsStr);
             if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
             {
-                NSLog(@"Internet load failed - trying to load quiz data from cache");
+                //NSLog(@"Internet load failed - trying to load quiz data from cache");
                 data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
-                NSLog(@"data contents = %@", dataAsStr);
+                //NSLog(@"data contents = %@", dataAsStr);
                 dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
                 {
-                    NSLog(@"No cache and internet load failed - trying to load quiz data from file");
+                    //NSLog(@"No cache and internet load failed - trying to load quiz data from file");
                     objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
                     data = [NSData dataWithContentsOfFile:objectXML];
                 }
                 loadedSuccessfully = YES;
+                [dataAsStr release];
             }
             else
             {
-                NSLog(@"Loaded quiz data from URL");
+                //NSLog(@"Loaded quiz data from URL");
                 loadedSuccessfully = YES;
             }
         }
-        NSAssert(loadedSuccessfully, @"Data not loaded successfully");
+        //NSAssert(loadedSuccessfully, @"Data not loaded successfully");
         BOOL writtenSuccessfully = [myself writeQuizDataToFile:data];
-        NSAssert(writtenSuccessfully, @"Data not written successfully");
+        //NSAssert(writtenSuccessfully, @"Data not written successfully");
         
         // create a new SMXMLDocument with the contents of sample.xml
         SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
@@ -95,11 +98,12 @@
             [myself generateQuestionFromQuizItem: quizItem];
         }
         
+        /*
         for (NSNumber *key in [myself.quizQuestionsByDifficulty allKeys])
         {
             NSMutableArray *arr= (NSMutableArray*)[myself.quizQuestionsByDifficulty objectForKey:key];
             NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
-        }
+        }*/
         contentLoaded = YES;
         dispatch_sync(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:kQuizDBLoaded object:nil];

@@ -420,18 +420,18 @@
         }
         
         int incorrectCount = [self.lastXAnswers count]-correctCount;
-        NSLog(@"incorrect count  = %i", incorrectCount);
+        //NSLog(@"incorrect count  = %i", incorrectCount);
         // now clear the array
         [self.lastXAnswers removeAllObjects];
         
         if (incorrectCount==3)
         {
-            NSLog(@"Changing difficulty level down by 1");
+            //NSLog(@"Changing difficulty level down by 1");
             [self.quizDB changeDifficultyLevelBy:-1];
         }
         else if (correctCount==3)
         {
-            NSLog(@"Changing difficulty level up by 1");
+            //NSLog(@"Changing difficulty level up by 1");
             [self.quizDB changeDifficultyLevelBy:1];
         }
 

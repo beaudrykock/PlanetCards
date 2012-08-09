@@ -58,7 +58,6 @@
 						<string key="NSFrame">{{34, 321}, {250, 58}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -491,17 +490,12 @@
 					<string key="className">AcknowledgementsViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="goToStore:">id</string>
 						<string key="hide:">id</string>
 						<string key="sendToBWCWithSafari:">id</string>
 						<string key="sendToMeloniWithSafari:">id</string>
 						<string key="sendToScientificPlaygroundWithSafari:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="goToStore:">
-							<string key="name">goToStore:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="hide:">
 							<string key="name">hide:</string>
 							<string key="candidateClassName">id</string>
@@ -522,7 +516,6 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="developedBy">UILabel</string>
 						<string key="supportFrom">UILabel</string>
-						<string key="upgradeButton">UIButton</string>
 						<string key="viewTitle">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -533,10 +526,6 @@
 						<object class="IBToOneOutletInfo" key="supportFrom">
 							<string key="name">supportFrom</string>
 							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="upgradeButton">
-							<string key="name">upgradeButton</string>
-							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="viewTitle">
 							<string key="name">viewTitle</string>
