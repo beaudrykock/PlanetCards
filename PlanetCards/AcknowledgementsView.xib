@@ -292,7 +292,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">v1.0</string>
+						<string key="IBUIText">v1.1</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -490,12 +490,17 @@
 					<string key="className">AcknowledgementsViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="goToStore:">id</string>
 						<string key="hide:">id</string>
 						<string key="sendToBWCWithSafari:">id</string>
 						<string key="sendToMeloniWithSafari:">id</string>
 						<string key="sendToScientificPlaygroundWithSafari:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="goToStore:">
+							<string key="name">goToStore:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="hide:">
 							<string key="name">hide:</string>
 							<string key="candidateClassName">id</string>
