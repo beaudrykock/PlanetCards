@@ -71,6 +71,10 @@
     if ([buttonTitle isEqualToString:@"Restart"])
     {
         [self invalidateAllTimers];
+
+#ifdef LITE_VERSION
+        [self hideAllAdBannerViews];
+#endif
         
         UIView *overlayClear = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height)];
         [overlayClear setBackgroundColor:[UIColor clearColor]];
@@ -171,7 +175,14 @@
 -(void)startQuiz
 {
 #ifdef LITE_VERSION
-    [self createAdBannerView];
+    if (self.adBannerView)
+    {
+        [self showAdBannerView];
+    }
+    else
+    {
+        [self createAdBannerView];
+    }
 #endif
     
     if ([Utilities answerTrackingQuizPlays] == kMaximumQuizPlaysBeforeRepeatCorrectAnswered)
@@ -499,9 +510,9 @@
     [self.quizDB writeQuizUserData];
     
     // remove the ad banner view
-    if (adBannerViewIsVisible)
-        [self showAdBannerView];
-    
+#ifdef LITE_VERSION
+    [self hideAllAdBannerViews];
+#endif
     // report the score
     [[DDGameKitHelper sharedGameKitHelper] submitScore:(speedScore+knowledgeScore) category:kLeaderboardID];
     
@@ -963,6 +974,19 @@
 
 #pragma mark - iAd
 - (void)createAdBannerView {
+    
+    // always add the placeholder
+    if ([self.placeholderBanner superview]==nil && !adBannerViewIsVisible)
+    {
+        [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
+        [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
+        [self.placeholderBanner setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToStore)];
+        [self.placeholderBanner addGestureRecognizer:tap];
+        [tap release];
+        [self.view addSubview:self.placeholderBanner];
+    }
+    
     Class classAdBannerView = NSClassFromString(@"ADBannerView");
     if (classAdBannerView != nil) {
         if ([self.adBannerView superview]==nil)
@@ -984,17 +1008,7 @@
         }
     }
     
-    // always add the placeholder
-    if ([self.placeholderBanner superview]==nil)
-    {
-        [self.placeholderBanner setImage:[UIImage imageNamed:@"planetcards_ad.png"]];
-        [self.placeholderBanner setFrame:CGRectMake(0.0, self.view.frame.size.height-50.0, self.placeholderBanner.frame.size.width, self.placeholderBanner.frame.size.height)];
-        [self.placeholderBanner setUserInteractionEnabled:YES];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToStore)];
-        [self.placeholderBanner addGestureRecognizer:tap];
-        [tap release];
-        [self.view addSubview:self.placeholderBanner];
-    }
+    
 }
 
 -(void)goToStore
@@ -1006,24 +1020,60 @@
         NSLog(@"%@%@",@"Failed to open url:",[url description]);
 }
 
+-(void)hideAllAdBannerViews
+{
+    if (adBannerView != nil) {
+        [adBannerView setCurrentContentSizeIdentifier:
+         ADBannerContentSizeIdentifierPortrait];
+        [UIView beginAnimations:@"fixupViews" context:nil];
+        if (adBannerViewIsVisible)
+        {
+            CGRect adBannerViewFrame = [adBannerView frame];
+            adBannerViewFrame.origin.x = 0;
+            adBannerViewFrame.origin.y = self.view.frame.size.height;
+            [adBannerView setFrame:adBannerViewFrame];
+            adBannerViewIsVisible = NO;
+        }
+        else
+        {
+            CGRect placeholderViewFrame = [placeholderBanner frame];
+            placeholderViewFrame.origin.x = 0;
+            placeholderViewFrame.origin.y = self.view.frame.size.height;
+            [placeholderBanner setFrame:placeholderViewFrame];
+        }
+        [UIView commitAnimations];
+    }
+}
+
 -(void)showAdBannerView
 {
     if (adBannerView != nil) {
         [adBannerView setCurrentContentSizeIdentifier:
              ADBannerContentSizeIdentifierPortrait];
         [UIView beginAnimations:@"fixupViews" context:nil];
-        if (adBannerViewIsVisible) {
+        if (!adBannerViewIsVisible && adBannerView.isBannerLoaded) {
             CGRect adBannerViewFrame = [adBannerView frame];
             self.placeholderBanner.frame = adBannerViewFrame;
             adBannerViewFrame.origin.x = 0;
             adBannerViewFrame.origin.y = self.view.frame.size.height-50.0;
             [adBannerView setFrame:adBannerViewFrame];
-        } else {
+            adBannerViewIsVisible = YES;
+        }
+        else if (!adBannerViewIsVisible && !adBannerView.isBannerLoaded)
+        {
+            CGRect placeholderViewFrame = [placeholderBanner frame];
+            placeholderViewFrame.origin.x = 0;
+            placeholderViewFrame.origin.y = self.view.frame.size.height-50.0;
+            [placeholderBanner setFrame:placeholderViewFrame];
+        }
+        else
+        {
             CGRect adBannerViewFrame = [adBannerView frame];
             self.placeholderBanner.frame = adBannerViewFrame;
             adBannerViewFrame.origin.x = 0;
             adBannerViewFrame.origin.y = self.view.frame.size.height;
             [adBannerView setFrame:adBannerViewFrame];
+            adBannerViewIsVisible = NO;
         }
         [UIView commitAnimations];
     }
@@ -1044,17 +1094,13 @@
 #pragma mark ADBannerViewDelegate
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    if (!adBannerViewIsVisible) {
-        adBannerViewIsVisible = YES;
-        [self showAdBannerView];
-    }
+    [self showAdBannerView];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
     if (adBannerViewIsVisible)
     {
-        adBannerViewIsVisible = NO;
         [self showAdBannerView];
     }
 }

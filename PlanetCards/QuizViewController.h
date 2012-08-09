@@ -76,7 +76,7 @@
     BOOL quizComplete;
     NSMutableArray *lastXAnswers; // YES/NO for correct
     
-    id adBannerView;
+    ADBannerView* adBannerView;
     BOOL adBannerViewIsVisible;
     
     UIImageView *placeholderBanner;
@@ -90,7 +90,7 @@
 @property (nonatomic, retain) NSDate *lossTimer_start;
 @property (nonatomic, retain) NSDate *progressBarTimer_start;
 @property (nonatomic, retain) IBOutlet UIImageView *placeholderBanner;
-@property (nonatomic, retain) id adBannerView;
+@property (nonatomic, retain) ADBannerView* adBannerView;
 @property (nonatomic) BOOL adBannerViewIsVisible;
 @property (nonatomic) NSInteger questionScore;
 @property (nonatomic) NSInteger speedScore;

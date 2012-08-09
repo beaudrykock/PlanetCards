@@ -35,7 +35,9 @@
         {
             NSLog(@"No internet - trying to load quiz data from cache");
             data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
-            if (!data)
+            NSString *dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            //NSLog(@"data contents = %@", dataAsStr);
+            if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
             {
                 NSLog(@"No cache - trying to load quiz data from file");
                 objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
@@ -53,12 +55,15 @@
             [request startSynchronous];
             
             data = [request responseData];
-            //NSLog(@"data contents = %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-            if (!data)
+            NSString *dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            //NSLog(@"data contents = %@", dataAsStr);
+            if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
             {
                 NSLog(@"Internet load failed - trying to load quiz data from cache");
                 data = [NSData dataWithContentsOfFile:[Utilities cachePath:kXmlDataFile]];
-                if (!data)
+                NSLog(@"data contents = %@", dataAsStr);
+                dataAsStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
                 {
                     NSLog(@"No cache and internet load failed - trying to load quiz data from file");
                     objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
@@ -71,30 +76,29 @@
                 NSLog(@"Loaded quiz data from URL");
                 loadedSuccessfully = YES;
             }
-            
-            NSAssert(loadedSuccessfully, @"Data not loaded successfully");
-            BOOL writtenSuccessfully = [myself writeQuizDataToFile:data];
-            NSAssert(writtenSuccessfully, @"Data not written successfully");
-            
-            // create a new SMXMLDocument with the contents of sample.xml
-            SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
-            
-            // demonstrate -description of document/element classes
-            //NSLog(@"Document:\n %@", document);
-            
-            // Pull out the <rdf> node
-            SMXMLElement *root = document.root;
-            
-            for (SMXMLElement *quizItem in [root childrenNamed:kQuizItem])
-            {
-                [myself generateQuestionFromQuizItem: quizItem];
-            }
-            
-            for (NSNumber *key in [myself.quizQuestionsByDifficulty allKeys])
-            {
-                NSMutableArray *arr= (NSMutableArray*)[myself.quizQuestionsByDifficulty objectForKey:key];
-                NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
-            }
+        }
+        NSAssert(loadedSuccessfully, @"Data not loaded successfully");
+        BOOL writtenSuccessfully = [myself writeQuizDataToFile:data];
+        NSAssert(writtenSuccessfully, @"Data not written successfully");
+        
+        // create a new SMXMLDocument with the contents of sample.xml
+        SMXMLDocument *document = [SMXMLDocument documentWithData:data error:NULL];
+        
+        // demonstrate -description of document/element classes
+        //NSLog(@"Document:\n %@", document);
+        
+        // Pull out the <rdf> node
+        SMXMLElement *root = document.root;
+        
+        for (SMXMLElement *quizItem in [root childrenNamed:kQuizItem])
+        {
+            [myself generateQuestionFromQuizItem: quizItem];
+        }
+        
+        for (NSNumber *key in [myself.quizQuestionsByDifficulty allKeys])
+        {
+            NSMutableArray *arr= (NSMutableArray*)[myself.quizQuestionsByDifficulty objectForKey:key];
+            NSLog(@"count of questions for level %i = %i", [key intValue], [arr count]);
         }
         contentLoaded = YES;
         dispatch_sync(dispatch_get_main_queue(), ^{
