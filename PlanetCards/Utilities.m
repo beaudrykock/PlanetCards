@@ -29,9 +29,9 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *cacheDirectory = [paths objectAtIndex:0];
 	NSString *cacheFolder = [cacheDirectory stringByAppendingPathComponent: @"com.scientificplayground.planetcards"];
-#ifdef LITE_VERSION
-    cacheFolder = [cacheDirectory stringByAppendingPathComponent: @"com.scientificplayground.planetcards.lite"];
-#endif
+    #ifdef LITE_VERSION
+        cacheFolder = [cacheDirectory stringByAppendingPathComponent: @"com.scientificplayground.planetcards.lite"];
+    #endif
     
     //NSLog(@"cachePath = %@", [cacheFolder stringByAppendingPathComponent: filename]);
     return [cacheFolder stringByAppendingPathComponent: filename];

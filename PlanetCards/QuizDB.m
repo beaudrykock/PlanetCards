@@ -39,7 +39,7 @@
             //NSLog(@"data contents = %@", dataAsStr);
             if (!data || [data length]==0 || [dataAsStr rangeOfString:@"quiz_data"].location==NSNotFound)
             {
-                //NSLog(@"No cache - trying to load quiz data from file");
+                NSLog(@"No cache - trying to load quiz data from file");
                 objectXML = [[NSBundle mainBundle] pathForResource:@"PlanetCardsQuizData" ofType:@"xml"];
                 data = [NSData dataWithContentsOfFile:objectXML];
             }
