@@ -51,8 +51,10 @@
 
 +(NSString*)getUnitPreference
 {
-    //NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference]);
-    return [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference];
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference]);
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUnitPreference])
+        return [[NSUserDefaults standardUserDefaults] stringForKey:kUnitPreference];
+    return kConvenientUnits;
 }
 
 +(BOOL)vibrationOn
@@ -90,6 +92,12 @@
         if (nil == [prefs objectForKey:kResetPreference])
         {
             [prefs setBool:NO forKey:kResetPreference];
+            [prefs synchronize];
+        }
+        
+        if (nil == [prefs objectForKey:kUnitPreference])
+        {
+            [prefs setObject:kConvenientUnits forKey:kUnitPreference];
             [prefs synchronize];
         }
     }
