@@ -105,7 +105,7 @@
 // CONVERSION
 #define kSIUnit_mass @"kg"
 #define kSIUnit_diameter @"km"
-#define kSIUnit_density @"kg/m3"
+#define kSIUnit_density @"kg/m"
 #define kSIUnit_speed @"m/s"
 #define kSIUnit_dayLength @"s"
 #define kSIUnit_temperature @"K"
@@ -121,7 +121,7 @@
 
 #define kConvenientUnit_mass @"Earths"
 #define kConvenientUnit_diameter @"km"
-#define kConvenientUnit_density @"kg/m3"
+#define kConvenientUnit_density @"kg/m"
 #define kConvenientUnit_speed @"km/hr"
 #define kConvenientUnit_dayLength @"hrs"
 #define kConvenientUnit_temperature @"°C"

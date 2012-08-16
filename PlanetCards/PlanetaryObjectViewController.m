@@ -198,10 +198,8 @@
     [self.exitTarget addTarget:self action:@selector(home:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:exitTarget];
     
-    //self.mainScrollingObjectView.minimumZoomScale=1.0;
-    //self.mainScrollingObjectView.maximumZoomScale=1.5;
+    [self.homeButton setHighlighted:NO];
 }
-
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -456,8 +454,6 @@
     [UIView setAnimationDuration:.5];
     
     self.view.frame = newViewFrame;
-    
-    //[self.view removeFromSuperview];
     [UIView commitAnimations];
     
 }

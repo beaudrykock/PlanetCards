@@ -43,22 +43,22 @@
         [planetaryController release];
     }
     
-    CGRect frame = [planetaryObjectViewController.view frame];
+    CGRect frame = [self.planetaryObjectViewController.view frame];
     frame.origin.x = 340;
     
-    planetaryObjectViewController.view.frame = frame;
+    self.planetaryObjectViewController.view.frame = frame;
     
-    [self.view addSubview:planetaryObjectViewController.view];
+    if (!self.planetaryObjectViewController.view.superview)
+        [self.view addSubview:self.planetaryObjectViewController.view];
     
-    // insert code here to remove quiz view controller
-    // [quizViewController.view removeFromSuperview];
+    [self.planetaryObjectViewController.homeButton setHighlighted:NO];
     CGRect newViewFrame = self.view.frame;
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.5];
     newViewFrame.origin.x = 0.0;
-    newViewFrame.origin.y = 0.0;
-    planetaryObjectViewController.view.frame = newViewFrame;
+    newViewFrame.origin.y = -5.0;
+    self.planetaryObjectViewController.view.frame = newViewFrame;
     [UIView commitAnimations];
 }
 
@@ -139,7 +139,7 @@
 {
     [super viewDidLoad];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
 #ifdef LITE_VERSION
     [self.backgroundView setImage:[UIImage imageNamed:@"Default_lite.png"]];
